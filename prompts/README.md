@@ -2,9 +2,9 @@
 
 Colección versionada de system prompts, escenarios de la PoC y pruebas adversariales.
 
-> 📌 Documentación de la fase: [docs/plan-trabajo/fase-2-prompts-guardrails.md](../docs/plan-trabajo/fase-2-prompts-guardrails.md)
+> 📌 Documentación del sprint: [docs/entregas/entrega-1-poc-funcional/sprint-3-prompts-guardrails.md](../docs/entregas/entrega-1-poc-funcional/sprint-3-prompts-guardrails.md)
 
-## Contenido (Fase 2)
+## Contenido (Sprint 3 — Entrega 1)
 
 ```
 prompts/
@@ -26,4 +26,4 @@ prompts/
 
 ## Hallazgos técnicos
 
-*(Se documentan aquí durante la Fase 2 — ej. comportamiento de SLMs pequeños ante system prompts).*
+*(Se documentan aquí durante el Sprint 3 — ej. comportamiento de SLMs pequeños ante system prompts).*

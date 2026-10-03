@@ -2,9 +2,9 @@
 
 Scripts en Python para ejecutar la PoC del subsistema de recomendación con SLMs locales (Ollama).
 
-> 📌 Documentación de la fase: [docs/plan-trabajo/fase-1-motor-inferencia.md](../docs/plan-trabajo/fase-1-motor-inferencia.md)
+> 📌 Documentación del sprint: [docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md](../docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md)
 
-## Contenido (Fase 1)
+## Contenido (Sprint 2 — Entrega 1)
 
 ```
 poc_slm/

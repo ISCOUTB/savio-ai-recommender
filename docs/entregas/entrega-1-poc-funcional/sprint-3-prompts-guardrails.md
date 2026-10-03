@@ -1,9 +1,9 @@
-# Fase 2 — Prompts contextuales y guardrails
+# Sprint 3 — Prompts contextuales y guardrails
 
+**Entrega:** 1 — PoC Funcional
 **Estado:** ⏳ Pendiente
-**Issues asociados:** #4, #5, #6, #7
-**Milestone:** M1 — PoC Funcional
-**Depende de:** Fase 1 (motor de inferencia funcional)
+**Issues:** #4, #5, #6, #7
+**Depende de:** Sprint 2 (motor de inferencia funcional)
 
 ---
 
@@ -13,7 +13,7 @@ Diseñar, probar y documentar el **corazón pedagógico del sistema**: el system
 
 ---
 
-## 📦 Issues de esta fase
+## 📋 Issues del sprint
 
 ### #4 — System prompt con guardrails · `prompts`
 
@@ -40,7 +40,7 @@ Archivo: `prompts/system_guardrails.md`
 
 **Criterio de aceptación:**
 - [ ] 3 ejecuciones consecutivas con calidad consistente
-- [ ] Salida lista para mostrar en demo en vivo (respaldada pre-generada)
+- [ ] Salida de respaldo pre-generada en `prompts/salidas-respaldo/`
 
 ---
 
@@ -52,7 +52,8 @@ Archivo: `prompts/system_guardrails.md`
 
 **Criterio de aceptación:**
 - [ ] Ambas variantes claramente diferenciadas
-- [ ] Salidas lado a lado listas para la demo (momento fuerte de la presentación)
+- [ ] Salidas lado a lado listas para la demostración
+- [ ] Respaldo pre-generado en `prompts/salidas-respaldo/`
 
 ---
 
@@ -72,15 +73,15 @@ Documentar en `prompts/pruebas-adversariales.md` al menos 3 ataques:
 
 ---
 
-## ✅ Criterio de cierre de la fase
+## ✅ Criterio de cierre del sprint
 
-- [ ] 2 escenarios + 3 pruebas adversariales aprobados en la **reunión de revisión de prompts** (Día 2, los 3 integrantes)
+- [ ] 2 escenarios + 3 pruebas adversariales validados por el equipo completo
 - [ ] Todo el material en `prompts/` versionado
 
 ---
 
 ## 📝 Registro de ejecución
 
-| Fecha | Acción | Evidencia | Responsable |
+| Acción | Evidencia | Responsable | Estado |
 |---|---|---|---|
-| _pendiente_ | — | — | — |
+| — | — | — | ⏳ |

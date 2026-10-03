@@ -2,9 +2,9 @@
 
 Resultados comparativos de consumo de memoria y velocidad de inferencia, medidos en el hardware del equipo. **Solo datos propios** — ninguna cifra copiada de fuentes externas.
 
-> 📌 Documentación de la fase: [docs/plan-trabajo/fase-3-benchmarks.md](../docs/plan-trabajo/fase-3-benchmarks.md)
+> 📌 Documentación del sprint: [docs/entregas/entrega-1-poc-funcional/sprint-4-benchmarks.md](../docs/entregas/entrega-1-poc-funcional/sprint-4-benchmarks.md)
 
-## Metodología (Fase 3)
+## Metodología (Sprint 4 — Entrega 1)
 
 - **RAM:** medida durante inferencia (Administrador de tareas / `psutil`).
 - **Velocidad:** tokens/segundo reportados por `ollama run --verbose`.
@@ -30,4 +30,4 @@ Resultados comparativos de consumo de memoria y velocidad de inferencia, medidos
 
 ## Conclusión y modelo seleccionado
 
-*(Se completa al cierre de la Fase 3 — alimenta la diapositiva 4 y la solicitud de servidor).*
+*(Se completa al cierre del Sprint 4 — alimenta la presentación técnica y la solicitud de infraestructura).*

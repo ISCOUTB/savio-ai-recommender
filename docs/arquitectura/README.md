@@ -2,7 +2,7 @@
 
 Diagramas de arquitectura, flujo de datos e integración con Savio (Moodle).
 
-> 📌 Documentación de la fase: [docs/plan-trabajo/fase-3-benchmarks.md](../plan-trabajo/fase-3-benchmarks.md) (Issue #11)
+> 📌 Documentación del sprint: [docs/entregas/entrega-1-poc-funcional/sprint-4-benchmarks.md](../entregas/entrega-1-poc-funcional/sprint-4-benchmarks.md) (Issue #11)
 
 ## Flujo de datos del subsistema (diseño)
 
@@ -29,4 +29,4 @@ Diagramas de arquitectura, flujo de datos e integración con Savio (Moodle).
                      └───────────────┘
 ```
 
-*(Versión enriquecida para la diapositiva 5: pendiente — Fase 3).*
+*(Versión enriquecida para la presentación técnica: pendiente — Sprint 4).*
