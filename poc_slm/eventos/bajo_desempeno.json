@@ -1,0 +1,8 @@
+{
+  "estudiante": "Estudiante Demo",
+  "materia": "Estructuras de Datos",
+  "tema": "Árboles AVL",
+  "calificacion": 2.0,
+  "escala": "0-5",
+  "estilo_aprendizaje": "visual"
+}
