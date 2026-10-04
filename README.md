@@ -73,7 +73,7 @@ savio-ai-recommender/
 | Sprint | Documento | Issues | Estado |
 |---|---|---|---|
 | 1 | [Preparación del entorno y repositorio](docs/entregas/entrega-1-poc-funcional/sprint-1-preparacion.md) | #1, #2 | 🔄 En curso |
-| 2 | [Motor de inferencia local](docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md) | #3 | ⏳ Pendiente |
+| 2 | [Motor de inferencia local](docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md) | #3 | ✅ Completado |
 | 3 | [Prompts y guardrails](docs/entregas/entrega-1-poc-funcional/sprint-3-prompts-guardrails.md) | #4–#7 | ⏳ Pendiente |
 | 4 | [Benchmarks de SLMs y arquitectura](docs/entregas/entrega-1-poc-funcional/sprint-4-benchmarks.md) | #8, #9, #11 | ⏳ Pendiente |
 | 5 | [Presentación técnica](docs/entregas/entrega-1-poc-funcional/sprint-5-presentacion.md) | #12 | ⏳ Pendiente |
@@ -107,14 +107,19 @@ Resultados medidos en [`benchmarks/`](benchmarks/README.md) *(Sprint 4)*.
 
 ---
 
-## 🚀 Inicio rápido *(disponible al cierre del Sprint 2)*
+## 🚀 Inicio rápido
 
 ```bash
 # 1. Instalar Ollama desde https://ollama.com
 # 2. Descargar el modelo
 ollama pull qwen2.5:1.5b
 
-# 3. Ejecutar un escenario de la PoC
+# 3. Entorno Python
+python -m venv .venv
+.venv\Scripts\activate            # Linux/macOS: source .venv/bin/activate
+pip install -r requirements.txt
+
+# 4. Ejecutar un escenario de la PoC
 python poc_slm/recommender.py --escenario bajo_desempeno
 ```
 

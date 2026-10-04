@@ -18,6 +18,10 @@ from pathlib import Path
 
 import requests
 
+# Forzar salida en UTF-8 para evitar caracteres corruptos en Windows / PowerShell
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODELO_DEFAULT = "qwen2.5:1.5b"
 
