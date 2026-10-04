@@ -21,7 +21,7 @@ Demostrar, con una prueba de concepto funcional ejecutable en local, que el subs
 | Sprint | Documento | Issues | Estado |
 |---|---|---|---|
 | 1 | [Preparación del entorno y repositorio](sprint-1-preparacion.md) | #1, #2 | 🔄 En curso |
-| 2 | [Motor de inferencia local](sprint-2-motor-inferencia.md) | #3 | ⏳ Pendiente |
+| 2 | [Motor de inferencia local](sprint-2-motor-inferencia.md) | #3 | ✅ Completado |
 | 3 | [Prompts y guardrails](sprint-3-prompts-guardrails.md) | #4, #5, #6, #7 | ⏳ Pendiente |
 | 4 | [Benchmarks de SLMs y arquitectura](sprint-4-benchmarks.md) | #8, #9, #11 | ⏳ Pendiente |
 | 5 | [Presentación técnica](sprint-5-presentacion.md) | #12 | ⏳ Pendiente |
