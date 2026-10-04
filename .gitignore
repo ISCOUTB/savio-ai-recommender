@@ -1,0 +1,12 @@
+# Entorno virtual de Python
+.venv/
+venv/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+
+# SO / editores
+Thumbs.db
+.vscode/
+.idea/
