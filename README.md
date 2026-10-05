@@ -81,15 +81,7 @@ savio-ai-recommender/
 
 ---
 
-## ⚙️ Requisitos (PoC local)
 
-| Componente | Mínimo | Recomendado |
-|---|---|---|
-| RAM | 8 GB | 16 GB |
-| CPU | 4 núcleos | 8 núcleos |
-| GPU | No requerida (inferencia CPU) | NVIDIA 8+ GB VRAM |
-| Disco | 10 GB libres | 20 GB SSD |
-| Software | Ollama, Python 3.11+ | — |
 
 Guía de instalación paso a paso: **[Sprint 1 — Preparación](docs/entregas/entrega-1-poc-funcional/sprint-1-preparacion.md)**.
 
