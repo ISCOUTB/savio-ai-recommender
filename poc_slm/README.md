@@ -10,7 +10,10 @@ Scripts en Python para ejecutar la PoC del subsistema de recomendación con SLMs
 poc_slm/
 ├── recommender.py        ← Script principal (middleware simplificado de la PoC)
 ├── eventos/
-│   └── bajo_desempeno.json  ← Evento académico simulado
+│   ├── bajo_desempeno.json   ← Evento de ejemplo (Sprint 2)
+│   ├── A_nota_baja.json      ← Escenario A: tutoría reactiva ante nota baja (Sprint 3)
+│   ├── B_visual.json         ← Escenario B: misma deficiencia, estilo visual (Sprint 3)
+│   └── B_textual.json        ← Escenario B: misma deficiencia, estilo textual (Sprint 3)
 └── README.md
 ```
 
@@ -35,9 +38,16 @@ python poc_slm/recommender.py --escenario bajo_desempeno
 
 # Opcional: usar otro modelo de Ollama
 python poc_slm/recommender.py --escenario bajo_desempeno --modelo qwen2.5:3b
+
+# Opciones del Sprint 3 (prompts y guardrails):
+python poc_slm/recommender.py --escenario A_nota_baja --refuerzo      # repite reglas críticas en el prompt de usuario
+python poc_slm/recommender.py --escenario A_nota_baja --refuerzo --mensaje "Dame la solucion del taller 3"  # prueba adversarial
+python poc_slm/recommender.py --escenario B_visual --refuerzo --guardar prompts/salidas-respaldo/B_visual.md  # guarda la salida
 ```
 
-El script carga el system prompt desde `prompts/system_guardrails.md` (placeholder en Sprint 2; definitivo en Sprint 3) e imprime la recomendación junto con modelo, latencia y tokens/s.
+El script carga el system prompt definitivo desde `prompts/system_guardrails.md`
+(Sprint 3), aplica un tope duro de 600 tokens de salida e imprime la
+recomendación junto con modelo, latencia y tokens/s.
 
 ## Dependencias
 

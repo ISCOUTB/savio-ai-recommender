@@ -74,7 +74,7 @@ savio-ai-recommender/
 |---|---|---|---|
 | 1 | [Preparación del entorno y repositorio](docs/entregas/entrega-1-poc-funcional/sprint-1-preparacion.md) | #1, #2 | 🔄 En curso |
 | 2 | [Motor de inferencia local](docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md) | #3 | ✅ Completado |
-| 3 | [Prompts y guardrails](docs/entregas/entrega-1-poc-funcional/sprint-3-prompts-guardrails.md) | #4–#7 | ⏳ Pendiente |
+| 3 | [Prompts y guardrails](docs/entregas/entrega-1-poc-funcional/sprint-3-prompts-guardrails.md) | #4–#7 | ✅ Completado |
 | 4 | [Benchmarks de SLMs y arquitectura](docs/entregas/entrega-1-poc-funcional/sprint-4-benchmarks.md) | #8, #9, #11 | ⏳ Pendiente |
 | 5 | [Presentación técnica](docs/entregas/entrega-1-poc-funcional/sprint-5-presentacion.md) | #12 | ⏳ Pendiente |
 | 6 | [Verificación pre-entrega y demo](docs/entregas/entrega-1-poc-funcional/sprint-6-verificacion-demo.md) | #13 | ⏳ Pendiente |
