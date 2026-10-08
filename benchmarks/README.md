@@ -40,7 +40,7 @@ Datos crudos por corrida: [`resultados/resultados.json`](resultados/resultados.j
 |---|---|---|---|---|---|---|---|
 | Qwen 2.5 1.5B | 1.5B | Q4_K_M | 1.2 GB | 0.6 GB | **69.4** | **6.7 s** | 2 |
 | Gemma 2 2B | 2.6B | Q4_0 | 2.1 GB | 1.1 GB | 45.9 | 8.9 s | 3 |
-| Qwen 2.5 3B | 3.1B | Q4_K_M | 2.1 GB | 0.7 GB | 44.2 | 7.7 s ¹ | **4** |
+| Qwen 2.5 3B | 3.1B | Q4_K_M | 2.2 GB | 0.7 GB | 44.2 | 7.7 s ¹ | **4** |
 
 ### Modo solo CPU (Ryzen 5 5600H)
 
@@ -88,8 +88,10 @@ Criterios: **comprensión contextual** (lee bien la nota y el tema), **seguimien
 
 1. **Mejor calidad y cumplimiento de guardrails.** Es el único modelo que produjo recomendaciones completas y sin violaciones de guardrails de forma consistente (5/6 completas, 0 URLs, nota interpretada correctamente). Qwen 2.5 1.5B no completa la estructura en 300 tokens y Gemma 2 2B inventa enlaces, lo que es inaceptable en un tutor institucional.
 2. **Latencia apta para uso interactivo en GPU.** ≈44 tokens/s y **≈7.7 s por recomendación completa**. Es más lento por token que Qwen 1.5B, pero al ser más conciso el tiempo real por recomendación es comparable (7.7 s vs 6.7 s, y el 1.5B deja la respuesta incompleta).
-3. **Huella de memoria pequeña.** 2.1 GB de VRAM o 2.2 GB de RAM: cabe en una GPU de 4 GB y deja margen en un servidor de 16 GB.
+3. **Huella de memoria pequeña.** 2.2 GB de VRAM o 2.2 GB de RAM: cabe en una GPU de 4 GB y deja margen en un servidor de 16 GB.
 4. **Plan alternativo:** Qwen 2.5 1.5B queda como modelo de respaldo para hardware muy limitado (1.2 GB de RAM, 19 tok/s en CPU), aceptando respuestas menos estructuradas.
+
+> ⚠️ **Riesgo a validar — licencia:** Qwen 2.5 3B se distribuye con la *Qwen Research License* (uso no comercial), a diferencia de Qwen 2.5 1.5B (Apache 2.0). Antes del despliegue institucional se debe validar con la UTB que el uso académico interno está cubierto; si no lo está, se adopta el modelo de respaldo.
 
 ### Implicaciones para la solicitud de infraestructura
 

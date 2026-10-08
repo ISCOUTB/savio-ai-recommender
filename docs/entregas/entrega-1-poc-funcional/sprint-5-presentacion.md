@@ -1,7 +1,7 @@
 # Sprint 5 — Presentación técnica
 
 **Entrega:** 1 — PoC Funcional
-**Estado:** ⏳ Pendiente
+**Estado:** 🔄 En revisión del equipo
 **Issues:** #12
 **Depende de:** Sprints 3 y 4 (resultados de prompts y benchmarks)
 
@@ -27,7 +27,7 @@ Material de presentación **completamente terminado** para sustentar la Entrega 
 8. Cronograma del proyecto + solicitud de infraestructura
 
 **Criterio de aceptación:**
-- [ ] 8 secciones completas, sin apartados pendientes
+- [x] 8 secciones completas, sin apartados pendientes → [docs/presentacion/](../../presentacion/README.md)
 - [ ] Revisada y aprobada por todo el equipo
 
 ---
@@ -42,4 +42,8 @@ Material de presentación **completamente terminado** para sustentar la Entrega 
 
 | Acción | Evidencia | Responsable | Estado |
 |---|---|---|---|
-| — | — | — | ⏳ |
+| Presentación de 16 diapositivas (8 secciones + agenda y conclusiones) con notas del orador | [presentacion-tecnica-entrega1.pptx](../../presentacion/presentacion-tecnica-entrega1.pptx) | Persona 3 | ✅ |
+| Generador reproducible (datos de benchmarks leídos de `resultados.json`) | [generar_presentacion.py](../../presentacion/generar_presentacion.py) | Persona 3 | ✅ |
+| Diagrama de arquitectura propio (#11) | [arquitectura-subsistema.svg](../../arquitectura/arquitectura-subsistema.svg) | Persona 3 | ✅ |
+| Salidas de demo con el modelo seleccionado (Qwen 2.5 3B): escenarios A, B y 3 ataques | [demo-qwen2.5-3b/](../../presentacion/demo-qwen2.5-3b/) | Persona 3 | ✅ |
+| Revisión y aprobación de todo el equipo | [Tabla de revisión](../../presentacion/README.md#revisión-del-equipo-criterio-de-aceptación) | Equipo | ⏳ |
