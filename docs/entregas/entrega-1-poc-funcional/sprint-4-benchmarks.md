@@ -1,7 +1,7 @@
 # Sprint 4 — Benchmarks de SLMs y arquitectura
 
 **Entrega:** 1 — PoC Funcional
-**Estado:** ⏳ Pendiente
+**Estado:** 🔄 En curso
 **Issues:** #8, #9, #11
 **Depende de:** Sprint 1 (modelos descargados)
 
@@ -34,8 +34,8 @@ Medir el rendimiento real de los SLMs candidatos en el hardware disponible y doc
 Resultados en `benchmarks/README.md` con justificación del modelo seleccionado.
 
 **Criterio de aceptación:**
-- [ ] Tabla completa con datos propios
-- [ ] Conclusión que alimente la presentación técnica y la solicitud de infraestructura
+- [x] Tabla completa con datos propios
+- [x] Conclusión que alimente la presentación técnica y la solicitud de infraestructura
 
 ---
 
@@ -50,9 +50,9 @@ Flujo: Savio/Moodle (evento) → Middleware orquestador → Prompt Engine (guard
 
 ## ✅ Criterio de cierre del sprint
 
-- [ ] Tabla de benchmarks con datos propios documentada
+- [x] Tabla de benchmarks con datos propios documentada
 - [ ] Diagrama de arquitectura exportado y versionado
-- [ ] Modelo seleccionado justificado técnicamente
+- [x] Modelo seleccionado justificado técnicamente (Qwen 2.5 3B — ver [benchmarks/README.md](../../../benchmarks/README.md))
 
 ---
 
@@ -60,4 +60,6 @@ Flujo: Savio/Moodle (evento) → Middleware orquestador → Prompt Engine (guard
 
 | Acción | Evidencia | Responsable | Estado |
 |---|---|---|---|
-| — | — | — | ⏳ |
+| Script de benchmark (RAM, VRAM, tokens/s, latencia; GPU y CPU) | [benchmarks/benchmark.py](../../../benchmarks/benchmark.py) | Persona 3 | ✅ |
+| Mediciones: 3 modelos × 2 modos × 3 corridas (2026-10-07) | [benchmarks/resultados/](../../../benchmarks/resultados/) | Persona 3 | ✅ |
+| #9 — Tabla comparativa y modelo seleccionado | [benchmarks/README.md](../../../benchmarks/README.md) | Persona 3 | ✅ |
