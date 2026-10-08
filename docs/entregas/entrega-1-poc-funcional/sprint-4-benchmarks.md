@@ -44,14 +44,14 @@ Resultados en `benchmarks/README.md` con justificación del modelo seleccionado.
 Flujo: Savio/Moodle (evento) → Middleware orquestador → Prompt Engine (guardrails) → SLM local (Ollama) → Panel/mensajería del estudiante. Archivo en `docs/arquitectura/`.
 
 **Criterio de aceptación:**
-- [ ] Diagrama exportado (PNG/SVG) y referenciado en la presentación técnica
+- [x] Diagrama exportado (PNG/SVG) y referenciado en la presentación técnica
 
 ---
 
 ## ✅ Criterio de cierre del sprint
 
 - [x] Tabla de benchmarks con datos propios documentada
-- [ ] Diagrama de arquitectura exportado y versionado
+- [x] Diagrama de arquitectura exportado y versionado
 - [x] Modelo seleccionado justificado técnicamente (Qwen 2.5 3B — ver [benchmarks/README.md](../../../benchmarks/README.md))
 
 ---
@@ -63,3 +63,4 @@ Flujo: Savio/Moodle (evento) → Middleware orquestador → Prompt Engine (guard
 | Script de benchmark (RAM, VRAM, tokens/s, latencia; GPU y CPU) | [benchmarks/benchmark.py](../../../benchmarks/benchmark.py) | Persona 3 | ✅ |
 | Mediciones: 3 modelos × 2 modos × 3 corridas (2026-10-07) | [benchmarks/resultados/](../../../benchmarks/resultados/) | Persona 3 | ✅ |
 | #9 — Tabla comparativa y modelo seleccionado | [benchmarks/README.md](../../../benchmarks/README.md) | Persona 3 | ✅ |
+| #11 — Diagrama de arquitectura (SVG/PNG + generador) | [docs/arquitectura/](../../arquitectura/README.md) | Persona 3 | ✅ |

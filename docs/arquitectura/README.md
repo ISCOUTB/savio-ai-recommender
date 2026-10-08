@@ -29,4 +29,10 @@ Diagramas de arquitectura, flujo de datos e integración con Savio (Moodle).
                      └───────────────┘
 ```
 
-*(Versión enriquecida para la presentación técnica: pendiente — Sprint 4).*
+## Diagrama exportado (Issue #11)
+
+![Arquitectura del subsistema](arquitectura-subsistema.png)
+
+- Archivos: [`arquitectura-subsistema.svg`](arquitectura-subsistema.svg) (vectorial) y [`arquitectura-subsistema.png`](arquitectura-subsistema.png).
+- Generado con [`generar_diagrama.py`](generar_diagrama.py) (`python docs/arquitectura/generar_diagrama.py`).
+- Usado en la diapositiva 8 de la [presentación técnica](../presentacion/README.md).
