@@ -2,7 +2,7 @@
 
 Genera docs/arquitectura/arquitectura-subsistema.svg y .png con el flujo:
 Savio/Moodle (evento) → Middleware orquestador → Prompt Engine (guardrails)
-→ SLM local (Ollama) → Panel/mensajería del estudiante en Savio.
+→ SLM local (Ollama) → Panel/mensajeria del estudiante en Savio.
 
 Uso:
     python docs/arquitectura/generar_diagrama.py
@@ -27,13 +27,13 @@ AZUL = "#2a78d6"
 AZUL_SUAVE = "#e8f1fc"
 GRIS_SUAVE = "#f4f4f2"
 
-# (x, y, ancho, alto, título, subtítulo, fondo, borde)
+# (x, y, ancho, alto, titulo, subtitulo, fondo, borde)
 COMPONENTES = [
-    (0.3, 3.3, 2.6, 1.6, "Savio (Moodle)", "Evento académico:\nnota, entrega, inactividad", GRIS_SUAVE, BORDE),
+    (0.3, 3.3, 2.6, 1.6, "Savio (Moodle)", "Evento academico:\nnota, entrega, inactividad", GRIS_SUAVE, BORDE),
     (3.75, 3.3, 2.6, 1.6, "Middleware\norquestador", "recommender.py\nlee evento + contexto", AZUL_SUAVE, AZUL),
     (7.2, 3.3, 2.6, 1.6, "Prompt Engine", "system prompt + guardrails\n+ refuerzo + contexto", AZUL_SUAVE, AZUL),
     (10.65, 3.3, 2.6, 1.6, "SLM local (Ollama)", "Qwen 2.5 3B · Q4_K_M\nlocalhost:11434", AZUL_SUAVE, AZUL),
-    (10.65, -0.9, 2.6, 1.6, "Savio · panel /\nmensajería", "Diagnóstico → Ruta →\nRecursos → Cierre", GRIS_SUAVE, BORDE),
+    (10.65, -0.9, 2.6, 1.6, "Savio · panel /\nmensajeria", "Diagnostico → Ruta →\nRecursos → Cierre", GRIS_SUAVE, BORDE),
 ]
 
 # (desde, hasta, etiqueta)
@@ -41,7 +41,7 @@ FLECHAS = [
     ((2.9, 4.1), (3.75, 4.1), "JSON"),
     ((6.35, 4.1), (7.2, 4.1), "contexto"),
     ((9.8, 4.1), (10.65, 4.1), "prompt"),
-    ((11.95, 3.3), (11.95, 0.7), "recomendación\nen Markdown"),
+    ((11.95, 3.3), (11.95, 0.7), "recomendacion\nen Markdown"),
 ]
 
 
@@ -52,10 +52,10 @@ def dibujar() -> plt.Figure:
     ax.axis("off")
     fig.patch.set_facecolor("white")
 
-    # Límite on-premise: todo lo que procesa datos del estudiante queda dentro
+    # Limite on-premise: todo lo que procesa datos del estudiante queda dentro
     ax.add_patch(FancyBboxPatch((3.5, 1.15), 9.95, 4.25, boxstyle="round,pad=0,rounding_size=0.15",
                                 fill=False, ec=AZUL, lw=1.4, ls=(0, (5, 4))))
-    ax.text(3.7, 5.12, "Subsistema de recomendación · servidor UTB on-premise · sin APIs externas",
+    ax.text(3.7, 5.12, "Subsistema de recomendacion · servidor UTB on-premise · sin APIs externas",
             fontsize=10, color=AZUL, va="center", fontweight="bold")
     ax.text(3.75, 2.9, "Los datos del estudiante\nno salen del campus",
             ha="left", va="top", fontsize=9.5, color=AZUL, linespacing=1.35)
@@ -80,16 +80,16 @@ def dibujar() -> plt.Figure:
     reglas = ("Guardrails\n"
               "R1 Solo la materia (redirige off-topic)\n"
               "R2 Nunca soluciones completas\n"
-              "R3 Tono empático, no punitivo\n"
+              "R3 Tono empatico, no punitivo\n"
               "R4 Estructura fija en Markdown\n"
-              "+ anti-alucinación (sin URLs ni autores)")
+              "+ anti-alucinacion (sin URLs ni autores)")
     ax.text(7.2, 2.9, reglas, ha="left", va="top", fontsize=9, color=TEXTO, linespacing=1.4,
             bbox=dict(boxstyle="round,pad=0.45", fc="white", ec=BORDE, lw=1))
 
-    ax.text(0.3, 2.9, "Fuera del alcance de la PoC:\nla integración con Moodle se\nsimula con eventos JSON\n(poc_slm/eventos/)",
+    ax.text(0.3, 2.9, "Fuera del alcance de la PoC:\nla integracion con Moodle se\nsimula con eventos JSON\n(poc_slm/eventos/)",
             ha="left", va="top", fontsize=9, color=TEXTO_2, linespacing=1.35, style="italic")
 
-    ax.text(0.3, 6.05, "Arquitectura del subsistema de recomendación adaptativa — SAVIO",
+    ax.text(0.3, 6.05, "Arquitectura del subsistema de recomendacion adaptativa — SAVIO",
             fontsize=15, color=TEXTO, fontweight="bold", va="center")
     return fig
 

@@ -1,15 +1,15 @@
 """benchmark.py — Benchmark local de SLMs para la PoC SAVIO (Sprint 4, Issues #8 y #9).
 
-Mide, para cada modelo y modo de ejecución (GPU / solo CPU):
+Mide, para cada modelo y modo de ejecucion (GPU / solo CPU):
   - RAM del proceso de inferencia de Ollama (pico de RSS, muestreado con psutil)
   - VRAM usada (pico, muestreado con nvidia-smi; solo modo GPU)
-  - Tokens/segundo de generación (eval_count / eval_duration reportado por Ollama)
+  - Tokens/segundo de generacion (eval_count / eval_duration reportado por Ollama)
   - Tiempo total de respuesta para ~300 tokens de salida
-  - Tiempo de carga del modelo en frío
+  - Tiempo de carga del modelo en frio
 
 Usa el mismo prompt real del recomendador (escenario A_nota_baja + refuerzo) para
-que la medición represente la carga de trabajo de la PoC, y guarda cada salida
-generada para la evaluación de calidad en español.
+que la medicion represente la carga de trabajo de la PoC, y guarda cada salida
+generada para la evaluacion de calidad en espanol.
 
 Uso:
     python benchmarks/benchmark.py
@@ -41,7 +41,7 @@ from recommender import cargar_evento, cargar_system_prompt, ensamblar_prompt  #
 OLLAMA = "http://localhost:11434"
 MODELOS_DEFAULT = ["qwen2.5:1.5b", "gemma2:2b", "qwen2.5:3b"]
 ESCENARIO = "A_nota_baja"
-TOKENS_SALIDA = 300  # Longitud fija de salida para comparación justa (Sprint 4)
+TOKENS_SALIDA = 300  # Longitud fija de salida para comparacion justa (Sprint 4)
 DIR_RESULTADOS = RAIZ / "benchmarks" / "resultados"
 
 
@@ -102,7 +102,7 @@ def info_hardware() -> dict:
     cpu = platform.processor()
     so = f"{platform.system()} {platform.release()} ({platform.version()})"
     if platform.system() == "Windows":
-        # platform.release() reporta "10" también en Windows 11 (build >= 22000)
+        # platform.release() reporta "10" tambien en Windows 11 (build >= 22000)
         if int(platform.version().split(".")[-1]) >= 22000:
             so = f"Windows 11 ({platform.version()})"
         import winreg
@@ -130,7 +130,7 @@ def descargar_modelos() -> None:
 
 
 def generar(modelo: str, system: str, prompt: str, opciones: dict) -> tuple[dict, float, Muestreador]:
-    """Ejecuta una generación midiendo latencia de pared y picos de memoria."""
+    """Ejecuta una generacion midiendo latencia de pared y picos de memoria."""
     muestreador = Muestreador()
     muestreador.start()
     inicio = time.perf_counter()
@@ -147,7 +147,7 @@ def generar(modelo: str, system: str, prompt: str, opciones: dict) -> tuple[dict
 
 
 def medir(modelo: str, modo: str, repeticiones: int, system: str, prompt: str) -> dict:
-    """Mide un modelo en un modo (gpu/cpu): carga en frío + N corridas de ~300 tokens."""
+    """Mide un modelo en un modo (gpu/cpu): carga en frio + N corridas de ~300 tokens."""
     opciones = {"num_predict": TOKENS_SALIDA, "temperature": 0.7}
     if modo == "cpu":
         opciones["num_gpu"] = 0  # Fuerza inferencia 100% en CPU
@@ -156,7 +156,7 @@ def medir(modelo: str, modo: str, repeticiones: int, system: str, prompt: str) -
     ram_base = ram_ollama()
     vram_base = vram_usada_mib()
 
-    # Carga en frío (el modelo no está en memoria): se reporta aparte, no entra al promedio
+    # Carga en frio (el modelo no esta en memoria): se reporta aparte, no entra al promedio
     frio, dur_frio, _ = generar(modelo, system, prompt, {**opciones, "seed": 0})
     ps = next((m for m in requests.get(f"{OLLAMA}/api/ps", timeout=10).json().get("models", [])
                if m["name"] == modelo), {})

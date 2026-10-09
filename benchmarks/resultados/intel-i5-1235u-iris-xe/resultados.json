@@ -1,0 +1,76 @@
+{
+  "tipo": "resumen_documental",
+  "fuente": "benchmarks/equipos/intel-i5-1235u-iris-xe.md",
+  "fecha_reporte": "2026-10-09",
+  "hardware": {
+    "cpu": "12th Gen Intel Core i5-1235U",
+    "nucleos_fisicos": 10,
+    "hilos": 12,
+    "ram_total_gb": 16,
+    "gpu": "N/D - Intel Iris Xe integrada",
+    "so": "Windows 11 Home/Pro (10.0.26200)",
+    "ollama": "0.40.1"
+  },
+  "configuracion": {
+    "escenario": "A_nota_baja",
+    "refuerzo": true,
+    "num_predict": 300,
+    "temperature": 0.7,
+    "modo": "cpu"
+  },
+  "mediciones": [
+    {
+      "modelo": "qwen2.5:1.5b",
+      "bateria": "comparativa_general",
+      "corridas": 3,
+      "cuantizacion": "Q4_K_M",
+      "promedio": {
+        "tokens_por_seg": 17.74,
+        "tiempo_total_s": 19.18,
+        "pico_ram_mb": 1243
+      },
+      "calidad_es": 4.0
+    },
+    {
+      "modelo": "gemma2:2b",
+      "bateria": "comparativa_general",
+      "corridas": 3,
+      "cuantizacion": "Q4_K_M",
+      "promedio": {
+        "tokens_por_seg": 11.34,
+        "tiempo_total_s": 28.47,
+        "pico_ram_mb": 2331
+      },
+      "calidad_es": 3.5
+    },
+    {
+      "modelo": "qwen2.5:3b",
+      "bateria": "comparativa_general",
+      "corridas": 3,
+      "cuantizacion": "Q4_K_M",
+      "promedio": {
+        "tokens_por_seg": 9.68,
+        "tiempo_total_s": 26.76,
+        "pico_ram_mb": 2195
+      },
+      "calidad_es": 4.5
+    },
+    {
+      "modelo": "qwen2.5:3b",
+      "bateria": "estabilidad",
+      "corridas": 5,
+      "cuantizacion": "Q4_K_M",
+      "promedio": {
+        "tokens_generados": 225.8,
+        "tokens_por_seg": 9.41,
+        "tiempo_total_s": 26.46,
+        "pico_ram_mb": 2194
+      }
+    }
+  ],
+  "decision": {
+    "demo_local_sin_gpu_dedicada": "qwen2.5:1.5b",
+    "objetivo_institucional": "qwen2.5:3b",
+    "justificacion": "Qwen 2.5 3B tiene mejor calidad y guardrails, pero en CPU ronda 26.5 s; para uso institucional con concurrencia se recomienda GPU NVIDIA."
+  }
+}

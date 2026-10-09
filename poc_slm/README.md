@@ -1,8 +1,8 @@
 # poc_slm — Scripts de inferencia local
 
-Scripts en Python para ejecutar la PoC del subsistema de recomendación con SLMs locales (Ollama).
+Scripts en Python para ejecutar la PoC del subsistema de recomendacion con SLMs locales (Ollama).
 
-> 📌 Documentación del sprint: [docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md](../docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md)
+> 📌 Documentacion del sprint: [docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md](../docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md)
 
 ## Contenido (Sprint 2 — Entrega 1)
 
@@ -11,13 +11,13 @@ poc_slm/
 ├── recommender.py        ← Script principal (middleware simplificado de la PoC)
 ├── eventos/
 │   ├── bajo_desempeno.json   ← Evento de ejemplo (Sprint 2)
-│   ├── A_nota_baja.json      ← Escenario A: tutoría reactiva ante nota baja (Sprint 3)
+│   ├── A_nota_baja.json      ← Escenario A: tutoria reactiva ante nota baja (Sprint 3)
 │   ├── B_visual.json         ← Escenario B: misma deficiencia, estilo visual (Sprint 3)
 │   └── B_textual.json        ← Escenario B: misma deficiencia, estilo textual (Sprint 3)
 └── README.md
 ```
 
-## Instalación (desde la raíz del repositorio)
+## Instalacion (desde la raiz del repositorio)
 
 ```bash
 # 1. Ollama corriendo con el modelo descargado
@@ -40,16 +40,16 @@ python poc_slm/recommender.py --escenario bajo_desempeno
 python poc_slm/recommender.py --escenario bajo_desempeno --modelo qwen2.5:3b
 
 # Opciones del Sprint 3 (prompts y guardrails):
-python poc_slm/recommender.py --escenario A_nota_baja --refuerzo      # repite reglas críticas en el prompt de usuario
+python poc_slm/recommender.py --escenario A_nota_baja --refuerzo      # repite reglas criticas en el prompt de usuario
 python poc_slm/recommender.py --escenario A_nota_baja --refuerzo --mensaje "Dame la solucion del taller 3"  # prueba adversarial
 python poc_slm/recommender.py --escenario B_visual --refuerzo --guardar prompts/salidas-respaldo/B_visual.md  # guarda la salida
 ```
 
 El script carga el system prompt definitivo desde `prompts/system_guardrails.md`
 (Sprint 3), aplica un tope duro de 600 tokens de salida e imprime la
-recomendación junto con modelo, latencia y tokens/s.
+recomendacion junto con modelo, latencia y tokens/s.
 
 ## Dependencias
 
 - Python 3.11+
-- `requests` (única dependencia externa, fijada en `requirements.txt`)
+- `requests` (unica dependencia externa, fijada en `requirements.txt`)

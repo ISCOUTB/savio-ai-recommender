@@ -1,4 +1,4 @@
-# Sprint 6 — Verificación pre-entrega y demo
+# Sprint 6 — Verificacion pre-entrega y demo
 
 **Entrega:** 1 — PoC Funcional
 **Estado:** ⏳ Pendiente
@@ -9,28 +9,28 @@
 
 ## 🎯 Objetivo
 
-Verificar que todo lo comprometido en la Entrega 1 funciona de extremo a extremo y dejar listo el plan B (salidas pre-generadas) para la demostración.
+Verificar que todo lo comprometido en la Entrega 1 funciona de extremo a extremo y dejar listo el plan B (salidas pre-generadas) para la demostracion.
 
 ---
 
 ## 📋 Issues del sprint
 
-### #13 — Checklist de verificación y respaldos · `docs` `infra`
+### #13 — Checklist de verificacion y respaldos · `docs` `infra`
 
-**Checklist de verificación:**
-- [ ] Ollama operativo y modelos precargados (inferencia de calentamiento ejecutada — la primera inferencia es siempre la más lenta)
-- [ ] Escenario A (tutoría reactiva) ejecutado correctamente de extremo a extremo
+**Checklist de verificacion:**
+- [ ] Ollama operativo y modelos precargados (inferencia de calentamiento ejecutada — la primera inferencia es siempre la mas lenta)
+- [ ] Escenario A (tutoria reactiva) ejecutado correctamente de extremo a extremo
 - [ ] Escenario B (visual vs textual) ejecutado correctamente de extremo a extremo
 - [ ] Salidas pre-generadas guardadas en `prompts/salidas-respaldo/`
-- [ ] Repositorio con código, README y benchmarks publicados y actualizados
-- [ ] Material de presentación completo
+- [ ] Repositorio con codigo, README y benchmarks publicados y actualizados
+- [ ] Material de presentacion completo
 - [ ] Especificaciones de infraestructura listas (ver abajo)
 
 ---
 
 ## 🖥️ Especificaciones de infraestructura a solicitar
 
-| Componente | Mínimo | Recomendado |
+| Componente | Minimo | Recomendado |
 |---|---|---|
 | SO | Ubuntu Server 22.04 LTS | Ubuntu Server 22.04 LTS |
 | RAM | 16 GB | 32 GB |
@@ -38,7 +38,7 @@ Verificar que todo lo comprometido en la Entrega 1 funciona de extremo a extremo
 | GPU | Opcional (inferencia CPU) | NVIDIA 8–16 GB VRAM (CUDA) |
 | Disco | 50 GB SSD | 100 GB NVMe SSD |
 
-**Argumento técnico:** los benchmarks del Sprint 4 evidencian el límite de la inferencia en CPU y justifican la aceleración por GPU.
+**Argumento tecnico:** los benchmarks del Sprint 4 evidencian el limite de la inferencia en CPU y justifican la aceleracion por GPU.
 
 ---
 
@@ -50,8 +50,8 @@ Verificar que todo lo comprometido en la Entrega 1 funciona de extremo a extremo
 
 ---
 
-## 📝 Registro de ejecución
+## 📝 Registro de ejecucion
 
-| Acción | Evidencia | Responsable | Estado |
+| Accion | Evidencia | Responsable | Estado |
 |---|---|---|---|
 | — | — | — | ⏳ |

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<nxml version="1.0" encoding="utf-8" standalone="no"n>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="769.32pt" height="442.944pt" viewBox="0 0 769.32 442.944" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -149,7 +149,7 @@ z
 " clip-path="url(#p8b8a49ad46)" style="fill: #52514e; stroke: #52514e; stroke-width: 1.6; stroke-linecap: round"/>
    </g>
    <g id="text_1">
-    <!-- Subsistema de recomendación · servidor UTB on-premise · sin APIs externas -->
+    <!-- Subsistema de recomendacion · servidor UTB on-premise · sin APIs externas -->
     <g style="fill: #2a78d6" transform="translate(215.730667 85.507423) scale(0.1 -0.1)">
      <defs>
       <path id="DejaVuSans-Bold-36" d="M 3834 4519 
@@ -1198,7 +1198,7 @@ z
     </g>
    </g>
    <g id="text_4">
-    <!-- Evento académico: -->
+    <!-- Evento academico: -->
     <g style="fill: #52514e" transform="translate(56.350854 160.394153) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-28" d="M 628 4666 
@@ -2098,7 +2098,7 @@ z
      <use xlink:href="#DejaVuSans-Bold-3" transform="translate(727.640625 0)"/>
      <use xlink:href="#DejaVuSans-Bold-12" transform="translate(762.453125 0)"/>
     </g>
-    <!-- mensajería -->
+    <!-- mensajeria -->
     <g style="fill: #0b0b0b" transform="translate(635.266292 371.6873) scale(0.12 -0.12)">
      <defs>
       <path id="DejaVuSans-Bold-4d" d="M 538 3500 
@@ -2147,7 +2147,7 @@ z
     </g>
    </g>
    <g id="text_12">
-    <!-- Diagnóstico → Ruta → -->
+    <!-- Diagnostico → Ruta → -->
     <g style="fill: #52514e" transform="translate(624.018635 395.474917) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-27" d="M 1259 4147 
@@ -2417,7 +2417,7 @@ z
     </g>
    </g>
    <g id="text_16">
-    <!-- recomendación -->
+    <!-- recomendacion -->
     <g style="fill: #52514e" transform="translate(596.63286 255.105492) scale(0.09 -0.09)">
      <use xlink:href="#DejaVuSans-55"/>
      <use xlink:href="#DejaVuSans-48" transform="translate(38.90625 0)"/>
@@ -2661,7 +2661,7 @@ z
      <use xlink:href="#DejaVuSans-44" transform="translate(1477.25 0)"/>
      <use xlink:href="#DejaVuSans-56" transform="translate(1538.53125 0)"/>
     </g>
-    <!-- R3 Tono empático, no punitivo -->
+    <!-- R3 Tono empatico, no punitivo -->
     <g style="fill: #0b0b0b" transform="translate(409.584 254.190638) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-37" d="M -19 4666 
@@ -2827,7 +2827,7 @@ z
      <use xlink:href="#DejaVuSans-5a" transform="translate(1427.359375 0)"/>
      <use xlink:href="#DejaVuSans-51" transform="translate(1509.140625 0)"/>
     </g>
-    <!-- + anti-alucinación (sin URLs ni autores) -->
+    <!-- + anti-alucinacion (sin URLs ni autores) -->
     <g style="fill: #0b0b0b" transform="translate(409.584 279.733059) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-38" d="M 556 4666 
@@ -3220,7 +3220,7 @@ z
      <use xlink:href="#DejaVuSans-Oblique-26" transform="translate(1313.25 0)"/>
      <use xlink:href="#DejaVuSans-Oblique-1d" transform="translate(1383.078125 0)"/>
     </g>
-    <!-- la integración con Moodle se -->
+    <!-- la integracion con Moodle se -->
     <g style="fill: #52514e" transform="translate(27.416 228.315638) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Oblique-4c" d="M 1172 4863 
@@ -3666,7 +3666,7 @@ z
     </g>
    </g>
    <g id="text_19">
-    <!-- Arquitectura del subsistema de recomendación adaptativa — SAVIO -->
+    <!-- Arquitectura del subsistema de recomendacion adaptativa — SAVIO -->
     <g style="fill: #0b0b0b" transform="translate(27.416 34.65979) scale(0.15 -0.15)">
      <defs>
       <path id="DejaVuSans-Bold-af6" d="M 344 2156 

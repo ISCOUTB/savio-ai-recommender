@@ -1,66 +1,72 @@
-# Sprint 4 — Benchmarks de SLMs y arquitectura
+# Sprint 4 - Benchmarks de SLMs y arquitectura
 
-**Entrega:** 1 — PoC Funcional
-**Estado:** 🔄 En curso
+**Entrega:** 1 - PoC Funcional
+**Estado:** En curso
 **Issues:** #8, #9, #11
 **Depende de:** Sprint 1 (modelos descargados)
 
 ---
 
-## 🎯 Objetivo
+## Objetivo
 
-Medir el rendimiento real de los SLMs candidatos en el hardware disponible y documentar la arquitectura de integración con Savio (Moodle). **Solo datos propios medidos** — ninguna cifra copiada de fuentes externas.
+Medir el rendimiento real de los SLMs candidatos en el hardware disponible y documentar la arquitectura de integracion con Savio (Moodle). **Solo datos propios medidos**; ninguna cifra se copia de fuentes externas.
 
 ---
 
-## 📋 Issues del sprint
+## Issues del sprint
 
-### #8 — Benchmark: RAM, tokens/s y tiempo de respuesta · `backend` `infra`
+### #8 - Benchmark: RAM, tokens/s y tiempo de respuesta · `backend` `infra`
 
 **Mediciones:**
-- RAM durante inferencia (Administrador de tareas o `psutil`)
-- Tokens/segundo (`ollama run --verbose`)
+- RAM durante inferencia (`psutil`)
+- Tokens/segundo reportados por Ollama
 - Tiempo de respuesta para ~300 tokens de salida
+- VRAM cuando el equipo tiene GPU NVIDIA dedicada
 
-**Modelos:** Qwen 2.5 1.5B, Gemma 2 2B, Qwen 2.5 3B (si es viable).
+**Modelos:** Qwen 2.5 1.5B, Gemma 2 2B, Qwen 2.5 3B.
 
-**Criterio de aceptación:**
-- [ ] Mediciones registradas para cada modelo
+**Criterio de aceptacion:**
+- [x] Mediciones registradas para cada modelo en equipo AMD/NVIDIA
+- [x] Mediciones registradas para cada modelo en equipo Intel sin GPU dedicada
 
 ---
 
-### #9 — Tabla comparativa y modelo seleccionado · `docs`
+### #9 - Tabla comparativa y modelo seleccionado · `docs`
 
-Resultados en `benchmarks/README.md` con justificación del modelo seleccionado.
+Resultados integrados en [`benchmarks/README.md`](../../../benchmarks/README.md), con reporte por equipo en [`benchmarks/equipos/`](../../../benchmarks/equipos/).
 
-**Criterio de aceptación:**
+**Criterio de aceptacion:**
 - [x] Tabla completa con datos propios
-- [x] Conclusión que alimente la presentación técnica y la solicitud de infraestructura
+- [x] Comparacion CPU entre Ryzen 5 5600H e Intel i5-1235U
+- [x] Decision reconciliada: Qwen 2.5 1.5B para demo local sin GPU dedicada; Qwen 2.5 3B como objetivo institucional con GPU recomendada
 
 ---
 
-### #11 — Diagrama de arquitectura · `docs`
+### #11 - Diagrama de arquitectura · `docs`
 
-Flujo: Savio/Moodle (evento) → Middleware orquestador → Prompt Engine (guardrails) → SLM local (Ollama) → Panel/mensajería del estudiante. Archivo en `docs/arquitectura/`.
+Flujo: Savio/Moodle (evento) -> Middleware orquestador -> Prompt Engine (guardrails) -> SLM local (Ollama) -> Panel/mensajeria del estudiante. Archivo en `docs/arquitectura/`.
 
-**Criterio de aceptación:**
-- [x] Diagrama exportado (PNG/SVG) y referenciado en la presentación técnica
+**Criterio de aceptacion:**
+- [x] Diagrama exportado (PNG/SVG) y referenciado en la presentacion tecnica
 
 ---
 
-## ✅ Criterio de cierre del sprint
+## Criterio de cierre del sprint
 
 - [x] Tabla de benchmarks con datos propios documentada
+- [x] Resultados ordenados por equipo en `benchmarks/resultados/`
 - [x] Diagrama de arquitectura exportado y versionado
-- [x] Modelo seleccionado justificado técnicamente (Qwen 2.5 3B — ver [benchmarks/README.md](../../../benchmarks/README.md))
+- [x] Modelo seleccionado justificado tecnicamente: ver [`benchmarks/README.md`](../../../benchmarks/README.md)
+- [ ] Validar licencia de Qwen 2.5 3B antes de despliegue institucional
 
 ---
 
-## 📝 Registro de ejecución
+## Registro de ejecucion
 
-| Acción | Evidencia | Responsable | Estado |
+| Accion | Evidencia | Responsable | Estado |
 |---|---|---|---|
-| Script de benchmark (RAM, VRAM, tokens/s, latencia; GPU y CPU) | [benchmarks/benchmark.py](../../../benchmarks/benchmark.py) | Persona 3 | ✅ |
-| Mediciones: 3 modelos × 2 modos × 3 corridas (2026-10-07) | [benchmarks/resultados/](../../../benchmarks/resultados/) | Persona 3 | ✅ |
-| #9 — Tabla comparativa y modelo seleccionado | [benchmarks/README.md](../../../benchmarks/README.md) | Persona 3 | ✅ |
-| #11 — Diagrama de arquitectura (SVG/PNG + generador) | [docs/arquitectura/](../../arquitectura/README.md) | Persona 3 | ✅ |
+| Script de benchmark (RAM, VRAM, tokens/s, latencia; GPU y CPU) | [benchmarks/benchmark.py](../../../benchmarks/benchmark.py) | Persona 3 | Completado |
+| Mediciones AMD Ryzen + RTX 3050: 3 modelos x 2 modos x 3 corridas | [benchmarks/resultados/amd-ryzen-5-5600h-rtx-3050/](../../../benchmarks/resultados/amd-ryzen-5-5600h-rtx-3050/) | Persona 3 | Completado |
+| Mediciones Intel i5 sin GPU dedicada: comparativa y estabilidad CPU | [benchmarks/equipos/intel-i5-1235u-iris-xe.md](../../../benchmarks/equipos/intel-i5-1235u-iris-xe.md) | Persona 1 | Completado |
+| #9 - Tabla comparativa integrada y modelo seleccionado | [benchmarks/README.md](../../../benchmarks/README.md) | Persona 1 / Persona 3 | Completado |
+| #11 - Diagrama de arquitectura (SVG/PNG + generador) | [docs/arquitectura/](../../arquitectura/README.md) | Persona 3 | Completado |
