@@ -17,7 +17,6 @@ Este repositorio contiene el desarrollo del **subsistema de recomendacion adapta
 - **Estilo de aprendizaje** (VARK / Felder-Silverman)
 - **Comportamiento en plataforma** (frecuencia y tipo de recursos consultados)
 
-La validacion pedagogica del modelo se realiza con el marco **ARCS** de John Keller y el instrumento **IMMS** (Instructional Materials Motivation Survey), revisados por la asesoria pedagogica del proyecto.
 
 ### Principios rectores del proyecto
 
@@ -28,20 +27,6 @@ La validacion pedagogica del modelo se realiza con el marco **ARCS** de John Kel
 5. **Guardrails rigurosos**: sin soluciones de tareas, sin off-topic, tono formativo.
 6. Respuesta **empatica y no punitiva** ante bajo desempeno.
 
----
-
-## Equipo
-
-| Rol | Integrante | Responsabilidad |
-|---|---|---|
-| Desarrollador | Persona 1 | Infraestructura SLM / Backend |
-| Desarrollador | Persona 2 | Prompts y Guardrails |
-| Desarrollador | Persona 3 | Documentacion y Presentacion |
-| Asesoria tecnica | Persona 4 | Arquitectura IA, despliegue local, infraestructura |
-| Asesoria pedagogica | Persona 5 | Diseno instruccional, ARCS/IMMS |
-| Direccion del proyecto | Persona 6 | Seguimiento de asignatura |
-
----
 
 ## Entregas del proyecto
 
