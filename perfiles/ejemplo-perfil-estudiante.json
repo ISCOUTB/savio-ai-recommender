@@ -1,0 +1,37 @@
+{
+  "estudiante_id": "demo-001",
+  "estilos_aprendizaje": {
+    "modelo": "vak",
+    "dominante": "visual",
+    "puntajes": {
+      "visual": 8,
+      "auditivo": 4,
+      "kinestesico": 6,
+      "lectura_escritura": 5
+    },
+    "descripcion_para_prompt": "Prefiere diagramas, mapas, ejemplos visuales y pasos cortos antes que lecturas largas."
+  },
+  "personalidad": {
+    "rasgos": {
+      "introversion_extraversion": 3,
+      "autonomia": 7,
+      "metodicidad": 6,
+      "apertura": 8
+    },
+    "resumen_conductual": "Trabaja bien de forma individual, necesita estructura clara y tolera retos si se explican con calma.",
+    "preferencias_trabajo": ["individual", "ritmo propio", "retroalimentacion breve"]
+  },
+  "chaside": {
+    "areas": {
+      "C": 4,
+      "H": 7,
+      "A": 6,
+      "S": 3,
+      "I": 8,
+      "D": 1,
+      "E": 5
+    },
+    "areas_dominantes": ["I", "H"],
+    "descripcion_para_analogias": "Conviene conectar la materia con ejemplos de sistemas, diseno logico y comunicacion clara."
+  }
+}

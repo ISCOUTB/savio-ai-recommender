@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "feedback_recomendacion_entrega_2",
+  "type": "object",
+  "required": ["recomendacion_id", "estudiante_id", "semana", "recurso_id", "util", "resultado", "fecha"],
+  "additionalProperties": false,
+  "properties": {
+    "recomendacion_id": { "type": "string", "minLength": 1 },
+    "estudiante_id": { "type": "string", "minLength": 1 },
+    "semana": { "type": "integer", "minimum": 1 },
+    "recurso_id": { "type": "string", "minLength": 1 },
+    "util": { "type": "boolean" },
+    "likert": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "resultado": { "type": "string", "enum": ["acierto", "descache"] },
+    "comentario": { "type": "string" },
+    "fecha": { "type": "string", "format": "date-time" }
+  }
+}

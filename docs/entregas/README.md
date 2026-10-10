@@ -11,7 +11,7 @@ El proyecto avanza por **entregas** solicitadas por la direccion del proyecto. C
 | Entrega | Descripcion | Sprints | Estado |
 |---|---|---|---|
 | [**Entrega 1 — PoC Funcional**](entrega-1-poc-funcional/README.md) | Prueba de concepto del subsistema de recomendacion con SLM local: motor de inferencia, prompts con guardrails, benchmarks, arquitectura y material de presentacion | 6 | 🔄 En curso |
-| Entrega 2 | *Por definir segun los lineamientos de la direccion del proyecto* | — | ⏳ No iniciada |
+| [**Entrega 2 — Personalizacion**](entrega-2-personalizacion/README.md) | Perfil psicopedagogico por instrumentos, materia piloto, destilacion/fine-tuning de SLM y feedback loop | 6 | ⏳ En planeacion |
 
 **Leyenda:** ⏳ No iniciada · 🔄 En curso · ✅ Completada
 

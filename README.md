@@ -48,9 +48,10 @@ La validacion pedagogica del modelo se realiza con el marco **ARCS** de John Kel
 | Entrega | Descripcion | Sprints | Estado |
 |---|---|---|---|
 | [Entrega 1 - PoC Funcional](docs/entregas/entrega-1-poc-funcional/README.md) | Motor de inferencia local, prompts con guardrails, benchmarks, arquitectura y presentacion tecnica | 6 | En curso |
-| Entrega 2 | *Por definir segun la direccion del proyecto* | - | No iniciada |
+| [Entrega 2 - Personalizacion](docs/entregas/entrega-2-personalizacion/README.md) | Perfil psicopedagogico, materia piloto, destilacion de SLM y feedback | 6 | En planeacion |
 
-Indice de entregas y convenciones: [docs/entregas/](docs/entregas/README.md)
+Indice de entregas y convenciones: [docs/entregas/](docs/entregas/README.md)  
+Plan operativo del proyecto: [ROADMAP.md](ROADMAP.md)
 
 ---
 
@@ -59,8 +60,14 @@ Indice de entregas y convenciones: [docs/entregas/](docs/entregas/README.md)
 ```text
 savio-ai-recommender/
   README.md
+  ROADMAP.md              Plan operativo del proyecto
+  AGENTS.md               Instrucciones para agentes de codigo (OpenCode)
+  opencode.jsonc          Config de OpenCode (registra ./skills)
+  skills/archify/         Skill de diagramas para OpenCode
   docs/
     entregas/             Entregas del proyecto divididas en sprints
+    especificaciones/     Schemas JSON de perfil, recursos y feedback
+    investigacion/        Modelos candidatos, destilacion y riesgos
     arquitectura/         Diagramas del subsistema e integracion con Savio
     presentacion/         Presentacion tecnica y generador
   poc_slm/                Scripts Python de inferencia local (Sprint 2)
@@ -69,6 +76,9 @@ savio-ai-recommender/
   benchmarks/             Mediciones reales de RAM/velocidad de SLMs (Sprint 4)
     equipos/              Reporte por hardware de prueba
     resultados/           Datos separados por equipo
+  moodle/                 Moodle local minimo con Docker (habilitador Entrega 2)
+  perfiles/               Ejemplo de perfil psicopedagogico segun schema
+  experimentos/           Bitacora de pruebas de Entrega 2
 ```
 
 ---

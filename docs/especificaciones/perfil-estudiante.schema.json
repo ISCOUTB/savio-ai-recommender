@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "perfil_estudiante_entrega_2",
+  "type": "object",
+  "required": ["estudiante_id", "estilos_aprendizaje", "personalidad", "chaside"],
+  "additionalProperties": false,
+  "properties": {
+    "estudiante_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "estilos_aprendizaje": {
+      "type": "object",
+      "required": ["modelo", "dominante"],
+      "additionalProperties": false,
+      "properties": {
+        "modelo": {
+          "type": "string",
+          "enum": ["vak", "felder_silverman", "kolb", "otro"]
+        },
+        "dominante": {
+          "type": "string",
+          "enum": ["visual", "auditivo", "kinestesico", "lectura_escritura", "mixto"]
+        },
+        "puntajes": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        },
+        "descripcion_para_prompt": {
+          "type": "string"
+        }
+      }
+    },
+    "personalidad": {
+      "type": "object",
+      "required": ["rasgos"],
+      "additionalProperties": false,
+      "properties": {
+        "rasgos": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        },
+        "resumen_conductual": {
+          "type": "string"
+        },
+        "preferencias_trabajo": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "chaside": {
+      "type": "object",
+      "required": ["areas"],
+      "additionalProperties": false,
+      "properties": {
+        "areas": {
+          "type": "object",
+          "properties": {
+            "C": { "type": "number" },
+            "H": { "type": "number" },
+            "A": { "type": "number" },
+            "S": { "type": "number" },
+            "I": { "type": "number" },
+            "D": { "type": "number" },
+            "E": { "type": "number" }
+          },
+          "additionalProperties": false
+        },
+        "areas_dominantes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["C", "H", "A", "S", "I", "D", "E"]
+          }
+        },
+        "descripcion_para_analogias": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
