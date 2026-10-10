@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "recurso_semanal_entrega_2",
+  "type": "object",
+  "required": ["recurso_id", "semana", "opcion", "titulo", "tipo", "formato", "tema", "resumen"],
+  "additionalProperties": false,
+  "properties": {
+    "recurso_id": { "type": "string", "minLength": 1 },
+    "semana": { "type": "integer", "minimum": 1 },
+    "opcion": { "type": "string", "enum": ["A", "B", "C"] },
+    "titulo": { "type": "string", "minLength": 1 },
+    "tipo": {
+      "type": "string",
+      "enum": ["lectura", "video", "audio", "diagrama", "guia", "ejercicio", "simulacion", "debate", "proyecto"]
+    },
+    "formato": {
+      "type": "string",
+      "enum": ["pdf", "link", "html", "video", "audio", "imagen", "markdown", "presentacion"]
+    },
+    "tema": { "type": "string", "minLength": 1 },
+    "resumen": { "type": "string", "minLength": 1 },
+    "nivel": { "type": "string", "enum": ["basico", "intermedio", "avanzado"], "default": "basico" },
+    "carga_estimada_min": { "type": "integer", "minimum": 1 }
+  }
+}

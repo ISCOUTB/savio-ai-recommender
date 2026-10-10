@@ -1,7 +1,7 @@
 # Sprint 6 — Verificacion pre-entrega y demo
 
 **Entrega:** 1 — PoC Funcional
-**Estado:** ⏳ Pendiente
+**Estado:** ✅ Completado
 **Issues:** #13
 **Depende de:** Sprints 1 a 5 completados
 

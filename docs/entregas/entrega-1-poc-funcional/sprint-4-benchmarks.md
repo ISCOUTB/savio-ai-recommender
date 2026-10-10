@@ -1,7 +1,7 @@
 # Sprint 4 - Benchmarks de SLMs y arquitectura
 
 **Entrega:** 1 - PoC Funcional
-**Estado:** En curso
+**Estado:** ✅ Completado
 **Issues:** #8, #9, #11
 **Depende de:** Sprint 1 (modelos descargados)
 

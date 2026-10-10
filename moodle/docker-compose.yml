@@ -1,0 +1,29 @@
+services:
+  db:
+    image: mariadb:10.11
+    environment:
+      MYSQL_DATABASE: moodle
+      MYSQL_USER: moodle
+      MYSQL_PASSWORD: moodle
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+  moodle:
+    image: moodlehq/moodle:latest
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      MOODLE_DB_HOST: db
+      MOODLE_DB_NAME: moodle
+      MOODLE_DB_USER: moodle
+      MOODLE_DB_PASSWORD: moodle
+      MOODLE_URL: http://localhost:8080
+    volumes:
+      - moodle_data:/var/www/moodledata
+
+volumes:
+  db_data:
+  moodle_data:

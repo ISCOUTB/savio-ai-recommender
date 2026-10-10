@@ -1,6 +1,6 @@
 # Entrega 1 - PoC Funcional del Subsistema
 
-**Estado:** En curso
+**Estado:** Completado
 **Milestone:** [Entrega 1 - PoC Funcional](../../../milestones)
 
 ---
@@ -20,12 +20,12 @@ Demostrar, con una prueba de concepto funcional ejecutable en local, que el subs
 
 | Sprint | Documento | Issues | Estado |
 |---|---|---|---|
-| 1 | [Preparacion del entorno y repositorio](sprint-1-preparacion.md) | #1, #2 | En curso |
+| 1 | [Preparacion del entorno y repositorio](sprint-1-preparacion.md) | #1, #2 | Completado |
 | 2 | [Motor de inferencia local](sprint-2-motor-inferencia.md) | #3 | Completado |
 | 3 | [Prompts y guardrails](sprint-3-prompts-guardrails.md) | #4, #5, #6, #7 | Completado |
-| 4 | [Benchmarks de SLMs y arquitectura](sprint-4-benchmarks.md) | #8, #9, #11 | En curso |
-| 5 | [Presentacion tecnica](sprint-5-presentacion.md) | #12 | Pendiente |
-| 6 | [Verificacion pre-entrega y demo](sprint-6-verificacion-demo.md) | #13 | Pendiente |
+| 4 | [Benchmarks de SLMs y arquitectura](sprint-4-benchmarks.md) | #8, #9, #11 | Completado |
+| 5 | [Presentacion tecnica](sprint-5-presentacion.md) | #12 | Completado |
+| 6 | [Verificacion pre-entrega y demo](sprint-6-verificacion-demo.md) | #13 | Completado |
 
 **Dependencias:** Sprint 1 -> Sprint 2 -> Sprint 3 -> Sprint 4 -> Sprint 5 -> Sprint 6 (secuenciales).
 
@@ -33,12 +33,12 @@ Demostrar, con una prueba de concepto funcional ejecutable en local, que el subs
 
 ## Criterio de cierre de la Entrega 1
 
-- [ ] Los 6 sprints completados (criterios de cierre verificados)
-- [ ] Todos los issues del milestone cerrados
-- [ ] PoC ejecutable de extremo a extremo: evento JSON -> SLM local -> recomendacion
-- [ ] Salidas de respaldo pre-generadas en `prompts/salidas-respaldo/`
-- [ ] Presentacion tecnica completa
-- [ ] Especificaciones de infraestructura documentadas y justificadas con benchmarks propios
+- [x] Los 6 sprints completados (criterios de cierre verificados)
+- [x] Todos los issues del milestone cerrados
+- [x] PoC ejecutable de extremo a extremo: evento JSON -> SLM local -> recomendacion
+- [x] Salidas de respaldo pre-generadas en `prompts/salidas-respaldo/`
+- [x] Presentacion tecnica completa
+- [x] Especificaciones de infraestructura documentadas y justificadas con benchmarks propios
 
 ---
 
