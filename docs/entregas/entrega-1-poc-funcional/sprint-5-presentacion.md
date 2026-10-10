@@ -1,7 +1,7 @@
 # Sprint 5 — Presentacion tecnica
 
 **Entrega:** 1 — PoC Funcional
-**Estado:** 🔄 En revision del equipo
+**Estado:** ✅ Completado
 **Issues:** #12
 **Depende de:** Sprints 3 y 4 (resultados de prompts y benchmarks)
 

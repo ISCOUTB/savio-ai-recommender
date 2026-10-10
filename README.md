@@ -2,7 +2,7 @@
 
 > **Subsistema de recomendacion de contenido academico adaptativo basado en Inteligencia Artificial para Savio (Moodle) - Universidad Tecnologica de Bolivar.**
 
-[![Estado](https://img.shields.io/badge/estado-Entrega%201%20en%20curso-yellow)]()
+[![Estado](https://img.shields.io/badge/estado-Entrega%202%20en%20curso-green)]()
 [![Demo local](https://img.shields.io/badge/SLM%20demo-Qwen%202.5%201.5B-blue)]()
 [![Objetivo Savio](https://img.shields.io/badge/SLM%20objetivo-Qwen%202.5%203B-green)]()
 [![Runtime](https://img.shields.io/badge/runtime-Ollama-lightgrey)]()
@@ -47,8 +47,8 @@ La validacion pedagogica del modelo se realiza con el marco **ARCS** de John Kel
 
 | Entrega | Descripcion | Sprints | Estado |
 |---|---|---|---|
-| [Entrega 1 - PoC Funcional](docs/entregas/entrega-1-poc-funcional/README.md) | Motor de inferencia local, prompts con guardrails, benchmarks, arquitectura y presentacion tecnica | 6 | En curso |
-| [Entrega 2 - Personalizacion](docs/entregas/entrega-2-personalizacion/README.md) | Perfil psicopedagogico, materia piloto, destilacion de SLM y feedback | 6 | En planeacion |
+| [Entrega 1 - PoC Funcional](docs/entregas/entrega-1-poc-funcional/README.md) | Motor de inferencia local, prompts con guardrails, benchmarks, arquitectura y presentacion tecnica | 6 | Completada |
+| [Entrega 2 - Personalizacion](docs/entregas/entrega-2-personalizacion/README.md) | Perfil psicopedagogico, materia piloto, destilacion de SLM y feedback | 6 | En curso |
 
 Indice de entregas y convenciones: [docs/entregas/](docs/entregas/README.md)  
 Plan operativo del proyecto: [ROADMAP.md](ROADMAP.md)
@@ -87,12 +87,12 @@ savio-ai-recommender/
 
 | Sprint | Documento | Issues | Estado |
 |---|---|---|---|
-| 1 | [Preparacion del entorno y repositorio](docs/entregas/entrega-1-poc-funcional/sprint-1-preparacion.md) | #1, #2 | En curso |
+| 1 | [Preparacion del entorno y repositorio](docs/entregas/entrega-1-poc-funcional/sprint-1-preparacion.md) | #1, #2 | Completado |
 | 2 | [Motor de inferencia local](docs/entregas/entrega-1-poc-funcional/sprint-2-motor-inferencia.md) | #3 | Completado |
 | 3 | [Prompts y guardrails](docs/entregas/entrega-1-poc-funcional/sprint-3-prompts-guardrails.md) | #4-#7 | Completado |
-| 4 | [Benchmarks de SLMs y arquitectura](docs/entregas/entrega-1-poc-funcional/sprint-4-benchmarks.md) | #8, #9, #11 | En curso |
-| 5 | [Presentacion tecnica](docs/entregas/entrega-1-poc-funcional/sprint-5-presentacion.md) | #12 | Pendiente |
-| 6 | [Verificacion pre-entrega y demo](docs/entregas/entrega-1-poc-funcional/sprint-6-verificacion-demo.md) | #13 | Pendiente |
+| 4 | [Benchmarks de SLMs y arquitectura](docs/entregas/entrega-1-poc-funcional/sprint-4-benchmarks.md) | #8, #9, #11 | Completado |
+| 5 | [Presentacion tecnica](docs/entregas/entrega-1-poc-funcional/sprint-5-presentacion.md) | #12 | Completado |
+| 6 | [Verificacion pre-entrega y demo](docs/entregas/entrega-1-poc-funcional/sprint-6-verificacion-demo.md) | #13 | Completado |
 
 Guia de instalacion paso a paso: **[Sprint 1 - Preparacion](docs/entregas/entrega-1-poc-funcional/sprint-1-preparacion.md)**.
 
@@ -132,5 +132,6 @@ python poc_slm/recommender.py --escenario bajo_desempeno
 
 Proyecto de ingenieria - Universidad Tecnologica de Bolivar.
 
-Alcance actual: arquitectura, requerimientos y PoC demostrable (Entrega 1).
+Alcance completado: arquitectura, requerimientos y PoC demostrable (Entrega 1).
+Alcance actual: perfil psicopedagogico, materia piloto, destilacion/fine-tuning y feedback (Entrega 2).
 Alcance posterior: despliegue controlado en Savio, piloto con estudiantes y validacion ARCS/IMMS (entregas futuras).

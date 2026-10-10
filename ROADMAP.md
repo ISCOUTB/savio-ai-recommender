@@ -6,8 +6,8 @@
 
 | Entrega | Alcance | Estado |
 |---|---|---|
-| [Entrega 1 - PoC Funcional](docs/entregas/entrega-1-poc-funcional/README.md) | SLM local con Ollama, prompts con guardrails, benchmarks propios, arquitectura y presentacion tecnica | En curso |
-| [Entrega 2 - Personalizacion](docs/entregas/entrega-2-personalizacion/README.md) | Perfil psicopedagogico (Estilos de Aprendizaje, Personalidad, CHASIDE), materia piloto, destilacion/fine-tuning del SLM y feedback loop | En planeacion |
+| [Entrega 1 - PoC Funcional](docs/entregas/entrega-1-poc-funcional/README.md) | SLM local con Ollama, prompts con guardrails, benchmarks propios, arquitectura y presentacion tecnica | Completada |
+| [Entrega 2 - Personalizacion](docs/entregas/entrega-2-personalizacion/README.md) | Perfil psicopedagogico (Estilos de Aprendizaje, Personalidad, CHASIDE), materia piloto, destilacion/fine-tuning del SLM y feedback loop | En curso |
 
 ## Secuencia de trabajo
 

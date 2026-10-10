@@ -1,6 +1,6 @@
 # Entrega 2 - Personalizacion de contenidos en Savio/Moodle
 
-**Estado:** En planeacion
+**Estado:** En curso
 **Milestone sugerido:** Entrega 2 - Personalizacion
 **Fuentes base:** `fuentes/Segunda_Entrega_Proyecto_LLM_Savio_Actualizado.docx` y `fuentes/Segunda_Entrega_Proyecto_LLM_Savio.docx`
 
@@ -47,7 +47,7 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 
 | Sprint | Documento | Foco | Estado |
 |---|---|---|---|
-| 1 | [Plan, repo y Moodle minimo](sprint-1-plan-y-moodle.md) | ROADMAP, issues, Docker Moodle minimo | Pendiente |
+| 1 | [Plan, repo y Moodle minimo](sprint-1-plan-y-moodle.md) | ROADMAP, issues, Docker Moodle minimo | En curso |
 | 2 | [Perfil JSON y tests](sprint-2-perfil-json-tests.md) | Modelado de Estilos, Personalidad y CHASIDE | Pendiente |
 | 3 | [Materia piloto y recursos](sprint-3-materia-piloto.md) | Taller de Escritura recomendado | Pendiente |
 | 4 | [Destilacion y fine-tuning](sprint-4-destilacion-finetuning.md) | Nucleo tecnico de la entrega | Pendiente |
