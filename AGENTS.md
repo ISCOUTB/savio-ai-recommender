@@ -2,6 +2,14 @@
 
 PoC academica en espanol: subsistema de recomendacion con SLMs locales (Ollama, sin APIs comerciales). Repo mayormente de documentacion organizada por entregas y sprints; el codigo ejecutable es minimo.
 
+## Reglas de oro para agentes
+
+1. **Nunca ejecutar mutaciones de git** (`commit`, `push`, `reset`, `rebase`) sin aprobacion explicita del usuario en esa peticion. Proponer el mensaje y esperar el "si". Ademas estan bloqueadas via `permissions` en `opencode.jsonc`.
+2. **No borrar archivos ni carpetas.** Si algo parece obsoleto, proponerlo especificando que y esperar aprobacion.
+3. **No fabricar ni editar datos de medicion:** `benchmarks/resultados/`, `benchmarks/equipos/` y `prompts/salidas-respaldo/` son evidencia medida por el equipo. Nunca cambiar cifras a mano.
+4. **Verificar antes de afirmar:** ejecutar el comando (script, doctor, validacion) antes de decir que algo funciona.
+5. **Cambios minimos:** tocar solo lo que pide la tarea; no reorganizar, renombrar ni formatear archivos ajenos.
+
 ## Idioma y estilo
 
 - Todo el contenido (docs, codigo, comentarios, commits) es en espanol y **sin tildes/caracteres especiales** (`Descripcion`, `recomendacion`). Mantener esa convencion al editar.
