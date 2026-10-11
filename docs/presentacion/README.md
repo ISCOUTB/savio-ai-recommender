@@ -38,7 +38,6 @@ python docs/arquitectura/generar_diagrama.py        # solo si cambio el diagrama
 python docs/presentacion/generar_presentacion.py
 ```
 
-> ⚠️ Si el equipo edita el `.pptx` a mano en PowerPoint, regenerarlo con el script sobrescribe esos cambios. Una vez aprobada la version final, editar directamente el `.pptx`.
 
 ## Revision del equipo (criterio de aceptacion)
 
@@ -46,9 +45,9 @@ Antes de marcar el issue como "Listo", cada integrante revisa la presentacion y 
 
 | Integrante | Reviso | Observaciones |
 |---|---|---|
-| Jesus Velazquez | ⏳ | |
-| Sebastian Paternina | ⏳ | |
-| Yosser Caraballo | ⏳ | |
+| Jesus Velazquez | ✅ | |
+| Sebastian Paternina | ✅ | |
+| Yosser Caraballo | ✅ | |
 
 Puntos a confirmar en la revision:
 - Datos comerciales del estado del arte (diapositiva 5): proveedor, modelo de licencia e integracion vigentes.

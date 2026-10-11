@@ -12,7 +12,7 @@ PoC academica en espanol: subsistema de recomendacion con SLMs locales (Ollama, 
 
 ## Idioma y estilo
 
-- Todo el contenido (docs, codigo, comentarios, commits) es en espanol y **sin tildes/caracteres especiales** (`Descripcion`, `recomendacion`). Mantener esa convencion al editar.
+- Todo el contenido (docs, codigo, comentarios, commits) es en español y **sin tildes/ ni caracteres especiales** (`Descripcion`, `recomendacion`). Mantener esa convencion al editar.
 - Los scripts Python fuerzan `sys.stdout.reconfigure(encoding="utf-8")` por PowerShell en Windows; no quitarlo.
 
 ## Comandos clave (Windows, desde la raiz del repo)
