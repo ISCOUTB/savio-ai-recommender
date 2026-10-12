@@ -16,8 +16,8 @@ Dejar operativo el plan de trabajo de Entrega 2 y preparar solo el Moodle local 
 
 ## Criterios de aceptacion
 
-- [ ] `ROADMAP.md` y documentos de Entrega 2 creados.
-- [ ] Issues E2-01 a E2-12 listos en GitHub o en archivo para importar.
+- [x] `ROADMAP.md` y documentos de Entrega 2 creados.
+- [x] Issues E2-01 a E2-12 listos en GitHub o en archivo para importar.
 - [ ] Moodle local arranca con Docker Compose.
 - [ ] Los 3 bloques quedan instalados o marcados con bloqueo claro para el docente.
 
