@@ -5,7 +5,7 @@ Alcance: habilitador de Entrega 2 (issue E2-02). No es el nucleo del proyecto.
 ## Objetivo minimo
 
 - Levantar Moodle local con Docker.
-- Instalar bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE con apoyo del docente.
+- Instalar los bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE (ver `plugins.md`).
 - Diligenciar tests entre integrantes para generar datos de referencia.
 
 ## Requisitos previos
@@ -59,6 +59,28 @@ Estado esperado:
 
 > Credenciales de desarrollo local. No reutilizar en entornos reales.
 
+## Bloques IS-UTB (issue E2-03)
+
+Los tres instrumentos psicopedagogicos se instalan desde las releases publicas de
+la organizacion `ISCOUTB`. El detalle completo esta en `plugins.md`.
+
+```powershell
+# desde la raiz del repo (idempotente)
+powershell -ExecutionPolicy Bypass -File moodle\instalar-bloques.ps1
+```
+
+El script descarga Estilos de Aprendizaje, Personalidad y CHASIDE, los registra en
+Moodle y deja armado el curso `E2-03-psico` (`http://localhost:8080/course/view.php?id=2`)
+con los tres bloques listos para diligenciar.
+
+Tambien crea las cuentas del equipo (ya matriculadas como estudiantes):
+
+| Usuario | Contrasena |
+| :--- | :--- |
+| `persona-1` | `Persona1!` |
+| `persona-2` | `Persona2!` |
+| `persona-3` | `Persona3!` |
+
 ## Detener y limpiar
 
 ```bash
@@ -91,6 +113,8 @@ curl -I http://localhost:8080           # espera HTTP/1.1 200 (o 303)
 | Web no responde durante ~2 min | instalador en curso | esperar `Moodle setup finished!` en los logs |
 | Base de datos inconsistente | volumen danado | `docker compose down -v` y `docker compose up -d` (borra datos) |
 | Cambio de version de la imagen | incompatibilidad de datos | respaldar el sitio o usar `down -v` antes de cambiar de tag |
+| `permisos no validos al tratar de crear un directorio` | algun script CLI de Moodle se corrio como `root` y dejo archivos root-owned en `moodledata` | `docker exec moodle-moodle-1 chown -R daemon:daemon /bitnami/moodledata` (y a futuro usar `docker exec -u daemon`) |
+| Un bloque IS-UTB no aparece en el curso | el bloque existe pero no queda asociado a la pagina | revisar `mdl_block_instances`: `subpagepattern` debe ser `NULL` y `pagetypepattern` `course-view-*` |
 
 ## Contingencia
 
