@@ -64,6 +64,27 @@ El bloque `estilos_aprendizaje` se alinea con `docs/especificaciones/perfil-estu
 
 El archivo `perfiles/ejemplo-perfil-estudiante.json` (E2-01) es **anterior a este instrumento** y registra `puntajes` en escala 0-10 (`visual: 8`, `kinestesico: 6`, etc.). Este instrumento define la escala canonica **1.0 a 5.0**. Se propone un issue de seguimiento para re-escalar el ejemplo (dividir entre 2) y armonizar tambien `personalidad.rasgos` y `chaside.areas`, que siguen en 0-10. **No se modifica ese archivo en el alcance de E2-04.**
 
+### 2.4 Nota de alineacion con el bloque institucional instalado (2026-10-18)
+
+Al instalar el instrumento real (issue E2-03) se confirmo que el bloque
+institucional `ISCOUTB/learning_style` implementa el **Index of Learning Styles de
+Felder y Soloman**: 44 items y **cuatro ejes bipolares** (Activo/Reflexivo,
+Sensorial/Intuitivo, Visual/Verbal, Secuencial/Global), con puntaje por eje
+(alrededor de `0` a `11`) y un grafico radar.
+
+Esto **no coincide** con el modelo VARK de esta nota, que usa cuatro canales
+independientes (`visual`, `auditivo`, `kinestesico`, `lectura_escritura`) y un
+unico estilo `dominante`. El bloque tampoco entrega un dominante: entrega el
+balance de cada eje.
+
+Consecuencia: el valor `modelo: "vak"`, la lista de `dominante` y los cuatro
+`puntajes` de este documento quedan **pendientes de revision** para alinearse con
+el instrumento que realmente se diligencia. El schema ya admite
+`modelo: "felder_silverman"` y `puntajes` admite claves libres, pero el enum de
+`dominante` no contempla los polos de Felder. La decision se coordina con E2-05,
+E2-06 y E2-07 antes de generar los perfiles reales. Detalle del bloque en
+`moodle/plugins.md`.
+
 ---
 
 ## 3. Mapeo de estilos a formatos didacticos
