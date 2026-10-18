@@ -69,7 +69,7 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 ## Criterio de cierre de la entrega, version base
 
 - [ ] Plan documentado y tablero operativo.
-- [ ] Moodle local minimo instalado con bloques base, con apoyo del docente.
+- [x] Moodle local minimo instalado con los bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE (E2-02 y E2-03); ver `moodle/plugins.md`.
 - [ ] Tests modelados a un schema JSON unico.
 - [ ] Materia piloto y recursos A/B/C definidos.
 - [ ] Propuesta tecnica de destilacion/fine-tuning justificada por RAM, KV cache y latencia.

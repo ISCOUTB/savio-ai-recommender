@@ -12,14 +12,14 @@ Dejar operativo el plan de trabajo de Entrega 2 y preparar solo el Moodle local 
 - Crear estructura de Entrega 2 y tablero.
 - ROADMAP publicado.
 - Moodle local en Docker como habilitador.
-- Bloques IS-UTB instalados con guia del docente.
+- Bloques IS-UTB instalados desde las releases publicas de la organizacion `ISCOUTB`.
 
 ## Criterios de aceptacion
 
 - [ ] `ROADMAP.md` y documentos de Entrega 2 creados.
 - [ ] Issues E2-01 a E2-12 listos en GitHub o en archivo para importar.
 - [ ] Moodle local arranca con Docker Compose.
-- [ ] Los 3 bloques quedan instalados o marcados con bloqueo claro para el docente.
+- [x] Los 3 bloques instalados y verificados en el curso `E2-03-psico` (E2-03); ver `moodle/plugins.md`.
 
 ## Advertencia de alcance
 

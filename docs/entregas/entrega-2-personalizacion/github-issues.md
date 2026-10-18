@@ -1,6 +1,5 @@
 # Issues listos para Entrega 2
 
-`gh` no esta instalado en esta maquina, asi que aqui quedan listos para crear manual o con script cuando exista GitHub CLI.
 
 Milestone sugerido: `Entrega 2 - Personalizacion`.
 
@@ -51,8 +50,11 @@ Nota de foco: no crear modulos nuevos ni integracion avanzada.
 
 Objetivo: activar Estilos de Aprendizaje, Personalidad y CHASIDE.
 
+Estado (2026-10-18): los tres bloques estan instalados en el Moodle local y el curso
+`E2-03-psico` quedo armado. Detalle en `moodle/plugins.md`.
+
 Criterios:
-- [ ] Bloques instalados o bloqueo documentado.
+- [x] Bloques instalados o bloqueo documentado.
 - [ ] Cada integrante tiene un test diligenciado o fixture simulado marcado como simulado.
 
 Nota de foco: el aprendizaje fuerte del equipo no esta en administrar Moodle.
@@ -72,6 +74,11 @@ Criterios:
 - [ ] Modelo usado documentado: VAK, Felder-Silverman, Kolb u otro.
 - [ ] Campos propuestos para `perfil.estilos_aprendizaje`.
 - [ ] Ejemplo de descripcion textual para prompt.
+
+Nota (2026-10-18): el instrumento real instalado en E2-03 es el Index of Learning
+Styles de Felder y Soloman (4 ejes bipolares), no el modelo VARK. La alineacion
+entre la nota tecnica y el bloque queda abierta; ver
+`docs/especificaciones/instrumento-estilos-aprendizaje.md` (seccion 2.4).
 
 ---
 
