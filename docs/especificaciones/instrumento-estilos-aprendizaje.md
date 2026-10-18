@@ -21,6 +21,8 @@ Para el subsistema de recomendacion academica en entornos universitarios (Moodle
 
 2. **Continuidad e intensidad de preferencia (Felder-Silverman):** relevante en educacion superior e ingenieria, establece que los estilos no son cajas cerradas sino espectros de afinidad. Un estudiante puede presentar una preferencia marcada por un canal (perfil unimodal) o una combinacion equilibrada de varios canales (perfil multimodal o `mixto`).
 
+**Nota de nomenclatura:** la taxonomia modelada es VARK, por sus cuatro canales (Visual, Aural/Auditivo, Read-Write, Kinestesico). El enum del schema (`"vak"`) conserva la sigla corta definida en E2-01; ambas denominaciones refieren al mismo instrumento.
+
 ### 1.2 Criterio de uso pedagogico (razonamiento in-context vs. reglas rigidas)
 
 El sistema evita el determinismo de encasillar al estudiante con reglas rigidas (ej. `si visual -> solo mostrar video`). En su lugar, las metricas de los 4 canales se convierten en una **directriz psicopedagogica en lenguaje natural (`descripcion_para_prompt`)** para que el SLM razone *in-context* que formatos priorizar y cuales evitar de forma aislada. Este criterio es coherente con la mitigacion V2 ya aplicada en la PoC (`--refuerzo`), donde la regla 5 del refuerzo nombra dinamicamente el estilo del estudiante (ver seccion 6).
@@ -100,7 +102,7 @@ Ambos ejemplos fueron validados contra `docs/especificaciones/perfil-estudiante.
 ### 5.1 Ejemplo 1: perfil fuertemente visual (dominante claro)
 
 - **Puntajes:** `visual: 4.8`, `kinestesico: 3.5`, `lectura_escritura: 2.5`, `auditivo: 1.5`.
-- **Verificacion de la regla:** 4.8 - 3.5 = 1.3 >= 0.5 → `dominante: "visual"`.
+- **Verificacion de la regla:** 4.8 - 3.5 = 1.3 >= 0.5 -> `dominante: "visual"`.
 
 ```json
 {
@@ -121,7 +123,7 @@ Ambos ejemplos fueron validados contra `docs/especificaciones/perfil-estudiante.
 ### 5.2 Ejemplo 2: perfil equilibrado o multimodal (`mixto`)
 
 - **Puntajes:** `lectura_escritura: 4.5`, `kinestesico: 4.3`, `visual: 3.2`, `auditivo: 2.0`.
-- **Verificacion de la regla:** 4.5 - 4.3 = 0.2 < 0.5 → `dominante: "mixto"`.
+- **Verificacion de la regla:** 4.5 - 4.3 = 0.2 < 0.5 -> `dominante: "mixto"`.
 
 ```json
 {
@@ -151,3 +153,17 @@ Hoy la PoC (`poc_slm/recommender.py`) consume un campo plano `estilo_aprendizaje
 | `"textual"` | `"lectura_escritura"` |
 
 En E2-07/E2-10, `descripcion_para_prompt` reemplazara a la frase fija actual de la regla 5: la regla dinamica pasara a inyectar esta sintesis (inclusion + exclusion por canal) en lugar de la correspondencia fija `visual -> diagramas/videos/mapas`. Este issue no modifica `recommender.py` ni los eventos; solo fija el contrato psicopedagogico.
+
+---
+
+## 7. Referencias
+
+Fuentes del marco psicopedagogico utilizado por el instrumento. Fleming y Mills (1992) y Felder y Silverman (1988) sustentan el modelo adoptado; las revisiones criticas (Coffield et al., 2004; Pashler et al., 2008) respaldan el criterio no determinista de la seccion 1.2.
+
+- Coffield, F., Moseley, D., Hall, E., y Ecclestone, K. (2004). *Learning styles and pedagogy in post-16 learning: A systematic and critical review*. Learning and Skills Research Centre.
+- Felder, R. M., y Silverman, L. K. (1988). Learning and teaching styles in engineering education. *Engineering Education, 78*(7), 674-681.
+- Fleming, N. D. (2001). *Teaching and learning styles: VARK strategies*. N. D. Fleming.
+- Fleming, N. D., y Mills, C. (1992). Not another inventory, rather a catalyst for reflection. *To Improve the Academy, 11*(1), 137-155. https://doi.org/10.1002/j.2334-4822.1992.tb00213.x
+- Kolb, D. A. (1984). *Experiential learning: Experience as the source of learning and development*. Prentice-Hall.
+- Pashler, H., McDaniel, M., Rohrer, D., y Bjork, R. (2008). Learning styles: Concepts and evidence. *Psychological Science in the Public Interest, 9*(3), 105-119. https://doi.org/10.1111/j.1539-6053.2009.01038.x
+- VARK Learn Limited. (s. f.). *The VARK modalities*. https://vark-learn.com/introduction-to-vark/the-vark-modalities/
