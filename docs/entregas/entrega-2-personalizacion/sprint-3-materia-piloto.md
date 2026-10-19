@@ -1,6 +1,6 @@
 # Entrega 2 - Sprint 3: Materia piloto y recursos
 
-**Estado:** Pendiente
+**Estado:** Completado (pendiente revision de Persona 1 y Persona 3)
 **Issues:** E2-08
 
 ## Objetivo
@@ -13,7 +13,7 @@ Usar **Taller de Escritura** como primera opcion, siguiendo la directriz docente
 
 ## Criterios de aceptacion
 
-- [ ] Materia piloto definida y justificada.
-- [ ] Tabla de 1 o 2 semanas con Recurso A, B y C.
-- [ ] Cada recurso tiene tipo, formato, tema, resumen y nivel.
-- [ ] `recurso-semanal.schema.json` validado con ejemplos de la semana piloto.
+- [x] Materia piloto definida y justificada.
+- [x] Tabla de 1 o 2 semanas con Recurso A, B y C.
+- [x] Cada recurso tiene tipo, formato, tema, resumen y nivel.
+- [x] `recurso-semanal.schema.json` validado con ejemplos de la semana piloto.

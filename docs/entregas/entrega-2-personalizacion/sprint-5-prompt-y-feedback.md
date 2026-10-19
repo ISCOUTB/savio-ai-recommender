@@ -1,6 +1,6 @@
 # Entrega 2 - Sprint 5: Prompt builder y feedback
 
-**Estado:** Pendiente
+**Estado:** En curso (E2-11 completado, E2-10 pendiente)
 **Issues:** E2-10, E2-11
 
 ## Objetivo
@@ -23,5 +23,5 @@ Disenar el prompt que combina perfil del estudiante y recursos A/B/C, y definir 
 
 - [ ] Prompt template documentado.
 - [ ] 3 ejemplos de entrada y salida esperada.
-- [ ] `feedback.schema.json` valido.
-- [ ] KPI base definido: tasa de acierto y tasa de descache.
+- [x] `feedback.schema.json` valido.
+- [x] KPI base definido: tasa de acierto y tasa de descache.
