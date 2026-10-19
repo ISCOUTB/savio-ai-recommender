@@ -1,0 +1,38 @@
+[
+  {
+    "recurso_id": "tde-s1-A",
+    "semana": 1,
+    "opcion": "A",
+    "titulo": "Mapa interactivo: del problema a la tesis defendible",
+    "tipo": "diagrama",
+    "formato": "html",
+    "tema": "Estructura del ensayo argumentativo: tesis y contraargumentos",
+    "resumen": "Infografia interactiva de una sola pantalla que muestra el flujo logico del ensayo argumentativo como un diagrama de nodos: problema -> tesis -> argumentos -> contraargumento -> refutacion -> conclusion. Cada nodo se expande al hacer clic con una definicion de una linea y un ejemplo minimo, y un codigo de colores distingue las piezas que afirman (tesis, argumentos) de las que cuestionan (contraargumento). Cierra con una lista visual de 4 verificaciones rapidas de una tesis bien formulada. Lectura minima y sin ejercicios de produccion.",
+    "nivel": "basico",
+    "carga_estimada_min": 15
+  },
+  {
+    "recurso_id": "tde-s1-B",
+    "semana": 1,
+    "opcion": "B",
+    "titulo": "Guia de lectura analitica: dos ensayos modelo y glosario",
+    "tipo": "lectura",
+    "formato": "pdf",
+    "tema": "Estructura del ensayo argumentativo: tesis y contraargumentos",
+    "resumen": "Guia escrita de 8 a 10 paginas con dos ensayos argumentativos breves (aprox. 900 palabras cada uno) sobre posturas opuestas de un mismo debate. Cada ensayo viene anotado al margen para senalar donde aparece la tesis, que tipo de argumento usa cada parrafo y como se introduce y refuta el contraargumento. Incluye preguntas de lectura critica por parrafo, una comparacion escrita entre las estrategias de ambos autores y un glosario de 12 terminos (tesis, premisa, contraargumento, refutacion, concesion, falacia, entre otros). Sin diagramas ni actividades de produccion.",
+    "nivel": "intermedio",
+    "carga_estimada_min": 45
+  },
+  {
+    "recurso_id": "tde-s1-C",
+    "semana": 1,
+    "opcion": "C",
+    "titulo": "Taller guiado: construye tu tesis y anticipa la objecion",
+    "tipo": "ejercicio",
+    "formato": "markdown",
+    "tema": "Estructura del ensayo argumentativo: tesis y contraargumentos",
+    "resumen": "Taller practico de 5 pasos en el que el estudiante produce su propio esqueleto de ensayo: elige un tema de una lista corta, redacta una tesis, la mejora con una lista de chequeo, escribe dos argumentos de apoyo, formula el contraargumento mas fuerte contra su postura y redacta un parrafo de refutacion. Cada paso trae un ejercicio corto con plantilla para completar y un ejemplo resuelto parcialmente. Termina con una rubrica de autoevaluacion de 4 criterios (claridad de la tesis, pertinencia de los argumentos, fuerza del contraargumento, calidad de la refutacion) en 3 niveles de desempeno.",
+    "nivel": "avanzado",
+    "carga_estimada_min": 60
+  }
+]
