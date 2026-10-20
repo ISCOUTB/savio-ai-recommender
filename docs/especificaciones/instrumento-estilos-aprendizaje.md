@@ -2,162 +2,219 @@
 
 - **Identificador:** E2-04
 - **Modulo:** Perfilamiento psicopedagogico (`perfil.estilos_aprendizaje`)
+- **Fuente de datos:** bloque Moodle `block_learning_style` (IS-UTB, v2.0.4)
 - **Depende de:** `docs/especificaciones/perfil-estudiante.schema.json` (E2-01)
+- **Escala compartida con:** `docs/especificaciones/instrumento-personalidad.md` (E2-05, escala 1.0 a 5.0)
 - **Desbloquea:** E2-07, E2-10
 
 ---
 
 ## 1. Marco teorico y pertinencia en educacion superior
 
-### 1.1 Fundamentacion del modelo (VARK + Felder-Silverman)
+### 1.1 Instrumento institucional: Index of Learning Styles (Felder-Soloman)
 
-Para el subsistema de recomendacion academica en entornos universitarios (Moodle / SAVIO), se adopta la taxonomia sensorial **VARK (Fleming y Mills, 1992)**, registrada en el esquema bajo el valor `"vak"`, combinada con el enfoque de **intensidad gradual de preferencia de Felder-Silverman (1988)**:
+El bloque institucional **Exploracion de Estilos de Aprendizaje** aplica el **Index of Learning Styles (ILS) de Felder y Soloman**. Es un cuestionario de **44 items dicotomicos (A / B)** distribuidos en 4 paginas, que mide **cuatro ejes bipolares** de procesamiento de la informacion:
 
-1. **Canales de representacion (Fleming):** divide la recepcion y procesamiento de informacion academica en cuatro dimensiones conectadas directamente con los formatos de recursos disponibles en cursos universitarios:
-   - **Visual (`visual`):** procesamiento mediante relaciones espaciales, diagramacion, esquemas y simbologia grafica.
-   - **Lectura/Escritura (`lectura_escritura`):** procesamiento mediante texto estructurado, analisis documental, sintesis escrita y definiciones formales.
-   - **Auditivo (`auditivo`):** procesamiento mediante discurso hablado, explicacion dialogada, debate y secuencias sonoras.
-   - **Kinestesico (`kinestesico`):** procesamiento mediante experimentacion practica, simulacion interactiva, resolucion de casos reales y aprendizaje basado en problemas.
+| Eje | Polo A (izquierda) | Polo B (derecha) | Items por polo | Que mide |
+| :--- | :--- | :--- | :---: | :--- |
+| 1 | **Activo** | **Reflexivo** | 11 | Preferencia por experimentar (hacer, probar, discutir) frente a reflexionar (pensar, analizar, trabajar solo). |
+| 2 | **Sensorial** | **Intuitivo** | 11 | Preferencia por hechos concretos, datos y procedimientos frente a principios, teorias y posibilidades. |
+| 3 | **Visual** | **Verbal** | 11 | Preferencia por representaciones graficas (diagramas, esquemas, videos) frente a explicaciones escritas o habladas. |
+| 4 | **Secuencial** | **Global** | 11 | Preferencia por aprendizaje paso a paso, lineal, frente a vision global, saltos intuitivos y panoramas integradores. |
 
-2. **Continuidad e intensidad de preferencia (Felder-Silverman):** relevante en educacion superior e ingenieria, establece que los estilos no son cajas cerradas sino espectros de afinidad. Un estudiante puede presentar una preferencia marcada por un canal (perfil unimodal) o una combinacion equilibrada de varios canales (perfil multimodal o `mixto`).
+Cada polo suma **0 a 11** (porque son 11 items por dimension, y cada item suma 1 a uno de los dos polos; la suma de los dos polos es siempre 11).
 
-**Nota de nomenclatura:** la taxonomia modelada es VARK, por sus cuatro canales (Visual, Aural/Auditivo, Read-Write, Kinestesico). El enum del schema (`"vak"`) conserva la sigla corta definida en E2-01; ambas denominaciones refieren al mismo instrumento.
+El bloque entrega:
+- **Conteos crudos** por polo (`ap_active`, `ap_reflexivo`, `ap_sensorial`, `ap_intuitivo`, `ap_visual`, `ap_verbal`, `ap_secuencial`, `ap_global`).
+- **Resultado compacto** por eje (`act_ref`, `sen_int`, `vis_vrb`, `seq_glo`) con formato `"<diferencia><lado>"` (ej. `5a` = diferencia 5 hacia el polo A).
+- **Grafico radar** 0-11.
 
-### 1.2 Criterio de uso pedagogico (razonamiento in-context vs. reglas rigidas)
+El test se almacena **globalmente por usuario** (no por curso), con `is_completed = 1` al finalizar.
 
-El sistema evita el determinismo de encasillar al estudiante con reglas rigidas (ej. `si visual -> solo mostrar video`). En su lugar, las metricas de los 4 canales se convierten en una **directriz psicopedagogica en lenguaje natural (`descripcion_para_prompt`)** para que el SLM razone *in-context* que formatos priorizar y cuales evitar de forma aislada. Este criterio es coherente con la mitigacion V2 ya aplicada en la PoC (`--refuerzo`), donde la regla 5 del refuerzo nombra dinamicamente el estilo del estudiante (ver seccion 6).
+### 1.2 Decision de diseno: Felder como modelo canonico
+
+El equipo decidio adoptar **Felder-Soloman como modelo canonico** (valor `"felder_silverman"` en el schema) por tres razones:
+
+1. **Es el instrumento real que se diligencia.** El bloque instalado (E2-03) mide esto, no VARK.
+2. **No compite con los otros dos instrumentos.** El eje **Visual/Verbal** define el *canal* del recurso (video, texto, interactivo); los otros tres ejes (Activo/Reflexivo, Sensorial/Intuitivo, Secuencial/Global) definen *como se organiza* el estudio. La personalidad (E2-05) ya cubre organizacion, autonomia y nivel de abstraccion; CHASIDE (E2-06) cubre intereses vocacionales. Los tres instrumentos son complementarios, no redundantes.
+3. **La escala 1.0-5.0 ya esta acordada.** La conversion de los conteos 0-11 a 1.0-5.0 usa la misma formula que E2-05 (diferencia normalizada), asi que el Prompt Builder (E2-10) recibe perfiles homogeneos.
+
+**VARK queda en el schema como valor historico** (`"vak"` en la enumeracion de `modelo`) para compatibilidad, pero **no se usa** en perfiles nuevos.
 
 ---
 
 ## 2. Estructura numerica y contrato de datos
 
-El bloque `estilos_aprendizaje` se alinea con `docs/especificaciones/perfil-estudiante.schema.json` (E2-01).
-
 ### 2.1 Definicion de campos (`perfil.estilos_aprendizaje`)
 
-| Campo | Tipo JSON | Requerido | Rango / valores permitidos | Descripcion tecnica |
+| Campo | Tipo JSON | Requerido | Rango / valores | Descripcion |
 | :--- | :--- | :---: | :--- | :--- |
-| `modelo` | `string` | Si (schema) | `"vak"`, `"felder_silverman"`, `"kolb"`, `"otro"` | Marco psicopedagogico utilizado (valor estandar del instrumento: `"vak"`). |
-| `dominante` | `string` | Si (schema) | `"visual"`, `"auditivo"`, `"kinestesico"`, `"lectura_escritura"`, `"mixto"` | Estilo principal calculado a partir de los puntajes (regla 2.2). |
-| `puntajes` | `object` | Si (convencion del instrumento) | Objeto con 4 claves numericas (`1.0` a `5.0`) | Calificaciones obtenidas en cada canal de aprendizaje. |
-| `puntajes.visual` | `number` | Si (convencion) | `1.0` a `5.0` | Afinidad por recursos graficos y esquematicos. |
-| `puntajes.auditivo` | `number` | Si (convencion) | `1.0` a `5.0` | Afinidad por recursos hablados y dialogicos. |
-| `puntajes.kinestesico` | `number` | Si (convencion) | `1.0` a `5.0` | Afinidad por recursos practicos e interactivos. |
-| `puntajes.lectura_escritura` | `number` | Si (convencion) | `1.0` a `5.0` | Afinidad por recursos textuales y analiticos. |
-| `descripcion_para_prompt` | `string` | Si (convencion del instrumento) | Cadena de texto (2 a 3 oraciones) | Sintesis accionable inyectada en el prompt del SLM (seccion 4). |
+| `modelo` | `string` | Si (schema) | `"vak"`, `"felder_silverman"`, `"kolb"`, `"otro"` | Marco psicopedagogico del instrumento. Valor canonico: `"felder_silverman"`. |
+| `puntajes` | `object` | Si (schema) | 4 claves numericas (`1.0` a `5.0`) | Puntaje normalizado por eje. Claves fijas (ver 2.2). |
+| `preferencias` | `array<string>` | Si (schema) | Subconjunto de 8 polos, max 4, sin duplicados | Polos con preferencia clara (ver 2.3). |
+| `descripcion_para_prompt` | `string` | Si (schema) | 2 a 3 oraciones | Sintesis accionable para el SLM (seccion 4). |
 
-**Nota sobre el contrato:** el schema JSON marca como requeridos solo `modelo` y `dominante`; este instrumento declara `puntajes` y `descripcion_para_prompt` como **requeridos por convencion** (el schema admite ambos campos de forma opcional). La discrepancia se resuelve a favor del schema (no se modifica en este issue); endurecer el schema queda propuesto como trabajo posterior si el equipo lo decide.
+> **Cambio frente a la version anterior:** el campo `dominante` (unico estilo VARK) **se elimina**. Con 4 ejes bipolares no tiene sentido un "dominante"; lo reemplaza `preferencias`, que lista los polos con preferencia clara.
 
-### 2.2 Escala de calificacion (1.0 a 5.0) y calculo del estilo `dominante`
+### 2.2 Conversion: conteos 0-11 -> escala 1.0-5.0
 
-1. **Interpretacion de la escala (1 a 5):**
-   - Afinidad alta: `4.0` a `5.0`
-   - Afinidad moderada: `2.5` a `3.9`
-   - Afinidad baja: `1.0` a `2.4`
+El bloque guarda conteos crudos por polo (`ap_*`). Cada par suma 11. La formula es la misma que E2-05 usa para los ejes MBTI:
 
-2. **Regla de calculo para el campo `dominante` (umbral delta = 0.5):**
-   Se ordenan los 4 puntajes del estudiante de mayor a menor (P1 >= P2 >= P3 >= P4):
-   - **Estilo unico dominante:** si la diferencia entre el puntaje mas alto (P1) y el segundo mas alto (P2) es **mayor o igual a 0.5 puntos** (P1 - P2 >= 0.5), el campo `dominante` toma el nombre del canal P1.
-   - **Estilo mixto (`"mixto"`):** si la diferencia entre el primero y el segundo es **menor a 0.5 puntos** (P1 - P2 < 0.5), existe empate tecnico o co-dominancia y el campo `dominante` se asigna como `"mixto"`.
+```text
+eje = round(3 + 2 * (polo_derecho - polo_izquierdo) / 11, 1)
+```
 
-### 2.3 Nota de compatibilidad con el perfil de ejemplo existente
+| Clave en `puntajes` | Polo izquierdo (0) | Polo derecho (1) | Interpretacion |
+| :--- | :--- | :--- | :--- |
+| `activo_reflexivo` | Activo | Reflexivo | 1.0 = muy activo / 5.0 = muy reflexivo |
+| `sensorial_intuitivo` | Sensorial | Intuitivo | 1.0 = muy sensorial / 5.0 = muy intuitivo |
+| `visual_verbal` | Visual | Verbal | 1.0 = muy visual / 5.0 = muy verbal |
+| `secuencial_global` | Secuencial | Global | 1.0 = muy secuencial / 5.0 = muy global |
 
-El archivo `perfiles/ejemplo-perfil-estudiante.json` (E2-01) es **anterior a este instrumento** y registra `puntajes` en escala 0-10 (`visual: 8`, `kinestesico: 6`, etc.). Este instrumento define la escala canonica **1.0 a 5.0**. Se propone un issue de seguimiento para re-escalar el ejemplo (dividir entre 2) y armonizar tambien `personalidad.rasgos` y `chaside.areas`, que siguen en 0-10. **No se modifica ese archivo en el alcance de E2-04.**
+**Detalles de la formula:**
+- La diferencia cruda va de -11 a +11 (impar, nunca 0).
+- El factor `2/11` mapea el rango [-11, +11] a [-2, +2].
+- Sumando 3 se obtiene [1.0, 5.0].
+- **3.0 es el punto neutro matematico**, pero **es imposible en un test diligenciado** (la diferencia impar evita 0). Solo aparece en el perfil neutro de test incompleto.
 
-### 2.4 Nota de alineacion con el bloque institucional instalado (2026-10-18)
+### 2.3 Regla de `preferencias`
 
-Al instalar el instrumento real (issue E2-03) se confirmo que el bloque
-institucional `ISCOUTB/learning_style` implementa el **Index of Learning Styles de
-Felder y Soloman**: 44 items y **cuatro ejes bipolares** (Activo/Reflexivo,
-Sensorial/Intuitivo, Visual/Verbal, Secuencial/Global), con puntaje por eje
-(alrededor de `0` a `11`) y un grafico radar.
+Se incluye el polo de cada eje cuyo puntaje normalizado sea **<= 2.1 o >= 3.9** (equivalente a diferencia cruda >= 5 en valor absoluto). Si todos los ejes quedan entre 2.2 y 3.8, el arreglo va vacio `[]`.
 
-Esto **no coincide** con el modelo VARK de esta nota, que usa cuatro canales
-independientes (`visual`, `auditivo`, `kinestesico`, `lectura_escritura`) y un
-unico estilo `dominante`. El bloque tampoco entrega un dominante: entrega el
-balance de cada eje.
+**Orden fijo** (para consistencia en el prompt): Activo/Reflexivo, Sensorial/Intuitivo, Visual/Verbal, Secuencial/Global.
 
-Consecuencia: el valor `modelo: "vak"`, la lista de `dominante` y los cuatro
-`puntajes` de este documento quedan **pendientes de revision** para alinearse con
-el instrumento que realmente se diligencia. El schema ya admite
-`modelo: "felder_silverman"` y `puntajes` admite claves libres, pero el enum de
-`dominante` no contempla los polos de Felder. La decision se coordina con E2-05,
-E2-06 y E2-07 antes de generar los perfiles reales. Detalle del bloque en
-`moodle/plugins.md`.
+### 2.4 Bandas de interpretacion
+
+| Banda | Rango normalizado | Diferencia cruda | Significado |
+| :--- | :--- | :--- | :--- |
+| Polo izquierdo fuerte | `1.0` a `2.1` | 9 u 11 | Preferencia marcada por el polo izquierdo (incluye en `preferencias`) |
+| Equilibrado | `2.2` a `3.8` | 1, 3, 5, 7 | Sin preferencia clara; no se incluye en `preferencias` |
+| Polo derecho fuerte | `3.9` a `5.0` | 9 u 11 | Preferencia marcada por el polo derecho (incluye en `preferencias`) |
+
+> **Nota:** `3.0` es imposible en un test completo (diferencia impar). Si aparece, indica test incompleto.
+
+### 2.5 Perfil neutro (test incompleto o sin datos)
+
+Si `is_completed = 0` o no hay registro en Moodle:
+- Los 4 `puntajes` = `3.0`
+- `preferencias: []`
+- `descripcion_para_prompt` = `"Sin informacion suficiente de preferencias de aprendizaje; alternar formatos visuales y verbales, activos y reflexivos, concretos y abstractos, lineales y globales."`
 
 ---
 
-## 3. Mapeo de estilos a formatos didacticos
+## 3. Mapeo de ejes a formatos didacticos
 
-Reglas formalizadas de inclusion (formatos a privilegiar) y exclusion (formatos a evitar sin apoyo) por cada canal:
+Reglas de inclusion (privilegiar) y exclusion (evitar en aislamiento) por polo. **El eje Visual/Verbal es el que define el canal sensorial**; los otros tres definen la organizacion, que se combina con la personalidad (E2-05, seccion 5).
 
-| Estilo / canal | Formatos didacticos a privilegiar (inclusion) | Formatos a evitar en aislamiento (exclusion) |
+| Eje / polo | Formatos a privilegiar | Formatos a evitar en aislamiento |
 | :--- | :--- | :--- |
-| `visual` | Diagramas de flujo, infografias, mapas conceptuales y videos esquematicos. | Lecturas densas y extensas sin apoyo grafico. |
-| `lectura_escritura` | Articulos analiticos, resumenes estructurados, definiciones formales y glosarios. | Diagramas excesivamente recargados sin contexto textual. |
-| `auditivo` | Podcasts, notas de voz, debates y explicaciones dialogadas. | Bloques extensos de texto estatico sin apoyo verbal o explicativo. |
-| `kinestesico` | Ejercicios interactivos, analisis de casos practicos, laboratorios y simulaciones. | Teoria abstracta prolongada sin aplicacion practica inmediata. |
+| **Activo** | Ejercicios, aplicacion inmediata, trabajo en pares, simulaciones, problemas abiertos. | Teoria pasiva prolongada, lecturas extensas sin practica. |
+| **Reflexivo** | Lectura previa, pausas para pensar, escritura reflexiva, analisis individual. | Respuesta inmediata en vivo, exposicion oral sin preparacion. |
+| **Sensorial** | Hechos, datos, ejemplos concretos, procedimientos paso a paso, casos reales. | Abstraccion sin aplicacion, teoria sin ejemplos tangibles. |
+| **Intuitivo** | Principios, teoria, conexiones entre conceptos, novedad, preguntas "por que" y "que pasaria si". | Repeticion mecanica, ejercicios rutinarios sin proposito. |
+| **Visual** | Diagramas, esquemas, mapas conceptuales, videos esquematicos, infografias. | Texto denso sin apoyo grafico, lecturas extensas sin diagramas. |
+| **Verbal** | Explicaciones escritas o habladas, resumenes, definiciones formales, glosarios. | Graficos sin texto de apoyo, videos sin narracion ni subtitulos. |
+| **Secuencial** | Pasos ordenados, de lo simple a lo complejo, guias numeradas, cronogramas. | Saltos sin secuencia, temas desconectados sin transicion. |
+| **Global** | Panorama general primero, ejemplos integradores, vision de conjunto, analogias. | Pasos lineales sin contexto, detalle sin proposito global. |
 
 ---
 
 ## 4. Generador de texto para el prompt (`descripcion_para_prompt`)
 
-Para transformar los valores de `puntajes` en una directriz *in-context* para el SLM, se ordenan los canales de mayor a menor (C1, C2, C3, C4 con puntajes P1 >= P2 >= P3 >= P4) y se aplica la regla de sintesis correspondiente:
+Se construye en **orden fijo** (los 4 ejes) concatenando solo los polos que estan en `preferencias`. Cada polo aporta un fragmento segun la tabla de la seccion 3. El resultado son 2 a 3 oraciones en tercera persona.
 
-### 4.1 Plantilla para perfil con dominante claro (`dominante != "mixto"`)
+**Fragmentos por polo:**
 
-> `"Estudiante con estilo de aprendizaje predominantemente {C1} ({P1}/5), apoyado por afinidad {C2} ({P2}/5). Privilegiar {formatos_inclusion_C1} complementados con {formatos_inclusion_C2}. Evitar {formatos_exclusion_C1} o depender unicamente de recursos del canal {C4} ({P4}/5)."`
+| Polo | Fragmento |
+| :--- | :--- |
+| `activo` | "aprende mejor experimentando y aplicando los conceptos de forma inmediata" |
+| `reflexivo` | "aprende mejor reflexionando antes de actuar y trabajando de forma individual" |
+| `sensorial` | "conecta mejor con ejemplos concretos, datos especificos y procedimientos claros" |
+| `intuitivo` | "disfruta explorar principios, teorias y conexiones entre ideas" |
+| `visual` | "privilegia recursos graficos, diagramas, mapas y videos" |
+| `verbal` | "prefiere explicaciones escritas o habladas, resumenes y definiciones" |
+| `secuencial` | "rinde mejor con una secuencia definida y progresion paso a paso" |
+| `global` | "necesita ver el panorama general antes de entrar en los detalles" |
 
-### 4.2 Plantilla para perfil mixto (`dominante == "mixto"`)
+**Plantilla:**
 
-> `"Estudiante con estilo de aprendizaje mixto, con alta afinidad en los canales {C1} ({P1}/5) y {C2} ({P2}/5). Combinar equilibradamente {formatos_inclusion_C1} con {formatos_inclusion_C2}. Evitar {formatos_exclusion_C1} y {formatos_exclusion_C2} presentados de forma aislada."`
+> `"El estudiante {fragmento_1}, {fragmento_2}, {fragmento_3} y {fragmento_4}. Se recomienda {inclusion_1} complementado con {inclusion_2} y evitar {exclusion_1}."`
 
-Restricciones del campo: 2 a 3 oraciones, en tercera persona, sin recomendaciones concretas de materia (eso es tarea del SLM con el evento academico), y siempre derivado de la tabla de la seccion 3.
+- Si `preferencias` esta vacio: usa la frase neutra de la seccion 2.5.
+- El numero de fragmentos depende de cuantas preferencias haya (0 a 4). La redaccion se ajusta para que queden 2-3 oraciones gramaticales.
 
 ---
 
-## 5. Ejemplos validados (perfiles contrastantes)
+## 5. Ejemplos validados
 
-Ambos ejemplos fueron validados contra `docs/especificaciones/perfil-estudiante.schema.json` (draft-07) y cumplen la regla de calculo del dominante en escala 1.0 a 5.0.
+Ambos validados contra `perfil-estudiante.schema.json` (draft-07) y construidos con la formula de la seccion 2.2. Los valores usan diferencias crudas impares (regla de 11 items por polo).
 
-### 5.1 Ejemplo 1: perfil fuertemente visual (dominante claro)
+### 5.1 Ejemplo 1: intuitivo fuerte, visual moderado, activo y secuencial equilibrados
 
-- **Puntajes:** `visual: 4.8`, `kinestesico: 3.5`, `lectura_escritura: 2.5`, `auditivo: 1.5`.
-- **Verificacion de la regla:** 4.8 - 3.5 = 1.3 >= 0.5 -> `dominante: "visual"`.
+- **Conteos Moodle:** `ap_active 6`, `ap_reflexivo 5`, `ap_sensorial 1`, `ap_intuitivo 10`, `ap_visual 9`, `ap_verbal 2`, `ap_secuencial 6`, `ap_global 5`.
+- **Puntajes normalizados:**
+  - `activo_reflexivo` = 3 + 2*(5-6)/11 = **3.2** (equilibrado)
+  - `sensorial_intuitivo` = 3 + 2*(10-1)/11 = **4.6** (intuitivo fuerte)
+  - `visual_verbal` = 3 + 2*(2-9)/11 = **1.7** (visual moderado)
+  - `secuencial_global` = 3 + 2*(5-6)/11 = **3.2** (equilibrado)
+- **Preferencias:** `["intuitivo", "visual"]` (solo estos dos salen de la banda equilibrada).
 
 ```json
 {
   "estilos_aprendizaje": {
-    "modelo": "vak",
-    "dominante": "visual",
+    "modelo": "felder_silverman",
     "puntajes": {
-      "visual": 4.8,
-      "auditivo": 1.5,
-      "kinestesico": 3.5,
-      "lectura_escritura": 2.5
+      "activo_reflexivo": 3.2,
+      "sensorial_intuitivo": 4.6,
+      "visual_verbal": 1.7,
+      "secuencial_global": 3.2
     },
-    "descripcion_para_prompt": "Estudiante con estilo de aprendizaje predominantemente visual (4.8/5), apoyado por afinidad kinestesica (3.5/5). Privilegiar diagramas de flujo, infografias, mapas conceptuales y videos esquematicos complementados con ejercicios interactivos y analisis de casos practicos. Evitar lecturas densas sin apoyo grafico o depender unicamente de recursos del canal auditivo (1.5/5)."
+    "preferencias": ["intuitivo", "visual"],
+    "descripcion_para_prompt": "El estudiante disfruta explorar principios, teorias y conexiones entre ideas, y privilegia recursos graficos, diagramas, mapas y videos. Se recomienda combinar casos integradores con esquemas visuales y evitar repeticion mecanica sin proposito y textos densos sin apoyo grafico."
   }
 }
 ```
 
-### 5.2 Ejemplo 2: perfil equilibrado o multimodal (`mixto`)
+### 5.2 Ejemplo 2: sensorial fuerte, verbal fuerte, reflexivo fuerte, global fuerte
 
-- **Puntajes:** `lectura_escritura: 4.5`, `kinestesico: 4.3`, `visual: 3.2`, `auditivo: 2.0`.
-- **Verificacion de la regla:** 4.5 - 4.3 = 0.2 < 0.5 -> `dominante: "mixto"`.
+- **Conteos Moodle:** `ap_active 3`, `ap_reflexivo 8`, `ap_sensorial 9`, `ap_intuitivo 2`, `ap_visual 2`, `ap_verbal 9`, `ap_secuencial 3`, `ap_global 8`.
+- **Puntajes normalizados:**
+  - `activo_reflexivo` = 3 + 2*(8-3)/11 = **3.9** (reflexivo fuerte)
+  - `sensorial_intuitivo` = 3 + 2*(2-9)/11 = **1.7** (sensorial fuerte)
+  - `visual_verbal` = 3 + 2*(9-2)/11 = **4.3** (verbal fuerte)
+  - `secuencial_global` = 3 + 2*(8-3)/11 = **3.9** (global fuerte)
+- **Preferencias:** `["reflexivo", "sensorial", "verbal", "global"]` (los 4 fuera de banda).
 
 ```json
 {
   "estilos_aprendizaje": {
-    "modelo": "vak",
-    "dominante": "mixto",
+    "modelo": "felder_silverman",
     "puntajes": {
-      "visual": 3.2,
-      "auditivo": 2.0,
-      "kinestesico": 4.3,
-      "lectura_escritura": 4.5
+      "activo_reflexivo": 3.9,
+      "sensorial_intuitivo": 1.7,
+      "visual_verbal": 4.3,
+      "secuencial_global": 3.9
     },
-    "descripcion_para_prompt": "Estudiante con estilo de aprendizaje mixto, con alta afinidad en los canales lectura_escritura (4.5/5) y kinestesico (4.3/5). Combinar equilibradamente articulos analiticos, resumenes estructurados y glosarios con ejercicios interactivos, analisis de casos practicos y simulaciones. Evitar diagramas recargados sin contexto textual y teoria abstracta prolongada sin aplicacion practica presentados de forma aislada."
+    "preferencias": ["reflexivo", "sensorial", "verbal", "global"],
+    "descripcion_para_prompt": "El estudiante aprende mejor reflexionando antes de actuar, conecta mejor con ejemplos concretos y procedimientos claros, prefiere explicaciones escritas o habladas y necesita ver el panorama general antes de los detalles. Se recomienda priorizar lecturas previas con ejemplos concretos y resumenes estructurados, complementados con panoramas integradores, y evitar exposicion oral inmediata, teoria sin aplicacion y graficos sin texto."
+  }
+}
+```
+
+### 5.3 Ejemplo 3: test incompleto (perfil neutro)
+
+```json
+{
+  "estilos_aprendizaje": {
+    "modelo": "felder_silverman",
+    "puntajes": {
+      "activo_reflexivo": 3.0,
+      "sensorial_intuitivo": 3.0,
+      "visual_verbal": 3.0,
+      "secuencial_global": 3.0
+    },
+    "preferencias": [],
+    "descripcion_para_prompt": "Sin informacion suficiente de preferencias de aprendizaje; alternar formatos visuales y verbales, activos y reflexivos, concretos y abstractos, lineales y globales."
   }
 }
 ```
@@ -166,25 +223,22 @@ Ambos ejemplos fueron validados contra `docs/especificaciones/perfil-estudiante.
 
 ## 6. Acoplamiento con la PoC actual y preparacion para E2-07 / E2-10
 
-Hoy la PoC (`poc_slm/recommender.py`) consume un campo plano `estilo_aprendizaje` por evento (`poc_slm/eventos/*.json`), con valores como `"visual"` o `"textual"`, y la regla 5 del refuerzo (`--refuerzo`) lo adapta dinamicamente en el prompt de usuario. Mapeo de equivalencia para la futura integracion:
+Hoy la PoC (`poc_slm/recommender.py`) consume un campo plano `estilo_aprendizaje` por evento (`poc_slm/eventos/*.json`), con valores como `"visual"` o `"textual"`. Mapeo de equivalencia para la futura integracion:
 
-| Valor actual en eventos PoC | Canal canonico del instrumento |
+| Valor actual en eventos PoC | Eje / polo canonico del instrumento |
 | :--- | :--- |
-| `"visual"` | `"visual"` |
-| `"textual"` | `"lectura_escritura"` |
+| `"visual"` | `visual_verbal` -> polo `visual` |
+| `"textual"` | `visual_verbal` -> polo `verbal` |
 
-En E2-07/E2-10, `descripcion_para_prompt` reemplazara a la frase fija actual de la regla 5: la regla dinamica pasara a inyectar esta sintesis (inclusion + exclusion por canal) en lugar de la correspondencia fija `visual -> diagramas/videos/mapas`. Este issue no modifica `recommender.py` ni los eventos; solo fija el contrato psicopedagogico.
+En E2-07/E2-10, `descripcion_para_prompt` reemplazara a la frase fija actual de la regla 5 (refuerzo `--refuerzo`): la regla dinamica pasara a inyectar esta sintesis (inclusion + exclusion por polo) en lugar de la correspondencia fija `visual -> diagramas`. Este issue no modifica `recommender.py` ni los eventos; solo fija el contrato psicopedagogico.
 
 ---
 
 ## 7. Referencias
 
-Fuentes del marco psicopedagogico utilizado por el instrumento. Fleming y Mills (1992) y Felder y Silverman (1988) sustentan el modelo adoptado; las revisiones criticas (Coffield et al., 2004; Pashler et al., 2008) respaldan el criterio no determinista de la seccion 1.2.
-
-- Coffield, F., Moseley, D., Hall, E., y Ecclestone, K. (2004). *Learning styles and pedagogy in post-16 learning: A systematic and critical review*. Learning and Skills Research Centre.
+- Felder, R. M., y Soloman, B. A. (s. f.). *Index of Learning Styles*. North Carolina State University. https://www.ncsu.edu/felder-public/ILSpage.html
 - Felder, R. M., y Silverman, L. K. (1988). Learning and teaching styles in engineering education. *Engineering Education, 78*(7), 674-681.
-- Fleming, N. D. (2001). *Teaching and learning styles: VARK strategies*. N. D. Fleming.
-- Fleming, N. D., y Mills, C. (1992). Not another inventory, rather a catalyst for reflection. *To Improve the Academy, 11*(1), 137-155. https://doi.org/10.1002/j.2334-4822.1992.tb00213.x
-- Kolb, D. A. (1984). *Experiential learning: Experience as the source of learning and development*. Prentice-Hall.
-- Pashler, H., McDaniel, M., Rohrer, D., y Bjork, R. (2008). Learning styles: Concepts and evidence. *Psychological Science in the Public Interest, 9*(3), 105-119. https://doi.org/10.1111/j.1539-6053.2009.01038.x
-- VARK Learn Limited. (s. f.). *The VARK modalities*. https://vark-learn.com/introduction-to-vark/the-vark-modalities/
+- Zywno, M. S. (2003). A contribution to validation of score meaning for Felder-Soloman's Index of Learning Styles. *ASEE Annual Conference*.
+- Coffield, F., Moseley, D., Hall, E., y Ecclestone, K. (2004). *Learning styles and pedagogy in post-16 learning: A systematic and critical review*. Learning and Skills Research Centre.
+- Pashler, H., McDaniel, M., Rohrer, D., y Bjork, R. (2008). Learning styles: Concepts and evidence. *Psychological Science in the Public Interest, 9*(3), 105-119.
+- Bloque `block_learning_style` (IS-UTB / SAVIO): carpeta `learning_style` del contenedor Moodle (mapeo de items, calculo de conteos y salida radar 0-11).
