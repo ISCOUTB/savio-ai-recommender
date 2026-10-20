@@ -1,7 +1,7 @@
 # Entrega 2 - Sprint 1: Plan, repo y Moodle minimo
 
 **Estado:** En curso
-**Issues:** E2-01, E2-02, E2-03
+**Issues:** E2-01, E2-02, E2-03, E2-16
 
 ## Objetivo
 

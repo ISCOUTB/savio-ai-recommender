@@ -10,3 +10,6 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Perfiles con datos reales (E2-14: solo perfiles simulados se versionan)
+perfiles/reales/

@@ -1,37 +1,38 @@
 {
   "estudiante_id": "demo-001",
+  "origen": "simulado",
   "estilos_aprendizaje": {
-    "modelo": "vak",
-    "dominante": "visual",
+    "modelo": "felder_silverman",
     "puntajes": {
-      "visual": 8,
-      "auditivo": 4,
-      "kinestesico": 6,
-      "lectura_escritura": 5
+      "activo_reflexivo": 1.7,
+      "sensorial_intuitivo": 4.6,
+      "visual_verbal": 1.7,
+      "secuencial_global": 3.2
     },
-    "descripcion_para_prompt": "Prefiere diagramas, mapas, ejemplos visuales y pasos cortos antes que lecturas largas."
+    "preferencias": ["activo", "intuitivo", "visual"],
+    "descripcion_para_prompt": "Aprende mejor experimentando y con ejemplos concretos; le funcionan los esquemas visuales, diagramas y pasos claros. Evitar teoria pasiva y textos densos sin apoyo grafico."
   },
   "personalidad": {
     "rasgos": {
-      "introversion_extraversion": 3,
-      "autonomia": 7,
-      "metodicidad": 6,
-      "apertura": 8
+      "introversion_extraversion": 4.1,
+      "autonomia": 2.1,
+      "metodicidad": 4.6,
+      "apertura": 1.9
     },
-    "resumen_conductual": "Trabaja bien de forma individual, necesita estructura clara y tolera retos si se explican con calma.",
-    "preferencias_trabajo": ["individual", "ritmo propio", "retroalimentacion breve"]
+    "resumen_conductual": "Colabora bien en foros y debates; necesita secuencia y cronograma claros; conecta con ejemplos concretos y aplicacion practica.",
+    "preferencias_trabajo": ["colaborativo", "foros y debates", "secuencia definida", "cronograma", "ejemplos concretos", "aplicacion practica inmediata"]
   },
   "chaside": {
     "areas": {
-      "C": 4,
-      "H": 7,
-      "A": 6,
-      "S": 3,
-      "I": 8,
-      "D": 1,
-      "E": 5
+      "C": 2.1,
+      "H": 3.0,
+      "A": 2.7,
+      "S": 1.9,
+      "I": 3.3,
+      "D": 1.3,
+      "E": 2.4
     },
     "areas_dominantes": ["I", "H"],
-    "descripcion_para_analogias": "Conviene conectar la materia con ejemplos de sistemas, diseno logico y comunicacion clara."
+    "descripcion_para_analogias": "Conectar la materia con sistemas, diseno logico y comunicacion clara; areas dominantes: Investigador (I) y Humanistico (H)."
   }
 }

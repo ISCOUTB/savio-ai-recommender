@@ -158,15 +158,12 @@ estudiante (HTTP 200, sin error de permisos).
 - **Plan B (fixtures simulados):** el equipo decidio **no generarlos por ahora**.
   Primero se diligencian los tests reales con las tres cuentas; si algo bloquea el
   diligenciamiento, se retoma la generacion de fixtures.
-- El campo `"origen": "simulado"` que pide el issue E2-03 no cabe en
-  `docs/especificaciones/perfil-estudiante.schema.json` porque el schema usa
-  `additionalProperties: false`. Hay que decidir entre extender el schema con un
-  `origen` opcional o marcar la simulacion por nombre/carpeta del archivo.
-- `estilos_aprendizaje.dominante` no contempla los polos de Felder. El
-  instrumento real entrega 4 ejes bipolares (Activo/Reflexivo,
-  Sensorial/Intuitivo, Visual/Verbal, Secuencial/Global), no un unico dominante.
-  La nota de alineacion esta en
-  `docs/especificaciones/instrumento-estilos-aprendizaje.md` (seccion 2.4).
+- El campo `"origen": "simulado"` que pide el issue E2-03 ya esta resuelto:
+  se agrego `origen` obligatorio (`real` / `simulado`) a nivel de perfil en
+  `perfil-estudiante.schema.json`.
+- `estilos_aprendizaje.dominante` (VARK) **resuelto (2026-10-19):** se elimino
+  `dominante` y se agrego `preferencias` (8 polos, max 4) con Felder-Soloman
+  como modelo canonico. Ver `docs/especificaciones/instrumento-estilos-aprendizaje.md`.
 - `personalidad` guarda `rasgos` numericos libres; falta definir donde se anota
   el tipo MBTI de 4 letras (por ejemplo `ENTJ`).
 - Confirmar con el docente si se usan estos bloques en Savio institucional o en
