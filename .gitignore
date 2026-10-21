@@ -10,6 +10,3 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
-
-# Feedback real de estudiantes (E2-11): no se versiona
-poc_slm/feedback/feedback.jsonl

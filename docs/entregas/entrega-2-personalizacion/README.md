@@ -49,9 +49,9 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 |---|---|---|---|
 | 1 | [Plan, repo y Moodle minimo](sprint-1-plan-y-moodle.md) | ROADMAP, issues, Docker Moodle minimo | En curso |
 | 2 | [Perfil JSON y tests](sprint-2-perfil-json-tests.md) | Modelado de Estilos, Personalidad y CHASIDE | Pendiente |
-| 3 | [Materia piloto y recursos](sprint-3-materia-piloto.md) | Taller de Escritura recomendado | Completado |
+| 3 | [Materia piloto y recursos](sprint-3-materia-piloto.md) | Taller de Escritura recomendado | Pendiente |
 | 4 | [Destilacion y fine-tuning](sprint-4-destilacion-finetuning.md) | Nucleo tecnico de la entrega | Pendiente |
-| 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | En curso |
+| 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | Pendiente |
 | 6 | [Demo y cierre](sprint-6-demo-y-cierre.md) | Flujo minimo verificable | Pendiente |
 
 ---
@@ -71,8 +71,8 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 - [ ] Plan documentado y tablero operativo.
 - [ ] Moodle local minimo instalado con bloques base, con apoyo del docente.
 - [ ] Tests modelados a un schema JSON unico.
-- [x] Materia piloto y recursos A/B/C definidos.
+- [ ] Materia piloto y recursos A/B/C definidos.
 - [ ] Propuesta tecnica de destilacion/fine-tuning justificada por RAM, KV cache y latencia.
 - [ ] Prompt builder minimo validado con ejemplos.
-- [x] Feedback loop y metricas definidos.
+- [ ] Feedback loop y metricas definidos.
 - [ ] Demo local minima documentada.

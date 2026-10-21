@@ -14,24 +14,8 @@ poc_slm/
 │   ├── A_nota_baja.json      ← Escenario A: tutoria reactiva ante nota baja (Sprint 3)
 │   ├── B_visual.json         ← Escenario B: misma deficiencia, estilo visual (Sprint 3)
 │   └── B_textual.json        ← Escenario B: misma deficiencia, estilo textual (Sprint 3)
-├── feedback_tracker.py   ← Registro de feedback JSONL y KPIs acierto/descache (Entrega 2, E2-11)
-├── recursos/
-│   └── semana_1.json         ← Recursos A/B/C de la materia piloto (Entrega 2, E2-08)
-├── feedback/
-│   ├── feedback_simulado.jsonl ← 30 eventos simulados reproducibles (semilla 42)
-│   └── feedback.jsonl          ← Feedback real (no se versiona, ver .gitignore)
 └── README.md
 ```
-
-## Feedback y KPIs (Entrega 2, E2-11)
-
-```bash
-python poc_slm/feedback_tracker.py registrar --recomendacion-id rec-001 --estudiante-id demo-001 --semana 1 --recurso-id tde-s1-A --util si --likert 4
-python poc_slm/feedback_tracker.py simular --n 30 --semilla 42 --sobrescribir
-python poc_slm/feedback_tracker.py kpis --archivo poc_slm/feedback/feedback_simulado.jsonl
-```
-
-Especificacion completa: [docs/especificaciones/feedback-loop.md](../docs/especificaciones/feedback-loop.md)
 
 ## Instalacion (desde la raiz del repositorio)
 
