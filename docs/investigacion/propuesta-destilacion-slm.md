@@ -2,9 +2,10 @@
 
 - **Identificador:** E2-09
 - **Modulo:** Nucleo SLM de la Entrega 2 (recomendacion de recursos A/B/C segun el perfil)
-- **Depende de:** E2-01, E2-08 (`poc_slm/recursos/semana_1.json`)
-- **Desbloquea:** E2-12, E2-19 (construccion de datasets), E2-20 (entrenamiento y GGUF)
-- **Evidencia medida:** `benchmarks/resultados/amd-ryzen-5-5600h-rtx-3050/e2-09/` (generada con `benchmarks/benchmark.py` y `benchmarks/e2_09_candidatos.py` el 2026-10-20)
+- **Depende de:** E2-01, E2-08 (`poc_slm/recursos/semana_1.json`, PR #36)
+- **Desbloquea:** E2-19 (construccion de datasets) y E2-20 (entrenamiento y GGUF). No es dependencia de la demo E2-12: el ajuste se ejecuta despues de ella (orden acordado en `docs/entregas/entrega-2-personalizacion/README.md`).
+- **Evidencia medida:** `benchmarks/resultados/amd-ryzen-5-5600h-rtx-3050/e2-09/` (generada con `benchmarks/benchmark.py`, `benchmarks/e2_09_candidatos.py` y `benchmarks/e2_09_concurrencia.py` entre el 2026-10-20 y el 2026-10-21)
+- **Responsables de los datasets (paso 3 de la issue):** Dataset A, Persona 2; Dataset B, Persona 1; consolidacion y split, Persona 3 (E2-19).
 
 ---
 
@@ -27,6 +28,7 @@ Todas las cifras de este documento son propias, medidas en un mismo equipo y una
 | Rendimiento | `benchmarks/benchmark.py` sin cambios: prompt real de la PoC (guardrails + escenario A con refuerzo), 300 tokens de salida, 3 corridas por modelo en GPU y en solo CPU |
 | KV cache | `benchmarks/e2_09_candidatos.py`: teorico con la arquitectura de cada modelo (`/api/show`) y medido como la diferencia del tamano que reporta `/api/ps` al cargar el modelo en CPU con `num_ctx` 2048 y 8192 |
 | Linea base A/B/C | Mismo script: cada modelo, sin ajuste, recibe 3 perfiles simulados contrastantes + los 3 recursos de la semana 1 y debe responder JSON (`opcion`, `justificacion`, `descarte`). 2 semillas por perfil (6 corridas por modelo) |
+| Concurrencia | `benchmarks/e2_09_concurrencia.py`: 1, 2, 4 y 8 solicitudes A/B/C simultaneas contra un servidor Ollama aparte con `OLLAMA_NUM_PARALLEL=8` y `num_ctx` 2048 (Ollama 0.40.7, 2026-10-21) |
 | Licencias | Metadatos GGUF (`general.license`) y texto de `ollama show --license` |
 
 > **Advertencia de comparabilidad:** con Ollama 0.40.6 las velocidades salieron mayores que las del 2026-10-07 (Ollama 0.40.1) en el mismo portatil; por ejemplo, Qwen 2.5 3B en GPU paso de 44.2 a 66.7 tokens/s. Por eso **solo se comparan modelos medidos en la misma sesion** y no se mezclan estas cifras con la tabla de la Entrega 1.
@@ -101,6 +103,11 @@ Muestra pequena (6 corridas por modelo, 3 perfiles): las tasas sirven para detec
 | | Llama 3.2 1B | Peor linea base (67 % JSON, 17 % coincidencia) y licencia propia. |
 | | Gemma 2 2B | Sesgo total hacia A, licencia propia y URLs inventadas en la Entrega 1. |
 
+**Relacion con decisiones previas del equipo:**
+
+- La decision de la Entrega 1 (Qwen 2.5 1.5B para la demo local sin GPU y Qwen 2.5 3B como objetivo institucional) **sigue vigente para la demo E2-12**. El student de 0.5B es el objetivo del ajuste y solo reemplaza a esos modelos si supera los umbrales de la seccion 9 en E2-20.
+- `docs/investigacion/modelos-candidatos.md` menciona tambien Nemotron y Mistral/Mixtral. No entraron en la medicion porque la issue E2-09 fija la lista de candidatos y porque Mistral 7B no cabe en los 4 GB de VRAM del equipo de prueba; quedan como alternativas si el servidor institucional tiene mas memoria.
+
 ---
 
 ## 4. Memoria y KV cache por usuario
@@ -136,7 +143,32 @@ Los modelos con *grouped-query attention* (GQA) tienen pocas cabezas KV y por es
 
 Con el student propuesto (Qwen 2.5 0.5B), cada usuario activo reserva ~41 MiB de KV cache a 2048 tokens, sobre 0.44 GB de pesos. Un servidor con 4 GiB libres para KV cache podria mantener del orden de **100 contextos simultaneos**, frente a ~39 con Qwen 2.5 3B y ~10 con SmolLM2 1.7B.
 
-**Limites de esta estimacion:** es un calculo de memoria, no de rendimiento. Con muchos usuarios simultaneos el cuello de botella pasa a ser el computo (los tokens/s se reparten), y Ollama solo atiende en paralelo hasta `OLLAMA_NUM_PARALLEL` solicitudes. La concurrencia real debe medirse en el servidor asignado (E2-12).
+Esta estimacion es solo de memoria; la seccion 4.4 mide lo que pasa con el tiempo de respuesta.
+
+### 4.4 Concurrencia medida (RTX 3050 4 GB)
+
+Solicitudes A/B/C simultaneas (200 tokens de salida maximo, perfiles rotados), con el servidor configurado para atender hasta 8 en paralelo:
+
+| Modelo | Usuarios simultaneos | Latencia media | Latencia maxima | Tokens/s del servidor | Memoria reservada (8 ranuras) |
+| :--- | ---: | ---: | ---: | ---: | :--- |
+| **Qwen 2.5 0.5B** | 1 | 0.79 s | 0.79 s | 217 | 0.64 GB, toda en VRAM |
+| | 2 | 0.74 s | 0.90 s | 297 | |
+| | 4 | 1.67 s | 2.14 s | 288 | |
+| | 8 | **2.35 s** | 3.57 s | 327 | |
+| Qwen 2.5 1.5B | 1 | 1.67 s | 1.67 s | 120 | 1.52 GB, toda en VRAM |
+| | 8 | 4.52 s | 4.88 s | 307 | |
+| Qwen 2.5 3B | 1 | 3.71 s | 3.71 s | 53 | 2.78 GB, solo 2.27 GB en VRAM |
+| | 8 | **12.79 s** | 13.49 s | 111 | |
+
+(Detalle de 2 y 4 usuarios para 1.5B y 3B en `concurrencia.json`.)
+
+**Hallazgos:**
+
+1. Con el student propuesto, **8 estudiantes simultaneos esperan en promedio 2.4 s**, y el servidor sube de 217 a 327 tokens/s porque procesa las solicitudes en lote.
+2. Qwen 2.5 3B con 8 ranuras ya **no cabe completo en 4 GB de VRAM** (parte se va a CPU) y la latencia sube a ~13 s. Es una razon adicional para que el modelo de produccion sea el pequeno y el 3B quede solo como teacher fuera de linea.
+3. Reservar 8 ranuras de 2048 tokens agrego ~0.2 GB al 0.5B y ~0.8 GB al 3B, del orden de lo estimado en 4.2.
+
+**Limites:** equipo portatil con una sola GPU y 8 usuarios como maximo. La capacidad del servidor institucional (con mas usuarios y otro hardware) debe repetirse alli con este mismo script.
 
 ---
 
@@ -153,6 +185,17 @@ Con el student propuesto (Qwen 2.5 0.5B), cada usuario activo reserva ~41 MiB de
 | Poda de capas | Elimina capas o neuronas del modelo | Requiere reentrenamiento para recuperar calidad y herramientas adicionales | ❌ Fuera de alcance |
 
 ### 5.2 Pipeline propuesto
+
+Se respeta el orden de prueba de `docs/investigacion/destilacion-finetuning.md`, de lo mas barato a lo mas costoso, con una puerta de decision entre etapas:
+
+| Etapa | Que se prueba | Estado | Si alcanza los umbrales de la seccion 9 |
+| :--- | :--- | :--- | :--- |
+| 1. Linea base | Student sin ajuste | ✅ Medida (seccion 3.2): no alcanza | - |
+| 2. Prompting mejorado | Student sin ajuste con 2-3 ejemplos resueltos en el prompt (few-shot), orden de A/B/C barajado y salida JSON forzada (`format: "json"` de Ollama) | Pendiente; se corre con `e2_09_candidatos.py` antes de entrenar | Se adopta sin entrenar y el ajuste queda como mejora opcional |
+| 3. Destilacion + QLoRA | Pipeline de abajo | Propuesto (E2-19 y E2-20) | Se adopta el modelo ajustado |
+| 4. Destilacion por logits o poda | Solo si 3 no alcanza y hay hardware | Fuera de la Entrega 2 | - |
+
+Pipeline de la etapa 3:
 
 ```text
 1. Etiqueta     reglas pedagogicas (5.3) + revision humana  ->  opcion correcta (A/B/C)
@@ -182,11 +225,13 @@ CHASIDE **no** participa en la etiqueta (regla de oro de E2-06); solo alimenta l
 
 ## 6. Esquema de los datasets A y B
 
-Ambos en **JSONL**, una muestra por linea, con los campos `instruction`, `input` y `output` (formato acordado en E2-19). Los perfiles son siempre simulados o anonimizados (ver E2-14); los perfiles reales nunca se versionan.
+Ambos en **JSONL**, una muestra por linea, con los campos `instruction`, `input` y `output` (formato acordado en E2-19).
+
+**Datos personales:** como exige E2-19, el Dataset B incluye los **3 perfiles reales** del equipo (`persona-1` a `persona-3`), pero **anonimizados**: sin nombre, usuario ni id de Moodle, solo con los campos de texto del perfil. El resto de los ejemplos usa perfiles simulados (`origen: "simulado"`). Los perfiles reales completos siguen fuera de git (`perfiles/reales/`) y el tratamiento final depende de los lineamientos de E2-14.
 
 ### 6.1 Dataset A - Materia piloto (Taller de Escritura)
 
-Objetivo: que el student domine el vocabulario y los errores comunes del tema de la semana para justificar con precision. Meta de E2-19: al menos 50 fragmentos.
+Objetivo: que el student domine el vocabulario y los errores comunes del tema de la semana para justificar con precision. Meta de E2-19: al menos 50 fragmentos. Responsable del contenido: Persona 2 (autora de E2-08).
 
 ```json
 {"instruction": "Explica el concepto en 2 o 3 oraciones para un estudiante universitario, con una analogia del dominio indicado.", "input": {"tema": "Estructura del ensayo argumentativo: tesis y contraargumentos", "concepto": "contraargumento", "dominio_analogia": "procesos tecnicos, sistemas y resolucion de problemas"}, "output": "El contraargumento es la objecion mas fuerte contra tu tesis, presentada de forma justa antes de responderla. Es como una prueba de estres en un sistema: buscas a proposito donde podria fallar tu postura para reforzarla. Un error comun es presentar una objecion debil que nadie sostendria."}
@@ -194,7 +239,7 @@ Objetivo: que el student domine el vocabulario y los errores comunes del tema de
 
 ### 6.2 Dataset B - Decision psicopedagogica
 
-Objetivo: que el student elija A, B o C segun el perfil y lo justifique sin inventar recursos. Meta de E2-19: al menos 100 pares.
+Objetivo: que el student elija A, B o C segun el perfil y lo justifique sin inventar recursos. Meta de E2-19: al menos 100 pares. Responsable de los ejemplos: Persona 1 (autor del perfil consolidado, E2-07).
 
 ```json
 {"instruction": "Elige UNO de los tres recursos para este estudiante. Responde solo JSON con opcion, justificacion y descarte. No inventes recursos ni enlaces y no menciones puntajes ni carreras.", "input": {"perfil": {"estilo": "Prefiere leer y analizar textos con calma, tomar notas y reflexionar antes de producir.", "personalidad": "Trabaja bien de forma individual y con lecturas extensas.", "analogias": "comunicacion, analisis social y textos"}, "recursos": [{"opcion": "A", "titulo": "Mapa interactivo: del problema a la tesis defendible", "tipo": "diagrama", "nivel": "basico", "minutos": 15}, {"opcion": "B", "titulo": "Guia de lectura analitica: dos ensayos modelo y glosario", "tipo": "lectura", "nivel": "intermedio", "minutos": 45}, {"opcion": "C", "titulo": "Taller guiado: construye tu tesis y anticipa la objecion", "tipo": "ejercicio", "nivel": "avanzado", "minutos": 60}]}, "output": {"opcion": "B", "justificacion": "La guia de lectura analitica encaja con tu forma de aprender: podras estudiar con calma dos ensayos anotados y comparar como cada autor construye su tesis. Es como analizar dos discursos de un debate para entender que hace convincente a cada uno.", "descarte": "El mapa interactivo resume la estructura, pero deja poco texto para analizar. El taller guiado es valioso, aunque te pide producir antes de haber analizado modelos; puede ser un buen siguiente paso."}}
@@ -244,30 +289,48 @@ El ajuste fino puede degradar el comportamiento seguro aprendido por el modelo, 
 
 ## 9. Metricas y criterios de decision para E2-20
 
-| Metrica | Linea base medida (Qwen 2.5 0.5B) | Umbral propuesto para adoptar el modelo ajustado |
+E2-20 (#44) fija una rubrica de **6 criterios**: pertinencia, justificacion, descarte, no invencion, guardrails y formato. Esta tabla define como medir cada uno y el umbral para adoptar el modelo ajustado. Los criterios 1 a 3 los califica el equipo (escala 1 a 5, sobre el split de evaluacion); los criterios 4 a 6 se miden de forma automatica.
+
+| # | Criterio de la rubrica (E2-20) | Como se mide | Linea base medida (Qwen 2.5 0.5B) | Umbral para adoptar |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | Pertinencia | Coincidencia de la opcion con la etiqueta revisada; sesgo de posicion en un eval balanceado | 33 % de coincidencia; 100 % de las respuestas validas eligieron A | >= 70 % de coincidencia y ninguna opcion por encima del 50 % |
+| 2 | Justificacion | Calificacion 1-5 del equipo: la razon usa el perfil real del estudiante y no se contradice | Por calificar (respuestas guardadas en `candidatos.json`) | Promedio >= 4 |
+| 3 | Descarte | Calificacion 1-5 del equipo: explica por que no se eligieron las otras dos opciones | Por calificar | Promedio >= 4 |
+| 4 | No invencion | Respuestas con URLs, recursos fuera de A/B/C, autores o titulos inventados | 0 % de URLs | 0 % |
+| 5 | Guardrails | Protocolo de la seccion 7 (6 pruebas x 3 ejecuciones) | Por medir antes de entrenar | Igual o mejor que la linea base |
+| 6 | Formato | JSON valido con las 3 claves (`opcion`, `justificacion`, `descarte`) | 83 % | >= 95 % |
+
+Metricas de costo (no son de la rubrica, pero deciden la viabilidad):
+
+| Metrica | Linea base medida (Qwen 2.5 0.5B) | Umbral |
 | :--- | :--- | :--- |
-| JSON valido | 83 % | >= 95 % |
-| Coincidencia con la etiqueta revisada (split de evaluacion) | 33 % (perfiles simulados) | >= 70 % |
-| Sesgo de posicion (opcion mas frecuente en un eval balanceado) | 100 % hacia A en corridas validas | <= 50 % |
-| URLs o recursos inventados | 0 % | 0 % |
-| Protocolo de guardrails (seccion 7) | Por medir antes de entrenar | Igual o mejor que la linea base |
 | RAM en CPU / VRAM | 0.59 GB / 0.54 GB | Sin aumento mayor a 10 % (misma arquitectura y cuantizacion) |
-| Latencia A/B/C en GPU | 3.6 s | <= 5 s |
+| Latencia A/B/C en GPU, 1 usuario | 3.6 s (sesion 2026-10-20) | <= 5 s |
+| Latencia media con 8 usuarios simultaneos | 2.35 s (seccion 4.4) | <= 5 s |
 
 ---
 
 ## 10. Referencias
 
-- Ainslie, J., Lee-Thorp, J., de Jong, M., Zemlyanskiy, Y., Lebron, F., y Sanghai, S. (2023). GQA: Training generalized multi-query transformer models from multi-head checkpoints. *Proceedings of EMNLP 2023*. arXiv:2305.13245.
-- Ben Allal, L., Lozhkov, A., Bakouch, E., et al. (2025). SmolLM2: When smol goes big - Data-centric training of a small language model. arXiv:2502.02737.
-- Dettmers, T., Pagnoni, A., Holtzman, A., y Zettlemoyer, L. (2023). QLoRA: Efficient finetuning of quantized LLMs. *Advances in Neural Information Processing Systems, 36*. arXiv:2305.14314.
-- Gemma Team (2024). Gemma 2: Improving open language models at a practical size. arXiv:2408.00118.
-- Grattafiori, A., Dubey, A., et al. (2024). The Llama 3 herd of models. arXiv:2407.21783.
-- Hinton, G., Vinyals, O., y Dean, J. (2015). Distilling the knowledge in a neural network. arXiv:1503.02531.
-- Hsieh, C.-Y., Li, C.-L., Yeh, C.-K., et al. (2023). Distilling step-by-step! Outperforming larger language models with less training data and smaller model sizes. *Findings of ACL 2023*. arXiv:2305.02301.
-- Hu, E. J., Shen, Y., Wallis, P., et al. (2022). LoRA: Low-rank adaptation of large language models. *ICLR 2022*. arXiv:2106.09685.
-- Kim, Y., y Rush, A. M. (2016). Sequence-level knowledge distillation. *Proceedings of EMNLP 2016*, 1317-1327.
-- Kwon, W., Li, Z., Zhuang, S., et al. (2023). Efficient memory management for large language model serving with PagedAttention. *Proceedings of SOSP 2023*.
-- Qi, X., Zeng, Y., Xie, T., et al. (2024). Fine-tuning aligned language models compromises safety, even when users do not intend to! *ICLR 2024*. arXiv:2310.03693.
-- Qwen Team (2024). Qwen2.5 technical report. arXiv:2412.15115.
-- Mediciones propias: `benchmarks/resultados/amd-ryzen-5-5600h-rtx-3050/e2-09/benchmark/resultados.json` y `benchmarks/resultados/amd-ryzen-5-5600h-rtx-3050/e2-09/candidatos.json` (2026-10-20).
+- Ainslie, J., Lee-Thorp, J., de Jong, M., Zemlyanskiy, Y., Lebron, F., y Sanghai, S. (2023). GQA: Training generalized multi-query transformer models from multi-head checkpoints. *Proceedings of EMNLP 2023*. https://arxiv.org/abs/2305.13245
+- Ben Allal, L., Lozhkov, A., Bakouch, E., et al. (2025). SmolLM2: When smol goes big - Data-centric training of a small language model. https://arxiv.org/abs/2502.02737
+- Dettmers, T., Pagnoni, A., Holtzman, A., y Zettlemoyer, L. (2023). QLoRA: Efficient finetuning of quantized LLMs. *Advances in Neural Information Processing Systems, 36*. https://arxiv.org/abs/2305.14314
+- Gemma Team (2024). Gemma 2: Improving open language models at a practical size. https://arxiv.org/abs/2408.00118
+- Grattafiori, A., Dubey, A., et al. (2024). The Llama 3 herd of models. https://arxiv.org/abs/2407.21783
+- Hinton, G., Vinyals, O., y Dean, J. (2015). Distilling the knowledge in a neural network. https://arxiv.org/abs/1503.02531
+- Hsieh, C.-Y., Li, C.-L., Yeh, C.-K., et al. (2023). Distilling step-by-step! Outperforming larger language models with less training data and smaller model sizes. *Findings of ACL 2023*. https://arxiv.org/abs/2305.02301
+- Hu, E. J., Shen, Y., Wallis, P., et al. (2022). LoRA: Low-rank adaptation of large language models. *ICLR 2022*. https://arxiv.org/abs/2106.09685
+- Kim, Y., y Rush, A. M. (2016). Sequence-level knowledge distillation. *Proceedings of EMNLP 2016*, 1317-1327. https://arxiv.org/abs/1606.07947
+- Kwon, W., Li, Z., Zhuang, S., et al. (2023). Efficient memory management for large language model serving with PagedAttention. *Proceedings of SOSP 2023*. https://arxiv.org/abs/2309.06180
+- Qi, X., Zeng, Y., Xie, T., et al. (2024). Fine-tuning aligned language models compromises safety, even when users do not intend to! *ICLR 2024*. https://arxiv.org/abs/2310.03693
+- Qwen Team (2024). Qwen2.5 technical report. https://arxiv.org/abs/2412.15115
+
+**Licencias y fichas de los modelos (consultadas el 2026-10-21):**
+
+- Qwen 2.5 0.5B Instruct (Apache 2.0): https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct
+- Qwen 2.5 3B Instruct (Qwen Research License): https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/blob/main/LICENSE
+- SmolLM2 360M Instruct (Apache 2.0): https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct
+- Llama 3.2 1B Instruct (Llama 3.2 Community License): https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
+- Gemma Terms of Use: https://ai.google.dev/gemma/terms
+
+**Mediciones propias:** `benchmarks/resultados/amd-ryzen-5-5600h-rtx-3050/e2-09/` (`benchmark/resultados.json`, `candidatos.json` y `concurrencia.json`).

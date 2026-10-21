@@ -18,4 +18,4 @@ Criterios de seleccion:
 5. Licencia compatible con uso academico institucional.
 6. Facilidad de destilar o ajustar en Hugging Face.
 
-Decision pendiente: E2-09.
+Decision: ver `docs/investigacion/propuesta-destilacion-slm.md` (E2-09), con mediciones de los candidatos en `benchmarks/resultados/amd-ryzen-5-5600h-rtx-3050/e2-09/`.
