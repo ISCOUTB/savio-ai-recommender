@@ -1,7 +1,7 @@
 # Entrega 2 - Sprint 4: Nucleo de destilacion y fine-tuning
 
 **Estado:** Pendiente
-**Issues:** E2-09
+**Issues:** E2-09 (E2-19 y E2-20 se ejecutan post-entrega)
 
 ## Objetivo
 

@@ -1,7 +1,7 @@
 # Entrega 2 - Sprint 2: Perfil JSON y tests
 
 **Estado:** Pendiente
-**Issues:** E2-04, E2-05, E2-06, E2-07
+**Issues:** E2-04, E2-05, E2-06, E2-07, E2-17, E2-18
 
 ## Objetivo
 

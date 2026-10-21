@@ -54,6 +54,29 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 | 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | Pendiente |
 | 6 | [Demo y cierre](sprint-6-demo-y-cierre.md) | Flujo minimo verificable | Pendiente |
 
+### Issues por sprint
+
+| Sprint | Issues | Foco |
+| :--- | :--- | :--- |
+| 1 | E2-01, E2-02, E2-03, E2-16 | Plan, Moodle y cronograma |
+| 2 | E2-04, E2-05, E2-06, E2-07, E2-17, E2-18 | Perfil, instrumento y tres perfiles reales |
+| 3 | E2-08 | Materia piloto y recursos A/B/C |
+| 4 | E2-09 | Nucleo de destilacion |
+| 5 | E2-10, E2-11 | Prompt builder y feedback |
+| 6 | E2-12 | Demo y cierre |
+| Post-entrega | E2-19, E2-20 | Datasets y ajuste, solo si alcanza |
+| Transversal | E2-13, E2-14, E2-15 | Consultas a docente y area legal |
+
+Orden de ejecucion acordado (2026-10-20): cronograma (E2-16) y consulta del
+instrumento (E2-17) primero; luego el flujo demostrable
+(E2-08 -> E2-10 -> E2-11 -> E2-12), con E2-09 en paralelo y E2-18 donde haya
+hueco. El ajuste (E2-19 y E2-20) va despues de la demo y **no** es dependencia
+de ella.
+
+La arquitectura, la rubrica de calidad y la medicion de concurrencia quedan como
+criterios dentro de E2-12, E2-11 y E2-09; no se crean como issues separados para
+no duplicar el trabajo.
+
 ---
 
 ## Artefactos base
@@ -62,6 +85,7 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 - Esquema de recurso semanal: `docs/especificaciones/recurso-semanal.schema.json`
 - Esquema de feedback: `docs/especificaciones/feedback.schema.json`
 - Investigacion: `docs/investigacion/modelos-candidatos.md` y `docs/investigacion/destilacion-finetuning.md`
+- Decisiones y problemas del perfilamiento: `docs/decisiones/decisiones-y-problemas.md`
 - Issues listos: `docs/entregas/entrega-2-personalizacion/github-issues.md`
 
 ---
@@ -69,10 +93,12 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 ## Criterio de cierre de la entrega, version base
 
 - [ ] Plan documentado y tablero operativo.
-- [ ] Moodle local minimo instalado con bloques base, con apoyo del docente.
+- [x] Moodle local minimo instalado con los bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE (E2-02 y E2-03); ver `moodle/plugins.md`.
 - [ ] Tests modelados a un schema JSON unico.
 - [ ] Materia piloto y recursos A/B/C definidos.
 - [ ] Propuesta tecnica de destilacion/fine-tuning justificada por RAM, KV cache y latencia.
 - [ ] Prompt builder minimo validado con ejemplos.
 - [ ] Feedback loop y metricas definidos.
 - [ ] Demo local minima documentada.
+- [ ] Cronograma con fechas aprobado por el equipo (E2-16).
+- [ ] Instrumento de estilos confirmado con la docente o supuesto declarado (E2-17).

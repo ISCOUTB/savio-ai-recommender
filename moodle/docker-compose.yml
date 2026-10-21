@@ -1,3 +1,18 @@
+# Moodle local minimo (habilitador de Entrega 2, issue E2-02).
+#
+# Nota sobre la imagen de Moodle (hallazgo 2026-10-18):
+#   El tag original `moodlehq/moodle:latest` NO existe en Docker Hub.
+#   Se usa la imagen autoinstalable de Bitnami (registro legacy, aun publicado):
+#     bitnamilegacy/moodle:5.0.2  -> Moodle 5.0.2 con instalacion automatica.
+#   Base de datos: mariadb:10.11 (imagen oficial, como pedia el issue).
+#
+# Levantar:   docker compose up -d
+# Estado:     docker compose ps
+# Logs:       docker compose logs -f moodle
+# Detener:    docker compose stop
+# Borrar:     docker compose down      (conserva volumenes)
+# Borrar todo: docker compose down -v  (elimina base de datos y datos)
+
 services:
   db:
     image: mariadb:10.11
@@ -8,22 +23,39 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
 
   moodle:
-    image: moodlehq/moodle:latest
+    image: bitnamilegacy/moodle:5.0.2
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
-      MOODLE_DB_HOST: db
-      MOODLE_DB_NAME: moodle
-      MOODLE_DB_USER: moodle
-      MOODLE_DB_PASSWORD: moodle
-      MOODLE_URL: http://localhost:8080
+      # Conexion a la base de datos (deben coincidir con el servicio db).
+      MOODLE_DATABASE_HOST: db
+      MOODLE_DATABASE_PORT_NUMBER: 3306
+      MOODLE_DATABASE_NAME: moodle
+      MOODLE_DATABASE_USER: moodle
+      MOODLE_DATABASE_PASSWORD: moodle
+      # Cuenta administrador del sitio (login reproducible para el equipo).
+      MOODLE_USERNAME: admin
+      MOODLE_PASSWORD: moodle123
+      MOODLE_EMAIL: admin@utb.local
+      MOODLE_SITE_NAME: Moodle UTB local
+      MOODLE_HOST: localhost:8080
+      MOODLE_LANG: es
     volumes:
-      - moodle_data:/var/www/moodledata
+      - moodle_data:/bitnami/moodle
+      - moodledata_data:/bitnami/moodledata
 
 volumes:
   db_data:
   moodle_data:
+  moodledata_data:
