@@ -84,7 +84,7 @@ no duplicar el trabajo.
 - Esquema de perfil: `docs/especificaciones/perfil-estudiante.schema.json`
 - Esquema de recurso semanal: `docs/especificaciones/recurso-semanal.schema.json`
 - Esquema de feedback: `docs/especificaciones/feedback.schema.json`
-- Investigacion: `docs/investigacion/modelos-candidatos.md` y `docs/investigacion/destilacion-finetuning.md`
+- Investigacion: `docs/investigacion/propuesta-destilacion-slm.md` (E2-09 consolidado), `docs/investigacion/modelos-candidatos.md`, `docs/investigacion/destilacion-finetuning.md`, `docs/investigacion/riesgos-y-licencias.md`
 - Decisiones y problemas del perfilamiento: `docs/decisiones/decisiones-y-problemas.md`
 - Issues listos: `docs/entregas/entrega-2-personalizacion/github-issues.md`
 

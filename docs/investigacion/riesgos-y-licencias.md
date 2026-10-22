@@ -1,5 +1,7 @@
 # Riesgos y licencias
 
+> **Nota:** Este documento es una version preliminar. La matriz de riesgos completa, protocolo de guardrails y analisis de licencias por modelo estan en `docs/investigacion/propuesta-destilacion-slm.md` (Secciones 10, 11 y 4, E2-09).
+
 ## Licencias
 
 - Antes de fijar modelo para Savio, validar licencia y uso academico institucional.

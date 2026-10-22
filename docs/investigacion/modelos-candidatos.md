@@ -1,5 +1,7 @@
 # Modelos candidatos para Entrega 2
 
+> **Nota:** Este documento es una version preliminar. La comparativa completa con datos medidos, KV cache y decision final esta en `docs/investigacion/propuesta-destilacion-slm.md` (Secciones 4 y 5, E2-09).
+
 Corto lista inicial, pendiente de validacion con pipeline de destilacion.
 
 | Familia | Escala util | Ventaja | Riesgo o limite |
