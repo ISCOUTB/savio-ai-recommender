@@ -51,7 +51,7 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 | 2 | [Perfil JSON y tests](sprint-2-perfil-json-tests.md) | Modelado de Estilos, Personalidad y CHASIDE | Pendiente |
 | 3 | [Materia piloto y recursos](sprint-3-materia-piloto.md) | Taller de Escritura recomendado | Pendiente |
 | 4 | [Destilacion y fine-tuning](sprint-4-destilacion-finetuning.md) | Nucleo tecnico de la entrega | Pendiente |
-| 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | Pendiente |
+| 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | En curso |
 | 6 | [Demo y cierre](sprint-6-demo-y-cierre.md) | Flujo minimo verificable | Pendiente |
 
 ### Issues por sprint
@@ -84,6 +84,7 @@ no duplicar el trabajo.
 - Esquema de perfil: `docs/especificaciones/perfil-estudiante.schema.json`
 - Esquema de recurso semanal: `docs/especificaciones/recurso-semanal.schema.json`
 - Esquema de feedback: `docs/especificaciones/feedback.schema.json`
+- Prompt y builder: `prompts/system_prompt_recomendacion.md`, `poc_slm/prompt_builder.py` y evidencia en `prompts/escenarios/personalizacion_semanal.md` (E2-10)
 - Investigacion: `docs/investigacion/propuesta-destilacion-slm.md` (E2-09 consolidado), `docs/investigacion/modelos-candidatos.md`, `docs/investigacion/destilacion-finetuning.md`, `docs/investigacion/riesgos-y-licencias.md`
 - Decisiones y problemas del perfilamiento: `docs/decisiones/decisiones-y-problemas.md`
 - Issues listos: `docs/entregas/entrega-2-personalizacion/github-issues.md`
@@ -97,7 +98,7 @@ no duplicar el trabajo.
 - [ ] Tests modelados a un schema JSON unico.
 - [ ] Materia piloto y recursos A/B/C definidos.
 - [ ] Propuesta tecnica de destilacion/fine-tuning justificada por RAM, KV cache y latencia.
-- [ ] Prompt builder minimo validado con ejemplos.
+- [x] Prompt builder minimo validado con ejemplos.
 - [ ] Feedback loop y metricas definidos.
 - [ ] Demo local minima documentada.
 - [ ] Cronograma con fechas aprobado por el equipo (E2-16).
