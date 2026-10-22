@@ -2,7 +2,7 @@
 
 **Estado:** En curso
 **Milestone sugerido:** Entrega 2 - Personalizacion
-**Fuentes base:** `fuentes/Segunda_Entrega_Proyecto_LLM_Savio_Actualizado.docx` y `fuentes/Segunda_Entrega_Proyecto_LLM_Savio.docx`
+**Fuentes base:** documentos de la direccion del proyecto (no versionados): [fuentes/](../../../fuentes/README.md). Archivos referenciados: `Segunda_Entrega_Proyecto_LLM_Savio_Actualizado.docx` y `Segunda_Entrega_Proyecto_LLM_Savio.docx`.
 
 ---
 

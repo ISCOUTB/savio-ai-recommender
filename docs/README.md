@@ -24,6 +24,7 @@ Carpetas fuera de `docs/` que tambien son documentacion:
 | `../moodle/` | Moodle local minimo (habilitador de Entrega 2) | [../moodle/README.md](../moodle/README.md) |
 | `../perfiles/` | Ejemplos y fixtures del perfil del estudiante | [../perfiles/README.md](../perfiles/README.md) |
 | `../experimentos/` | Bitacora corta de pruebas de Entrega 2 | [../experimentos/README.md](../experimentos/README.md) |
+| `../fuentes/` | Documentos base del docente (no versionados) | [../fuentes/README.md](../fuentes/README.md) |
 
 ## Un tema, un documento
 
