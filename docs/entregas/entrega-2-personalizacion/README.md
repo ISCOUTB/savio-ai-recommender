@@ -48,9 +48,9 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 | Sprint | Documento | Foco | Estado |
 |---|---|---|---|
 | 1 | [Plan, repo y Moodle minimo](sprint-1-plan-y-moodle.md) | ROADMAP, issues, Docker Moodle minimo | En curso |
-| 2 | [Perfil JSON y tests](sprint-2-perfil-json-tests.md) | Modelado de Estilos, Personalidad y CHASIDE | Pendiente |
-| 3 | [Materia piloto y recursos](sprint-3-materia-piloto.md) | Taller de Escritura recomendado | Pendiente |
-| 4 | [Destilacion y fine-tuning](sprint-4-destilacion-finetuning.md) | Nucleo tecnico de la entrega | Pendiente |
+| 2 | [Perfil JSON y tests](sprint-2-perfil-json-tests.md) | Modelado de Estilos, Personalidad y CHASIDE | En curso |
+| 3 | [Materia piloto y recursos](sprint-3-materia-piloto.md) | Taller de Escritura recomendado | Completado |
+| 4 | [Destilacion y fine-tuning](sprint-4-destilacion-finetuning.md) | Nucleo tecnico de la entrega | Completado (ajuste E2-19/E2-20 post-entrega) |
 | 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | En curso |
 | 6 | [Demo y cierre](sprint-6-demo-y-cierre.md) | Flujo minimo verificable | Pendiente |
 
@@ -85,9 +85,10 @@ no duplicar el trabajo.
 - Esquema de recurso semanal: `docs/especificaciones/recurso-semanal.schema.json`
 - Esquema de feedback: `docs/especificaciones/feedback.schema.json`
 - Prompt y builder: `prompts/system_prompt_recomendacion.md`, `poc_slm/prompt_builder.py` y evidencia en `prompts/escenarios/personalizacion_semanal.md` (E2-10)
+- Moodle local: [guia-paso-a-paso-docker-moodle.md](guia-paso-a-paso-docker-moodle.md)
 - Investigacion: `docs/investigacion/propuesta-destilacion-slm.md` (E2-09 consolidado), `docs/investigacion/modelos-candidatos.md`, `docs/investigacion/destilacion-finetuning.md`, `docs/investigacion/riesgos-y-licencias.md`
 - Decisiones y problemas del perfilamiento: `docs/decisiones/decisiones-y-problemas.md`
-- Issues listos: `docs/entregas/entrega-2-personalizacion/github-issues.md`
+- Issues listos: [github-issues.md](github-issues.md)
 
 ---
 

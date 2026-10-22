@@ -35,6 +35,7 @@ Este repositorio contiene el desarrollo del **subsistema de recomendacion adapta
 | [Entrega 1 - PoC Funcional](docs/entregas/entrega-1-poc-funcional/README.md) | Motor de inferencia local, prompts con guardrails, benchmarks, arquitectura y presentacion tecnica | 6 | Completada |
 | [Entrega 2 - Personalizacion](docs/entregas/entrega-2-personalizacion/README.md) | Perfil psicopedagogico, materia piloto, destilacion de SLM y feedback | 6 | En curso |
 
+Indice general de documentacion: [docs/](docs/README.md)  
 Indice de entregas y convenciones: [docs/entregas/](docs/entregas/README.md)  
 Plan operativo del proyecto: [ROADMAP.md](ROADMAP.md)
 
@@ -50,19 +51,23 @@ savio-ai-recommender/
   opencode.jsonc          Config de OpenCode (registra ./skills)
   skills/archify/         Skill de diagramas para OpenCode
   docs/
+    README.md             Indice general de la documentacion
     entregas/             Entregas del proyecto divididas en sprints
     especificaciones/     Schemas JSON de perfil, recursos y feedback
     investigacion/        Modelos candidatos, destilacion y riesgos
+    decisiones/           Decisiones, problemas y su justificacion
     arquitectura/         Diagramas del subsistema e integracion con Savio
     presentacion/         Presentacion tecnica y generador
   poc_slm/                Scripts Python de inferencia local (Sprint 2)
+    prompt_builder.py     Prompt Builder semanal de Entrega 2 (E2-10)
+    recursos/             Recursos A/B/C de la semana piloto
     evidencias/           Salidas de demostracion ordenadas
-  prompts/                System prompts, guardrails y escenarios (Sprint 3)
+  prompts/                System prompts, guardrails y escenarios (Sprint 3 y E2-10)
   benchmarks/             Mediciones reales de RAM/velocidad de SLMs (Sprint 4)
     equipos/              Reporte por hardware de prueba
     resultados/           Datos separados por equipo
   moodle/                 Moodle local minimo con Docker (habilitador Entrega 2)
-  perfiles/               Ejemplo de perfil psicopedagogico segun schema
+  perfiles/               Ejemplos y fixtures del perfil psicopedagogico (simulados)
   experimentos/           Bitacora de pruebas de Entrega 2
 ```
 

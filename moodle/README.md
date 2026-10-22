@@ -5,7 +5,7 @@ Alcance: habilitador de Entrega 2 (issue E2-02). No es el nucleo del proyecto.
 ## Objetivo minimo
 
 - Levantar Moodle local con Docker.
-- Instalar los bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE (ver `plugins.md`).
+- Instalar los bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE (ver [plugins.md](plugins.md)).
 - Diligenciar tests entre integrantes para generar datos de referencia.
 
 ## Requisitos previos
@@ -62,7 +62,7 @@ Estado esperado:
 ## Bloques IS-UTB (issue E2-03)
 
 Los tres instrumentos psicopedagogicos se instalan desde las releases publicas de
-la organizacion `ISCOUTB`. El detalle completo esta en `plugins.md`.
+la organizacion `ISCOUTB`. El detalle completo esta en [plugins.md](plugins.md).
 
 ```powershell
 # desde la raiz del repo (idempotente)

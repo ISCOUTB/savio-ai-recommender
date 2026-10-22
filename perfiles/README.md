@@ -3,7 +3,14 @@
 Esta carpeta guarda ejemplos y fixtures del perfil consolidado del estudiante.
 
 - Schema: `docs/especificaciones/perfil-estudiante.schema.json`
-- Ejemplo valido: `ejemplo-perfil-estudiante.json`
+- Validador: `docs/especificaciones/validar-perfiles.py`
+- Fixtures (todos `origen: "simulado"`):
+
+| Archivo | Perfil | Recurso esperado (E2-08, referencia de evaluacion) |
+|---|---|---|
+| `ejemplo-perfil-estudiante.json` | activo + intuitivo + visual, alta metodicidad | A o C (perfil mixto; se evalua la justificacion) |
+| `ejemplo-perfil-textual.json` | reflexivo + verbal + secuencial, alta apertura | B |
+| `ejemplo-perfil-kinestesico.json` | activo + sensorial + secuencial, alta metodicidad | C |
 
 Regla: mientras Moodle local no este listo, se pueden usar perfiles simulados del equipo, marcados como simulados, para avanzar en Prompt Builder y destilacion.
 
