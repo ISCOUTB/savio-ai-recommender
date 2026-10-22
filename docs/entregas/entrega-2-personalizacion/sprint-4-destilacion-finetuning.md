@@ -18,8 +18,8 @@ Investigar y proponer como llevar un modelo abierto de ~1.5B/2B a un SLM objetiv
 
 ## Criterios de aceptacion
 
-- [ ] Comparativa de modelos candidatos con RAM estimada, latencia y licencia.
-- [ ] Decision de pipeline: poda, destilacion, fine-tuning o combinacion.
-- [ ] Plan de dataset: materia piloto + ejemplos de mapeo perfil-recurso.
-- [ ] Riesgos documentados: perdida de guardrails, sobreajuste, licencias y hardware.
-- [ ] Metricas definidas: RAM, tokens/s, latencia, calidad pedagogica y tasa de acierto.
+- [x] Comparativa de modelos candidatos con RAM estimada, latencia y licencia (Seccion 4 propuesta-destilacion-slm.md).
+- [x] Decision de pipeline: destilacion de datos + QLoRA 4-bit + Q4_K_M (Seccion 7).
+- [x] Plan de dataset: esquemas JSONL completos Dataset A (materia) y Dataset B (psicopedagogico) con muestras (Secciones 8, 9).
+- [x] Riesgos documentados: matriz 10 riesgos + protocolo guardrails 12 pruebas (Secciones 10, 11).
+- [x] Metricas definidas: sistema (RAM, tok/s, latencia, concurrencia) + calidad (acierto, guardrails, fidelidad, consistencia) (Seccion 12).

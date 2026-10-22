@@ -1,5 +1,7 @@
 # Destilacion y fine-tuning
 
+> **Nota:** Este documento es una version preliminar. La propuesta consolidada y aprobada esta en `docs/investigacion/propuesta-destilacion-slm.md` (E2-09).
+
 Este es el nucleo tecnico de Entrega 2.
 
 ## Pregunta de investigacion
