@@ -85,7 +85,7 @@ no duplicar el trabajo.
 - Esquema de recurso semanal: `docs/especificaciones/recurso-semanal.schema.json`
 - Esquema de feedback: `docs/especificaciones/feedback.schema.json`
 - Prompt y builder: `prompts/system_prompt_recomendacion.md`, `poc_slm/prompt_builder.py` y evidencia en `prompts/escenarios/personalizacion_semanal.md` (E2-10)
-- Moodle local: [guia-paso-a-paso-docker-moodle.md](guia-paso-a-paso-docker-moodle.md)
+- Moodle local: [guia-paso-a-paso-docker-moodle.md](guia-paso-a-paso-docker-moodle.md) (fuente) y `Guia_Paso_a_Paso_Docker_Moodle_E2_02.docx` (entregable **generado**, no editar a mano; se regenera con `guia_a_docx.py`)
 - Investigacion: `docs/investigacion/propuesta-destilacion-slm.md` (E2-09 consolidado), `docs/investigacion/modelos-candidatos.md`, `docs/investigacion/destilacion-finetuning.md`, `docs/investigacion/riesgos-y-licencias.md`
 - Decisiones y problemas del perfilamiento: `docs/decisiones/decisiones-y-problemas.md`
 - Issues listos: [github-issues.md](github-issues.md)
