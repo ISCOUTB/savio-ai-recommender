@@ -86,9 +86,16 @@ Lectura consolidada de ambos reportes:
 
 ```bash
 pip install -r benchmarks/requirements.txt
+python benchmarks/benchmark.py --dry-run          # ver equipo y rutas sin medir
 python benchmarks/benchmark.py
 python benchmarks/benchmark.py --modos cpu
 python benchmarks/benchmark.py --modos cpu --repeticiones 5 --modelos qwen2.5:3b
+python benchmarks/benchmark.py --equipo amd-ryzen-5-5600h-rtx-3050
 ```
 
-El script vuelca resultados en `benchmarks/resultados/`. Para conservar el orden por equipo, copiar cada corrida nueva dentro de la subcarpeta del equipo correspondiente.
+Cada corrida escribe directamente en la carpeta de su equipo:
+`benchmarks/resultados/<equipo>/resultados.json` y `benchmarks/resultados/<equipo>/salidas/`.
+El equipo se deduce de la CPU medida comparandola con `benchmarks/equipos/*.md`; si
+la maquina es nueva, se registra primero en `benchmarks/equipos/` y luego se pasa
+`--equipo <nombre>`. Si no se puede deducir, el script no mide y pide `--equipo`,
+para no dejar archivos sueltos en la raiz de `resultados/`.

@@ -17,4 +17,4 @@ resultados/
 - `intel-i5-1235u-iris-xe/resultados.json`: resumen documental de las corridas reportadas en el equipo Intel sin GPU dedicada.
 - `intel-i5-1235u-iris-xe/salidas/`: espacio reservado para salidas crudas del equipo Intel si se versionan despues.
 
-Regla de orden: no mezclar corridas de equipos distintos en el mismo `resultados.json`. Si se corre el benchmark otra vez, primero identificar el equipo y luego guardar en su carpeta.
+Regla de orden: no mezclar corridas de equipos distintos en el mismo `resultados.json`. [`benchmarks/benchmark.py`](../benchmark.py) resuelve la carpeta del equipo a partir de la CPU medida y escribe ahi; si la maquina es nueva, se registra en [`benchmarks/equipos/`](../equipos/) y se ejecuta con `--equipo <nombre>`.
