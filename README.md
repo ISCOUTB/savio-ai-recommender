@@ -49,7 +49,7 @@ savio-ai-recommender/
   ROADMAP.md              Plan operativo del proyecto
   AGENTS.md               Instrucciones para agentes de codigo (OpenCode)
   opencode.jsonc          Config de OpenCode (registra ./skills)
-  skills/archify/         Skill de diagramas para OpenCode
+  skills/                 Habilidades locales de OpenCode (inventario en skills/README.md)
   docs/
     README.md             Indice general de la documentacion
     entregas/             Entregas del proyecto divididas en sprints
@@ -68,7 +68,9 @@ savio-ai-recommender/
     resultados/           Datos separados por equipo
   moodle/                 Moodle local minimo con Docker (habilitador Entrega 2)
   perfiles/               Ejemplos y fixtures del perfil psicopedagogico (simulados)
+  personalidad/           Instrumento de personalidad (puntero al documento canonico)
   experimentos/           Bitacora de pruebas de Entrega 2
+  fuentes/                Documentos base del docente (no versionados, ver README)
 ```
 
 ---
