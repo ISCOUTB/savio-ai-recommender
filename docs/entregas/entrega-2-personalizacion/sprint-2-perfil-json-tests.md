@@ -1,7 +1,8 @@
 # Entrega 2 - Sprint 2: Perfil JSON y tests
 
-**Estado:** Pendiente
+**Estado:** En curso
 **Issues:** E2-04, E2-05, E2-06, E2-07, E2-17, E2-18
+**Pendiente:** E2-17 (confirmar instrumento con la docente) y E2-18 (tests de persona-2 y persona-3)
 
 ## Objetivo
 
@@ -15,7 +16,10 @@ Convertir los tres instrumentos psicopedagogicos en un schema JSON unico, simple
 
 ## Criterios de aceptacion
 
-- [ ] Cada integrante entrega nota tecnica breve de su instrumento.
-- [ ] `perfil-estudiante.schema.json` consolidado.
-- [ ] `perfiles/ejemplo-perfil-estudiante.json` valida contra el schema.
-- [ ] El JSON evita anidacion profunda y queda listo para inyectar en prompt.
+- [x] Cada integrante entrega nota tecnica breve de su instrumento.
+- [x] `perfil-estudiante.schema.json` consolidado.
+- [x] `perfiles/ejemplo-perfil-estudiante.json` valida contra el schema.
+- [x] El JSON evita anidacion profunda y queda listo para inyectar en prompt.
+
+> Evidencia: `docs/especificaciones/instrumento-*.md`, el schema y
+> `python docs/especificaciones/validar-perfiles.py`.

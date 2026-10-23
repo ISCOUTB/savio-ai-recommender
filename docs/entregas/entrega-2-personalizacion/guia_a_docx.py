@@ -1,5 +1,8 @@
 """Genera el entregable .docx de la guia paso a paso (E2-02) a partir del Markdown.
 
+El .docx es un artefacto generado: no se edita a mano. Toda correccion se hace
+en guia-paso-a-paso-docker-moodle.md y se regenera con este script.
+
 Uso (desde la raiz del repo):
     python docs/entregas/entrega-2-personalizacion/guia_a_docx.py
 
