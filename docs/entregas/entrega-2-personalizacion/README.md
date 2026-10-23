@@ -51,8 +51,8 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 | 2 | [Perfil JSON y tests](sprint-2-perfil-json-tests.md) | Modelado de Estilos, Personalidad y CHASIDE | En curso |
 | 3 | [Materia piloto y recursos](sprint-3-materia-piloto.md) | Taller de Escritura recomendado | Completado |
 | 4 | [Destilacion y fine-tuning](sprint-4-destilacion-finetuning.md) | Nucleo tecnico de la entrega | Completado (ajuste E2-19/E2-20 post-entrega) |
-| 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | En curso |
-| 6 | [Demo y cierre](sprint-6-demo-y-cierre.md) | Flujo minimo verificable | Pendiente |
+| 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | Completado |
+| 6 | [Demo y cierre](sprint-6-demo-y-cierre.md) | Flujo minimo verificable | Completado |
 
 ### Issues por sprint
 
@@ -83,7 +83,7 @@ no duplicar el trabajo.
 
 - Esquema de perfil: `docs/especificaciones/perfil-estudiante.schema.json`
 - Esquema de recurso semanal: `docs/especificaciones/recurso-semanal.schema.json`
-- Esquema de feedback: `docs/especificaciones/feedback.schema.json`
+- Esquema de feedback: `docs/especificaciones/feedback.schema.json`, `docs/especificaciones/feedback-loop.md` y `poc_slm/feedback_tracker.py` (E2-11)
 - Prompt y builder: `prompts/system_prompt_recomendacion.md`, `poc_slm/prompt_builder.py` y evidencia en `prompts/escenarios/personalizacion_semanal.md` (E2-10)
 - Moodle local: [guia-paso-a-paso-docker-moodle.md](guia-paso-a-paso-docker-moodle.md) (fuente) y `Guia_Paso_a_Paso_Docker_Moodle_E2_02.docx` (entregable **generado**, no editar a mano; se regenera con `guia_a_docx.py`)
 - Investigacion: `docs/investigacion/propuesta-destilacion-slm.md` (E2-09 consolidado), `docs/investigacion/modelos-candidatos.md`, `docs/investigacion/destilacion-finetuning.md`, `docs/investigacion/riesgos-y-licencias.md`
@@ -94,13 +94,13 @@ no duplicar el trabajo.
 
 ## Criterio de cierre de la entrega, version base
 
-- [ ] Plan documentado y tablero operativo.
+- [x] Plan documentado y tablero operativo.
 - [x] Moodle local minimo instalado con los bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE (E2-02 y E2-03); ver `moodle/plugins.md`.
-- [ ] Tests modelados a un schema JSON unico.
-- [ ] Materia piloto y recursos A/B/C definidos.
-- [ ] Propuesta tecnica de destilacion/fine-tuning justificada por RAM, KV cache y latencia.
+- [x] Tests modelados a un schema JSON unico (`docs/especificaciones/perfil-estudiante.schema.json` y `validar-perfiles.py`, E2-04 a E2-07).
+- [x] Materia piloto y recursos A/B/C definidos (`docs/especificaciones/materia-piloto-recursos.md` y `poc_slm/recursos/semana_1.json`, E2-08).
+- [x] Propuesta tecnica de destilacion/fine-tuning justificada por RAM, KV cache y latencia (`docs/investigacion/propuesta-destilacion-slm.md`, E2-09).
 - [x] Prompt builder minimo validado con ejemplos.
-- [ ] Feedback loop y metricas definidos.
-- [ ] Demo local minima documentada.
+- [x] Feedback loop y metricas definidos.
+- [x] Demo local minima documentada ([sprint-6-demo-y-cierre.md](sprint-6-demo-y-cierre.md) y `experimentos/bitacora.md`, E2-12).
 - [ ] Cronograma con fechas aprobado por el equipo (E2-16).
-- [ ] Instrumento de estilos confirmado con la docente o supuesto declarado (E2-17).
+- [x] Instrumento de estilos confirmado con la docente o supuesto declarado (Felder-Soloman declarado como supuesto canonico en `docs/especificaciones/instrumento-estilos-aprendizaje.md`, E2-17).

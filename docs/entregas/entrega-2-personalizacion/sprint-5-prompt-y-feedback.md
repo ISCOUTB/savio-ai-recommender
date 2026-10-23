@@ -1,6 +1,6 @@
 # Entrega 2 - Sprint 5: Prompt builder y feedback
 
-**Estado:** En curso
+**Estado:** Completado
 **Issues:** E2-10, E2-11
 
 ## Objetivo
@@ -22,15 +22,18 @@ Disenar el prompt que combina perfil del estudiante y recursos A/B/C, y definir 
 - Chequeos sin Ollama: `python poc_slm/test_prompt_builder.py`.
 - Evidencia: `prompts/escenarios/personalizacion_semanal.md` (3 perfiles, prueba adversarial y control de orden).
 
-## Feedback
+## Feedback (E2-11)
 
-- Escala minima: util si/no.
-- Escala opcional: Likert corta de 1 a 5.
-- Registro: acierto o descache por recomendacion.
+- Escala minima: `util` (`true` / `false`) vinculada a `resultado` (`"acierto"` / `"descache"`).
+- Escala opcional: `likert` de 1 a 5 estrellas y `comentario` abierto (max. 500 caracteres).
+- Schema formalizado: `docs/especificaciones/feedback.schema.json`.
+- Modulo de persistencia y KPIs: `poc_slm/feedback_tracker.py` y `poc_slm/feedback/eventos_feedback.jsonl`.
+- Chequeos sin Ollama: `python poc_slm/test_feedback_tracker.py`.
+- Especificacion tecnica y retroalimentacion a fine-tuning: `docs/especificaciones/feedback-loop.md`.
 
 ## Criterios de aceptacion
 
 - [x] Prompt template documentado.
 - [x] 3 ejemplos de entrada y salida esperada.
-- [ ] `feedback.schema.json` valido.
-- [ ] KPI base definido: tasa de acierto y tasa de descache.
+- [x] `feedback.schema.json` valido.
+- [x] KPI base definido: tasa de acierto y tasa de descache.
