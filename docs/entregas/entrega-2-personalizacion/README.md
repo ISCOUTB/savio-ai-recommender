@@ -1,8 +1,11 @@
 # Entrega 2 - Personalizacion de contenidos en Savio/Moodle
 
-**Estado:** En curso
+**Estado:** Completada (fase cerrada; evolucion y nuevo rumbo en [Entrega 3 - Interpretacion Psicometrica](../entrega-3-interpretacion-psicometrica/README.md))
 **Milestone sugerido:** Entrega 2 - Personalizacion
 **Fuentes base:** documentos de la direccion del proyecto (no versionados): [fuentes/](../../../fuentes/README.md). Archivos referenciados: `Segunda_Entrega_Proyecto_LLM_Savio_Actualizado.docx` y `Segunda_Entrega_Proyecto_LLM_Savio.docx`.
+
+> **Nota de cierre y transicion a Entrega 3 (2026-10-23):**
+> Los issues nucleares de esta entrega (`E2-01` a `E2-12`, `#18` al `#29`) fueron completados y cerrados en GitHub. En la sesion de revision con el docente se respondieron las consultas psicometricas `#37` (`E2-13`), `#39` (`E2-15`) y `#41` (`E2-17`) -estableciendo el uso exclusivo de **puntuaciones originales brutas** sin alterar escalas validadas- y quedaron **cerradas en GitHub** el mismo dia (`not planned` para `#37` y `#39`; `completed` para `#41`). Los issues abiertos restantes (`#38`, `#40`, `#42`, `#43`, `#44`) fueron recategorizados dentro de la **[Entrega 3 - Interpretacion Psicometrica](../entrega-3-interpretacion-psicometrica/README.md)** y el milestone se cerro como **Completado**.
 
 ---
 
@@ -47,10 +50,10 @@ No se resuelve con reglas fijas `si perfil 1 -> recurso A`; el modelo razona sob
 
 | Sprint | Documento | Foco | Estado |
 |---|---|---|---|
-| 1 | [Plan, repo y Moodle minimo](sprint-1-plan-y-moodle.md) | ROADMAP, issues, Docker Moodle minimo | En curso |
-| 2 | [Perfil JSON y tests](sprint-2-perfil-json-tests.md) | Modelado de Estilos, Personalidad y CHASIDE | En curso |
+| 1 | [Plan, repo y Moodle minimo](sprint-1-plan-y-moodle.md) | ROADMAP, issues, Docker Moodle minimo | Completado (E2-16 migrado a E3-02) |
+| 2 | [Perfil JSON y tests](sprint-2-perfil-json-tests.md) | Modelado de Estilos, Personalidad y CHASIDE | Completado (E2-17 resuelto, E2-18 migrado a E3-05) |
 | 3 | [Materia piloto y recursos](sprint-3-materia-piloto.md) | Taller de Escritura recomendado | Completado |
-| 4 | [Destilacion y fine-tuning](sprint-4-destilacion-finetuning.md) | Nucleo tecnico de la entrega | Completado (ajuste E2-19/E2-20 post-entrega) |
+| 4 | [Destilacion y fine-tuning](sprint-4-destilacion-finetuning.md) | Nucleo tecnico de la entrega | Completado (E2-19/E2-20 migrados a E3-06/E3-08) |
 | 5 | [Prompt builder y feedback](sprint-5-prompt-y-feedback.md) | JSON -> prompt -> recomendacion -> feedback | Completado |
 | 6 | [Demo y cierre](sprint-6-demo-y-cierre.md) | Flujo minimo verificable | Completado |
 

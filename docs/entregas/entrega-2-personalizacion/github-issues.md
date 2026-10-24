@@ -1,12 +1,31 @@
 # Issues de Entrega 2 - tablero de trabajo
 
 > **Fuente de verdad:** GitHub (`ISCOUTB/savio-ai-recommender`).
-> Ultima sincronizacion: 2026-10-20, via API publica.
-> Este archivo es un espejo de trabajo: el texto de cada issue es el que esta en GitHub.
+> Estado de Entrega 2: Completada (E2-01 a E2-12 cerrados en GitHub).
+> Transicion a Entrega 3 (2026-10-23): Las consultas E2-13 (#37), E2-15 (#39) y E2-17 (#41) fueron respondidas por el docente y los issues abiertos restantes (#38, #40, #42, #43, #44) pasaron a [Entrega 3](../entrega-3-interpretacion-psicometrica/github-issues.md).
 
 Milestone: `Entrega 2 - Personalizacion`.
 
 Labels: `entrega-2`, `docs`, `repo`, `moodle`, `psicopedagogia`, `slm`, `destilacion`, `feedback`, `persona-1`, `persona-2`, `persona-3`, `equipo`, `docente`, `legal`, `bloqueado`, `backlog`.
+
+---
+
+## Traslado a Entrega 3 (2026-10-23)
+
+El milestone `Entrega 2 - Personalizacion` se cierra como **Completado**. Los 8 issues que quedaron abiertos se resuelven asi (lo aplica `sincronizar-github-e3.ps1`):
+
+| Issue | Codigo previo | Accion en GitHub | Motivo |
+| :--- | :--- | :--- | :--- |
+| #37 | E2-13 | Cerrar como `not planned` | Se retira el indice inventado `autonomia` |
+| #39 | E2-15 | Cerrar como `not planned` | Se revoca la escala unificada 1.0-5.0 |
+| #41 | E2-17 | Cerrar como `completed` | Felder-Silverman ratificado como instrumento |
+| #38 | E2-14 | Recategorizar a `E3-03` | Lineamientos de consentimiento y datos psicometricos |
+| #40 | E2-16 | Recategorizar a `E3-02` | Cronograma SMART de Entrega 3 |
+| #42 | E2-18 | Recategorizar a `E3-05` | Extraccion de puntajes brutos reales |
+| #43 | E2-19 | Recategorizar a `E3-06` | Corpus Ground Truth con LLMs maestros |
+| #44 | E2-20 | Recategorizar a `E3-08` | Ajuste en Hugging Face y GGUF para CPU |
+
+Los cuerpos de este documento quedan como registro historico. En GitHub se anexa un aviso de migracion al inicio del cuerpo de cada issue recategorizado.
 
 ---
 
@@ -26,14 +45,14 @@ Labels: `entrega-2`, `docs`, `repo`, `moodle`, `psicopedagogia`, `slm`, `destila
 | E2-10 | [#27](https://github.com/ISCOUTB/savio-ai-recommender/issues/27) | abierto | P0 (Critica) | Sprint 5 | Persona 1 | Prototipo de Prompt Builder semanal |
 | E2-11 | [#28](https://github.com/ISCOUTB/savio-ai-recommender/issues/28) | abierto | P1 (Alta) | Sprint 5 | Persona 2 | Feedback loop y metricas |
 | E2-12 | [#29](https://github.com/ISCOUTB/savio-ai-recommender/issues/29) | abierto | P1 (Alta) | Sprint 6 | Equipo completo (Persona 1, Persona 2, Persona 3) | Demo local Entrega 2 |
-| E2-13 | [#37](https://github.com/ISCOUTB/savio-ai-recommender/issues/37) | abierto | P2 | Transversal | docente / area de psicopedagogia | Validar el indice `autonomia` del test de personalidad |
-| E2-14 | [#38](https://github.com/ISCOUTB/savio-ai-recommender/issues/38) | abierto | P1 | Transversal | docente / oficina de datos personales / comite de etica | Lineamientos de consentimiento y manejo de datos de los tests |
-| E2-15 | [#39](https://github.com/ISCOUTB/savio-ai-recommender/issues/39) | abierto | P2 | Transversal | docente / area de psicopedagogia | Confirmar la escala unificada 1.0-5.0 frente a los valores originales |
-| E2-16 | [#40](https://github.com/ISCOUTB/savio-ai-recommender/issues/40) | abierto | P0 (Critica) | Sprint 1 | Persona 1 (Coordinador) | Cronograma fechado de Entrega 2 |
-| E2-17 | [#41](https://github.com/ISCOUTB/savio-ai-recommender/issues/41) | abierto | P0 (Critica) | Sprint 2 | Docente / Persona 1 | Confirmar instrumento de estilos: VARK o Felder-Soloman |
-| E2-18 | [#42](https://github.com/ISCOUTB/savio-ai-recommender/issues/42) | abierto | P1 (Alta) | Sprint 2 | Persona 2 y Persona 3 | Completar los tests de persona-2 y persona-3 |
-| E2-19 | [#43](https://github.com/ISCOUTB/savio-ai-recommender/issues/43) | abierto | P2 (Media) | Post-entrega | Persona 3 (Lider Tecnico SLM) | Construir los datasets A y B del ajuste |
-| E2-20 | [#44](https://github.com/ISCOUTB/savio-ai-recommender/issues/44) | abierto | P2 (Media) | Post-entrega | Persona 3 (Lider Tecnico SLM) | Entrenar, exportar a GGUF y validar el modelo ajustado |
+| E2-13 | [#37](https://github.com/ISCOUTB/savio-ai-recommender/issues/37) | cerrado (not planned) | P2 | Transversal | docente / area de psicopedagogia | Validar el indice `autonomia` del test de personalidad |
+| E2-14 | [#38](https://github.com/ISCOUTB/savio-ai-recommender/issues/38) | migrado a E3-03 | P1 | Transversal | docente / oficina de datos personales / comite de etica | Lineamientos de consentimiento y manejo de datos de los tests |
+| E2-15 | [#39](https://github.com/ISCOUTB/savio-ai-recommender/issues/39) | cerrado (not planned) | P2 | Transversal | docente / area de psicopedagogia | Confirmar la escala unificada 1.0-5.0 frente a los valores originales |
+| E2-16 | [#40](https://github.com/ISCOUTB/savio-ai-recommender/issues/40) | migrado a E3-02 | P0 (Critica) | Sprint 1 | Persona 1 (Coordinador) | Cronograma fechado de Entrega 2 |
+| E2-17 | [#41](https://github.com/ISCOUTB/savio-ai-recommender/issues/41) | cerrado (completed) | P0 (Critica) | Sprint 2 | Docente / Persona 1 | Confirmar instrumento de estilos: VARK o Felder-Soloman |
+| E2-18 | [#42](https://github.com/ISCOUTB/savio-ai-recommender/issues/42) | migrado a E3-05 | P1 (Alta) | Sprint 2 | Persona 2 y Persona 3 | Completar los tests de persona-2 y persona-3 |
+| E2-19 | [#43](https://github.com/ISCOUTB/savio-ai-recommender/issues/43) | migrado a E3-06 | P2 (Media) | Post-entrega | Persona 3 (Lider Tecnico SLM) | Construir los datasets A y B del ajuste |
+| E2-20 | [#44](https://github.com/ISCOUTB/savio-ai-recommender/issues/44) | migrado a E3-08 | P2 (Media) | Post-entrega | Persona 3 (Lider Tecnico SLM) | Entrenar, exportar a GGUF y validar el modelo ajustado |
 
 ## Orden de trabajo
 

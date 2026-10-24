@@ -2,30 +2,32 @@
 
 > **Subsistema de recomendacion de contenido academico adaptativo basado en Inteligencia Artificial para Savio (Moodle) - Universidad Tecnologica de Bolivar.**
 
-[![Estado](https://img.shields.io/badge/estado-Entrega%202%20en%20curso-green)]()
-[![Demo local](https://img.shields.io/badge/SLM%20demo-Qwen%202.5%201.5B-blue)]()
-[![Objetivo Savio](https://img.shields.io/badge/SLM%20objetivo-Qwen%202.5%203B-green)]()
-[![Runtime](https://img.shields.io/badge/runtime-Ollama-lightgrey)]()
+[![Estado](https://img.shields.io/badge/estado-Entrega%203%20en%20curso-green)]()
+[![Demo local](https://img.shields.io/badge/SLM%20CPU-Cuantizado%20GGUF-blue)]()
+[![Entrenamiento](https://img.shields.io/badge/Ajuste%20Cloud-Hugging%20Face-yellow)]()
+[![Runtime](https://img.shields.io/badge/runtime-CPU%20sin%20VRAM-lightgrey)]()
 
 ---
 
 ## Descripcion
 
-Este repositorio contiene el desarrollo del **subsistema de recomendacion adaptativa** para la plataforma **Savio** (EVA institucional basado en Moodle). El sistema utiliza **Small Language Models (SLMs) de pesos abiertos, ejecutados 100% en local** (sin APIs comerciales), para generar recomendaciones academicas personalizadas en tiempo de ejecucion, basadas en:
+Este repositorio contiene el desarrollo del **sistema de inferencia con Inteligencia Artificial para interpretacion psicologica, de estilos de aprendizaje y vocacional** orientado a la plataforma **Savio** - Universidad Tecnologica de Bolivar.
 
-- **Desempeno academico** (calificaciones, historial de intentos)
-- **Estilo de aprendizaje** (VARK / Felder-Silverman)
-- **Comportamiento en plataforma** (frecuencia y tipo de recursos consultados)
+Siguiendo la delimitacion de alcance establecida para la **Entrega 3**, el sistema emplea un **Small Language Model (SLM) especializado y cuantizado para ejecutarse sobre CPU estandar (sin dependencia de VRAM)** que procesa y cruza las **puntuaciones originales brutas** de tres instrumentos psicometricos validados junto con su literatura teorica para apoyar el diagnostico inicial de un estudiante (sin reemplazar al profesional):
+
+- **CHASIDE:** test estandarizado de orientacion vocacional (intereses y aptitudes en 7 areas).
+- **Modelo de Felder-Silverman (ILS):** cuestionario de estilos de aprendizaje en 4 dimensiones bipolares (activo/reflexivo, sensitivo/intuitivo, visual/verbal, secuencial/global).
+- **Test de Personalidad:** caracterizacion de rasgos conductuales del estudiante.
 
 
-### Principios rectores del proyecto
+### Principios rectores del proyecto (Entrega 3)
 
-1. **No es un chatbot generico** ni de recordatorios.
-2. **Sin APIs comerciales**: soberania de datos estudiantiles y costo cero recurrente.
-3. **SLMs locales** servidos con Ollama en infraestructura propia.
-4. **Generacion al vuelo** (in-context), no plantillas estaticas.
-5. **Guardrails rigurosos**: sin soluciones de tareas, sin off-topic, tono formativo.
-6. Respuesta **empatica y no punitiva** ante bajo desempeno.
+1. **Caso de estudio concreto y medible:** interpretacion psicologica y vocacional integrada como apoyo al diagnostico inicial, dejando atras la generacion masiva de contenidos.
+2. **Rigor psicometrico estricto:** prohibicion absoluta de alterar, reescalar o inventar escalas sobre los instrumentos validados; el motor recibe las **puntuaciones originales brutas**.
+3. **Estrategia LLM Maestro -> SLM Especializado:** Claude/ChatGPT se usan solo en laboratorio con la bibliografia oficial de los 3 tests para construir el *ground truth*; el objetivo final es un SLM pequeno y especializado.
+4. **Inferencia en CPU sin dependencia de VRAM:** pruebas y ajuste en capas gratuitas/gestionadas en la nube (**Hugging Face**) y despliegue con modelo cuantizado (GGUF) sobre CPU estandar.
+5. **Backend antes que Frontend y cero sobreingenieria:** prioridad total en la coherencia y exactitud del motor de inferencia antes de disenar interfaces visuales o arquitecturas complejas.
+6. **Formulacion con Objetivos SMART:** 1 Objetivo General y 3 Objetivos Especificos medibles ([objetivos-smart-formulario.md](docs/entregas/entrega-3-interpretacion-psicometrica/objetivos-smart-formulario.md)).
 
 
 ## Entregas del proyecto
@@ -33,10 +35,12 @@ Este repositorio contiene el desarrollo del **subsistema de recomendacion adapta
 | Entrega | Descripcion | Sprints | Estado |
 |---|---|---|---|
 | [Entrega 1 - PoC Funcional](docs/entregas/entrega-1-poc-funcional/README.md) | Motor de inferencia local, prompts con guardrails, benchmarks, arquitectura y presentacion tecnica | 6 | Completada |
-| [Entrega 2 - Personalizacion](docs/entregas/entrega-2-personalizacion/README.md) | Perfil psicopedagogico, materia piloto, destilacion de SLM y feedback | 6 | En curso |
+| [Entrega 2 - Personalizacion](docs/entregas/entrega-2-personalizacion/README.md) | Bloques psicopedagogicos en Moodle Docker, propuesta de destilacion de SLM y prototipo inicial (E2-01 a E2-12) | 6 | Completada |
+| [Entrega 3 - Interpretacion Psicometrica](docs/entregas/entrega-3-interpretacion-psicometrica/README.md) | Interpretacion psicologica y vocacional integrada sobre puntajes brutos (CHASIDE, Felder-Silverman, Personalidad), ajuste en Hugging Face, cuantizacion para CPU y validacion SMART | 4 | En curso |
 
 Indice general de documentacion: [docs/](docs/README.md)  
 Indice de entregas y convenciones: [docs/entregas/](docs/entregas/README.md)  
+Formulacion SMART y apartado tecnico del formulario: [objetivos-smart-formulario.md](docs/entregas/entrega-3-interpretacion-psicometrica/objetivos-smart-formulario.md)  
 Plan operativo del proyecto: [ROADMAP.md](ROADMAP.md)
 
 ---
@@ -124,6 +128,6 @@ python poc_slm/recommender.py --escenario bajo_desempeno
 
 Proyecto de ingenieria - Universidad Tecnologica de Bolivar.
 
-Alcance completado: arquitectura, requerimientos y PoC demostrable (Entrega 1).
-Alcance actual: perfil psicopedagogico, materia piloto, destilacion/fine-tuning y feedback (Entrega 2).
-Alcance posterior: despliegue controlado en Savio, piloto con estudiantes y validacion ARCS/IMMS (entregas futuras).
+- **Alcance completado (Entrega 1):** PoC de inferencia local con SLMs, guardrails y benchmarks iniciales.
+- **Alcance completado (Entrega 2):** bloques psicometricos IS-UTB en Moodle Docker, propuesta de destilacion y ciclo de feedback (`E2-01` a `E2-12`).
+- **Alcance actual (Entrega 3):** motor backend de inferencia con SLM destilado en Hugging Face y cuantizado para CPU estandar (sin VRAM), enfocado en la interpretacion psicologica y vocacional integrada sobre puntuaciones originales brutas de CHASIDE, Felder-Silverman y Personalidad bajo metodologia SMART.

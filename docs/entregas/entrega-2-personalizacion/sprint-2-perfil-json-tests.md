@@ -1,8 +1,8 @@
 # Entrega 2 - Sprint 2: Perfil JSON y tests
 
-**Estado:** En curso
+**Estado:** Completado (E2-04 a E2-07 cerrados; E2-17 resuelto por docente y E2-18 migrado a E3-05 en Entrega 3)
 **Issues:** E2-04, E2-05, E2-06, E2-07, E2-17, E2-18
-**Pendiente:** E2-17 (confirmar instrumento con la docente) y E2-18 (tests de persona-2 y persona-3)
+**Transicion a Entrega 3:** E2-17 quedo confirmado en Felder-Silverman con puntajes brutos originales y E2-18 pasa a `E3-05`
 
 ## Objetivo
 

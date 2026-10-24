@@ -7,8 +7,8 @@ donde esta, empieza por la tabla de "Un tema, un documento".
 
 | Carpeta | Que contiene | Indice |
 |---|---|---|
-| `entregas/` | Entregas del proyecto divididas en sprints (Entrega 1 y 2) | [entregas/README.md](entregas/README.md) |
-| `especificaciones/` | Contratos JSON, escala canonica y notas de los instrumentos | [especificaciones/README.md](especificaciones/README.md) |
+| `entregas/` | Entregas del proyecto divididas en sprints (Entregas 1, 2 y 3) | [entregas/README.md](entregas/README.md) |
+| `especificaciones/` | Contratos JSON, notas de los instrumentos y validadores | [especificaciones/README.md](especificaciones/README.md) |
 | `investigacion/` | Destilacion y fine-tuning (propuesta consolidada) | [investigacion/README.md](investigacion/README.md) |
 | `decisiones/` | Decisiones, problemas y su justificacion | [decisiones/README.md](decisiones/README.md) |
 | `arquitectura/` | Diagramas del subsistema e integracion con Savio | [arquitectura/README.md](arquitectura/README.md) |
@@ -35,17 +35,20 @@ punteros o borradores y no se editan por separado.
 |---|---|---|
 | Plan operativo y cronograma | `../ROADMAP.md` | estados por sprint en `entregas/` |
 | Estado de una entrega | `entregas/<entrega>/README.md` | `entregas/README.md` (tabla general) |
-| Issues del proyecto | GitHub (issues y milestones) | `entregas/entrega-2-personalizacion/github-issues.md` (copia de referencia) |
-| Contrato del perfil | `especificaciones/perfil-estudiante.schema.json` | `perfiles/ejemplo-perfil-*.json` (ejemplos que deben validar) |
-| Escala 1.0 a 5.0 | `especificaciones/escala-canonica.md` | seccion 5 de `decisiones/decisiones-y-problemas.md` |
-| Instrumento de estilos | `especificaciones/instrumento-estilos-aprendizaje.md` | - |
-| Instrumento de personalidad | `especificaciones/instrumento-personalidad.md` | `../personalidad/README.md` (duplicado pendiente de decision) |
+| Objetivos SMART y formulario tecnico (Entrega 3) | [entregas/entrega-3-interpretacion-psicometrica/objetivos-smart-formulario.md](entregas/entrega-3-interpretacion-psicometrica/objetivos-smart-formulario.md) | `entregas/entrega-3-interpretacion-psicometrica/README.md` |
+| Issues de Entrega 3 | GitHub (milestone Entrega 3) | [entregas/entrega-3-interpretacion-psicometrica/github-issues.md](entregas/entrega-3-interpretacion-psicometrica/github-issues.md) |
+| Issues de Entrega 2 (historico) | GitHub (milestone Entrega 2) | [entregas/entrega-2-personalizacion/github-issues.md](entregas/entrega-2-personalizacion/github-issues.md) |
+| Contrato del perfil (Entrega 2) | `especificaciones/perfil-estudiante.schema.json` | `perfiles/ejemplo-perfil-*.json` (ejemplos que deben validar) |
+| Escala 1.0 a 5.0 (historico Entrega 2, reemplazada en E3 por puntajes brutos) | `especificaciones/escala-canonica.md` | seccion 5 de `decisiones/decisiones-y-problemas.md` |
+| Instrumento de estilos (Felder-Silverman) | `especificaciones/instrumento-estilos-aprendizaje.md` | - |
+| Instrumento de personalidad | `especificaciones/instrumento-personalidad.md` | `../personalidad/README.md` (puntero) |
 | Instrumento CHASIDE | `especificaciones/instrumento-chaside.md` | - |
-| Recursos A/B/C de la semana | `especificaciones/materia-piloto-recursos.md` + `../poc_slm/recursos/semana_1.json` | - |
+| Recursos A/B/C de la semana (Entrega 2) | `especificaciones/materia-piloto-recursos.md` + `../poc_slm/recursos/semana_1.json` | - |
+| Feedback loop (Entrega 2) | [especificaciones/feedback-loop.md](especificaciones/feedback-loop.md) | - |
 | Destilacion y fine-tuning | `investigacion/propuesta-destilacion-slm.md` | tres notas preliminares en la misma carpeta |
-| Decisiones tecnicas | `decisiones/decisiones-y-problemas.md` | - |
+| Decisiones tecnicas y transicion a Entrega 3 | `decisiones/decisiones-y-problemas.md` | - |
 | Prompt de tutoria (Entrega 1) | `../prompts/system_guardrails.md` | - |
-| Prompt de recomendacion semanal | `../prompts/system_prompt_recomendacion.md` | - |
+| Prompt de recomendacion semanal (Entrega 2) | `../prompts/system_prompt_recomendacion.md` | - |
 | Ejemplos de recomendacion (E2-10) | `../prompts/escenarios/personalizacion_semanal.md` | - |
 
 ## Donde vive cada evidencia
