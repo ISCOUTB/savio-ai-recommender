@@ -36,6 +36,7 @@ EXCLUIR_PREFIJOS = (
     "benchmarks/resultados/",
     "prompts/salidas-respaldo/",
     "poc_slm/evidencias/",
+    "poc_slm/salidas/",
     "docs/presentacion/demo-",
     ".git/",
     ".venv/",

@@ -366,3 +366,20 @@ Referencias:
 - `docs/especificaciones/perfil-estudiante.schema.json`
 - `perfiles/README.md`
 - `experimentos/bitacora.md`
+
+---
+
+## 14. Reorientacion del docente y transicion a Entrega 3 (2026-10-23)
+
+En la sesion de revision con el docente del proyecto se respondieron las consultas abiertas de Entrega 2 y se fijaron 8 lineamientos obligatorios para la **[Entrega 3 - Interpretacion Psicometrica](../entregas/entrega-3-interpretacion-psicometrica/README.md)**:
+
+| Consulta / Tema | Decision oficial del docente | Impacto en el proyecto (Entrega 3) |
+| :--- | :--- | :--- |
+| **Alcance general** | Descartar la "generacion masiva de contenidos" y aterrizar en un **sistema de inferencia con IA para la interpretacion psicologica y vocacional de personas** a partir de pruebas estandarizadas (apoyo al diagnostico inicial sin reemplazar al profesional). | El motor pasa de recomendar recursos A/B/C de una materia a generar el **perfil interpretativo integrado** del estudiante cruzando los 3 instrumentos. |
+| **Escala unificada `1.0-5.0` (Issue `#39` / `E2-15`)** | **Prohibido modificar o reescalar las escalas validadas.** Alterar las escalas invalida cientificamente los instrumentos y no es aceptado por profesionales de psicologia. | Se cierra `#39`. El backend de Entrega 3 recibe directamente las **puntuaciones originales brutas** (`0-14` en CHASIDE, `0-11` en Felder-Silverman, `0-9` en Personalidad). |
+| **Indice inferido `autonomia` (Issue `#37` / `E2-13`)** | **Descartado.** Un ingeniero no debe inventar indices compuestos no validados estadisticamente sobre un test psicometrico. | Se cierra `#37`. Se elimina `autonomia` en el contrato de Entrega 3 y se usan solo los polos originales del Test de Personalidad. |
+| **Instrumentos definitivos (Issue `#41` / `E2-17`)** | **Confirmados oficialmente:** (1) **CHASIDE**, (2) **Modelo de Felder-Silverman** (4 dimensiones bipolares: activo/reflexivo, sensitivo/intuitivo, visual/verbal, secuencial/global) y (3) **Test de Personalidad**. | Se cierra `#41`. |
+| **Estrategia de modelos (Teacher vs. Student)** | Los LLMs grandes (**Claude, ChatGPT**) se usan solo en fase inicial de laboratorio con la bibliografia tecnica de los 3 tests para generar interpretaciones de referencia (*ground truth*). El objetivo final es un **SLM pequeno y especializado**. | El issue `#43` (`E2-19` -> `E3-06`) se enfoca en construir el corpus *ground truth* de interpretaciones cruzadas con LLMs maestros. |
+| **Restriccion de hardware (Sin VRAM)** | Ni los equipos locales ni el cluster Savio tienen VRAM dedicada asignada. Entrenamiento/pruebas en la nube (**Hugging Face** / capas gratuitas) y despliegue con **modelo cuantizado sobre CPU estandar**. | El issue `#44` (`E2-20` -> `E3-08`) ejecuta el ajuste en Hugging Face y exporta un modelo GGUF cuantizado para correr 100% en CPU. |
+| **Sobreingenieria y Frontend** | No presentar arquitecturas decorativas prematuras ni interfaces graficas ("efectos 3D") mientras el motor no este validado. Prioridad: **Backend antes que Frontend**. | En Entrega 3 se define primero entrada -> procesamiento -> salida (`E3-04`, `E3-07`) sin capa grafica. |
+| **Formulacion SMART** | Entregar **1 Objetivo General y 3 Objetivos Especificos SMART** en los apartados tecnicos del formulario del proyecto y validarlos por WhatsApp antes del jueves. | Formalizado en [objetivos-smart-formulario.md](../entregas/entrega-3-interpretacion-psicometrica/objetivos-smart-formulario.md) (`E3-01` y `E3-02` / `#40`). |

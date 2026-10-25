@@ -1,7 +1,7 @@
 # Entrega 2 - Sprint 6: Demo local y reporte de cierre (E2-12)
 
+**Estado:** Completado
 - **Identificador:** E2-12 ([#29](https://github.com/ISCOUTB/savio-ai-recommender/issues/29))
-- **Estado:** Completado
 - **Dueno:** Equipo completo (Persona 1, Persona 2, Persona 3) | **Revisor:** Docente del proyecto
 - **Depende de:** E2-02 (Moodle Docker), E2-07 (Schema perfil), E2-08 (Recursos Semana 1), E2-09 (Propuesta destilacion), E2-10 (Prompt Builder), E2-11 (Feedback loop y KPIs)
 - **Artefactos clave:** `poc_slm/prompt_builder.py`, `poc_slm/feedback_tracker.py`, `prompts/escenarios/personalizacion_semanal.md`, `docs/especificaciones/feedback-loop.md` y `experimentos/bitacora.md`
