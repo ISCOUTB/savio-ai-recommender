@@ -1,7 +1,7 @@
 # Escala canonica 1.0 - 5.0 (Historica - Entrega 2)
 
 > **AVISO DE CAMBIO DE DECISION (Entrega 3 - 2026-10-23):**
-> Por directriz oficial del docente del proyecto (*"Prohibicion de modificar las escalas validadas: viene un psicologo y nos desbarata esa vaina"*), la escala unificada `1.0-5.0` y el indice inventado `autonomia` quedan **revocados y descartados para la Entrega 3** (resolucion de los issues `#37` y `#39`).
+> Por directriz oficial del docente del proyecto (prohibicion de modificar o reescalar instrumentos validados por criterio de rigor psicometrico), la escala unificada `1.0-5.0` y el indice inventado `autonomia` quedan **revocados y descartados para la Entrega 3** (resolucion de los issues `#37` y `#39`).
 > En la Entrega 3 los datos se miden **exactamente como los califican los 3 repositorios oficiales** de Moodle (`ISCOUTB/learning_style`, `ISCOUTB/personality_test`, `ISCOUTB/chaside`):
 > - **Estilos de Aprendizaje (Felder-Silverman):** conteos originales de `0 a 11` por polo (suma 11 por dimension) y bandas oficiales de diferencia (`1-3`, `5-7`, `9-11`).
 > - **Personalidad:** conteos brutos originales de `0 a 9` por cada uno de los 8 polos, sin `autonomia`.

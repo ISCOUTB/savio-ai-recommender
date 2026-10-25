@@ -17,7 +17,7 @@ Tras la revision de los avances de las Entregas 1 y 2, el docente del proyecto e
 - **Valor aplicado:** demostrar que un modelo de IA pequeno puede procesar y cruzar datos humanos de tres instrumentos validados para **apoyar el diagnostico inicial de un estudiante sin pretender reemplazar al profesional**.
 
 ### 1.2 Rigor psicometrico: prohibicion de modificar las escalas validadas
-- **Correccion critica ("Viene un psicologo y nos desbarata esa vaina"):** los instrumentos psicometricos cuentan con decadas de validacion estadistica. Si un ingeniero altera las escalas (como la conversion previa a `1.0-5.0`), inventa indices compuestos no validados (como `autonomia`) o modifica las opciones de respuesta, los resultados pierden validez cientifica y el proyecto queda invalidado.
+- **Correccion critica de validez psicometrica:** los instrumentos psicometricos cuentan con decadas de validacion estadistica. Si se alteran las escalas (como la conversion previa a `1.0-5.0`), se inventan indices compuestos no validados (como `autonomia`) o se modifican las opciones de respuesta, los resultados pierden validez cientifica y no son aceptados por profesionales de psicologia.
 - **Los tres instrumentos oficiales:**
   1. **CHASIDE:** test estandarizado de orientacion vocacional que mide areas de interes (10 items por area) y aptitudes (4 items por area) en 7 categorias (`C, H, A, S, I, D, E`).
   2. **Modelo de Felder-Silverman (ILS):** cuestionario de estilos de aprendizaje que clasifica al estudiante en 4 dimensiones bipolares (activo/reflexivo, sensitivo/intuitivo, visual/verbal, secuencial/global) con puntajes de `0 a 11` por polo.
@@ -57,16 +57,29 @@ Tras la revision de los avances de las Entregas 1 y 2, el docente del proyecto e
 
 ---
 
-## 2. Sprints de la Entrega 3
+## 2. Sprints y Cronograma Fechado de la Entrega 3 (`E3-02` / `#40`)
 
-Cada sprint responde directamente a la formulacion SMART y a las etapas de ingenieria exigidas por el docente:
+Cada sprint responde directamente a la formulacion SMART y a las etapas de ingenieria exigidas por el docente, con cierre total y presentacion en la ventana del **3 al 9 de noviembre de 2026**:
 
-| Sprint | Documento | Foco | Issues | Estado |
-|---|---|---|---|---|
-| 1 | [Formulacion SMART, alcance y cierre psicometrico](sprint-1-formulacion-smart-y-alcance.md) | Objetivos SMART, formulario tecnico, cronograma y cierre de consultas de escala/instrumentos | E3-01, E3-02 (#40), E3-03 (#38) | En curso |
-| 2 | [OE1: Datos brutos de los 3 tests y Ground Truth con LLM Maestro](sprint-2-datos-brutos-y-ground-truth.md) | Contrato JSON de puntajes brutos (sin alterar escalas), literatura teorica y corpus *ground truth* con Claude/ChatGPT | E3-04, E3-05 (#42), E3-06 (#43) | Pendiente |
-| 3 | [OE2: Destilacion en Hugging Face, cuantizacion y Backend en CPU](sprint-3-destilacion-cuantizacion-cpu.md) | Ajuste en nube (Hugging Face), cuantizacion GGUF sin VRAM y motor backend de interpretacion integrada | E3-07, E3-08 (#44) | Pendiente |
-| 4 | [OE3: Validacion psicometrica, metricas en CPU y cierre](sprint-4-validacion-metricas-y-cierre.md) | Evaluacion objetiva (fidelidad diagnostica vs. *ground truth*, latencia en CPU) y demo de backend | E3-09, E3-10 | Pendiente |
+| Sprint | Fechas | Documento | Foco | Issues | Estado |
+|---|---|---|---|---|---|
+| 1 | `23 al 26 Oct 2026` | [Formulacion SMART, alcance y cierre psicometrico](sprint-1-formulacion-smart-y-alcance.md) | Objetivos SMART, formulario tecnico, cronograma y cierre de consultas de escala/instrumentos | E3-01 (#49), E3-02 (#40), E3-03 (#38) | En curso |
+| 2 | `27 al 30 Oct 2026` | [OE1: Datos brutos de los 3 tests y Ground Truth con LLM Maestro](sprint-2-datos-brutos-y-ground-truth.md) | Contrato JSON de puntajes brutos (sin alterar escalas), literatura teorica y corpus *ground truth* con Claude/ChatGPT | E3-04 (#50), E3-05 (#42), E3-06 (#43) | Pendiente |
+| 3 | `31 Oct al 03 Nov 2026` | [OE2: Destilacion en Hugging Face, cuantizacion y Backend en CPU](sprint-3-destilacion-cuantizacion-cpu.md) | Ajuste en nube (Hugging Face), cuantizacion GGUF sin VRAM y motor backend de interpretacion integrada | E3-07 (#51), E3-08 (#44) | Pendiente |
+| 4 | `03 al 09 Nov 2026` | [OE3: Validacion psicometrica, metricas en CPU y cierre](sprint-4-validacion-metricas-y-cierre.md) | Evaluacion objetiva (fidelidad diagnostica vs. *ground truth*, latencia en CPU) y demo/presentacion final | E3-09 (#52), E3-10 (#53) | Pendiente |
+
+### 2.1 Hitos del Cronograma SMART (`23 de octubre al 9 de noviembre de 2026`)
+
+El detalle operativo completo se encuentra en la seccion 5 de [objetivos-smart-formulario.md](objetivos-smart-formulario.md#5-cronograma-fechado-smart-y-plan-de-trabajo---entrega-3-e3-02--40):
+
+| Hito | Fecha | Objetivo SMART | Entregable / Evidencia Verificable |
+|---|---|---|---|
+| **Envio previo de Formulacion SMART** | `Lun 26 / Mar 27 Oct 2026` | Formulacion (`E3-01`, `E3-02`) | Borrador de Objetivos SMART, apartados tecnicos del formulario y cronograma enviados por WhatsApp al docente. |
+| **Revision Docente Jueves 1 (Cierre OE1)** | `Jueves 29 Oct 2026` | **OE1** (`23 al 30 Oct`) | Aprobacion de formulario SMART (`E3-01`), contrato JSON de puntajes originales brutos (`E3-04`), 3 perfiles reales en bruto (`E3-05`) y avance del corpus *ground truth* $\ge 150$ (`E3-06`, cierre `Vie 30 Oct`). |
+| **Congelamiento de Modelo GGUF y Backend (*Freeze*)** | `Martes 03 Nov 2026` | **OE2** (`31 Oct al 03 Nov`) | Fine-tuning en Hugging Face completado, modelo exportado a GGUF (`Q4_K_M`) corriendo 100% en CPU (`0 MB` VRAM, RAM $\le 2.5\text{ GB}$, `E3-08`) e integrado al pipeline backend en Python sin frontend (`E3-07`). |
+| **Revision Docente Jueves 2 y Ventana de Presentacion Final** | `Jueves 05 Nov` (Ventana `03 al 09 Nov 2026`) | **OE3** (`03 al 09 Nov`) | Evaluacion sobre el 20% de prueba + 3 perfiles reales (fidelidad $\ge 85\%$, guardrails `100%`, latencia en CPU $\le 60\text{ s}$, `E3-09`) y demostracion funcional completa en consola lista para presentar (`E3-10`). |
+
+- **Camino critico:** `E3-01 (#49)` $\rightarrow$ `E3-04 (#50)` $\rightarrow$ `E3-06 (#43)` $\rightarrow$ `E3-08 (#44)` $\rightarrow$ `E3-09 (#52)` $\rightarrow$ `E3-10 (#53)` (con `E3-05` y `E3-07` ejecutandose en paralelo).
 
 ---
 

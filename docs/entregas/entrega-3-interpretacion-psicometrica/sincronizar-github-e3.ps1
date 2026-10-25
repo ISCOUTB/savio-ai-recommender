@@ -34,7 +34,7 @@ if (-not (Test-Path $Archivo)) {
 }
 
 $comentarioCierre = @{
-    37 = "Cerrado por directriz oficial del docente: por rigor psicometrico esta prohibido inventar o derivar indices compuestos no validados sobre pruebas estandarizadas ('Viene un psicologo y nos desbarata esa vaina'). Se retira el indice 'autonomia' y el sistema operara exclusivamente con los polos originales brutos del cuestionario de personalidad. Ver docs/entregas/entrega-3-interpretacion-psicometrica/README.md."
+    37 = "Cerrado por directriz oficial del docente: por rigor psicometrico esta prohibido inventar o derivar indices compuestos no validados sobre pruebas estandarizadas, ya que no son aceptados por profesionales de psicologia. Se retira el indice 'autonomia' y el sistema operara exclusivamente con los polos originales brutos del cuestionario de personalidad. Ver docs/entregas/entrega-3-interpretacion-psicometrica/README.md."
     39 = "Cerrado por directriz oficial del docente: se revoca y descarta la escala unificada 1.0-5.0. El motor de inferencia debe recibir directamente las puntuaciones originales brutas de cada test tal como las califican los repositorios de Moodle (0-14 en CHASIDE, 0-11 por polo en Felder-Silverman y 0-9 por polo en Personalidad). Ver docs/entregas/entrega-3-interpretacion-psicometrica/README.md."
     41 = "Cerrado por confirmacion oficial del docente: se ratifica el Modelo de Felder-Silverman (Index of Learning Styles, 4 dimensiones bipolares) como el instrumento definitivo de estilos de aprendizaje, en conjunto con CHASIDE y el Test de Personalidad. Ver docs/entregas/entrega-3-interpretacion-psicometrica/README.md."
 }
