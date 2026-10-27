@@ -1,6 +1,10 @@
 services:
   db:
-    image: mariadb:10.11
+    # Moodle 5.3 exige MariaDB >= 11.4
+    image: mariadb:11.4
+    restart: unless-stopped
+    # Moodle exige utf8mb4 (si no, el instalador falla por el charset)
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_DATABASE: moodle
       MYSQL_USER: moodle
@@ -10,20 +14,33 @@ services:
       - db_data:/var/lib/mysql
 
   moodle:
-    image: moodlehq/moodle:latest
+    # moodlehq/moodle no existe en Docker Hub; esta imagen instala Moodle solo al primer arranque
+    image: erseco/alpine-moodle:latest
+    restart: unless-stopped
     depends_on:
       - db
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
-      MOODLE_DB_HOST: db
-      MOODLE_DB_NAME: moodle
-      MOODLE_DB_USER: moodle
-      MOODLE_DB_PASSWORD: moodle
-      MOODLE_URL: http://localhost:8080
+      DB_TYPE: mariadb
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: moodle
+      DB_USER: moodle
+      DB_PASS: moodle
+      DB_PREFIX: mdl_
+      SITE_URL: http://localhost:8080
+      MOODLE_USERNAME: admin
+      MOODLE_PASSWORD: Admin123!
+      MOODLE_EMAIL: admin@example.com
+      MOODLE_LANGUAGE: es
+      # Sin espacios: el script de instalacion de la imagen no los soporta
+      MOODLE_SITENAME: Savio_local_pruebas
     volumes:
       - moodle_data:/var/www/moodledata
+      - moodle_html:/var/www/html
 
 volumes:
   db_data:
   moodle_data:
+  moodle_html:
