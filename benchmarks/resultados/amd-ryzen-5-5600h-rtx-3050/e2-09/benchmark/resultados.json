@@ -1,0 +1,721 @@
+{
+  "fecha": "2026-10-20T22:33:52",
+  "hardware": {
+    "cpu": "AMD Ryzen 5 5600H with Radeon Graphics",
+    "nucleos_fisicos": 6,
+    "hilos": 12,
+    "ram_total_gb": 15.3,
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 610.74",
+    "so": "Windows 11 (10.0.26200)",
+    "ollama": "0.40.6"
+  },
+  "configuracion": {
+    "escenario": "A_nota_baja",
+    "refuerzo": true,
+    "num_predict": 300,
+    "temperature": 0.7,
+    "repeticiones": 3
+  },
+  "mediciones": [
+    {
+      "modelo": "smollm2:360m",
+      "modo": "gpu",
+      "cuantizacion": "F16",
+      "parametros": "361.82M",
+      "tamano_cargado_mb": 877,
+      "tamano_en_vram_mb": 877,
+      "ram_ollama_base_mb": 139,
+      "carga_en_frio_s": 49.89,
+      "tiempo_total_frio_s": 77.16,
+      "promedio": {
+        "tokens_por_seg": 94.32,
+        "tiempo_total_s": 5.51,
+        "tokens_generados": 299.0,
+        "pico_ram_ollama_mb": 693.67,
+        "pico_vram_mib": 969.67
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 95.22,
+          "tokens_prompt": 1789,
+          "prompt_eval_s": 0.05,
+          "tiempo_total_s": 5.55,
+          "pico_ram_ollama_mb": 694,
+          "pico_vram_mib": 963
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 93.96,
+          "tokens_prompt": 1789,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 5.47,
+          "pico_ram_ollama_mb": 694,
+          "pico_vram_mib": 974
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 297,
+          "tokens_por_seg": 93.78,
+          "tokens_prompt": 1789,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 5.5,
+          "pico_ram_ollama_mb": 693,
+          "pico_vram_mib": 972
+        }
+      ]
+    },
+    {
+      "modelo": "smollm2:360m",
+      "modo": "cpu",
+      "cuantizacion": "F16",
+      "parametros": "361.82M",
+      "tamano_cargado_mb": 879,
+      "tamano_en_vram_mb": 0,
+      "ram_ollama_base_mb": 132,
+      "carga_en_frio_s": 1.4,
+      "tiempo_total_frio_s": 27.78,
+      "promedio": {
+        "tokens_por_seg": 27.06,
+        "tiempo_total_s": 12.3,
+        "tokens_generados": 253.33,
+        "pico_ram_ollama_mb": 1044.0,
+        "pico_vram_mib": 0.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 23.8,
+          "tokens_prompt": 1789,
+          "prompt_eval_s": 0.11,
+          "tiempo_total_s": 15.09,
+          "pico_ram_ollama_mb": 1044,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 294,
+          "tokens_por_seg": 24.46,
+          "tokens_prompt": 1789,
+          "prompt_eval_s": 0.07,
+          "tiempo_total_s": 14.34,
+          "pico_ram_ollama_mb": 1044,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 166,
+          "tokens_por_seg": 32.91,
+          "tokens_prompt": 1789,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 7.46,
+          "pico_ram_ollama_mb": 1044,
+          "pico_vram_mib": 0
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:0.5b",
+      "modo": "gpu",
+      "cuantizacion": "Q4_K_M",
+      "parametros": "494.03M",
+      "tamano_cargado_mb": 461,
+      "tamano_en_vram_mb": 461,
+      "ram_ollama_base_mb": 131,
+      "carga_en_frio_s": 1.97,
+      "tiempo_total_frio_s": 23.66,
+      "promedio": {
+        "tokens_por_seg": 198.05,
+        "tiempo_total_s": 3.86,
+        "tokens_generados": 300.0,
+        "pico_ram_ollama_mb": 694.0,
+        "pico_vram_mib": 543.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 197.98,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 3.91,
+          "pico_ram_ollama_mb": 694,
+          "pico_vram_mib": 540
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 192.85,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.02,
+          "tiempo_total_s": 3.9,
+          "pico_ram_ollama_mb": 694,
+          "pico_vram_mib": 545
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 300,
+          "tokens_por_seg": 203.33,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.02,
+          "tiempo_total_s": 3.77,
+          "pico_ram_ollama_mb": 694,
+          "pico_vram_mib": 544
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:0.5b",
+      "modo": "cpu",
+      "cuantizacion": "Q4_K_M",
+      "parametros": "494.03M",
+      "tamano_cargado_mb": 464,
+      "tamano_en_vram_mb": 0,
+      "ram_ollama_base_mb": 129,
+      "carga_en_frio_s": 0.86,
+      "tiempo_total_frio_s": 15.33,
+      "promedio": {
+        "tokens_por_seg": 60.34,
+        "tiempo_total_s": 7.21,
+        "tokens_generados": 300.0,
+        "pico_ram_ollama_mb": 589.0,
+        "pico_vram_mib": 0.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 59.93,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.02,
+          "tiempo_total_s": 7.31,
+          "pico_ram_ollama_mb": 589,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 60.59,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.02,
+          "tiempo_total_s": 7.18,
+          "pico_ram_ollama_mb": 589,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 300,
+          "tokens_por_seg": 60.51,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.02,
+          "tiempo_total_s": 7.13,
+          "pico_ram_ollama_mb": 589,
+          "pico_vram_mib": 0
+        }
+      ]
+    },
+    {
+      "modelo": "llama3.2:1b",
+      "modo": "gpu",
+      "cuantizacion": "Q8_0",
+      "parametros": "1.2B",
+      "tamano_cargado_mb": 1448,
+      "tamano_en_vram_mb": 1448,
+      "ram_ollama_base_mb": 95,
+      "carga_en_frio_s": 2.21,
+      "tiempo_total_frio_s": 7.28,
+      "promedio": {
+        "tokens_por_seg": 107.44,
+        "tiempo_total_s": 5.08,
+        "tokens_generados": 300.0,
+        "pico_ram_ollama_mb": 773.67,
+        "pico_vram_mib": 1536.33
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 105.89,
+          "tokens_prompt": 1441,
+          "prompt_eval_s": 0.07,
+          "tiempo_total_s": 5.05,
+          "pico_ram_ollama_mb": 773,
+          "pico_vram_mib": 1529
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 109.33,
+          "tokens_prompt": 1441,
+          "prompt_eval_s": 0.02,
+          "tiempo_total_s": 5.0,
+          "pico_ram_ollama_mb": 774,
+          "pico_vram_mib": 1534
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 300,
+          "tokens_por_seg": 107.11,
+          "tokens_prompt": 1441,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 5.18,
+          "pico_ram_ollama_mb": 774,
+          "pico_vram_mib": 1546
+        }
+      ]
+    },
+    {
+      "modelo": "llama3.2:1b",
+      "modo": "cpu",
+      "cuantizacion": "Q8_0",
+      "parametros": "1.2B",
+      "tamano_cargado_mb": 1453,
+      "tamano_en_vram_mb": 0,
+      "ram_ollama_base_mb": 96,
+      "carga_en_frio_s": 1.6,
+      "tiempo_total_frio_s": 31.35,
+      "promedio": {
+        "tokens_por_seg": 23.7,
+        "tiempo_total_s": 15.0,
+        "tokens_generados": 300.0,
+        "pico_ram_ollama_mb": 1610.0,
+        "pico_vram_mib": 0.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 23.8,
+          "tokens_prompt": 1441,
+          "prompt_eval_s": 0.04,
+          "tiempo_total_s": 14.99,
+          "pico_ram_ollama_mb": 1610,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 23.75,
+          "tokens_prompt": 1441,
+          "prompt_eval_s": 0.04,
+          "tiempo_total_s": 14.92,
+          "pico_ram_ollama_mb": 1610,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 300,
+          "tokens_por_seg": 23.55,
+          "tokens_prompt": 1441,
+          "prompt_eval_s": 0.04,
+          "tiempo_total_s": 15.09,
+          "pico_ram_ollama_mb": 1610,
+          "pico_vram_mib": 0
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:1.5b",
+      "modo": "gpu",
+      "cuantizacion": "Q4_K_M",
+      "parametros": "1.5B",
+      "tamano_cargado_mb": 1115,
+      "tamano_en_vram_mb": 1115,
+      "ram_ollama_base_mb": 96,
+      "carga_en_frio_s": 2.5,
+      "tiempo_total_frio_s": 7.82,
+      "promedio": {
+        "tokens_por_seg": 108.85,
+        "tiempo_total_s": 5.16,
+        "tokens_generados": 300.0,
+        "pico_ram_ollama_mb": 697.0,
+        "pico_vram_mib": 1191.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 109.39,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.13,
+          "tiempo_total_s": 5.19,
+          "pico_ram_ollama_mb": 697,
+          "pico_vram_mib": 1189
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 108.36,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 5.12,
+          "pico_ram_ollama_mb": 697,
+          "pico_vram_mib": 1194
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 300,
+          "tokens_por_seg": 108.79,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.06,
+          "tiempo_total_s": 5.17,
+          "pico_ram_ollama_mb": 697,
+          "pico_vram_mib": 1190
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:1.5b",
+      "modo": "cpu",
+      "cuantizacion": "Q4_K_M",
+      "parametros": "1.5B",
+      "tamano_cargado_mb": 1119,
+      "tamano_en_vram_mb": 0,
+      "ram_ollama_base_mb": 96,
+      "carga_en_frio_s": 1.36,
+      "tiempo_total_frio_s": 21.04,
+      "promedio": {
+        "tokens_por_seg": 30.65,
+        "tiempo_total_s": 12.12,
+        "tokens_generados": 300.0,
+        "pico_ram_ollama_mb": 1276.0,
+        "pico_vram_mib": 0.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 30.48,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 12.15,
+          "pico_ram_ollama_mb": 1276,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 30.68,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 12.16,
+          "pico_ram_ollama_mb": 1276,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 300,
+          "tokens_por_seg": 30.8,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.03,
+          "tiempo_total_s": 12.05,
+          "pico_ram_ollama_mb": 1276,
+          "pico_vram_mib": 0
+        }
+      ]
+    },
+    {
+      "modelo": "smollm2:1.7b",
+      "modo": "gpu",
+      "cuantizacion": "Q8_0",
+      "parametros": "1.7B",
+      "tamano_cargado_mb": 2698,
+      "tamano_en_vram_mb": 2276,
+      "ram_ollama_base_mb": 95,
+      "carga_en_frio_s": 7.99,
+      "tiempo_total_frio_s": 29.35,
+      "promedio": {
+        "tokens_por_seg": 44.29,
+        "tiempo_total_s": 9.16,
+        "tokens_generados": 300.0,
+        "pico_ram_ollama_mb": 894.0,
+        "pico_vram_mib": 2358.33
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 44.08,
+          "tokens_prompt": 1788,
+          "prompt_eval_s": 0.06,
+          "tiempo_total_s": 9.23,
+          "pico_ram_ollama_mb": 894,
+          "pico_vram_mib": 2355
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 44.48,
+          "tokens_prompt": 1788,
+          "prompt_eval_s": 0.04,
+          "tiempo_total_s": 9.08,
+          "pico_ram_ollama_mb": 894,
+          "pico_vram_mib": 2360
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 300,
+          "tokens_por_seg": 44.32,
+          "tokens_prompt": 1788,
+          "prompt_eval_s": 0.04,
+          "tiempo_total_s": 9.18,
+          "pico_ram_ollama_mb": 894,
+          "pico_vram_mib": 2360
+        }
+      ]
+    },
+    {
+      "modelo": "smollm2:1.7b",
+      "modo": "cpu",
+      "cuantizacion": "Q8_0",
+      "parametros": "1.7B",
+      "tamano_cargado_mb": 2575,
+      "tamano_en_vram_mb": 0,
+      "ram_ollama_base_mb": 95,
+      "carga_en_frio_s": 1.35,
+      "tiempo_total_frio_s": 52.86,
+      "promedio": {
+        "tokens_por_seg": 12.33,
+        "tiempo_total_s": 26.75,
+        "tokens_generados": 300.0,
+        "pico_ram_ollama_mb": 2699.0,
+        "pico_vram_mib": 0.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 300,
+          "tokens_por_seg": 12.35,
+          "tokens_prompt": 1788,
+          "prompt_eval_s": 0.08,
+          "tiempo_total_s": 26.68,
+          "pico_ram_ollama_mb": 2699,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 300,
+          "tokens_por_seg": 12.3,
+          "tokens_prompt": 1788,
+          "prompt_eval_s": 0.08,
+          "tiempo_total_s": 26.79,
+          "pico_ram_ollama_mb": 2699,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 300,
+          "tokens_por_seg": 12.33,
+          "tokens_prompt": 1788,
+          "prompt_eval_s": 0.08,
+          "tiempo_total_s": 26.78,
+          "pico_ram_ollama_mb": 2699,
+          "pico_vram_mib": 0
+        }
+      ]
+    },
+    {
+      "modelo": "gemma2:2b",
+      "modo": "gpu",
+      "cuantizacion": "Q4_0",
+      "parametros": "2.6B",
+      "tamano_cargado_mb": 1836,
+      "tamano_en_vram_mb": 1836,
+      "ram_ollama_base_mb": 91,
+      "carga_en_frio_s": 8.78,
+      "tiempo_total_frio_s": 29.64,
+      "promedio": {
+        "tokens_por_seg": 70.29,
+        "tiempo_total_s": 6.15,
+        "tokens_generados": 258.67,
+        "pico_ram_ollama_mb": 1153.67,
+        "pico_vram_mib": 2132.33
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 285,
+          "tokens_por_seg": 70.69,
+          "tokens_prompt": 1274,
+          "prompt_eval_s": 0.2,
+          "tiempo_total_s": 6.54,
+          "pico_ram_ollama_mb": 1151,
+          "pico_vram_mib": 2127
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 228,
+          "tokens_por_seg": 69.04,
+          "tokens_prompt": 1274,
+          "prompt_eval_s": 0.13,
+          "tiempo_total_s": 5.65,
+          "pico_ram_ollama_mb": 1155,
+          "pico_vram_mib": 2135
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 263,
+          "tokens_por_seg": 71.13,
+          "tokens_prompt": 1274,
+          "prompt_eval_s": 0.21,
+          "tiempo_total_s": 6.26,
+          "pico_ram_ollama_mb": 1155,
+          "pico_vram_mib": 2135
+        }
+      ]
+    },
+    {
+      "modelo": "gemma2:2b",
+      "modo": "cpu",
+      "cuantizacion": "Q4_0",
+      "parametros": "2.6B",
+      "tamano_cargado_mb": 1842,
+      "tamano_en_vram_mb": 0,
+      "ram_ollama_base_mb": 93,
+      "carga_en_frio_s": 1.86,
+      "tiempo_total_frio_s": 38.34,
+      "promedio": {
+        "tokens_por_seg": 15.63,
+        "tiempo_total_s": 19.3,
+        "tokens_generados": 262.33,
+        "pico_ram_ollama_mb": 2397.0,
+        "pico_vram_mib": 0.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 273,
+          "tokens_por_seg": 15.17,
+          "tokens_prompt": 1274,
+          "prompt_eval_s": 0.22,
+          "tiempo_total_s": 20.47,
+          "pico_ram_ollama_mb": 2397,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 252,
+          "tokens_por_seg": 15.84,
+          "tokens_prompt": 1274,
+          "prompt_eval_s": 0.21,
+          "tiempo_total_s": 18.35,
+          "pico_ram_ollama_mb": 2397,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 262,
+          "tokens_por_seg": 15.88,
+          "tokens_prompt": 1274,
+          "prompt_eval_s": 0.22,
+          "tiempo_total_s": 19.07,
+          "pico_ram_ollama_mb": 2397,
+          "pico_vram_mib": 0
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:3b",
+      "modo": "gpu",
+      "cuantizacion": "Q4_K_M",
+      "parametros": "3.1B",
+      "tamano_cargado_mb": 2063,
+      "tamano_en_vram_mb": 2063,
+      "ram_ollama_base_mb": 125,
+      "carga_en_frio_s": 4.41,
+      "tiempo_total_frio_s": 10.29,
+      "promedio": {
+        "tokens_por_seg": 66.72,
+        "tiempo_total_s": 5.44,
+        "tokens_generados": 207.67,
+        "pico_ram_ollama_mb": 794.67,
+        "pico_vram_mib": 2152.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 181,
+          "tokens_por_seg": 67.17,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.11,
+          "tiempo_total_s": 5.06,
+          "pico_ram_ollama_mb": 795,
+          "pico_vram_mib": 2149
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 216,
+          "tokens_por_seg": 65.89,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.06,
+          "tiempo_total_s": 5.59,
+          "pico_ram_ollama_mb": 795,
+          "pico_vram_mib": 2154
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 226,
+          "tokens_por_seg": 67.1,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.05,
+          "tiempo_total_s": 5.66,
+          "pico_ram_ollama_mb": 794,
+          "pico_vram_mib": 2153
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:3b",
+      "modo": "cpu",
+      "cuantizacion": "Q4_K_M",
+      "parametros": "3.1B",
+      "tamano_cargado_mb": 2068,
+      "tamano_en_vram_mb": 0,
+      "ram_ollama_base_mb": 138,
+      "carga_en_frio_s": 3.54,
+      "tiempo_total_frio_s": 34.33,
+      "promedio": {
+        "tokens_por_seg": 16.41,
+        "tiempo_total_s": 16.83,
+        "tokens_generados": 236.33,
+        "pico_ram_ollama_mb": 2257.0,
+        "pico_vram_mib": 0.0
+      },
+      "corridas": [
+        {
+          "corrida": 1,
+          "tokens_generados": 279,
+          "tokens_por_seg": 16.25,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.06,
+          "tiempo_total_s": 19.59,
+          "pico_ram_ollama_mb": 2257,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 2,
+          "tokens_generados": 237,
+          "tokens_por_seg": 16.37,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.06,
+          "tiempo_total_s": 16.92,
+          "pico_ram_ollama_mb": 2257,
+          "pico_vram_mib": 0
+        },
+        {
+          "corrida": 3,
+          "tokens_generados": 193,
+          "tokens_por_seg": 16.6,
+          "tokens_prompt": 1430,
+          "prompt_eval_s": 0.06,
+          "tiempo_total_s": 13.98,
+          "pico_ram_ollama_mb": 2257,
+          "pico_vram_mib": 0
+        }
+      ]
+    }
+  ]
+}
