@@ -5,13 +5,16 @@ entrenamiento/ajuste_qlora_gguf.ipynb que no estan marcadas "solo-colab" (modo
 prueba: pocos pasos, sin 4 bits), y luego reemplaza los pasos de Colab por sus
 equivalentes locales:
   1. Convierte el modelo fusionado a GGUF F16 con convert_hf_to_gguf.py de llama.cpp.
-  2. Cuantiza a Q4_K_M con `ollama create -q q4_K_M` (no requiere compilar llama.cpp).
-  3. Ejecuta el modelo en Ollama con num_gpu 0 y verifica que no use VRAM.
+  2. Cuantiza el GGUF F16 a Q4_K_M con llama-quantize (binario oficial de llama.cpp; en Colab se compila).
+     Ollama no sirve para este paso: solo cuantiza al importar safetensors y no a formatos K-quant.
+  3. Importa el GGUF Q4_K_M en Ollama con el Modelfile del notebook, lo ejecuta con num_gpu 0 y
+     verifica que no use VRAM.
 
 No es el entrenamiento real: solo comprueba que el flujo funciona antes de correrlo en Colab.
 
 Uso (con un entorno que tenga torch, transformers, peft, trl, datasets y gguf):
-    python entrenamiento/probar_notebook_local.py --trabajo <dir> --llama-cpp <dir con llama.cpp clonado>
+    python entrenamiento/probar_notebook_local.py --trabajo <dir> --llama-cpp <dir con llama.cpp clonado> \
+        --llama-quantize <ruta a llama-quantize(.exe)>
 """
 
 import argparse
@@ -51,11 +54,19 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--trabajo", type=Path, required=True)
     parser.add_argument("--llama-cpp", type=Path, required=True)
+    parser.add_argument("--llama-quantize", type=Path, required=True)
+    parser.add_argument("--reusar", action="store_true", help="no reentrenar si ya existen los artefactos")
     args = parser.parse_args()
     trabajo = args.trabajo.resolve()
     trabajo.mkdir(parents=True, exist_ok=True)
 
-    ns = ejecutar_celdas(trabajo)
+    registros = list((trabajo / "artefactos").glob("*-registro.json"))
+    if args.reusar and registros:
+        reg = json.loads(registros[0].read_text())
+        ns = {"NOMBRE": reg["nombre"], "perdidas": reg["perdidas"]}
+        print("Reutilizando artefactos de", reg["nombre"])
+    else:
+        ns = ejecutar_celdas(trabajo)
     nombre = ns["NOMBRE"]
     art = trabajo / "artefactos"
 
@@ -65,11 +76,15 @@ def main() -> None:
                     str(art / f"{nombre}-fusionado"), "--outtype", "f16", "--outfile", str(f16)], check=True)
     print(f"{f16.name}: {f16.stat().st_size / 1024**2:.0f} MB")
 
-    print("\n===== Q4_K_M con Ollama =====")
-    modelfile = (art / "Modelfile").read_text().replace(f"./{nombre}-q4_k_m.gguf", f"./{f16.name}")
-    (art / "Modelfile.local").write_text(modelfile)
+    print("\n===== Q4_K_M con llama-quantize =====")
+    q4 = art / f"{nombre}-q4_k_m.gguf"
+    subprocess.run([str(args.llama_quantize.resolve()), str(f16), str(q4), "Q4_K_M"], check=True,
+                   stdout=subprocess.DEVNULL)
+    print(f"{q4.name}: {q4.stat().st_size / 1024**2:.0f} MB")
+
+    print("\n===== Importar en Ollama con el Modelfile del notebook =====")
     etiqueta = f"{nombre}-prueba"
-    subprocess.run(["ollama", "create", etiqueta, "-q", "q4_K_M", "-f", "Modelfile.local"], cwd=art, check=True)
+    subprocess.run(["ollama", "create", etiqueta, "-f", "Modelfile"], cwd=art, check=True)
 
     print("\n===== Inferencia solo en CPU =====")
     muestra = json.loads(DATOS.read_text(encoding="utf-8").splitlines()[0])

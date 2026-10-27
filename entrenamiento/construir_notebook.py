@@ -80,7 +80,7 @@ if HIPER["qlora_4bit"]:
                                bnb_4bit_compute_dtype=torch.float16)
     modelo = AutoModelForCausalLM.from_pretrained(BASE_MODEL, quantization_config=cuant, device_map="auto")
 else:
-    modelo = AutoModelForCausalLM.from_pretrained(BASE_MODEL, torch_dtype=torch.float32)
+    modelo = AutoModelForCausalLM.from_pretrained(BASE_MODEL, dtype=torch.float32)
 print("Parametros del modelo base:", sum(p.numel() for p in modelo.parameters()))"""),
 
     ("code", [], """# Ajuste supervisado con LoRA (la perdida se calcula solo sobre la respuesta del asistente)
@@ -93,8 +93,8 @@ lora = LoraConfig(r=HIPER["lora_r"], lora_alpha=HIPER["lora_alpha"], lora_dropou
 config = SFTConfig(output_dir=f"salida/{NOMBRE}", num_train_epochs=HIPER["epocas"], max_steps=HIPER["max_pasos"],
                    per_device_train_batch_size=HIPER["batch"], gradient_accumulation_steps=HIPER["acumulacion"],
                    learning_rate=HIPER["lr"], max_length=HIPER["max_longitud"], logging_steps=1,
-                   eval_strategy="no", save_strategy="no", fp16=GPU, seed=HIPER["semilla"], report_to="none",
-                   gradient_checkpointing=GPU)
+                   eval_strategy="no", save_strategy="no", bf16=False, fp16=GPU, use_cpu=not GPU,
+                   seed=HIPER["semilla"], report_to="none", gradient_checkpointing=True)
 trainer = SFTTrainer(model=modelo, args=config, train_dataset=train, processing_class=tokenizer, peft_config=lora)
 inicio = time.time()
 resultado = trainer.train()
@@ -106,10 +106,11 @@ print(f"Entrenamiento: {duracion:.0f} s | perdida inicial {perdidas[0]:.3f} -> f
 if len(evalu):
     print("Perdida en eval:", trainer.evaluate(eval_dataset=evalu).get("eval_loss"))
 muestra = (evalu if len(evalu) else train)[0]
-entrada = tokenizer.apply_chat_template(muestra["prompt"], add_generation_prompt=True, return_tensors="pt").to(trainer.model.device)
+entrada = tokenizer.apply_chat_template(muestra["prompt"], add_generation_prompt=True, return_tensors="pt",
+                                        return_dict=True).to(trainer.model.device)
 with torch.no_grad():
-    salida = trainer.model.generate(entrada, max_new_tokens=200, do_sample=False)
-print(tokenizer.decode(salida[0][entrada.shape[1]:], skip_special_tokens=True))"""),
+    salida = trainer.model.generate(**entrada, max_new_tokens=200, do_sample=False)
+print(tokenizer.decode(salida[0][entrada["input_ids"].shape[1]:], skip_special_tokens=True))"""),
 
     ("code", [], """# Guardar adaptador, registro de hiperparametros y modelo fusionado
 from peft import PeftModel
@@ -124,8 +125,9 @@ registro = {"modelo_base": BASE_MODEL, "nombre": NOMBRE, "hiperparametros": HIPE
             "fecha": time.strftime("%Y-%m-%d %H:%M")}
 json.dump(registro, open(f"artefactos/{NOMBRE}-registro.json", "w"), indent=1)
 
-base = AutoModelForCausalLM.from_pretrained(BASE_MODEL, torch_dtype=torch.float16 if GPU else torch.float32)
+base = AutoModelForCausalLM.from_pretrained(BASE_MODEL, dtype=torch.float16 if GPU else torch.float32)
 fusionado = PeftModel.from_pretrained(base, f"artefactos/{NOMBRE}-adaptador").merge_and_unload()
+fusionado = fusionado.to(torch.float16)  # GGUF F16: la mitad de memoria que fp32 y sin perdida para la conversion
 fusionado.save_pretrained(f"artefactos/{NOMBRE}-fusionado", safe_serialization=True)
 tokenizer.save_pretrained(f"artefactos/{NOMBRE}-fusionado")
 print("Modelo fusionado en", f"artefactos/{NOMBRE}-fusionado")"""),
