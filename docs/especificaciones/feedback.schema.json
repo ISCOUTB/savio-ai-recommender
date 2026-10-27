@@ -1,19 +1,56 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "feedback_recomendacion_entrega_2",
+  "description": "Evento de retroalimentacion del estudiante sobre una recomendacion semanal A/B/C. Una linea por evento en el registro JSON Lines (ver docs/especificaciones/feedback-loop.md).",
   "type": "object",
   "required": ["recomendacion_id", "estudiante_id", "semana", "recurso_id", "util", "resultado", "fecha"],
   "additionalProperties": false,
   "properties": {
-    "recomendacion_id": { "type": "string", "minLength": 1 },
-    "estudiante_id": { "type": "string", "minLength": 1 },
-    "semana": { "type": "integer", "minimum": 1 },
-    "recurso_id": { "type": "string", "minLength": 1 },
-    "util": { "type": "boolean" },
-    "likert": { "type": "integer", "minimum": 1, "maximum": 5 },
-    "resultado": { "type": "string", "enum": ["acierto", "descache"] },
-    "comentario": { "type": "string", "maxLength": 500 },
-    "fecha": { "type": "string", "format": "date-time" }
+    "recomendacion_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identificador unico de la recomendacion evaluada; enlaza el feedback con la salida del Prompt Builder (E2-10)."
+    },
+    "estudiante_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identificador seudonimizado del estudiante; mismo valor que perfil-estudiante.schema.json."
+    },
+    "semana": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Semana academica de la recomendacion; coincide con recurso-semanal.schema.json."
+    },
+    "recurso_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Recurso recomendado por el modelo (ej. tde-s1-A en poc_slm/recursos/semana_1.json)."
+    },
+    "util": {
+      "type": "boolean",
+      "description": "Escala binaria primaria: el estudiante responde si la recomendacion le fue util."
+    },
+    "likert": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Escala Likert complementaria y opcional de 1 a 5 estrellas (1 = nada adecuada, 5 = totalmente adecuada)."
+    },
+    "resultado": {
+      "type": "string",
+      "enum": ["acierto", "descache"],
+      "description": "Clasificacion derivada de util: true -> acierto, false -> descache."
+    },
+    "comentario": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Comentario abierto y opcional del estudiante."
+    },
+    "fecha": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Momento del feedback en ISO 8601 / RFC 3339 con zona horaria (ej. 2026-10-18T20:00:00-05:00)."
+    }
   },
   "if": {
     "properties": { "util": { "const": true } },
