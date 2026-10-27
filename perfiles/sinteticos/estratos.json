@@ -1,0 +1,2706 @@
+{
+ "semilla": 2026,
+ "n": 150,
+ "perfiles": [
+  {
+   "id": "SINT-001",
+   "escenario_chaside": "plano",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-002",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-003",
+   "escenario_chaside": "plano",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-004",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-005",
+   "escenario_chaside": "plano",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-006",
+   "escenario_chaside": "plano",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-007",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-008",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-009",
+   "escenario_chaside": "plano",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-010",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-011",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-012",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-013",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "empate"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-014",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-015",
+   "escenario_chaside": "unica",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-016",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-017",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-018",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-019",
+   "escenario_chaside": "unica",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-020",
+   "escenario_chaside": "unica",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-021",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-022",
+   "escenario_chaside": "plano",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-023",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "empate"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-024",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-025",
+   "escenario_chaside": "plano",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-026",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-027",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-028",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-029",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-030",
+   "escenario_chaside": "unica",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-031",
+   "escenario_chaside": "plano",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-032",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-033",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-034",
+   "escenario_chaside": "unica",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-035",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-036",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-037",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-038",
+   "escenario_chaside": "unica",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-039",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-040",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-041",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-042",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-043",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-044",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-045",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-046",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-047",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-048",
+   "escenario_chaside": "unica",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-049",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-050",
+   "escenario_chaside": "unica",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-051",
+   "escenario_chaside": "unica",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-052",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-053",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-054",
+   "escenario_chaside": "plano",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-055",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-056",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-057",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-058",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-059",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-060",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-061",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-062",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-063",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-064",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-065",
+   "escenario_chaside": "plano",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-066",
+   "escenario_chaside": "plano",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-067",
+   "escenario_chaside": "unica",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-068",
+   "escenario_chaside": "unica",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-069",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-070",
+   "escenario_chaside": "plano",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-071",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-072",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-073",
+   "escenario_chaside": "unica",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-074",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-075",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-076",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-077",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-078",
+   "escenario_chaside": "plano",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-079",
+   "escenario_chaside": "plano",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-080",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-081",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-082",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-083",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-084",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-085",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-086",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-087",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-088",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "empate"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-089",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-090",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-091",
+   "escenario_chaside": "plano",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-092",
+   "escenario_chaside": "unica",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-093",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-094",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-095",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-096",
+   "escenario_chaside": "unica",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-097",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-098",
+   "escenario_chaside": "unica",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-099",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-100",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-101",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-102",
+   "escenario_chaside": "plano",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-103",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-104",
+   "escenario_chaside": "unica",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-105",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-106",
+   "escenario_chaside": "plano",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-107",
+   "escenario_chaside": "plano",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-108",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-109",
+   "escenario_chaside": "unica",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-110",
+   "escenario_chaside": "unica",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-111",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-112",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-113",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-114",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-115",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-116",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-117",
+   "escenario_chaside": "plano",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-118",
+   "escenario_chaside": "unica",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-119",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-120",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-121",
+   "escenario_chaside": "plano",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-122",
+   "escenario_chaside": "unica",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-123",
+   "escenario_chaside": "plano",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-124",
+   "escenario_chaside": "unica",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-125",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-126",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-127",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-128",
+   "escenario_chaside": "plano",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-129",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-130",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-131",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-132",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-133",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-134",
+   "escenario_chaside": "unica",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-135",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-136",
+   "escenario_chaside": "unica",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-137",
+   "escenario_chaside": "unica",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-138",
+   "escenario_chaside": "unica",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "equilibrio",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "empate"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-139",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-140",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "I",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-141",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "D",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-142",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "empate"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-143",
+   "escenario_chaside": "plano",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "clara",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-144",
+   "escenario_chaside": "brecha_aptitud",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "clara"
+   },
+   "particion": "eval"
+  },
+  {
+   "id": "SINT-145",
+   "escenario_chaside": "unica",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "equilibrio"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-146",
+   "escenario_chaside": "unica",
+   "area_dominante": "A",
+   "bandas_ils": {
+    "activo/reflexivo": "fuerte",
+    "sensitivo/intuitivo": "moderada",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "leve",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-147",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "E",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-148",
+   "escenario_chaside": "brecha_interes",
+   "area_dominante": "C",
+   "bandas_ils": {
+    "activo/reflexivo": "equilibrio",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "moderada",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "leve",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "clara",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-149",
+   "escenario_chaside": "co_dominantes",
+   "area_dominante": "H",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "equilibrio",
+    "visual/verbal": "fuerte",
+    "secuencial/global": "fuerte"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "clara",
+    "thinking/feeling": "empate",
+    "judging/perceptive": "leve"
+   },
+   "particion": "train"
+  },
+  {
+   "id": "SINT-150",
+   "escenario_chaside": "unica",
+   "area_dominante": "S",
+   "bandas_ils": {
+    "activo/reflexivo": "moderada",
+    "sensitivo/intuitivo": "fuerte",
+    "visual/verbal": "moderada",
+    "secuencial/global": "moderada"
+   },
+   "fuerza_personalidad": {
+    "extraversion/introversion": "empate",
+    "sensing/intuition": "empate",
+    "thinking/feeling": "leve",
+    "judging/perceptive": "clara"
+   },
+   "particion": "train"
+  }
+ ]
+}
