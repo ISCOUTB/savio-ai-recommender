@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitectura del subsistema de recomendacion adaptativa — SAVIO",
+    "output": "arquitectura-savio-ia.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "flujo",
+        "label": "Flujo de la recomendacion",
+        "focus": [
+          "savio",
+          "middleware",
+          "prompt",
+          "slm",
+          "panel"
+        ],
+        "note": "Savio envia el evento, la IA lo procesa en el servidor UTB y devuelve la recomendacion a Savio."
+      },
+      {
+        "id": "modulos",
+        "label": "Modulos que analiza la IA",
+        "focus": [
+          "estilos",
+          "personalidad",
+          "chaside",
+          "desempeno",
+          "feedback",
+          "perfil"
+        ],
+        "note": "Los cinco modulos viven dentro de la IA; su analisis forma el perfil integral del estudiante."
+      },
+      {
+        "id": "guardrails",
+        "label": "Guardrails",
+        "focus": [
+          "guardrails",
+          "prompt",
+          "slm"
+        ],
+        "note": "El Prompt Engine aplica las reglas R1-R4 antes de que el SLM genere la recomendacion."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "estilos",
+      "type": "backend",
+      "label": "Estilos de aprendizaje",
+      "sublabel": "Felder-Soloman",
+      "pos": [
+        260,
+        110
+      ],
+      "size": [
+        170,
+        70
+      ],
+      "tag": "modulo 1"
+    },
+    {
+      "id": "personalidad",
+      "type": "backend",
+      "label": "Personalidad",
+      "sublabel": "4 ejes tipo MBTI",
+      "pos": [
+        450,
+        110
+      ],
+      "size": [
+        170,
+        70
+      ],
+      "tag": "modulo 2"
+    },
+    {
+      "id": "chaside",
+      "type": "backend",
+      "label": "CHASIDE",
+      "sublabel": "areas vocacionales",
+      "pos": [
+        640,
+        110
+      ],
+      "size": [
+        170,
+        70
+      ],
+      "tag": "modulo 3"
+    },
+    {
+      "id": "desempeno",
+      "type": "backend",
+      "label": "Desempeno academico",
+      "sublabel": "notas · entregas",
+      "pos": [
+        830,
+        110
+      ],
+      "size": [
+        170,
+        70
+      ],
+      "tag": "modulo 4"
+    },
+    {
+      "id": "feedback",
+      "type": "backend",
+      "label": "Feedback",
+      "sublabel": "util · Likert · acierto",
+      "pos": [
+        1020,
+        110
+      ],
+      "size": [
+        170,
+        70
+      ],
+      "tag": "modulo 5"
+    },
+    {
+      "id": "perfil",
+      "type": "database",
+      "label": "Perfil integral del estudiante",
+      "sublabel": "la IA analiza los 5 modulos",
+      "pos": [
+        565,
+        250
+      ],
+      "size": [
+        320,
+        64
+      ]
+    },
+    {
+      "id": "savio",
+      "type": "external",
+      "label": "Savio (Moodle)",
+      "sublabel": "evento academico",
+      "pos": [
+        30,
+        380
+      ],
+      "size": [
+        170,
+        80
+      ]
+    },
+    {
+      "id": "middleware",
+      "type": "backend",
+      "label": "Middleware orquestador",
+      "sublabel": "recommender.py",
+      "pos": [
+        260,
+        380
+      ],
+      "size": [
+        220,
+        80
+      ],
+      "tag": "recursos A/B/C"
+    },
+    {
+      "id": "prompt",
+      "type": "backend",
+      "label": "Prompt Engine",
+      "sublabel": "system prompt + contexto",
+      "pos": [
+        580,
+        380
+      ],
+      "size": [
+        220,
+        80
+      ]
+    },
+    {
+      "id": "slm",
+      "type": "cloud",
+      "label": "SLM local (Ollama)",
+      "sublabel": "Qwen 2.5 3B · Q4_K_M",
+      "pos": [
+        900,
+        380
+      ],
+      "size": [
+        220,
+        80
+      ],
+      "tag": "localhost:11434"
+    },
+    {
+      "id": "guardrails",
+      "type": "security",
+      "label": "Guardrails",
+      "sublabel": "reglas R1-R4",
+      "pos": [
+        580,
+        520
+      ],
+      "size": [
+        220,
+        80
+      ],
+      "tag": "anti-alucinacion"
+    },
+    {
+      "id": "panel",
+      "type": "frontend",
+      "label": "Savio · panel / mensajeria",
+      "sublabel": "Diagnostico → Ruta → Cierre",
+      "pos": [
+        900,
+        680
+      ],
+      "size": [
+        220,
+        80
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Modulos que la IA analiza",
+      "wraps": [
+        "estilos",
+        "personalidad",
+        "chaside",
+        "desempeno",
+        "feedback",
+        "perfil"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Subsistema de recomendacion (IA) · integrado a Savio · servidor UTB on-premise · sin APIs externas",
+      "wraps": [
+        "estilos",
+        "personalidad",
+        "chaside",
+        "desempeno",
+        "feedback",
+        "perfil",
+        "middleware",
+        "prompt",
+        "slm",
+        "guardrails"
+      ],
+      "pad": 34
+    }
+  ],
+  "connections": [
+    {
+      "id": "m1",
+      "from": "estilos",
+      "to": "perfil",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "m2",
+      "from": "personalidad",
+      "to": "perfil",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "m3",
+      "from": "chaside",
+      "to": "perfil",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "m4",
+      "from": "desempeno",
+      "to": "perfil",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "m5",
+      "from": "feedback",
+      "to": "perfil",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "evento",
+      "from": "savio",
+      "to": "middleware",
+      "label": "JSON",
+      "variant": "emphasis"
+    },
+    {
+      "id": "perfil-mw",
+      "from": "perfil",
+      "to": "middleware",
+      "label": "perfil",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "contexto",
+      "from": "middleware",
+      "to": "prompt",
+      "label": "contexto",
+      "variant": "emphasis"
+    },
+    {
+      "id": "prompt-slm",
+      "from": "prompt",
+      "to": "slm",
+      "label": "prompt",
+      "variant": "emphasis"
+    },
+    {
+      "id": "aplica",
+      "from": "guardrails",
+      "to": "prompt",
+      "label": "aplica",
+      "variant": "security"
+    },
+    {
+      "id": "recomendacion",
+      "from": "slm",
+      "to": "panel",
+      "label": "recomendacion en Markdown",
+      "variant": "emphasis",
+      "labelAt": [
+        1010,
+        590
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Integracion con Savio",
+      "items": [
+        "Savio envia el evento academico en JSON",
+        "La IA devuelve la recomendacion al panel o la mensajeria de Savio",
+        "Los datos del estudiante no salen del campus"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Modulos que analiza la IA",
+      "items": [
+        "Estilos de aprendizaje, Personalidad y CHASIDE",
+        "Desempeno academico del curso",
+        "Feedback del estudiante para medir acierto y ajustar el modelo"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Guardrails",
+      "items": [
+        "R1 solo la materia (redirige off-topic)",
+        "R2 nunca soluciones completas · R3 tono empatico",
+        "R4 estructura fija en Markdown · sin URLs ni autores"
+      ]
+    }
+  ]
+}
