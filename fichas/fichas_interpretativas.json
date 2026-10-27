@@ -1,0 +1,2612 @@
+{
+ "version": "1.0.0",
+ "fecha": "2026-10-27",
+ "bloques": {
+  "chaside": "afd053afc3d95c8bcbf2df039a38501dadbff459",
+  "learning_style": "8ee2def97e299142c97c70846d1a459fcf9beddd",
+  "personality_test": "426a1013c17eb58fb522596b4d2b1c894c8b2720"
+ },
+ "total": 121,
+ "fichas": [
+  {
+   "id": "CH-C-alto-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "balanceado"
+   },
+   "regla": "pct_total >= 80 (total 12-14); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil destacado con fortalezas en organización, liderazgo y manejo numérico; tu interés respalda tu gran capacidad directiva.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_high_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-alto-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "interes_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_interes - pct_aptitud >= 20",
+   "texto": "Sientes un alto interés por la organización y el liderazgo, aunque debes fortalecer tus habilidades técnicas en el manejo numérico.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_high_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-alto-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees capacidades excepcionales para la organización y el manejo numérico, aunque tu interés por el liderazgo administrativo es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_high_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-medio-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "balanceado"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil sólido en organización y manejo numérico; muestras equilibrio entre tus ganas de liderar y tus capacidades actuales.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_medium_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-medio-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "interes_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_interes - pct_aptitud >= 20",
+   "texto": "Muestras un interés sólido por la administración, pero requieres mayor práctica en tareas de organización y liderazgo.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_medium_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-medio-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_aptitud - pct_interes >= 20",
+   "texto": "Eres hábil en la organización y el manejo numérico, aunque tu motivación personal por el liderazgo es todavía moderada.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_medium_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-emergente-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "balanceado"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil en desarrollo; comienzas a mostrar aptitudes para la organización y el manejo de datos numéricos.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_emerging_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-emergente-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "interes_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_interes - pct_aptitud >= 20",
+   "texto": "Te atrae el liderazgo y la organización, pero debes trabajar en fundamentar tus capacidades de manejo numérico.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_emerging_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-emergente-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_aptitud - pct_interes >= 20",
+   "texto": "Muestras facilidad para el orden y los números, aunque tu interés por la gestión administrativa es inicial.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_emerging_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-C-bajo",
+   "instrumento": "CHASIDE",
+   "area": "C",
+   "nombre_area": "Administrativa (C)",
+   "condicion": {
+    "nivel": "bajo"
+   },
+   "regla": "pct_total < 40 (total 0-5)",
+   "texto": "Baja afinidad con tareas que requieran organización administrativa, liderazgo constante o manejo numérico intensivo.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_c_low']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-alto-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "balanceado"
+   },
+   "regla": "pct_total >= 80 (total 12-14); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil destacado con gran interés por el lenguaje y la justicia; tu capacidad de análisis social es excelente y equilibrada.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_high_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-alto-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "interes_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_interes - pct_aptitud >= 20",
+   "texto": "Sientes una fuerte inclinación por la justicia y lo social, pero debes fortalecer tus habilidades en el manejo del lenguaje y la argumentación.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_high_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-alto-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees un talento natural para el análisis social y el lenguaje, aunque tu interés por el ámbito de la justicia es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_high_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-medio-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "balanceado"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil sólido con buen manejo del lenguaje e interés por la justicia; muestras un enfoque equilibrado hacia el análisis social.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_medium_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-medio-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "interes_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_interes - pct_aptitud >= 20",
+   "texto": "Te motiva el análisis social y la justicia, aunque requieres mejorar tu capacidad expresiva y de lenguaje.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_medium_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-medio-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_aptitud - pct_interes >= 20",
+   "texto": "Eres hábil para el análisis social y el lenguaje, aunque tu motivación por las causas jurídicas es moderada.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_medium_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-emergente-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "balanceado"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil en desarrollo; comienzas a conectar el interés por la justicia con tus capacidades de análisis social.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_emerging_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-emergente-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "interes_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_interes - pct_aptitud >= 20",
+   "texto": "Muestras interés por lo social y la justicia, pero debes desarrollar tus bases de lenguaje y comprensión crítica.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_emerging_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-emergente-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees facilidad de lenguaje y análisis, aunque tu interés por lo social y la justicia es todavía incipiente.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_emerging_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-H-bajo",
+   "instrumento": "CHASIDE",
+   "area": "H",
+   "nombre_area": "Humanidades/Sociales/Jurídicas (H)",
+   "condicion": {
+    "nivel": "bajo"
+   },
+   "regla": "pct_total < 40 (total 0-5)",
+   "texto": "Preferencia por áreas menos enfocadas en el lenguaje complejo, la justicia formal o el análisis social profundo.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_h_low']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-alto-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "balanceado"
+   },
+   "regla": "pct_total >= 80 (total 12-14); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil creativo destacado; tu sensibilidad estética te permite resolver problemas de forma innovadora y efectiva.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_high_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-alto-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "interes_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_interes - pct_aptitud >= 20",
+   "texto": "Posees una gran sensibilidad estética y deseos de crear, pero debes trabajar en la técnica para resolver problemas creativos.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_high_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-alto-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_aptitud - pct_interes >= 20",
+   "texto": "Tienes una capacidad creativa y estética superior, aunque tu interés por aplicarla profesionalmente es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_high_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-medio-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "balanceado"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil sólido en creatividad; muestras un buen equilibrio entre tu sensibilidad estética y tu capacidad de ejecución.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_medium_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-medio-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "interes_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_interes - pct_aptitud >= 20",
+   "texto": "Te motiva la creación y la estética, aunque requieres practicar más tus habilidades para resolver problemas artísticos.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_medium_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-medio-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_aptitud - pct_interes >= 20",
+   "texto": "Muestras facilidad creativa y sensibilidad, aunque tu interés por dedicarte al ámbito artístico es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_medium_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-emergente-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "balanceado"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil en desarrollo; comienzas a manifestar sensibilidad estética y destellos de creatividad resolutiva.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_emerging_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-emergente-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "interes_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_interes - pct_aptitud >= 20",
+   "texto": "Te atrae el mundo estético, pero debes desarrollar herramientas creativas para dar soluciones reales.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_emerging_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-emergente-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees rasgos creativos naturales, aunque tu interés por la estética es todavía exploratorio.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_emerging_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-A-bajo",
+   "instrumento": "CHASIDE",
+   "area": "A",
+   "nombre_area": "Artística (A)",
+   "condicion": {
+    "nivel": "bajo"
+   },
+   "regla": "pct_total < 40 (total 0-5)",
+   "texto": "Tu enfoque es más pragmático, con menor interés en la sensibilidad estética o la resolución creativa de problemas.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_a_low']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-alto-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "balanceado"
+   },
+   "regla": "pct_total >= 80 (total 12-14); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil destacado en servicio y cuidado; tu precisión y orientación a las personas definen tu vocación de salud.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_high_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-alto-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "interes_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_interes - pct_aptitud >= 20",
+   "texto": "Sientes una fuerte vocación de servicio y cuidado, pero debes fortalecer tu precisión técnica en temas de salud.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_high_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-alto-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees una gran precisión y capacidad para el cuidado, aunque tu interés por el servicio directo en salud es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_high_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-medio-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "balanceado"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil sólido en orientación al servicio; muestras un buen equilibrio entre la precisión técnica y el cuidado de personas.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_medium_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-medio-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "interes_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_interes - pct_aptitud >= 20",
+   "texto": "Te motiva el cuidado de los demás, aunque requieres mayor formación para alcanzar la precisión que el área exige.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_medium_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-medio-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_aptitud - pct_interes >= 20",
+   "texto": "Muestras precisión y habilidades de cuidado, aunque tu motivación por el servicio constante es moderada.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_medium_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-emergente-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "balanceado"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil en desarrollo; comienzas a mostrar rasgos de precisión y una orientación inicial hacia el servicio de los demás.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_emerging_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-emergente-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "interes_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_interes - pct_aptitud >= 20",
+   "texto": "Muestras interés por el cuidado de personas, pero debes trabajar en el rigor y la precisión que requiere la salud.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_emerging_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-emergente-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_aptitud - pct_interes >= 20",
+   "texto": "Tienes facilidad para el cuidado y la atención, aunque tu interés vocacional por la salud es incipiente.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_emerging_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-S-bajo",
+   "instrumento": "CHASIDE",
+   "area": "S",
+   "nombre_area": "Ciencias de la Salud (S)",
+   "condicion": {
+    "nivel": "bajo"
+   },
+   "regla": "pct_total < 40 (total 0-5)",
+   "texto": "Baja predisposición para tareas de cuidado directo, alta precisión clínica u orientación al servicio de salud.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_s_low']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-alto-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "balanceado"
+   },
+   "regla": "pct_total >= 80 (total 12-14); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil destacado con pensamiento técnico-analítico superior; tu capacidad de planificación es excelente y resolutiva.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_high_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-alto-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "interes_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_interes - pct_aptitud >= 20",
+   "texto": "Sientes gran interés por lo técnico y la planificación, aunque debes fortalecer tus bases de análisis lógico-matemático.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_high_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-alto-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees una gran capacidad analítica y de planificación, aunque tu interés por el ámbito técnico es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_high_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-medio-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "balanceado"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil sólido en planificación; muestras un pensamiento técnico equilibrado y buena capacidad de análisis.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_medium_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-medio-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "interes_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_interes - pct_aptitud >= 20",
+   "texto": "Te atrae la planificación y la técnica, pero requieres practicar más tus habilidades de pensamiento analítico.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_medium_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-medio-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_aptitud - pct_interes >= 20",
+   "texto": "Eres hábil planificando y analizando problemas, aunque tu interés por el área técnica es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_medium_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-emergente-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "balanceado"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil en desarrollo; comienzas a manifestar habilidades de planificación y un pensamiento técnico inicial.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_emerging_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-emergente-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "interes_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_interes - pct_aptitud >= 20",
+   "texto": "Te interesa el mundo técnico, pero debes desarrollar más tu capacidad de análisis lógico y planificación.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_emerging_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-emergente-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees una base de pensamiento analítico, aunque tu interés por la planificación técnica está despertando.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_emerging_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-I-bajo",
+   "instrumento": "CHASIDE",
+   "area": "I",
+   "nombre_area": "Enseñanzas Técnicas (I)",
+   "condicion": {
+    "nivel": "bajo"
+   },
+   "regla": "pct_total < 40 (total 0-5)",
+   "texto": "Preferencia por áreas con menor demanda de pensamiento técnico-analítico o planificación sistemática.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_i_low']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-alto-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "balanceado"
+   },
+   "regla": "pct_total >= 80 (total 12-14); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil destacado con alta disciplina; tu perseverancia y capacidad de trabajo en equipo son sobresalientes.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_high_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-alto-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "interes_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_interes - pct_aptitud >= 20",
+   "texto": "Valoras mucho la disciplina y el equipo, pero debes fortalecer tu perseverancia en tareas de alta exigencia.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_high_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-alto-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees gran disciplina y capacidad para el trabajo en equipo, aunque tu interés por esta área es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_high_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-medio-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "balanceado"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil sólido en disciplina; muestras equilibrio entre la perseverancia personal y el trabajo colaborativo.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_medium_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-medio-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "interes_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_interes - pct_aptitud >= 20",
+   "texto": "Te motiva el trabajo en equipo y la disciplina, aunque requieres desarrollar más tu perseverancia individual.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_medium_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-medio-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_aptitud - pct_interes >= 20",
+   "texto": "Muestras ser disciplinado y apto para el equipo, aunque tu motivación por la perseverancia constante es moderada.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_medium_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-emergente-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "balanceado"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil en desarrollo; comienzas a mostrar rasgos de disciplina y una orientación inicial al trabajo en equipo.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_emerging_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-emergente-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "interes_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_interes - pct_aptitud >= 20",
+   "texto": "Te atrae el entorno de disciplina, pero debes trabajar en tu capacidad de perseverancia y colaboración.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_emerging_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-emergente-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees firmeza y capacidad de equipo, aunque tu interés por la disciplina institucional es incipiente.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_emerging_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-D-bajo",
+   "instrumento": "CHASIDE",
+   "area": "D",
+   "nombre_area": "Defensa y Seguridad (D)",
+   "condicion": {
+    "nivel": "bajo"
+   },
+   "regla": "pct_total < 40 (total 0-5)",
+   "texto": "Baja afinidad con regímenes de estricta disciplina, trabajo en equipo jerárquico o tareas de alta perseverancia.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_d_low']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-alto-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "balanceado"
+   },
+   "regla": "pct_total >= 80 (total 12-14); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil destacado en investigación; tu observación rigurosa y dominio del método científico son excelentes.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_high_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-alto-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "interes_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_interes - pct_aptitud >= 20",
+   "texto": "Sientes pasión por la investigación y la observación, pero debes fortalecer el rigor en la aplicación del método científico.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_high_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-alto-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "alto",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "pct_total >= 80 (total 12-14); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees gran capacidad de observación y rigor científico, aunque tu interés por la investigación pura es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_high_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-medio-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "balanceado"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil sólido en observación; muestras un enfoque equilibrado hacia la investigación y el método científico.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_medium_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-medio-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "interes_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_interes - pct_aptitud >= 20",
+   "texto": "Te motiva la investigación, aunque requieres mayor práctica en la observación rigurosa y el método científico.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_medium_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-medio-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "medio",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "60 <= pct_total < 80 (total 9-11); pct_aptitud - pct_interes >= 20",
+   "texto": "Eres hábil observando y aplicando el método científico, aunque tu interés por investigar es moderado.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_medium_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-emergente-balanceado",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "balanceado"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); |pct_interes - pct_aptitud| < 20",
+   "texto": "Perfil en desarrollo; comienzas a mostrar rigor en la observación y un acercamiento inicial al método científico.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_emerging_balanced']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-emergente-interes_mayor",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "interes_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_interes - pct_aptitud >= 20",
+   "texto": "Te atrae la investigación, pero debes desarrollar tus bases de observación rigurosa y procesos científicos.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_emerging_interest']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-emergente-aptitud_mayor",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "emergente",
+    "brecha": "aptitud_mayor"
+   },
+   "regla": "40 <= pct_total < 60 (total 6-8); pct_aptitud - pct_interes >= 20",
+   "texto": "Posees capacidad analítica de observación, aunque tu interés por el método científico es todavía incipiente.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_emerging_aptitude']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "CH-E-bajo",
+   "instrumento": "CHASIDE",
+   "area": "E",
+   "nombre_area": "Ciencias Experimentales (E)",
+   "condicion": {
+    "nivel": "bajo"
+   },
+   "regla": "pct_total < 40 (total 0-5)",
+   "texto": "Tu enfoque es más práctico, con menor interés en la observación rigurosa o el método científico de investigación.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_chaside. https://github.com/ISCOUTB/chaside",
+     "ubicacion": "lang/es/block_chaside.php @ afd053a, $string['interpretation_e_low']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-activo-equilibrio",
+   "instrumento": "ILS",
+   "polo": "activo",
+   "opuesto": "reflexivo",
+   "condicion": {
+    "banda": "equilibrio",
+    "polo_preferido": "activo"
+   },
+   "regla": "diferencia 1-3",
+   "texto": "Equilibrio entre activo y reflexivo, con leve inclinacion hacia activo. Segun Felder y Soloman, todos usamos ambos polos en distintos momentos y un equilibrio entre ellos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_active_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-activo-moderada",
+   "instrumento": "ILS",
+   "polo": "activo",
+   "opuesto": "reflexivo",
+   "condicion": {
+    "banda": "moderada",
+    "polo_preferido": "activo"
+   },
+   "regla": "diferencia 5-7",
+   "texto": "Preferencia moderada por el polo activo: prefiere aprender haciendo, experimentando y trabajando con otros. Es una preferencia de presentacion declarada, no una capacidad.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_active_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-activo-fuerte",
+   "instrumento": "ILS",
+   "polo": "activo",
+   "opuesto": "reflexivo",
+   "condicion": {
+    "banda": "fuerte",
+    "polo_preferido": "activo"
+   },
+   "regla": "diferencia 9-11",
+   "texto": "Preferencia fuerte por el polo activo: prefiere aprender haciendo, experimentando y trabajando con otros. Felder y Soloman senalan que conviene cultivar tambien el polo opuesto (reflexivo), porque un equilibrio entre ambos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_active_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-reflexivo-equilibrio",
+   "instrumento": "ILS",
+   "polo": "reflexivo",
+   "opuesto": "activo",
+   "condicion": {
+    "banda": "equilibrio",
+    "polo_preferido": "reflexivo"
+   },
+   "regla": "diferencia 1-3",
+   "texto": "Equilibrio entre reflexivo y activo, con leve inclinacion hacia reflexivo. Segun Felder y Soloman, todos usamos ambos polos en distintos momentos y un equilibrio entre ellos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_reflexive_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-reflexivo-moderada",
+   "instrumento": "ILS",
+   "polo": "reflexivo",
+   "opuesto": "activo",
+   "condicion": {
+    "banda": "moderada",
+    "polo_preferido": "reflexivo"
+   },
+   "regla": "diferencia 5-7",
+   "texto": "Preferencia moderada por el polo reflexivo: prefiere pensar las cosas y trabajar solo. Es una preferencia de presentacion declarada, no una capacidad.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_reflexive_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-reflexivo-fuerte",
+   "instrumento": "ILS",
+   "polo": "reflexivo",
+   "opuesto": "activo",
+   "condicion": {
+    "banda": "fuerte",
+    "polo_preferido": "reflexivo"
+   },
+   "regla": "diferencia 9-11",
+   "texto": "Preferencia fuerte por el polo reflexivo: prefiere pensar las cosas y trabajar solo. Felder y Soloman senalan que conviene cultivar tambien el polo opuesto (activo), porque un equilibrio entre ambos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_reflexive_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-sensitivo-equilibrio",
+   "instrumento": "ILS",
+   "polo": "sensitivo",
+   "opuesto": "intuitivo",
+   "condicion": {
+    "banda": "equilibrio",
+    "polo_preferido": "sensitivo"
+   },
+   "regla": "diferencia 1-3",
+   "texto": "Equilibrio entre sensitivo y intuitivo, con leve inclinacion hacia sensitivo. Segun Felder y Soloman, todos usamos ambos polos en distintos momentos y un equilibrio entre ellos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_sensorial_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-sensitivo-moderada",
+   "instrumento": "ILS",
+   "polo": "sensitivo",
+   "opuesto": "intuitivo",
+   "condicion": {
+    "banda": "moderada",
+    "polo_preferido": "sensitivo"
+   },
+   "regla": "diferencia 5-7",
+   "texto": "Preferencia moderada por el polo sensitivo: prefiere información concreta y práctica y procedimientos paso a paso. Es una preferencia de presentacion declarada, no una capacidad.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_sensorial_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-sensitivo-fuerte",
+   "instrumento": "ILS",
+   "polo": "sensitivo",
+   "opuesto": "intuitivo",
+   "condicion": {
+    "banda": "fuerte",
+    "polo_preferido": "sensitivo"
+   },
+   "regla": "diferencia 9-11",
+   "texto": "Preferencia fuerte por el polo sensitivo: prefiere información concreta y práctica y procedimientos paso a paso. Felder y Soloman senalan que conviene cultivar tambien el polo opuesto (intuitivo), porque un equilibrio entre ambos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_sensorial_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-intuitivo-equilibrio",
+   "instrumento": "ILS",
+   "polo": "intuitivo",
+   "opuesto": "sensitivo",
+   "condicion": {
+    "banda": "equilibrio",
+    "polo_preferido": "intuitivo"
+   },
+   "regla": "diferencia 1-3",
+   "texto": "Equilibrio entre intuitivo y sensitivo, con leve inclinacion hacia intuitivo. Segun Felder y Soloman, todos usamos ambos polos en distintos momentos y un equilibrio entre ellos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_intuitive_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-intuitivo-moderada",
+   "instrumento": "ILS",
+   "polo": "intuitivo",
+   "opuesto": "sensitivo",
+   "condicion": {
+    "banda": "moderada",
+    "polo_preferido": "intuitivo"
+   },
+   "regla": "diferencia 5-7",
+   "texto": "Preferencia moderada por el polo intuitivo: prefiere conceptos, teorías e información abstracta. Es una preferencia de presentacion declarada, no una capacidad.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_intuitive_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-intuitivo-fuerte",
+   "instrumento": "ILS",
+   "polo": "intuitivo",
+   "opuesto": "sensitivo",
+   "condicion": {
+    "banda": "fuerte",
+    "polo_preferido": "intuitivo"
+   },
+   "regla": "diferencia 9-11",
+   "texto": "Preferencia fuerte por el polo intuitivo: prefiere conceptos, teorías e información abstracta. Felder y Soloman senalan que conviene cultivar tambien el polo opuesto (sensitivo), porque un equilibrio entre ambos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_intuitive_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-visual-equilibrio",
+   "instrumento": "ILS",
+   "polo": "visual",
+   "opuesto": "verbal",
+   "condicion": {
+    "banda": "equilibrio",
+    "polo_preferido": "visual"
+   },
+   "regla": "diferencia 1-3",
+   "texto": "Equilibrio entre visual y verbal, con leve inclinacion hacia visual. Segun Felder y Soloman, todos usamos ambos polos en distintos momentos y un equilibrio entre ellos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_visual_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-visual-moderada",
+   "instrumento": "ILS",
+   "polo": "visual",
+   "opuesto": "verbal",
+   "condicion": {
+    "banda": "moderada",
+    "polo_preferido": "visual"
+   },
+   "regla": "diferencia 5-7",
+   "texto": "Preferencia moderada por el polo visual: aprende mejor con representaciones visuales como diagramas y gráficos. Es una preferencia de presentacion declarada, no una capacidad.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_visual_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-visual-fuerte",
+   "instrumento": "ILS",
+   "polo": "visual",
+   "opuesto": "verbal",
+   "condicion": {
+    "banda": "fuerte",
+    "polo_preferido": "visual"
+   },
+   "regla": "diferencia 9-11",
+   "texto": "Preferencia fuerte por el polo visual: aprende mejor con representaciones visuales como diagramas y gráficos. Felder y Soloman senalan que conviene cultivar tambien el polo opuesto (verbal), porque un equilibrio entre ambos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_visual_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-verbal-equilibrio",
+   "instrumento": "ILS",
+   "polo": "verbal",
+   "opuesto": "visual",
+   "condicion": {
+    "banda": "equilibrio",
+    "polo_preferido": "verbal"
+   },
+   "regla": "diferencia 1-3",
+   "texto": "Equilibrio entre verbal y visual, con leve inclinacion hacia verbal. Segun Felder y Soloman, todos usamos ambos polos en distintos momentos y un equilibrio entre ellos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_verbal_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-verbal-moderada",
+   "instrumento": "ILS",
+   "polo": "verbal",
+   "opuesto": "visual",
+   "condicion": {
+    "banda": "moderada",
+    "polo_preferido": "verbal"
+   },
+   "regla": "diferencia 5-7",
+   "texto": "Preferencia moderada por el polo verbal: aprende mejor con explicaciones escritas y habladas. Es una preferencia de presentacion declarada, no una capacidad.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_verbal_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-verbal-fuerte",
+   "instrumento": "ILS",
+   "polo": "verbal",
+   "opuesto": "visual",
+   "condicion": {
+    "banda": "fuerte",
+    "polo_preferido": "verbal"
+   },
+   "regla": "diferencia 9-11",
+   "texto": "Preferencia fuerte por el polo verbal: aprende mejor con explicaciones escritas y habladas. Felder y Soloman senalan que conviene cultivar tambien el polo opuesto (visual), porque un equilibrio entre ambos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_verbal_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-secuencial-equilibrio",
+   "instrumento": "ILS",
+   "polo": "secuencial",
+   "opuesto": "global",
+   "condicion": {
+    "banda": "equilibrio",
+    "polo_preferido": "secuencial"
+   },
+   "regla": "diferencia 1-3",
+   "texto": "Equilibrio entre secuencial y global, con leve inclinacion hacia secuencial. Segun Felder y Soloman, todos usamos ambos polos en distintos momentos y un equilibrio entre ellos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_sequential_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-secuencial-moderada",
+   "instrumento": "ILS",
+   "polo": "secuencial",
+   "opuesto": "global",
+   "condicion": {
+    "banda": "moderada",
+    "polo_preferido": "secuencial"
+   },
+   "regla": "diferencia 5-7",
+   "texto": "Preferencia moderada por el polo secuencial: aprende en pequeños pasos conectados y sigue secuencias lógicas. Es una preferencia de presentacion declarada, no una capacidad.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_sequential_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-secuencial-fuerte",
+   "instrumento": "ILS",
+   "polo": "secuencial",
+   "opuesto": "global",
+   "condicion": {
+    "banda": "fuerte",
+    "polo_preferido": "secuencial"
+   },
+   "regla": "diferencia 9-11",
+   "texto": "Preferencia fuerte por el polo secuencial: aprende en pequeños pasos conectados y sigue secuencias lógicas. Felder y Soloman senalan que conviene cultivar tambien el polo opuesto (global), porque un equilibrio entre ambos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_sequential_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-global-equilibrio",
+   "instrumento": "ILS",
+   "polo": "global",
+   "opuesto": "secuencial",
+   "condicion": {
+    "banda": "equilibrio",
+    "polo_preferido": "global"
+   },
+   "regla": "diferencia 1-3",
+   "texto": "Equilibrio entre global y secuencial, con leve inclinacion hacia global. Segun Felder y Soloman, todos usamos ambos polos en distintos momentos y un equilibrio entre ellos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_global_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-global-moderada",
+   "instrumento": "ILS",
+   "polo": "global",
+   "opuesto": "secuencial",
+   "condicion": {
+    "banda": "moderada",
+    "polo_preferido": "global"
+   },
+   "regla": "diferencia 5-7",
+   "texto": "Preferencia moderada por el polo global: aprende en grandes saltos y necesita ver el panorama general primero. Es una preferencia de presentacion declarada, no una capacidad.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_global_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "ILS-global-fuerte",
+   "instrumento": "ILS",
+   "polo": "global",
+   "opuesto": "secuencial",
+   "condicion": {
+    "banda": "fuerte",
+    "polo_preferido": "global"
+   },
+   "regla": "diferencia 9-11",
+   "texto": "Preferencia fuerte por el polo global: aprende en grandes saltos y necesita ver el panorama general primero. Felder y Soloman senalan que conviene cultivar tambien el polo opuesto (secuencial), porque un equilibrio entre ambos es deseable.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_learning_style. https://github.com/ISCOUTB/learning_style",
+     "ubicacion": "lang/es/block_learning_style.php @ 8ee2def, $string['profile_global_description']"
+    },
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    },
+    {
+     "tipo": "formulacion",
+     "referencia": "Documento de formulacion del proyecto (v5), seccion 8: bandas del ILS 1-3, 5-7 y 9-11"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-extraversion",
+   "instrumento": "personalidad",
+   "polo": "extraversion",
+   "letra": "E",
+   "condicion": {
+    "polo_mayor": "extraversion"
+   },
+   "texto": "Las personas con preferencia por la Extraversion se sienten con energia al interactuar con el mundo exterior de personas y cosas.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). The Preferences: E-I, S-N, T-F, J-P. https://www.myersbriggs.org/my-mbti-personality-type/the-mbti-preferences/"
+    },
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['extraversion']"
+    }
+   ],
+   "verificado": true,
+   "cita_original": "People who prefer Extraversion feel energized by interaction in the outer world of people and things."
+  },
+  {
+   "id": "PER-introversion",
+   "instrumento": "personalidad",
+   "polo": "introversion",
+   "letra": "I",
+   "condicion": {
+    "polo_mayor": "introversion"
+   },
+   "texto": "Las personas con preferencia por la Introversion se sienten con energia al reflexionar sobre conceptos e ideas en su mundo interior.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). The Preferences: E-I, S-N, T-F, J-P. https://www.myersbriggs.org/my-mbti-personality-type/the-mbti-preferences/"
+    },
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['introversion']"
+    }
+   ],
+   "verificado": true,
+   "cita_original": "People who prefer Introversion feel energized when reflecting on concepts and ideas in their inner world."
+  },
+  {
+   "id": "PER-sensing",
+   "instrumento": "personalidad",
+   "polo": "sensing",
+   "letra": "S",
+   "condicion": {
+    "polo_mayor": "sensing"
+   },
+   "texto": "Las personas con preferencia por la Sensacion prestan mas atencion a la informacion concreta y tangible.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). The Preferences: E-I, S-N, T-F, J-P. https://www.myersbriggs.org/my-mbti-personality-type/the-mbti-preferences/"
+    },
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['sensing']"
+    }
+   ],
+   "verificado": true,
+   "cita_original": "People who prefer Sensing pay more attention to information that is concrete and tangible."
+  },
+  {
+   "id": "PER-intuition",
+   "instrumento": "personalidad",
+   "polo": "intuition",
+   "letra": "N",
+   "condicion": {
+    "polo_mayor": "intuition"
+   },
+   "texto": "Las personas con preferencia por la Intuicion prestan mas atencion a los patrones y posibilidades de la informacion que reciben.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). The Preferences: E-I, S-N, T-F, J-P. https://www.myersbriggs.org/my-mbti-personality-type/the-mbti-preferences/"
+    },
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['intuition']"
+    }
+   ],
+   "verificado": true,
+   "cita_original": "People who prefer Intuition pay more attention to the patterns and possibilities in the information they receive."
+  },
+  {
+   "id": "PER-thinking",
+   "instrumento": "personalidad",
+   "polo": "thinking",
+   "letra": "T",
+   "condicion": {
+    "polo_mayor": "thinking"
+   },
+   "texto": "Las personas con preferencia por el Pensamiento dan mas peso a principios objetivos y hechos impersonales al decidir.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). The Preferences: E-I, S-N, T-F, J-P. https://www.myersbriggs.org/my-mbti-personality-type/the-mbti-preferences/"
+    },
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['thinking']"
+    }
+   ],
+   "verificado": true,
+   "cita_original": "People who prefer Thinking put more weight on objective principles and impersonal facts when decision-making."
+  },
+  {
+   "id": "PER-feeling",
+   "instrumento": "personalidad",
+   "polo": "feeling",
+   "letra": "F",
+   "condicion": {
+    "polo_mayor": "feeling"
+   },
+   "texto": "Las personas con preferencia por el Sentimiento dan mas peso a las consideraciones personales y a las personas involucradas al decidir.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). The Preferences: E-I, S-N, T-F, J-P. https://www.myersbriggs.org/my-mbti-personality-type/the-mbti-preferences/"
+    },
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['feeling']"
+    }
+   ],
+   "verificado": false,
+   "nota": "Texto tomado de un resumen de la pagina; falta verificar la cita textual en la fuente."
+  },
+  {
+   "id": "PER-judging",
+   "instrumento": "personalidad",
+   "polo": "judging",
+   "letra": "J",
+   "condicion": {
+    "polo_mayor": "judging"
+   },
+   "texto": "Las personas con preferencia por el Juicio prefieren un estilo de vida mas estructurado y organizado.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). The Preferences: E-I, S-N, T-F, J-P. https://www.myersbriggs.org/my-mbti-personality-type/the-mbti-preferences/"
+    },
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['judging']"
+    }
+   ],
+   "verificado": false,
+   "nota": "Texto tomado de un resumen de la pagina; falta verificar la cita textual en la fuente."
+  },
+  {
+   "id": "PER-perceptive",
+   "instrumento": "personalidad",
+   "polo": "perceptive",
+   "letra": "P",
+   "condicion": {
+    "polo_mayor": "perceptive"
+   },
+   "texto": "Las personas con preferencia por la Percepcion prefieren un estilo de vida mas flexible y abierto.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). The Preferences: E-I, S-N, T-F, J-P. https://www.myersbriggs.org/my-mbti-personality-type/the-mbti-preferences/"
+    },
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['perceptive']"
+    }
+   ],
+   "verificado": false,
+   "nota": "Texto tomado de un resumen de la pagina; falta verificar la cita textual en la fuente."
+  },
+  {
+   "id": "PER-TIPO-ENFJ",
+   "instrumento": "personalidad",
+   "tipo": "ENFJ",
+   "condicion": {
+    "tipo": "ENFJ"
+   },
+   "texto": "La persona ENFJ es carismática, solidaria y naturalmente orientada al liderazgo. Actúa con empatía y visión de conjunto, motivando a los demás incluso en los momentos más difíciles. Su habilidad para comprender y guiar es su mayor fortaleza, aunque puede sobrecargarse al intentar ayudar a todos. Aprender a establecer límites y priorizar su propio bienestar le permite sostener su energía y su vocación de servicio.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_enfj']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ENFP",
+   "instrumento": "personalidad",
+   "tipo": "ENFP",
+   "condicion": {
+    "tipo": "ENFP"
+   },
+   "texto": "La persona ENFP combina pasión, imaginación y empatía. Se motiva por ideas y causas que le resultan significativas. En momentos difíciles, busca darle sentido positivo a la experiencia y ayudar a otros a hacer lo mismo. Su mayor fortaleza es su energía creativa y optimismo, aunque puede dispersarse o cambiar de dirección con frecuencia. Cultivar la constancia y la organización le permite concretar sus proyectos con éxito.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_enfp']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ENTJ",
+   "instrumento": "personalidad",
+   "tipo": "ENTJ",
+   "condicion": {
+    "tipo": "ENTJ"
+   },
+   "texto": "El ENTJ es decidido, estratégico y enfocado en alcanzar sus objetivos. En momentos de crisis, asume el liderazgo con determinación, buscando soluciones efectivas. Su capacidad de planificación y visión lo impulsa al éxito, pero a veces puede parecer dominante o impaciente con quienes no comparten su ritmo. Incorporar empatía y flexibilidad en su estilo de liderazgo lo convierte en una figura aún más poderosa e inspiradora.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_entj']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ENTP",
+   "instrumento": "personalidad",
+   "tipo": "ENTP",
+   "condicion": {
+    "tipo": "ENTP"
+   },
+   "texto": "El ENTP es ingenioso, curioso y amante del debate. Enfrenta los problemas como oportunidades para innovar y desafiar lo establecido. Disfruta explorando ideas, aunque no siempre las lleva a término. Su mente rápida es su principal fortaleza, pero su tendencia a la discusión o la falta de estructura puede generarle conflictos. Incorporar hábitos de seguimiento y empatía emocional mejora su efectividad y relaciones.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_entp']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ESFJ",
+   "instrumento": "personalidad",
+   "tipo": "ESFJ",
+   "condicion": {
+    "tipo": "ESFJ"
+   },
+   "texto": "El ESFJ se define por su generosidad y preocupación por el bienestar de los demás. En situaciones difíciles, procura mantener la armonía y cuidar de quienes lo rodean. Es atento y cooperativo, con una fuerte orientación al deber. Sin embargo, tiende a depender de la aprobación ajena y a evitar los conflictos por temor a herir a otros. Trabajar en el asertividad y la autonomía emocional fortalece su equilibrio personal.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_esfj']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ESFP",
+   "instrumento": "personalidad",
+   "tipo": "ESFP",
+   "condicion": {
+    "tipo": "ESFP"
+   },
+   "texto": "El ESFP es alegre, sociable y orientado al disfrute del presente. En ambientes adversos, busca mantener el ánimo alto y animar a los demás. Su entusiasmo contagioso lo convierte en un gran motivador, pero puede tener dificultad para enfrentar la monotonía o los compromisos a largo plazo. Desarrollar disciplina y tolerancia a la frustración le ayuda a mantener su brillo sin perder estabilidad.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_esfp']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ESTJ",
+   "instrumento": "personalidad",
+   "tipo": "ESTJ",
+   "condicion": {
+    "tipo": "ESTJ"
+   },
+   "texto": "Las personas ESTJ son prácticas, decididas y enfocadas en los resultados. Ante la adversidad, toman el control y organizan el entorno con eficiencia. Les gusta que las cosas se hagan correctamente y conforme a las normas. Su liderazgo y sentido de responsabilidad los hacen confiables, pero pueden mostrarse autoritarios o poco tolerantes con las diferencias. Aprender a escuchar y flexibilizar su enfoque les permite ser líderes más integradores.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_estj']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ESTP",
+   "instrumento": "personalidad",
+   "tipo": "ESTP",
+   "condicion": {
+    "tipo": "ESTP"
+   },
+   "texto": "La persona ESTP es energética, audaz y amante de los desafíos. Actúa con rapidez, confianza y sentido práctico, especialmente bajo presión. En situaciones de crisis, suele mantener la cabeza fría y encontrar soluciones inmediatas. Su capacidad para adaptarse es una fortaleza natural, aunque puede ser impulsiva o impaciente con la rutina. Aprender a planificar y considerar las consecuencias a largo plazo potencia su eficacia y madurez personal.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_estp']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-INFJ",
+   "instrumento": "personalidad",
+   "tipo": "INFJ",
+   "condicion": {
+    "tipo": "INFJ"
+   },
+   "texto": "Las personas INFJ actúan movidas por una fuerte intuición y un profundo sentido de propósito. En las relaciones, son empáticas y buscan conexiones auténticas; en momentos adversos, suelen retirarse a reflexionar y encontrar significado en la experiencia. Su fuerza está en su visión idealista y su capacidad para inspirar cambios positivos. Sin embargo, pueden ser perfeccionistas o frustrarse cuando otros no comparten su nivel de compromiso. Aprender a soltar el control y aceptar la imperfección fortalece su bienestar.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_infj']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-INFP",
+   "instrumento": "personalidad",
+   "tipo": "INFP",
+   "condicion": {
+    "tipo": "INFP"
+   },
+   "texto": "La persona INFP es idealista, empática y guiada por una profunda necesidad de coherencia interna. En entornos armoniosos florece, mostrando su creatividad y compasión; pero cuando las cosas se vuelven tensas, puede replegarse y procesar en silencio lo que siente. Su mayor fortaleza es la autenticidad, aunque corre el riesgo de frustrarse ante la realidad cuando no se ajusta a sus ideales. Desarrollar tolerancia a la imperfección y una acción más práctica le ayuda a concretar sus sueños.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_infp']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-INTJ",
+   "instrumento": "personalidad",
+   "tipo": "INTJ",
+   "condicion": {
+    "tipo": "INTJ"
+   },
+   "texto": "El INTJ se distingue por su pensamiento estratégico, independencia y deseo de mejorar los sistemas que le rodean. En situaciones desafiantes, analiza con lógica, planifica y actúa con precisión. Es ambicioso y visionario, con gran confianza en sus ideas. Aun así, puede parecer distante o poco empático cuando prioriza la eficiencia sobre las emociones. Le conviene recordar que la sensibilidad también es una forma de inteligencia y que la colaboración enriquece sus proyectos.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_intj']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-INTP",
+   "instrumento": "personalidad",
+   "tipo": "INTP",
+   "condicion": {
+    "tipo": "INTP"
+   },
+   "texto": "El INTP se caracteriza por su mente analítica y curiosa. Le encanta comprender los sistemas y teorías que explican el mundo. En situaciones de incertidumbre, recurre a la reflexión profunda antes de actuar. Su capacidad de análisis es una gran fortaleza, pero puede quedarse atrapado en la teoría, evitando la acción. Le beneficia equilibrar pensamiento y práctica, así como conectar más con las emociones propias y ajenas, sin verlas como una distracción del razonamiento.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_intp']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ISFJ",
+   "instrumento": "personalidad",
+   "tipo": "ISFJ",
+   "condicion": {
+    "tipo": "ISFJ"
+   },
+   "texto": "El ISFJ es una persona amable, detallista y dedicada a cuidar de los demás. En entornos donde hay tensión o incertidumbre, suele responder con empatía y serenidad, buscando mantener la armonía. Se guía por valores de responsabilidad y servicio, y rara vez pasa por alto las necesidades de quienes lo rodean. No obstante, tiende a sobrecargarse tratando de agradar o ayudar, olvidando sus propios límites. Le beneficia aprender a expresar sus propias necesidades y a aceptar que no puede controlarlo todo.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_isfj']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ISFP",
+   "instrumento": "personalidad",
+   "tipo": "ISFP",
+   "condicion": {
+    "tipo": "ISFP"
+   },
+   "texto": "El ISFP es sensible, espontáneo y amante de la libertad. Actúa de manera tranquila y auténtica, guiado por sus valores y emociones. En momentos difíciles, prefiere mantener la paz y buscar un equilibrio personal antes de reaccionar. Su fortaleza está en su calidez y creatividad, pero puede tener dificultades para enfrentar conflictos o tomar decisiones firmes. Aprender a expresar sus opiniones y a tolerar la incomodidad emocional le permite crecer sin perder su esencia amable.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_isfp']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ISTJ",
+   "instrumento": "personalidad",
+   "tipo": "ISTJ",
+   "condicion": {
+    "tipo": "ISTJ"
+   },
+   "texto": "La persona ISTJ se caracteriza por su sentido del deber, la responsabilidad y la disciplina. Tiende a actuar de forma lógica y ordenada, especialmente en situaciones que requieren estructura o planificación. En momentos de presión, mantiene la calma y busca soluciones prácticas, confiando en la experiencia y los hechos. Su fortaleza radica en su fiabilidad y compromiso, aunque puede mostrarse inflexible ante los cambios o las ideas poco convencionales. Necesita aprender a adaptarse con mayor soltura y a valorar también las perspectivas emocionales.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_istj']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PER-TIPO-ISTP",
+   "instrumento": "personalidad",
+   "tipo": "ISTP",
+   "condicion": {
+    "tipo": "ISTP"
+   },
+   "texto": "La persona ISTP responde con calma y rapidez ante los problemas prácticos. Le gusta experimentar, explorar y encontrar soluciones creativas en el momento. En situaciones adversas, confía en su capacidad para improvisar, más que en planificaciones rígidas. Su naturaleza independiente y lógica le permite actuar con precisión, aunque a veces puede mostrarse desapegada o evitar compromisos emocionales. Desarrollar la empatía y la comunicación le ayuda a fortalecer sus vínculos personales y laborales.",
+   "uso": "contexto",
+   "nota": "R08: el tipo de 4 letras se usa como contexto para el profesional, no como etiqueta del estudiante.",
+   "fuentes": [
+    {
+     "tipo": "bloque_institucional",
+     "referencia": "ISCOUTB (2026). block_personality_test. https://github.com/ISCOUTB/personality_test",
+     "ubicacion": "lang/es/block_personality_test.php @ 426a101, $string['mbti_istp']"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PRIN-01",
+   "instrumento": "personalidad",
+   "condicion": {
+    "siempre": true
+   },
+   "texto": "El MBTI clasifica preferencias; no mide rasgos, capacidad, habilidad ni caracter. No hay tipos mejores ni peores.",
+   "cita_original": "The MBTI assessment sorts for preferences; it does not measure traits, ability, skill, or character. ... There are no better or worse types.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "The Myers & Briggs Foundation (2026). Myers-Briggs Overview. https://www.myersbriggs.org/my-mbti-personality-type/myers-briggs-overview/"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PRIN-02",
+   "instrumento": "ILS",
+   "condicion": {
+    "siempre": true
+   },
+   "texto": "Todos somos a veces de un polo y a veces del otro; la preferencia puede ser fuerte, moderada o leve, y un equilibrio entre ambos polos es deseable.",
+   "cita_original": "Everybody is active sometimes and reflective sometimes. Your preference for one category or the other may be strong, moderate, or mild. A balance of the two is desirable.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "Felder, R. M., y Soloman, B. A. (s. f.). Learning styles and strategies. North Carolina State University. https://www.engr.ncsu.edu/wp-content/uploads/drive/1WPAfj3j5o5OuJMiHorJ-lv6fON1C8kCN/styles.pdf"
+    }
+   ],
+   "verificado": true
+  },
+  {
+   "id": "PRIN-03",
+   "instrumento": "CHASIDE",
+   "condicion": {
+    "siempre": true
+   },
+   "texto": "Los resultados de CHASIDE son orientativos: en una muestra de 216 universitarios colombianos coincidieron con la carrera cursada en 58,3 % por intereses y 44,4 % por aptitudes.",
+   "fuentes": [
+    {
+     "tipo": "literatura",
+     "referencia": "Tamayo Lopera, D. A., Cespedes Correa, A. M., Lopez Restrepo, S., y Valencia Torres, M. Y. (2018). Psicoespacios, 12(21), 76-93. https://doi.org/10.25057/21452776.1099"
+    }
+   ],
+   "verificado": true
+  }
+ ]
+}
