@@ -1,0 +1,33 @@
+# Moodle specific
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.tmp
+
+# Local config files
+config.php
+
+# Node modules (if using)
+node_modules/
+
+# Composer vendor (if using)
+vendor/
+
+# Build artifacts
+dist/
+build/
+
+# OS generated files
+.DS_Store?
+ehthumbs.db
+Icon?

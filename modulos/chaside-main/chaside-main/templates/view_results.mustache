@@ -1,0 +1,293 @@
+{{! 
+    @template block_chaside/view_results 
+    Results page for the CHASIDE test - Redesigned.
+}}
+{{#is_completed}}
+    <div class="chaside-results-page">
+        <div class="container-fluid chaside-results-container">
+            
+            <div class="chaside-results-hero mb-4 text-center">
+                <div class="chaside-header mb-3">
+                    <img class="chaside-icon" src="{{iconurl}}" alt="CHASIDE Icon" style="width: 5em !important; height: 5em !important; vertical-align: middle !important; display: block !important; margin: 0 auto !important;">
+                </div>
+                <h2 class="chaside-page-title font-weight-bold">{{title}}</h2>
+                {{#meta}}
+                <div class="chaside-page-meta text-muted">
+                    <small>{{completion_date_label}} {{fecha_aplicacion}}</small>
+                </div>
+                {{/meta}}
+            </div>
+
+            {{! Main Results Section }}
+            <div class="chaside-main-results mb-5">
+                <h3 class="chaside-section-title text-center mb-4" style="color: #495057 !important; font-weight: 700 !important; text-transform: uppercase !important; font-size: 1.25rem !important; letter-spacing: 0.5px !important;">{{str_executive_summary}}</h3>
+                
+                <div class="row justify-content-center">
+                    {{#top1_detailed}}
+                    <div class="col-lg-10 mb-5">
+                        <div class="card shadow-sm border-0" style="border-radius: 15px !important; overflow: hidden !important; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;">
+                            <div class="card-header text-white p-4 d-flex align-items-center" style="background: linear-gradient(135deg, #ffb600 0%, #ff9a00 100%) !important;">
+                                <div class="mr-3" style="background: rgba(255,255,255,0.2) !important; border-radius: 50% !important; width: 50px !important; height: 50px !important; min-width: 50px !important; flex-shrink: 0 !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 1.5rem !important;">
+                                    <i class="fa fa-trophy"></i>
+                                </div>
+                                <div>
+                                    <small class="d-block text-uppercase font-weight-bold" style="letter-spacing: 1px !important; opacity: 0.9 !important;">{{str_your_top_area}}</small>
+                                    <h3 class="mb-0 font-weight-bold" style="overflow-wrap: break-word !important; word-wrap: break-word !important; -ms-word-break: break-all !important; word-break: break-word !important; -ms-hyphens: auto !important; -moz-hyphens: auto !important; -webkit-hyphens: auto !important; hyphens: auto !important; color: #fff !important;">{{label}}</h3>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="row align-items-center mb-4">
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <div class="mr-3 text-center">
+                                                <div style="position: relative !important; display: inline-block !important;">
+                                                    <svg viewBox="0 0 36 36" class="circular-chart orange" style="display: block !important; width: 100px !important; margin: 0 auto !important;">
+                                                      <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#eee" stroke-width="2.5" />
+                                                      <path class="circle" stroke-dasharray="{{total.pct}}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#ffb600" stroke-width="2.5" stroke-linecap="round" />
+                                                      <text x="18" y="20.35" class="percentage" style="fill: #666 !important; font-family: sans-serif !important; font-weight: bold !important; font-size: 0.5em !important; text-anchor: middle !important;">{{total.pct}}%</text>
+                                                    </svg>
+                                                    <div class="mt-2 text-muted font-weight-bold small">{{str_total_score}}</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex flex-column">
+                                                 <div class="text-center p-2 rounded mb-2" style="background-color: #f8f9fa !important; border: 1px solid #e9ecef !important; min-width: 90px !important;">
+                                                    <small class="text-uppercase text-muted font-weight-bold" style="font-size: 0.65rem !important;">{{str_level}}</small>
+                                                    <div class="font-weight-bold text-dark mt-1" style="font-size: 0.9rem !important;">{{nivel}}</div>
+                                                </div>
+                                                <div class="text-center p-2 rounded" style="background-color: #f8f9fa !important; border: 1px solid #e9ecef !important; min-width: 90px !important;">
+                                                    <small class="text-uppercase text-muted font-weight-bold" style="font-size: 0.65rem !important;">{{str_gap}}</small>
+                                                    <div class="font-weight-bold text-dark mt-1" style="font-size: 0.9rem !important;"><i class="fa {{gap_icon}} mr-1" style="color: #ffb600 !important;"></i> {{brecha}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="alert alert-light border mb-0" style="background-color: #fffbf0 !important; border-left: 3px solid #ffb600 !important;">
+                                            <h5 class="alert-heading text-dark font-weight-bold mb-2" style="font-size: 1rem !important;"><i class="fa fa-lightbulb-o text-warning mr-2"></i>{{str_interpretation}}</h5>
+                                            <p class="mb-0 text-dark" style="line-height: 1.5 !important; font-size: 0.95rem !important;">{{interpretacion_breve}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span class="text-muted small font-weight-bold text-uppercase">{{str_interests}}</span>
+                                            <span class="badge badge-pill badge-light border">{{interes.score}}/10</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px !important; border-radius: 4px !important;">
+                                            <div class="progress-bar" role="progressbar" style="width: {{interes.pct}}% !important; background-color: #ffca2c !important;" aria-valuenow="{{interes.pct}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span class="text-muted small font-weight-bold text-uppercase">{{str_aptitudes}}</span>
+                                            <span class="badge badge-pill badge-light border">{{aptitud.score}}/4</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px !important; border-radius: 4px !important;">
+                                            <div class="progress-bar" role="progressbar" style="width: {{aptitud.pct}}% !important; background-color: #ff9a00 !important;" aria-valuenow="{{aptitud.pct}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/top1_detailed}}
+
+                    {{#top2_detailed}}
+                    <div class="col-lg-10 mb-4">
+                        <div class="card shadow-sm border-0" style="border-radius: 15px !important; overflow: hidden !important; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;">
+                            <div class="card-header text-white p-4 d-flex align-items-center" style="background: linear-gradient(135deg, #6c757d 0%, #495057 100%) !important;">
+                                <div class="mr-3" style="background: rgba(255,255,255,0.2) !important; border-radius: 50% !important; width: 50px !important; height: 50px !important; min-width: 50px !important; flex-shrink: 0 !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 1.5rem !important;">
+                                    <i class="fa fa-trophy"></i>
+                                </div>
+                                <div>
+                                    <small class="d-block text-uppercase font-weight-bold" style="letter-spacing: 1px !important; opacity: 0.9 !important;">{{str_second_top_area}}</small>
+                                    <h3 class="mb-0 font-weight-bold" style="overflow-wrap: break-word !important; word-wrap: break-word !important; -ms-word-break: break-all !important; word-break: break-word !important; -ms-hyphens: auto !important; -moz-hyphens: auto !important; -webkit-hyphens: auto !important; hyphens: auto !important; color: #fff !important;">{{label}}</h3>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="row align-items-center mb-4">
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <div class="mr-3 text-center">
+                                                <div style="position: relative !important; display: inline-block !important;">
+                                                    <svg viewBox="0 0 36 36" class="circular-chart gray" style="display: block !important; width: 100px !important; margin: 0 auto !important;">
+                                                      <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#eee" stroke-width="2.5" />
+                                                      <path class="circle" stroke-dasharray="{{total.pct}}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#6c757d" stroke-width="2.5" stroke-linecap="round" />
+                                                      <text x="18" y="20.35" class="percentage" style="fill: #666 !important; font-family: sans-serif !important; font-weight: bold !important; font-size: 0.5em !important; text-anchor: middle !important;">{{total.pct}}%</text>
+                                                    </svg>
+                                                    <div class="mt-2 text-muted font-weight-bold small">{{str_total_score}}</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex flex-column">
+                                                 <div class="text-center p-2 rounded mb-2" style="background-color: #f8f9fa !important; border: 1px solid #e9ecef !important; min-width: 90px !important;">
+                                                    <small class="text-uppercase text-muted font-weight-bold" style="font-size: 0.65rem !important;">{{str_level}}</small>
+                                                    <div class="font-weight-bold text-dark mt-1" style="font-size: 0.9rem !important;">{{nivel}}</div>
+                                                </div>
+                                                <div class="text-center p-2 rounded" style="background-color: #f8f9fa !important; border: 1px solid #e9ecef !important; min-width: 90px !important;">
+                                                    <small class="text-uppercase text-muted font-weight-bold" style="font-size: 0.65rem !important;">{{str_gap}}</small>
+                                                    <div class="font-weight-bold text-dark mt-1" style="font-size: 0.9rem !important;"><i class="fa {{gap_icon}} mr-1" style="color: #6c757d !important;"></i> {{brecha}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        
+                                        <div class="alert alert-light border mb-0" style="background-color: #fffbf0 !important; border-left: 3px solid #6c757d !important;">
+                                            <h5 class="alert-heading text-dark font-weight-bold mb-2" style="font-size: 1rem !important;"><i class="fa fa-lightbulb-o text-muted mr-2"></i>{{str_interpretation}}</h5>
+                                            <p class="mb-0 text-dark" style="line-height: 1.5 !important; font-size: 0.95rem !important;">{{interpretacion_breve}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span class="text-muted small font-weight-bold text-uppercase">{{str_interests}}</span>
+                                            <span class="badge badge-pill badge-light border">{{interes.score}}/10</span>
+                                        </div>
+                                        <div class="progress" style="height: 6px; border-radius: 3px;">
+                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: {{interes.pct}}%;" aria-valuenow="{{interes.pct}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span class="text-muted small font-weight-bold text-uppercase">{{str_aptitudes}}</span>
+                                            <span class="badge badge-pill badge-light border">{{aptitud.score}}/4</span>
+                                        </div>
+                                        <div class="progress" style="height: 6px; border-radius: 3px;">
+                                            <div class="progress-bar" role="progressbar" style="width: {{aptitud.pct}}%; background-color: #495057;" aria-valuenow="{{aptitud.pct}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/top2_detailed}}
+                </div>
+
+                {{! Remaining Areas Section }}
+                {{#remaining_areas.0}}
+                <div class="row justify-content-center mt-5 mb-4">
+                    <div class="col-lg-10">
+                         <h5 class="text-dark font-weight-bold text-uppercase mb-3" style="font-size: 0.9rem !important; letter-spacing: 1px !important; border-bottom: 2px solid #e9ecef !important; padding-bottom: 10px !important; color: #343a40 !important;">{{str_remaining_areas}}</h5>
+                         <div class="row justify-content-center row-cols-2 row-cols-md-5 g-3">
+                            {{#remaining_areas}}
+                            <div class="col mb-3">
+                                <div class="card h-100 shadow-sm border-0" style="border-radius: 12px !important; box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important;">
+                                    <div class="card-body p-2 text-center d-flex flex-column align-items-center justify-content-center">
+                                        <div class="mb-2" style="position: relative !important; width: 60px !important; height: 60px !important;">
+                                            <svg viewBox="0 0 36 36" class="circular-chart" style="display: block !important; width: 100% !important; height: 100% !important;">
+                                              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#f8f9fa" stroke-width="3" />
+                                              <path class="circle" stroke-dasharray="{{total.pct}}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#adb5bd" stroke-width="3" stroke-linecap="round" />
+                                              <text x="18" y="21" class="percentage" style="fill: #6c757d !important; font-family: sans-serif !important; font-weight: bold !important; font-size: 0.6em !important; text-anchor: middle !important;">{{total.pct}}</text>
+                                            </svg>
+                                        </div>
+                                        <h6 class="font-weight-bold text-dark mb-0" style="font-size: 0.8rem !important; line-height: 1.3 !important; overflow-wrap: break-word !important; word-wrap: break-word !important; -ms-word-break: break-all !important; word-break: break-word !important; -ms-hyphens: auto !important; -moz-hyphens: auto !important; -webkit-hyphens: auto !important; hyphens: auto !important;">{{label}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/remaining_areas}}
+                         </div>
+                    </div>
+                </div>
+                {{/remaining_areas.0}}
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <hr class="mt-3 mb-0" style="border-top: 1px solid rgba(0,0,0,0.08) !important;">
+                    </div>
+                </div>
+            </div>
+
+            {{! Recommendations }}
+            <div class="chaside-recommendations mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="alert alert-info border-info" role="alert" style="border-width: 0 0 0 4px !important; border-radius: 4px !important; background-color: #f0f8ff !important;">
+                            <h4 class="alert-heading text-info mb-3">
+                                <i class="fa fa-star mr-2"></i>{{str_recommendations}}
+                            </h4>
+                            {{#has_recommendations}}
+                            <ul class="list-unstyled mb-0">
+                                {{#recomendaciones}}
+                                <li class="mb-2 d-flex align-items-start text-dark">
+                                    <i class="fa fa-angle-right text-info mt-1 mr-2 font-weight-bold"></i>
+                                    <span>{{.}}</span>
+                                </li>
+                                {{/recomendaciones}}
+                            </ul>
+                            {{/has_recommendations}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{! Guidance Note }}
+            <div class="chaside-guidance mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="bg-light p-4 rounded border">
+                            <h5 class="font-weight-bold mb-3 text-dark">{{str_guidance_note}}</h5>
+                            <p class="mb-0 text-dark small text-justify">{{note}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{! Navigation }}
+            <div class="mb-5 text-center d-flex gap-3 justify-content-center">
+                {{#can_view_reports}}
+                <a href="{{admin_url}}" class="btn btn-outline-secondary mr-3 px-4 rounded-pill">
+                    <i class="fa fa-arrow-left mr-2"></i>{{str_back_to_admin}}
+                </a>
+                {{/can_view_reports}}
+                <a href="{{course_url}}" class="btn px-4 rounded-pill shadow-sm" style="background: linear-gradient(135deg, #ffd966 0%, #ffb600 100%) !important; border: none !important; color: white !important;">
+                    <i class="fa fa-home mr-2"></i>{{str_back_to_course}}
+                </a>
+            </div>
+
+        </div>
+    </div>
+{{/is_completed}}
+
+{{^is_completed}}
+    {{! In Progress State }}
+    <div class="container-fluid">
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading"><i class="fa fa-clock-o"></i> {{str_test_in_progress}}</h4>
+            <p>{{str_test_in_progress_message}}</p>
+            <hr>
+            <p class="mb-1"><strong>{{str_progress_label}}:</strong></p>
+            <div class="progress mb-2" style="height: 30px !important;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: {{progress_percentage}}% !important;" aria-valuenow="{{progress_percentage}}" aria-valuemin="0" aria-valuemax="100">
+                    <strong>{{progress_percentage}}%</strong>
+                </div>
+            </div>
+            <p><strong>{{str_has_answered}}:</strong> {{answered}}/{{total_questions}} {{str_questions}}</p>
+            
+            {{#all_answered}}
+            <div class="alert alert-info mt-2" role="alert">
+                <i class="fa fa-info-circle"></i> 
+                <strong>{{str_remind_submit_test}}</strong>
+            </div>
+            {{/all_answered}}
+            
+            <p class="mb-0"><em>{{str_results_available_when_complete}}</em></p>
+        </div>
+        
+        <div class="mt-5 text-center d-flex gap-3 justify-content-center">
+             {{#can_view_reports}}
+            <a href="{{admin_url}}" class="btn btn-secondary btn-modern mr-3">
+                <i class="fa fa-arrow-left mr-2"></i>{{str_back_to_admin}}
+            </a>
+            {{/can_view_reports}}
+            <a href="{{course_url}}" class="btn btn-modern" style="background: linear-gradient(135deg, #ffd966 0%, #ffb600 100%) !important; border: none !important; color: white !important;">
+                <i class="fa fa-home mr-2"></i>{{str_back_to_course}}
+            </a>
+        </div>
+    </div>
+{{/is_completed}}
