@@ -10,3 +10,14 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Perfiles con datos reales (E2-14: solo perfiles simulados se versionan)
+perfiles/reales/
+
+# Documentos base del docente (ver fuentes/README.md)
+fuentes/*.docx
+fuentes/*.pdf
+fuentes/*.pptx
+
+# Salidas locales del Prompt Builder
+poc_slm/salidas/

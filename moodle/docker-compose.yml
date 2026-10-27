@@ -1,10 +1,21 @@
+# Moodle local minimo (habilitador de Entrega 2, issue E2-02).
+#
+# Nota sobre la imagen de Moodle (hallazgo 2026-10-18):
+#   El tag original `moodlehq/moodle:latest` NO existe en Docker Hub.
+#   Se usa la imagen autoinstalable de Bitnami (registro legacy, aun publicado):
+#     bitnamilegacy/moodle:5.0.2  -> Moodle 5.0.2 con instalacion automatica.
+#   Base de datos: mariadb:10.11 (imagen oficial, como pedia el issue).
+#
+# Levantar:   docker compose up -d
+# Estado:     docker compose ps
+# Logs:       docker compose logs -f moodle
+# Detener:    docker compose stop
+# Borrar:     docker compose down      (conserva volumenes)
+# Borrar todo: docker compose down -v  (elimina base de datos y datos)
+
 services:
   db:
-    # Moodle 5.3 exige MariaDB >= 11.4
-    image: mariadb:11.4
-    restart: unless-stopped
-    # Moodle exige utf8mb4 (si no, el instalador falla por el charset)
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    image: mariadb:10.11
     environment:
       MYSQL_DATABASE: moodle
       MYSQL_USER: moodle
@@ -12,35 +23,39 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
 
   moodle:
-    # moodlehq/moodle no existe en Docker Hub; esta imagen instala Moodle solo al primer arranque
-    image: erseco/alpine-moodle:latest
-    restart: unless-stopped
+    image: bitnamilegacy/moodle:5.0.2
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "8080:8080"
     environment:
-      DB_TYPE: mariadb
-      DB_HOST: db
-      DB_PORT: 3306
-      DB_NAME: moodle
-      DB_USER: moodle
-      DB_PASS: moodle
-      DB_PREFIX: mdl_
-      SITE_URL: http://localhost:8080
+      # Conexion a la base de datos (deben coincidir con el servicio db).
+      MOODLE_DATABASE_HOST: db
+      MOODLE_DATABASE_PORT_NUMBER: 3306
+      MOODLE_DATABASE_NAME: moodle
+      MOODLE_DATABASE_USER: moodle
+      MOODLE_DATABASE_PASSWORD: moodle
+      # Cuenta administrador del sitio (login reproducible para el equipo).
       MOODLE_USERNAME: admin
-      MOODLE_PASSWORD: Admin123!
-      MOODLE_EMAIL: admin@example.com
-      MOODLE_LANGUAGE: es
-      # Sin espacios: el script de instalacion de la imagen no los soporta
-      MOODLE_SITENAME: Savio_local_pruebas
+      MOODLE_PASSWORD: moodle123
+      MOODLE_EMAIL: admin@utb.local
+      MOODLE_SITE_NAME: Moodle UTB local
+      MOODLE_HOST: localhost:8080
+      MOODLE_LANG: es
     volumes:
-      - moodle_data:/var/www/moodledata
-      - moodle_html:/var/www/html
+      - moodle_data:/bitnami/moodle
+      - moodledata_data:/bitnami/moodledata
 
 volumes:
   db_data:
   moodle_data:
-  moodle_html:
+  moodledata_data:

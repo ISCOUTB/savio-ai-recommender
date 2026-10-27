@@ -8,10 +8,13 @@ Material de presentacion de la PoC (Sprint 5, Issue #12).
 
 | Archivo | Contenido |
 |---|---|
-| [`presentacion-tecnica-entrega1.pptx`](presentacion-tecnica-entrega1.pptx) | Presentacion de 16 diapositivas (16:9) con notas del orador |
+| [`presentacion-tecnica-entrega1.pptx`](presentacion-tecnica-entrega1.pptx) | Presentacion de 16 diapositivas (16:9) con notas del orador. **Generado: no editar a mano**, se regenera con el script de abajo |
 | [`generar_presentacion.py`](generar_presentacion.py) | Script que genera el `.pptx` a partir de la evidencia del repositorio |
 | [`demo-qwen2.5-3b/`](demo-qwen2.5-3b/) | Salidas reales del modelo seleccionado (escenarios A, B y ataques); plan B de la demo |
 | [`requirements.txt`](requirements.txt) | Dependencias para regenerar la presentacion y el diagrama |
+
+> El `.pptx` versionado es el entregable y se conserva para no regenerarlo en cada revision.
+> Si cambia la evidencia, se regenera y se commitea el resultado: nunca se edita a mano.
 
 ## Secciones → diapositivas
 

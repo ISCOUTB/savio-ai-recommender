@@ -1,0 +1,29 @@
+{
+  "recomendacion_id": "rec-demo-002-s1-b0557548",
+  "estudiante_id": "demo-002",
+  "semana": 1,
+  "recurso_elegido": "tde-s1-B",
+  "opcion": "B",
+  "titulo": "Guia de lectura analitica: dos ensayos modelo y glosario",
+  "justificacion": "El recurso `tde-s1-B` es recomendado porque su nivel de `intermedio` y su `carga_estimada_min` de `45 min` se ajustan bien a las preferencias del estudiante, que prefiere trabajar en `lectura` y `analitica`. Su formato de `pdf` permite una lectura minuciosa, lo que es compatible con la preferencia del estudiante por `lectura analitica`. Ademas, la `guia de lectura analitica` ayuda al estudiante a entender el flujo argumentativo, lo que es relevante para el tema de la estructura del ensayo argumentativo. Esta guia tambien incluye un `glosario`, que es beneficioso para un estudiante con alta `apertura` a ideas nuevas, como este estudiante.",
+  "descarte": {
+    "tde-s1-A": "`diagrama` no es compatible con la preferencia del estudiante por `lectura` y `analitica`. Ademas, su `carga_estimada_min` de `15 min` es demasiado baja para el estudiante que prefiere `lectura analitica`.",
+    "tde-s1-C": "`ejercicio` no es compatible con la preferencia del estudiante por `lectura` y `analitica`. Ademas, su `carga_estimada_min` de `60 min` es demasiado alta para el estudiante que prefiere `lectura analitica`."
+  },
+  "modelo": "qwen2.5:3b",
+  "refuerzo": true,
+  "mensaje": null,
+  "orden": [
+    "tde-s1-A",
+    "tde-s1-B",
+    "tde-s1-C"
+  ],
+  "temperatura": 0.4,
+  "latencia_s": 99.49,
+  "tokens_generados": 360,
+  "validacion": {
+    "ok": true,
+    "errores": []
+  },
+  "respuesta_md": "## Recurso recomendado\ntde-s1-B - Guia de lectura analitica: dos ensayos modelo y glosario\n\n## Justificacion pedagogica\nEl recurso `tde-s1-B` es recomendado porque su nivel de `intermedio` y su `carga_estimada_min` de `45 min` se ajustan bien a las preferencias del estudiante, que prefiere trabajar en `lectura` y `analitica`. Su formato de `pdf` permite una lectura minuciosa, lo que es compatible con la preferencia del estudiante por `lectura analitica`. Ademas, la `guia de lectura analitica` ayuda al estudiante a entender el flujo argumentativo, lo que es relevante para el tema de la estructura del ensayo argumentativo. Esta guia tambien incluye un `glosario`, que es beneficioso para un estudiante con alta `apertura` a ideas nuevas, como este estudiante.\n\n## Razon de descarte\ntde-s1-A: `diagrama` no es compatible con la preferencia del estudiante por `lectura` y `analitica`. Ademas, su `carga_estimada_min` de `15 min` es demasiado baja para el estudiante que prefiere `lectura analitica`.\ntde-s1-C: `ejercicio` no es compatible con la preferencia del estudiante por `lectura` y `analitica`. Ademas, su `carga_estimada_min` de `60 min` es demasiado alta para el estudiante que prefiere `lectura analitica`."
+}

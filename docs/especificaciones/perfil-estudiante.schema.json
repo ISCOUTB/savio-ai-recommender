@@ -2,29 +2,39 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "perfil_estudiante_entrega_2",
   "type": "object",
-  "required": ["estudiante_id", "estilos_aprendizaje", "personalidad", "chaside"],
+  "required": ["estudiante_id", "origen", "estilos_aprendizaje", "personalidad", "chaside"],
   "additionalProperties": false,
   "properties": {
     "estudiante_id": {
       "type": "string",
       "minLength": 1
     },
+    "origen": {
+      "type": "string",
+      "enum": ["real", "simulado"]
+    },
     "estilos_aprendizaje": {
       "type": "object",
-      "required": ["modelo", "dominante"],
+      "required": ["modelo", "puntajes", "preferencias", "descripcion_para_prompt"],
       "additionalProperties": false,
       "properties": {
         "modelo": {
           "type": "string",
           "enum": ["vak", "felder_silverman", "kolb", "otro"]
         },
-        "dominante": {
-          "type": "string",
-          "enum": ["visual", "auditivo", "kinestesico", "lectura_escritura", "mixto"]
-        },
         "puntajes": {
           "type": "object",
-          "additionalProperties": { "type": "number" }
+          "minProperties": 4,
+          "additionalProperties": { "type": "number", "minimum": 1.0, "maximum": 5.0 }
+        },
+        "preferencias": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["activo", "reflexivo", "sensorial", "intuitivo", "visual", "verbal", "secuencial", "global"]
+          },
+          "uniqueItems": true,
+          "maxItems": 4
         },
         "descripcion_para_prompt": {
           "type": "string"
@@ -38,7 +48,7 @@
       "properties": {
         "rasgos": {
           "type": "object",
-          "additionalProperties": { "type": "number" }
+          "additionalProperties": { "type": "number", "minimum": 1.0, "maximum": 5.0 }
         },
         "resumen_conductual": {
           "type": "string"
@@ -56,14 +66,15 @@
       "properties": {
         "areas": {
           "type": "object",
+          "required": ["C", "H", "A", "S", "I", "D", "E"],
           "properties": {
-            "C": { "type": "number" },
-            "H": { "type": "number" },
-            "A": { "type": "number" },
-            "S": { "type": "number" },
-            "I": { "type": "number" },
-            "D": { "type": "number" },
-            "E": { "type": "number" }
+            "C": { "type": "number", "minimum": 1.0, "maximum": 5.0 },
+            "H": { "type": "number", "minimum": 1.0, "maximum": 5.0 },
+            "A": { "type": "number", "minimum": 1.0, "maximum": 5.0 },
+            "S": { "type": "number", "minimum": 1.0, "maximum": 5.0 },
+            "I": { "type": "number", "minimum": 1.0, "maximum": 5.0 },
+            "D": { "type": "number", "minimum": 1.0, "maximum": 5.0 },
+            "E": { "type": "number", "minimum": 1.0, "maximum": 5.0 }
           },
           "additionalProperties": false
         },

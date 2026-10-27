@@ -1,0 +1,38 @@
+{
+  "estudiante_id": "demo-003",
+  "origen": "simulado",
+  "estilos_aprendizaje": {
+    "modelo": "felder_silverman",
+    "puntajes": {
+      "activo_reflexivo": 1.4,
+      "sensorial_intuitivo": 1.0,
+      "visual_verbal": 3.2,
+      "secuencial_global": 1.7
+    },
+    "preferencias": ["activo", "sensorial", "secuencial"],
+    "descripcion_para_prompt": "Aprende haciendo: necesita ejercicios, plantillas y ejemplos concretos, con pasos ordenados. Prefiere producir y recibir retroalimentacion sobre su propio trabajo antes que leer teoria extensa."
+  },
+  "personalidad": {
+    "rasgos": {
+      "introversion_extraversion": 3.2,
+      "autonomia": 2.1,
+      "metodicidad": 4.6,
+      "apertura": 2.8
+    },
+    "resumen_conductual": "Necesita cronograma y pasos guiados; alta metodicidad y preferencia por instrucciones explicitas. Trabaja mejor con estructura definida que con exploracion libre.",
+    "preferencias_trabajo": ["cronograma", "pasos guiados", "estructura", "aplicacion practica"]
+  },
+  "chaside": {
+    "areas": {
+      "C": 3.0,
+      "H": 2.4,
+      "A": 3.3,
+      "S": 3.6,
+      "I": 2.7,
+      "D": 1.9,
+      "E": 2.1
+    },
+    "areas_dominantes": ["S", "A"],
+    "descripcion_para_analogias": "Conectar la materia con sistemas, estructuras y produccion creativa; areas dominantes: Sistemico (S) y Artistico (A)."
+  }
+}

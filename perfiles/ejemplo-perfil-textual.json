@@ -1,0 +1,38 @@
+{
+  "estudiante_id": "demo-002",
+  "origen": "simulado",
+  "estilos_aprendizaje": {
+    "modelo": "felder_silverman",
+    "puntajes": {
+      "activo_reflexivo": 3.9,
+      "sensorial_intuitivo": 2.8,
+      "visual_verbal": 4.6,
+      "secuencial_global": 2.1
+    },
+    "preferencias": ["reflexivo", "verbal", "secuencial"],
+    "descripcion_para_prompt": "Aprende mejor leyendo y escribiendo: le funcionan los textos con estructura clara, las definiciones escritas y el analisis de ejemplos. Prefiere reflexionar antes de producir y avanzar en orden. Evitar videos o diagramas como recurso principal."
+  },
+  "personalidad": {
+    "rasgos": {
+      "introversion_extraversion": 2.1,
+      "autonomia": 2.8,
+      "metodicidad": 3.4,
+      "apertura": 4.6
+    },
+    "resumen_conductual": "Prefiere el trabajo individual y la reflexion previa; alta apertura a ideas nuevas y buena tolerancia a la lectura extensa.",
+    "preferencias_trabajo": ["lectura analitica", "reflexion individual", "trabajo autonomo"]
+  },
+  "chaside": {
+    "areas": {
+      "C": 2.4,
+      "H": 3.9,
+      "A": 2.1,
+      "S": 2.7,
+      "I": 3.6,
+      "D": 1.6,
+      "E": 3.0
+    },
+    "areas_dominantes": ["H", "I"],
+    "descripcion_para_analogias": "Conectar la materia con comunicacion, argumentacion y analisis de textos; areas dominantes: Humanistico (H) e Investigador (I)."
+  }
+}

@@ -17,6 +17,17 @@ prompts/
 └── README.md
 ```
 
+## Contenido (Entrega 2 - personalizacion semanal)
+
+| Archivo | Que contiene |
+|---|---|
+| [system_prompt_recomendacion.md](system_prompt_recomendacion.md) | Prompt de recomendacion semanal (E2-10): 5 reglas y formato fijo de tres secciones |
+| [escenarios/personalizacion_semanal.md](escenarios/personalizacion_semanal.md) | Evidencia de E2-10: 3 perfiles, prueba adversarial y control de orden |
+
+El system prompt de Entrega 2 es distinto del de tutoria: no redacta una clase,
+elige uno de los recursos A/B/C de la semana y justifica el descarte. Se carga en
+runtime desde `poc_slm/prompt_builder.py`.
+
 ## Las 4 reglas de guardrails
 
 1. Solo temas de la materia — redirigir ante off-topic.

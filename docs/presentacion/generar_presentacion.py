@@ -5,6 +5,9 @@ exigidas. Los datos de benchmarks se leen de benchmarks/resultados/resultados.js
 y el diagrama de docs/arquitectura/arquitectura-subsistema.png, para que la
 presentacion se mantenga sincronizada con la evidencia del repositorio.
 
+El .pptx es un artefacto generado: no se edita a mano; se corrige este script o
+las fuentes y se regenera.
+
 Uso:
     python docs/arquitectura/generar_diagrama.py      # si cambio el diagrama
     python docs/presentacion/generar_presentacion.py

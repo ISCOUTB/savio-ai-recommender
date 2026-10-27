@@ -14,6 +14,12 @@ generada para la evaluacion de calidad en espanol.
 Uso:
     python benchmarks/benchmark.py
     python benchmarks/benchmark.py --modelos qwen2.5:1.5b gemma2:2b --modos gpu --repeticiones 5
+    python benchmarks/benchmark.py --equipo intel-i5-1235u-iris-xe
+    python benchmarks/benchmark.py --dry-run
+
+Cada corrida escribe en benchmarks/resultados/<equipo>/ (resultados.json y
+salidas/). El equipo se deduce de la CPU medida contra benchmarks/equipos/*.md;
+si no se puede deducir, el script pide --equipo y no escribe nada.
 
 Dependencias: requests, psutil (ver benchmarks/requirements.txt).
 """
@@ -21,6 +27,7 @@ Dependencias: requests, psutil (ver benchmarks/requirements.txt).
 import argparse
 import json
 import platform
+import re
 import subprocess
 import sys
 import threading
@@ -43,6 +50,8 @@ MODELOS_DEFAULT = ["qwen2.5:1.5b", "gemma2:2b", "qwen2.5:3b"]
 ESCENARIO = "A_nota_baja"
 TOKENS_SALIDA = 300  # Longitud fija de salida para comparacion justa (Sprint 4)
 DIR_RESULTADOS = RAIZ / "benchmarks" / "resultados"
+DIR_EQUIPOS = RAIZ / "benchmarks" / "equipos"
+MODELO_CPU = re.compile(r"(?:i[3579]-\d{3,5}\w*|ryzen\s+\d\s+\d{4}\w*)", re.IGNORECASE)
 
 
 class Muestreador(threading.Thread):
@@ -109,7 +118,10 @@ def info_hardware() -> dict:
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE,
                             r"HARDWARE\DESCRIPTION\System\CentralProcessor\0") as clave:
             cpu = winreg.QueryValueEx(clave, "ProcessorNameString")[0].strip()
-    version_ollama = requests.get(f"{OLLAMA}/api/version", timeout=10).json().get("version")
+    try:
+        version_ollama = requests.get(f"{OLLAMA}/api/version", timeout=10).json().get("version")
+    except requests.RequestException:
+        version_ollama = "N/D"  # permite --dry-run sin Ollama activo
     return {
         "cpu": cpu,
         "nucleos_fisicos": psutil.cpu_count(logical=False),
@@ -119,6 +131,24 @@ def info_hardware() -> dict:
         "so": so,
         "ollama": version_ollama,
     }
+
+
+def equipos_registrados() -> list[str]:
+    """Lista los equipos documentados en benchmarks/equipos/ (mismo nombre que su carpeta de resultados)."""
+    return sorted(archivo.stem for archivo in DIR_EQUIPOS.glob("*.md"))
+
+
+def equipo_desde_hardware(hardware: dict) -> str | None:
+    """Deduce la carpeta del equipo comparando la CPU medida con benchmarks/equipos/*.md."""
+    modelo = MODELO_CPU.search(hardware.get("cpu", ""))
+    if not modelo:
+        return None
+    token = " ".join(modelo.group(0).lower().split())
+    candidatos = [
+        nombre for nombre in equipos_registrados()
+        if token in (DIR_EQUIPOS / f"{nombre}.md").read_text(encoding="utf-8").lower()
+    ]
+    return candidatos[0] if len(candidatos) == 1 else None
 
 
 def descargar_modelos() -> None:
@@ -146,7 +176,8 @@ def generar(modelo: str, system: str, prompt: str, opciones: dict) -> tuple[dict
     return r.json(), duracion, muestreador
 
 
-def medir(modelo: str, modo: str, repeticiones: int, system: str, prompt: str) -> dict:
+def medir(modelo: str, modo: str, repeticiones: int, system: str, prompt: str,
+          dir_equipo: Path) -> dict:
     """Mide un modelo en un modo (gpu/cpu): carga en frio + N corridas de ~300 tokens."""
     opciones = {"num_predict": TOKENS_SALIDA, "temperature": 0.7}
     if modo == "cpu":
@@ -180,7 +211,7 @@ def medir(modelo: str, modo: str, repeticiones: int, system: str, prompt: str) -
               f"{corrida['tokens_por_seg']} tok/s, {corrida['tiempo_total_s']} s, "
               f"RAM {corrida['pico_ram_ollama_mb']} MB")
 
-        salida = DIR_RESULTADOS / "salidas" / f"{modelo.replace(':', '_')}_{modo}_corrida{i}.md"
+        salida = dir_equipo / "salidas" / f"{modelo.replace(':', '_')}_{modo}_corrida{i}.md"
         salida.parent.mkdir(parents=True, exist_ok=True)
         salida.write_text(
             f"> Modelo: {modelo} | Modo: {modo} | Escenario: {ESCENARIO} + refuerzo | seed {i}\n"
@@ -218,10 +249,10 @@ def main() -> None:
     parser.add_argument("--modelos", nargs="+", default=MODELOS_DEFAULT)
     parser.add_argument("--modos", nargs="+", choices=["gpu", "cpu"], default=["gpu", "cpu"])
     parser.add_argument("--repeticiones", type=int, default=3)
+    parser.add_argument("--equipo", help="Carpeta de benchmarks/resultados/ a usar (por defecto se deduce de la CPU)")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Muestra el equipo y las rutas de salida sin medir ni escribir")
     args = parser.parse_args()
-
-    system = cargar_system_prompt()
-    prompt = ensamblar_prompt(cargar_evento(ESCENARIO), refuerzo=True)
 
     resultados = {
         "fecha": datetime.now().isoformat(timespec="seconds"),
@@ -232,13 +263,35 @@ def main() -> None:
     }
     print(json.dumps(resultados["hardware"], indent=2, ensure_ascii=False))
 
+    equipo = args.equipo or equipo_desde_hardware(resultados["hardware"])
+    if not equipo:
+        parser.error(
+            f"no se pudo deducir el equipo a partir de la CPU '{resultados['hardware'].get('cpu')}'. "
+            f"Equipos registrados: {', '.join(equipos_registrados()) or 'ninguno'}. "
+            "Usa --equipo <nombre>."
+        )
+    dir_equipo = DIR_RESULTADOS / equipo
+    destino = dir_equipo / "resultados.json"
+
+    if args.dry_run:
+        print(f"\nEquipo: {equipo}")
+        print(f"Resultados: {destino}")
+        print(f"Salidas: {dir_equipo / 'salidas'}")
+        print("Dry-run: no se ejecuto ninguna medicion.")
+        return
+
+    system = cargar_system_prompt()
+    prompt = ensamblar_prompt(cargar_evento(ESCENARIO), refuerzo=True)
+
+    resultados["equipo"] = equipo
     for modelo in args.modelos:
         for modo in args.modos:
-            resultados["mediciones"].append(medir(modelo, modo, args.repeticiones, system, prompt))
+            resultados["mediciones"].append(
+                medir(modelo, modo, args.repeticiones, system, prompt, dir_equipo)
+            )
     descargar_modelos()
 
-    DIR_RESULTADOS.mkdir(parents=True, exist_ok=True)
-    destino = DIR_RESULTADOS / "resultados.json"
+    dir_equipo.mkdir(parents=True, exist_ok=True)
     destino.write_text(json.dumps(resultados, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nResultados guardados en: {destino}")
 

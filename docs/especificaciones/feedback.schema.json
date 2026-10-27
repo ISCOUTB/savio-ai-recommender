@@ -12,7 +12,17 @@
     "util": { "type": "boolean" },
     "likert": { "type": "integer", "minimum": 1, "maximum": 5 },
     "resultado": { "type": "string", "enum": ["acierto", "descache"] },
-    "comentario": { "type": "string" },
+    "comentario": { "type": "string", "maxLength": 500 },
     "fecha": { "type": "string", "format": "date-time" }
+  },
+  "if": {
+    "properties": { "util": { "const": true } },
+    "required": ["util"]
+  },
+  "then": {
+    "properties": { "resultado": { "const": "acierto" } }
+  },
+  "else": {
+    "properties": { "resultado": { "const": "descache" } }
   }
 }

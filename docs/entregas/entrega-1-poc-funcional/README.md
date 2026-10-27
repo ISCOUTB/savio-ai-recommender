@@ -1,7 +1,7 @@
 # Entrega 1 - PoC Funcional del Subsistema
 
 **Estado:** Completado
-**Milestone:** [Entrega 1 - PoC Funcional](../../../milestones)
+**Milestone:** Entrega 1 - PoC Funcional (ver GitHub Milestones)
 
 ---
 
