@@ -4,6 +4,7 @@
 **Milestone sugerido:** Entrega 3 - Interpretacion Psicometrica
 **Documento de formulacion formal (Objetivos SMART y formulario):** [objetivos-smart-formulario.md](objetivos-smart-formulario.md)
 **Tablero de issues y recategorizacion (E3-01 a E3-10):** [github-issues.md](github-issues.md)
+**Trazabilidad requisito -> issue -> evidencia:** [seccion 5](#5-trazabilidad-requisito---issue---evidencia)
 
 ---
 
@@ -81,6 +82,10 @@ El detalle operativo completo se encuentra en la seccion 5 de [objetivos-smart-f
 
 - **Camino critico:** `E3-01 (#49)` $\rightarrow$ `E3-04 (#50)` $\rightarrow$ `E3-06 (#43)` $\rightarrow$ `E3-08 (#44)` $\rightarrow$ `E3-09 (#52)` $\rightarrow$ `E3-10 (#53)` (con `E3-05` y `E3-07` ejecutandose en paralelo).
 
+### 2.2 Lineamientos de datos psicometricos (E3-03)
+
+El documento canonico es [lineamientos-datos-psicometricos.md](lineamientos-datos-psicometricos.md). Fija el consentimiento de los tres integrantes, la seudonimizacion de los perfiles reales, la regla de no versionamiento, el protocolo previo a Hugging Face, el guardrail no clinico y el checklist de verificacion. La aplicacion al corpus es gate de E3-06 y la integracion en el backend es gate de E3-07.
+
 ---
 
 ## 3. Reclasificacion de los issues abiertos de Entrega 2 hacia Entrega 3
@@ -118,10 +123,48 @@ Confirmado en GitHub el 2026-10-23: `#37` y `#39` cerrados con motivo `not plann
 
 - [ ] Borrador de Objetivos SMART (1 General + 3 Especificos) y apartados tecnicos del formulario validados con el docente por WhatsApp antes de la sesion del jueves (`E3-01`).
 - [ ] Cronograma con fechas limite por objetivo SMART aprobado (`E3-02` / `#40`).
+- [x] Lineamientos de consentimiento, anonimizacion y guardrail no clinico documentados y probados; su aplicacion al corpus y al backend queda como gate de `E3-06` y `E3-07` (`E3-03` / `#38`).
 - [ ] Consultas psicometricas `#37`, `#39` y `#41` cerradas documentalmente y en GitHub con la directriz de no alterar escalas validadas.
 - [ ] Contrato de entrada/salida actualizado para consumir **puntuaciones originales brutas** de CHASIDE (`0-14`), Felder-Silverman (`0-11` por polo) y Personalidad (`0-9` por polo) sin reescalado artificial (`E3-04`, `E3-05` / `#42`).
 - [ ] Corpus *ground truth* de interpretaciones psicologicas y vocacionales integradas generado con LLMs de frontera (Claude/ChatGPT) respaldado en la literatura tecnica oficial de los 3 instrumentos (`E3-06` / `#43`).
 - [ ] Modelo SLM ajustado/destilado en entorno gestionado (Hugging Face) y cuantizado en formato GGUF ejecutable en **CPU estandar sin VRAM** (`E3-08` / `#44`).
 - [ ] Pipeline backend de inferencia funcional (sin frontend decorativo ni sobreingenieria) que recibe los puntajes brutos de los 3 cuestionarios y entrega el perfil interpretativo integrado (`E3-07`).
 - [ ] Reporte de validacion SMART con metricas objetivas de fidelidad diagnostica y tiempos de inferencia en CPU (`E3-09`, `E3-10`).
+
+---
+
+## 5. Trazabilidad requisito -> issue -> evidencia
+
+Esta tabla responde tres preguntas para cada requisito: **que se pidio** (objetivo SMART),
+**quien lo ejecuta** (issue) y **donde esta la prueba** (archivo o corrida medida).
+No reemplaza ningun documento: es un indice. El canon sigue en
+[objetivos-smart-formulario.md](objetivos-smart-formulario.md) para los objetivos,
+[github-issues.md](github-issues.md) para el detalle de cada issue y este README para sprints y criterios de cierre.
+
+**Estados:** `Documentado` (la especificacion o el contrato ya existe en el repo) -
+`En curso` (existe avance parcial verificable) - `Pendiente` (sin evidencia todavia).
+
+| Requisito SMART | Issue | Meta verificable | Evidencia o prueba | Estado |
+|---|---|---|---|---|
+| Formulacion: 1 Objetivo General + 3 OE bajo metodologia SMART | E3-01 ([#49](https://github.com/ISCOUTB/savio-ai-recommender/issues/49)) | Objetivos redactados y enviados al docente antes de la sesion del jueves | [objetivos-smart-formulario.md](objetivos-smart-formulario.md) | Pendiente de validacion docente |
+| Cronograma fechado y plan de trabajo | E3-02 ([#40](https://github.com/ISCOUTB/savio-ai-recommender/issues/40)) | 4 sprints con fechas y 4 hitos entre el 23 Oct y el 9 Nov 2026 | Seccion 2 de este README y los cuatro documentos de sprint ([sprint 1](sprint-1-formulacion-smart-y-alcance.md), [sprint 2](sprint-2-datos-brutos-y-ground-truth.md), [sprint 3](sprint-3-destilacion-cuantizacion-cpu.md), [sprint 4](sprint-4-validacion-metricas-y-cierre.md)) | Documentado |
+| Datos psicometricos: consentimiento, seudonimizacion y guardrail no clinico | E3-03 ([#38](https://github.com/ISCOUTB/savio-ai-recommender/issues/38)) | Reglas escritas y validador de privacidad ejecutable (gate de E3-06 y E3-07) | [lineamientos-datos-psicometricos.md](lineamientos-datos-psicometricos.md), [validar-corpus-anonimizado.py](../../especificaciones/validar-corpus-anonimizado.py), [test del validador](../../especificaciones/test_validar_corpus_anonimizado.py) | Documentado |
+| **OE1-R1:** recibir puntajes originales brutos sin reescalar (CHASIDE `0-14`, Felder-Silverman `0-11` por polo, Personalidad `0-9` por polo) | E3-04 ([#50](https://github.com/ISCOUTB/savio-ai-recommender/issues/50)) | Contrato JSON de entrada con rangos brutos y cero transformaciones de escala | [perfil-estudiante.schema.json](../../especificaciones/perfil-estudiante.schema.json) (contrato vigente de E2, a redefinir en E3-04) | En curso |
+| **OE1-R2:** tres perfiles reales diligenciados en bruto | E3-05 ([#42](https://github.com/ISCOUTB/savio-ai-recommender/issues/42)) | 3 perfiles reales extraidos de los tests aplicados | [perfiles/reales/persona-1.json](../../../perfiles/reales/persona-1.json) (1 de 3) | En curso |
+| **OE1-R3:** literatura tecnica oficial de los 3 instrumentos como base del *ground truth* | E3-06 ([#43](https://github.com/ISCOUTB/savio-ai-recommender/issues/43)) | Notas tecnicas por instrumento enlazadas en el prompt maestro | [instrumento-chaside.md](../../especificaciones/instrumento-chaside.md), [instrumento-estilos-aprendizaje.md](../../especificaciones/instrumento-estilos-aprendizaje.md), [instrumento-personalidad.md](../../especificaciones/instrumento-personalidad.md) | Documentado |
+| **OE1-R4:** corpus *ground truth* de interpretacion integrada | E3-06 ([#43](https://github.com/ISCOUTB/savio-ai-recommender/issues/43)) | `>= 150` registros sinteticos, sin PII y con rangos validos antes de subir a Hugging Face | `datos/corpus/corpus.jsonl` + `datos/corpus/manifiesto.json` (pendiente de generar; se valida con [validar-corpus-anonimizado.py](../../especificaciones/validar-corpus-anonimizado.py)) | Pendiente |
+| **OE2-R1:** ajuste o destilacion del SLM en entorno gestionado | E3-08 ([#44](https://github.com/ISCOUTB/savio-ai-recommender/issues/44)) | Modelo ajustado con el corpus de E3-06 y ficha reproducible | Pendiente: enlace al repositorio de Hugging Face y constancia en [propuesta-destilacion-slm.md](../../investigacion/propuesta-destilacion-slm.md) | Pendiente |
+| **OE2-R2:** cuantizacion GGUF `Q4_K_M` ejecutable en CPU estandar | E3-08 ([#44](https://github.com/ISCOUTB/savio-ai-recommender/issues/44)) | `0 MB` de VRAM requerida, `RAM <= 2.5 GB`, latencia medida en CPU | Pendiente: corrida medida en `benchmarks/resultados/<equipo>/` con la [metodologia de benchmarks](../../../benchmarks/README.md) | Pendiente |
+| **OE2-R3:** pipeline backend de inferencia sin frontend | E3-07 ([#51](https://github.com/ISCOUTB/savio-ai-recommender/issues/51)) | Recibe los brutos de los 3 tests y entrega el perfil integrado con guardrail no clinico aplicado | Pendiente: modulo de backend en `poc_slm/`, hoy solo existe la PoC de tutoria ([README de poc_slm](../../../poc_slm/README.md)) | Pendiente |
+| **OE3-R1:** fidelidad diagnostica frente al *ground truth* | E3-09 ([#52](https://github.com/ISCOUTB/savio-ai-recommender/issues/52)) | Rubrica cuantitativa aplicada con fidelidad `>= 85%` y guardrails `100%` | Pendiente: reporte de validacion de E3 (se apoya en el conjunto de validacion de E3-06) | Pendiente |
+| **OE3-R2:** tiempos de inferencia en CPU | E3-09 ([#52](https://github.com/ISCOUTB/savio-ai-recommender/issues/52)) | Latencia `<= 60 s` por perfil en CPU estandar | Pendiente: corrida medida en `benchmarks/resultados/<equipo>/` | Pendiente |
+| **OE3-R3:** demostracion funcional y cierre | E3-10 ([#53](https://github.com/ISCOUTB/savio-ai-recommender/issues/53)) | Guion de demo en consola con entradas y salidas respaldadas | Pendiente: material en `docs/presentacion/` y salidas de respaldo en `prompts/salidas-respaldo/` (evidencia medida, no se edita) | Pendiente |
+
+### 5.1 Reglas de uso de esta tabla
+
+1. **No se duplica contenido:** si un dato ya vive en otro documento, aqui va solo el enlace.
+2. **El estado se cambia con evidencia, no con intencion:** `Documentado` exige archivo enlazado; `En curso` exige avance verificable; `Pendiente` es el estado por defecto.
+3. **Las cifras no se escriben a mano:** fidelidad, latencia y consumo de RAM/VRAM se toman de `benchmarks/resultados/<equipo>/`, que es evidencia medida por el equipo.
+4. **Si cambia un requisito SMART**, se actualiza primero [objetivos-smart-formulario.md](objetivos-smart-formulario.md) y luego esta tabla, en el mismo commit con su issue.
+5. **Verificacion documental:** los enlaces de esta seccion los revisa `python docs/validar-docs.py` desde la raiz del repositorio.
 

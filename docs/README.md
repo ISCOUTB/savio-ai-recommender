@@ -37,6 +37,7 @@ punteros o borradores y no se editan por separado.
 | Estado de una entrega | `entregas/<entrega>/README.md` | `entregas/README.md` (tabla general) |
 | Objetivos SMART y formulario tecnico (Entrega 3) | [entregas/entrega-3-interpretacion-psicometrica/objetivos-smart-formulario.md](entregas/entrega-3-interpretacion-psicometrica/objetivos-smart-formulario.md) | `entregas/entrega-3-interpretacion-psicometrica/README.md` |
 | Issues de Entrega 3 | GitHub (milestone Entrega 3) | [entregas/entrega-3-interpretacion-psicometrica/github-issues.md](entregas/entrega-3-interpretacion-psicometrica/github-issues.md) |
+| Datos psicometricos, consentimiento y anonimizacion (Entrega 3) | [entregas/entrega-3-interpretacion-psicometrica/lineamientos-datos-psicometricos.md](entregas/entrega-3-interpretacion-psicometrica/lineamientos-datos-psicometricos.md) | seccion 10 de `decisiones/decisiones-y-problemas.md` (historico E2-14) |
 | Issues de Entrega 2 (historico) | GitHub (milestone Entrega 2) | [entregas/entrega-2-personalizacion/github-issues.md](entregas/entrega-2-personalizacion/github-issues.md) |
 | Contrato del perfil (Entrega 2) | `especificaciones/perfil-estudiante.schema.json` | `perfiles/ejemplo-perfil-*.json` (ejemplos que deben validar) |
 | Escala 1.0 a 5.0 (historico Entrega 2, reemplazada en E3 por puntajes brutos) | `especificaciones/escala-canonica.md` | seccion 5 de `decisiones/decisiones-y-problemas.md` |

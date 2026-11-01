@@ -15,7 +15,7 @@ codigo y las notas tecnicas de los tres instrumentos psicopedagogicos.
 
 | Archivo | Que documenta |
 |---|---|
-| [escala-canonica.md](escala-canonica.md) | Escala unificada 1.0 a 5.0: formulas, valores alcanzables y semantica de 3.0 |
+| [escala-canonica.md](escala-canonica.md) | Escala unificada 1.0 a 5.0 (historica E2, reemplazada por puntajes brutos en E3): formulas, valores alcanzables y semantica de 3.0 |
 | [instrumento-estilos-aprendizaje.md](instrumento-estilos-aprendizaje.md) | Bloque Moodle de estilos, traduccion a Felder-Silverman |
 | [instrumento-personalidad.md](instrumento-personalidad.md) | Bloque Moodle de personalidad, rasgos y traduccion al perfil |
 | [instrumento-chaside.md](instrumento-chaside.md) | Areas vocacionales CHASIDE y uso como analogias |
@@ -32,6 +32,8 @@ codigo y las notas tecnicas de los tres instrumentos psicopedagogicos.
 |---|---|
 | [validar-perfiles.py](validar-perfiles.py) | Valida todos los perfiles de `perfiles/` contra el schema y las reglas de escala |
 | [generar-perfil.py](generar-perfil.py) | Genera un perfil real desde las respuestas de Moodle (E2-07) |
+| [validar-corpus-anonimizado.py](validar-corpus-anonimizado.py) | Verifica que el corpus ground truth sea sintetico, sin PII y con rangos validos antes de subirlo a Hugging Face (E3-03) |
+| [test_validar_corpus_anonimizado.py](test_validar_corpus_anonimizado.py) | Pruebas del validador de privacidad del corpus (E3-03) |
 
 ## Validacion
 
@@ -39,6 +41,8 @@ Desde la raiz del repositorio:
 
 ```bash
 python docs/especificaciones/validar-perfiles.py
+python docs/especificaciones/test_validar_corpus_anonimizado.py
+python docs/especificaciones/validar-corpus-anonimizado.py --entrada datos/corpus/corpus.jsonl
 ```
 
 Regla: si cambia un schema, se actualizan los ejemplos de `perfiles/` y se corre
