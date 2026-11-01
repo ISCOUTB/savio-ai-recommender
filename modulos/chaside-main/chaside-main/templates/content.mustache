@@ -1,0 +1,260 @@
+{{! Content for block_chaside }}
+
+{{#management}}
+<div class="chaside-management-block">
+    <div class="chaside-header text-center mb-3">
+        <img class="chaside-icon" src="{{iconurl}}" alt="CHASIDE Icon" style="width: 4em; height: 4em; vertical-align: middle; display: block; margin: 0 auto;">
+        <h6 class="mt-2 mb-1 font-weight-bold">{{title}}</h6>
+        <small class="text-muted">{{subtitle}}</small>
+    </div>
+
+    <div class="chaside-stats mb-3">
+        <div class="row text-center">
+            <div class="col-4">
+                <div class="stat-card">
+                    <div class="stat-number text-success">{{completion_rate}}%</div>
+                    <div class="stat-label">{{str_completion_rate}}</div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #ffb600;">{{total_completed}}</div>
+                    <div class="stat-label">{{str_completed}}</div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="stat-card">
+                    <div class="stat-number text-warning">{{total_in_progress}}</div>
+                    <div class="stat-label">{{str_in_progress}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chaside-progress-overview mb-3">
+        <div class="progress" style="height: 10px;">
+            <div class="progress-bar" style="width: {{completion_rate}}%; background: linear-gradient(135deg, #ffb600 0%, #e6a300 100%);"></div>
+        </div>
+        <small class="text-muted">{{total_completed}} {{str_of}} {{total_enrolled}} {{str_students_completed}}</small>
+    </div>
+
+    {{#recent_activity}}
+    <div class="chaside-recent mb-3">
+        <h6 class="mb-2 font-weight-bold">{{str_recent_completions}}</h6>
+        {{#items}}
+        <div class="d-flex justify-content-between align-items-center mb-1">
+            <span class="small">{{name}}</span>
+            <span class="badge small" style="background: linear-gradient(135deg, #ffb600 0%, #e6a300 100%); color: #fff;">{{date}}</span>
+        </div>
+        {{/items}}
+    </div>
+    {{/recent_activity}}
+
+    <div class="chaside-actions text-center mt-3">
+        <a href="{{dashboard_url}}" class="btn btn-sm btn-block" style="background: linear-gradient(135deg, #ffb600 0%, #e6a300 100%); border-color: #ffb600; color: #fff;">
+            {{str_admin_dashboard}}
+        </a>
+    </div>
+</div>
+{{/management}}
+
+{{#results}}
+<div class="chaside-results-block" style="padding: 15px; background: white; border-radius: 8px; border: 1px solid #dee2e6;">
+    <div class="chaside-header text-center mb-3">
+        <div style="position: relative; display: inline-block; line-height: 0;">
+            <img class="chaside-icon" src="{{iconurl}}" alt="CHASIDE Icon" style="width: 4em; height: 4em; vertical-align: middle; display: block;">
+            <i class="fa fa-check" style="position: absolute; top: -6px; right: -9px; font-size: 1.4em; background: white; border-radius: 50%; line-height: 1;"></i>
+        </div>
+        <h6 class="mt-2 mb-1 font-weight-bold">{{str_completed_title}}</h6>
+        <small class="text-muted">{{str_completed_subtitle}}</small>
+    </div>
+
+    {{#showdescriptions}}
+    <div class="chaside-description mb-3" style="background: #f8f9fa; padding: 10px 12px; border-radius: 5px; border-left: 3px solid #ffb600;">
+        <small class="text-muted" style="line-height: 1.5;">
+            <i class="fa fa-info-circle" style="color: #ffb600;"></i> {{description}}
+        </small>
+    </div>
+    {{/showdescriptions}}
+
+    <div class="chaside-executive-summary mb-3">
+        {{#top1}}
+        <div class="card border-0 mb-3" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden;">
+            <div class="card-body p-0">
+                 <div class="d-flex align-items-stretch">
+                     <!-- Rank & Icon Strip (Left) -->
+                     <div class="d-flex flex-column align-items-center justify-content-center p-2 text-white" style="background: linear-gradient(135deg, #ffb600 0%, #ff9a00 100%); width: 50px; min-width: 50px;">
+                        <span style="font-size: 1.4rem; font-weight: 800; line-height: 1;">1</span>
+                        <i class="fa {{area_icon}} mt-3" style="font-size: 1.1rem; color: #fff;"></i>
+                     </div>
+                     
+                     <div class="p-3 w-100 position-relative" style="overflow: hidden; min-width: 0;"> {{! min-width: 0 fixes flex child overflow }}
+                        <div class="text-left position-relative w-100" style="z-index: 2;">
+                            <h6 class="font-weight-bold mb-0" style="word-wrap: break-word; overflow-wrap: break-word; word-break: break-word; hyphens: auto; color: #343a40; line-height: 1.3;">{{label}}</h6>
+                        </div>
+                        
+                         <!-- Stats: flex-grow-1 and text-center ensures nice 2-up 1-down stacking -->
+                         <div class="d-flex flex-wrap align-items-end mt-3" style="position: relative; z-index: 2; margin-left: -0.5rem; margin-right: -0.5rem;">
+                             <div class="flex-grow-1 text-center px-2 py-1" style="min-width: 80px;">
+                                 <span class="d-block text-muted small text-uppercase font-weight-bold" style="font-size: 0.65rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">{{str_interests}}</span>
+                                 <span class="font-weight-bold h5 mb-0" style="color: #495057;">{{i}}/10</span>
+                             </div>
+                             <div class="flex-grow-1 text-center px-2 py-1" style="min-width: 80px;">
+                                 <span class="d-block text-muted small text-uppercase font-weight-bold" style="font-size: 0.65rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">{{str_aptitudes}}</span>
+                                 <span class="font-weight-bold h5 mb-0" style="color: #495057;">{{a}}/4</span>
+                             </div>
+                             <div class="flex-grow-1 text-center px-2 py-1" style="min-width: 80px;">
+                                 <span class="d-block text-muted small text-uppercase font-weight-bold" style="font-size: 0.65rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">{{str_total}}</span>
+                                 <span class="font-weight-bold h5 mb-0 text-dark">{{pct_total}}%</span>
+                             </div>
+                         </div>
+                         {{#gap_alert}}
+                         <div class="mt-2 pt-2 border-top text-center" style="position: relative; z-index: 2;">
+                             <small class="d-flex align-items-center justify-content-center gap-1 text-muted font-weight-bold">
+                                 <i class="fa {{gap_icon}} mr-1 flex-shrink-0" style="color: #ffb600;"></i> <span style="line-height: 1.2; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">{{gap_alert}}</span>
+                             </small>
+                         </div>
+                         {{/gap_alert}}
+                     </div>
+                 </div>
+            </div>
+        </div>
+        {{/top1}}
+
+        {{#top2}}
+        <div class="card border-0 mb-3" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden;">
+            <div class="card-body p-0">
+                 <div class="d-flex align-items-stretch">
+                     <!-- Rank & Icon Strip (Left) -->
+                     <div class="d-flex flex-column align-items-center justify-content-center p-2 text-white" style="background: linear-gradient(135deg, #6c757d 0%, #495057 100%); width: 50px; min-width: 50px;">
+                        <span style="font-size: 1.4rem; font-weight: 800; line-height: 1;">2</span>
+                        <i class="fa {{area_icon}} mt-3" style="font-size: 1.1rem; color: #fff;"></i>
+                     </div>
+
+                     <div class="p-3 w-100 position-relative" style="overflow: hidden; min-width: 0;">
+                        <div class="text-left position-relative w-100" style="z-index: 2;">
+                            <h6 class="font-weight-bold mb-0" style="word-wrap: break-word; overflow-wrap: break-word; word-break: break-word; hyphens: auto; color: #343a40; line-height: 1.3;">{{label}}</h6>
+                        </div>
+
+                         <div class="d-flex flex-wrap align-items-end mt-3" style="position: relative; z-index: 2; margin-left: -0.5rem; margin-right: -0.5rem;">
+                             <div class="flex-grow-1 text-center px-2 py-1" style="min-width: 80px;">
+                                  <span class="d-block text-muted small text-uppercase font-weight-bold" style="font-size: 0.65rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">{{str_interests}}</span>
+                                  <span class="font-weight-bold h5 mb-0" style="color: #495057;">{{i}}/10</span>
+                             </div>
+                             <div class="flex-grow-1 text-center px-2 py-1" style="min-width: 80px;">
+                                 <span class="d-block text-muted small text-uppercase font-weight-bold" style="font-size: 0.65rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">{{str_aptitudes}}</span>
+                                 <span class="font-weight-bold h5 mb-0" style="color: #495057;">{{a}}/4</span>
+                             </div>
+                             <div class="flex-grow-1 text-center px-2 py-1" style="min-width: 80px;">
+                                 <span class="d-block text-muted small text-uppercase font-weight-bold" style="font-size: 0.65rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">{{str_total}}</span>
+                                 <span class="font-weight-bold h5 mb-0 text-dark">{{pct_total}}%</span>
+                             </div>
+                         </div>
+                         {{#gap_alert}}
+                         <div class="mt-2 pt-2 border-top text-center" style="position: relative; z-index: 2;">
+                             <small class="d-flex align-items-center justify-content-center gap-1 text-muted font-weight-bold">
+                                 <i class="fa {{gap_icon}} mr-1 flex-shrink-0" style="color: #6c757d;"></i> <span style="line-height: 1.2; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">{{gap_alert}}</span>
+                             </small>
+                         </div>
+                         {{/gap_alert}}
+                     </div>
+                 </div>
+            </div>
+        </div>
+        {{/top2}}
+    </div>
+
+    {{#has_gap_alerts}}
+    <div class="chaside-gap-alerts mb-3">
+        <h6 class="mb-2 font-weight-bold">{{str_gap_alerts}}</h6>
+        {{#alerts}}
+        <span class="badge {{badge_class}} mr-1">{{area}}: {{type}}</span>
+        {{/alerts}}
+    </div>
+    {{/has_gap_alerts}}
+
+    <div class="chaside-recommendations mb-3">
+        <h6 class="mb-2 font-weight-bold">{{str_recommendations}}</h6>
+        <ul class="list-unstyled">
+            {{#recommendations}}
+            <li class="small mb-1"><i class="fa fa-arrow-right" style="color: #ffb600;"></i> {{text}}</li>
+            {{/recommendations}}
+        </ul>
+    </div>
+
+    <div class="chaside-actions text-center">
+        <a href="{{view_results_url}}" class="btn btn-sm" style="background: linear-gradient(135deg, #ffb600 0%, #e6a300 100%); border-color: #ffb600; color: #fff; border: none; color: #fff; width: 100%; font-weight: 500;">
+            <i class="fa fa-eye"></i> {{str_view_detailed_results}}
+        </a>
+    </div>
+</div>
+{{/results}}
+
+{{#invitation}}
+<div class="chaside-invitation-block">
+    <div class="chaside-header text-center mb-3">
+        <img class="chaside-icon" src="{{iconurl}}" alt="CHASIDE Icon" style="width: 4em; height: 4em; vertical-align: middle; display: block; margin: 0 auto;">
+        <h6 class="mt-2 mb-1 font-weight-bold">{{str_vocational_orientation}}</h6>
+        <small class="text-muted">{{str_discover_interests}}</small>
+    </div>
+
+    {{#inprogress}}
+        {{#showdescriptions}}
+        <div class="chaside-description mb-3" style="background: white; padding: 10px 12px; border-radius: 5px; border-left: 3px solid #ffb600;">
+            <small class="text-muted" style="line-height: 1.5;">
+                <i class="fa fa-info-circle" style="color: #ffb600;"></i> {{description}}
+            </small>
+        </div>
+        {{/showdescriptions}}
+
+        {{#all_answered}}
+        <div class="alert alert-warning mb-3" style="padding: 12px 15px; margin-bottom: 15px; border-left: 4px solid #ffc107; background-color: #fff3cd; border-radius: 4px;">
+            <div style="display: flex; align-items: start;">
+                <i class="fa fa-exclamation-triangle" style="color: #856404; margin-right: 10px; margin-top: 2px; font-size: 1.2em;"></i>
+                <div>
+                    <strong style="color: #856404;">{{str_all_answered_title}}</strong><br>
+                    <small style="color: #856404;">{{str_all_answered_message}}</small>
+                </div>
+            </div>
+        </div>
+        {{/all_answered}}
+
+        <div class="chaside-progress mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small font-weight-bold">{{str_your_progress}}</span>
+                <span class="small text-muted">{{answered_count}}/98</span>
+            </div>
+            <div class="progress mb-2" style="height: 8px; background-color: #fffbf0;">
+                <div class="progress-bar" style="width: {{progress_percentage}}%; background: linear-gradient(90deg, #ffd966 0%, #ffb600 100%);"></div>
+            </div>
+            <small class="text-muted">{{progress_percentage_formatted}}% {{str_completed_status}}</small>
+        </div>
+    {{/inprogress}}
+    
+    {{^inprogress}}
+    {{#showdescriptions}}
+    <div class="chaside-description mb-3">
+        <div class="card border-info">
+            <div class="card-body p-3">
+                <h6 class="card-title font-weight-bold">
+                    <i class="fa fa-info-circle" style="color: #ffb600 !important;"></i> {{str_what_is_chaside}}
+                </h6>
+                <p class="card-text small mb-2">{{description}}</p>
+                <ul class="list-unstyled small mb-0">
+                    <li><i class="fa fa-check text-success"></i> {{str_feature_98_questions}}</li>
+                    <li><i class="fa fa-check text-success"></i> {{str_feature_7_areas}}</li>
+                    <li><i class="fa fa-check text-success"></i> {{str_feature_instant_results}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/showdescriptions}}
+    {{/inprogress}}
+
+    <div class="chaside-actions text-center">
+        <a href="{{button_url}}" class="btn {{button_class}} btn-block" style="{{button_style}}">
+            <i class="fa {{button_icon}}"></i> {{button_text}}
+        </a>
+    </div>
+</div>
+{{/invitation}}

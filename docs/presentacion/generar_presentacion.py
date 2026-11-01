@@ -2,14 +2,14 @@
 
 Genera docs/presentacion/presentacion-tecnica-entrega1.pptx con las 8 secciones
 exigidas. Los datos de benchmarks se leen de benchmarks/resultados/resultados.json
-y el diagrama de docs/arquitectura/arquitectura-subsistema.png, para que la
+y el diagrama de docs/arquitectura/arquitectura-savio-ia.png, para que la
 presentacion se mantenga sincronizada con la evidencia del repositorio.
 
 El .pptx es un artefacto generado: no se edita a mano; se corrige este script o
 las fuentes y se regenera.
 
 Uso:
-    python docs/arquitectura/generar_diagrama.py      # si cambio el diagrama
+    # diagrama: exportar docs/arquitectura/arquitectura-savio-ia.html a PNG (ver docs/arquitectura/README.md)
     python docs/presentacion/generar_presentacion.py
 
 Dependencias: python-pptx, matplotlib (ver docs/presentacion/requirements.txt).
@@ -33,7 +33,7 @@ if hasattr(sys.stdout, "reconfigure"):
 RAIZ = Path(__file__).resolve().parent.parent.parent
 SALIDA = RAIZ / "docs" / "presentacion" / "presentacion-tecnica-entrega1.pptx"
 RESULTADOS = RAIZ / "benchmarks" / "resultados" / "amd-ryzen-5-5600h-rtx-3050" / "resultados.json"
-DIAGRAMA = RAIZ / "docs" / "arquitectura" / "arquitectura-subsistema.png"
+DIAGRAMA = RAIZ / "docs" / "arquitectura" / "arquitectura-savio-ia.png"
 
 FUENTE = "Segoe UI"
 TEXTO = RGBColor(0x0B, 0x0B, 0x0B)
