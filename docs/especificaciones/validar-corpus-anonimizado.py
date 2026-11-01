@@ -38,39 +38,16 @@ sys.path.insert(0, str(BASE / "poc_slm"))
 
 from guardrail_etico import validar_salida_etica  # noqa: E402
 
-CAMPOS_RAIZ = {"id", "origen", "chaside", "ils", "personalidad"}
-# Registro de entrenamiento E3-06: el perfil bruto puede estar en la raiz o
-# dentro de `input` (objeto o texto JSON). E3-04 puede ajustar el contrato y
-# este allowlist se actualiza con sus pruebas.
-CAMPOS_ENTRENAMIENTO = {"instruction", "input", "output"}
-CAMPOS_PERMITIDOS = CAMPOS_RAIZ | CAMPOS_ENTRENAMIENTO
-AREAS_CHASIDE = ("C", "H", "A", "S", "I", "D", "E")
-CAMPOS_AREA = {"interes", "aptitud", "total"}
-POLOS_ILS = (
-    "activo",
-    "reflexivo",
-    "sensitivo",
-    "intuitivo",
-    "visual",
-    "verbal",
-    "secuencial",
-    "global",
-)
-PARES_ILS = (
-    ("activo", "reflexivo"),
-    ("sensitivo", "intuitivo"),
-    ("visual", "verbal"),
-    ("secuencial", "global"),
-)
-POLOS_PERSONALIDAD = (
-    "extraversion",
-    "introversion",
-    "sensing",
-    "intuition",
-    "thinking",
-    "feeling",
-    "judging",
-    "perceptive",
+# Rangos e invariantes compartidos con el contrato de E3-04: una sola fuente de
+# verdad para corpus, perfiles reales y backend.
+from contrato_bruto import (  # noqa: E402
+    CAMPOS_PERMITIDOS,
+    CAMPOS_RAIZ,
+    RE_ID_SINTETICO,
+    validar_chaside as _validar_chaside,
+    validar_ils as _validar_ils,
+    validar_perfil_bruto as _validar_perfil_bruto,
+    validar_personalidad as _validar_personalidad,
 )
 
 CAMPOS_PROHIBIDOS = {
@@ -99,7 +76,6 @@ CAMPOS_PROHIBIDOS = {
     "ip",
 }
 
-RE_ID_SINTETICO = re.compile(r"^SINT-\d{3}$")
 RE_EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+", re.IGNORECASE)
 RE_TELEFONO = re.compile(r"(?<!\d)(?:\+?57\s?)?(?:3\d{2}|60\d)[\s-]?\d{3}[\s-]?\d{4}(?!\d)")
 RE_ARROBA = re.compile(r"(?<![\w.])@\w{2,}")
@@ -147,137 +123,8 @@ def cargar_registros(ruta):
     raise ValueError(f"{ruta.name}: se esperaba un archivo .jsonl o .json")
 
 
-def _es_entero(valor):
-    return isinstance(valor, int) and not isinstance(valor, bool)
-
-
 def _prefijo(linea):
     return f"linea {linea}"
-
-
-def _validar_chaside(chaside, prefijo):
-    errores = []
-    if not isinstance(chaside, dict):
-        return [f"{prefijo}: chaside debe ser un objeto"]
-
-    faltan = sorted(set(AREAS_CHASIDE) - set(chaside))
-    sobran = sorted(set(chaside) - set(AREAS_CHASIDE))
-    if faltan:
-        errores.append(f"{prefijo}: chaside sin areas obligatorias: {', '.join(faltan)}")
-    if sobran:
-        errores.append(f"{prefijo}: chaside con areas no permitidas: {', '.join(sobran)}")
-
-    for area in AREAS_CHASIDE:
-        bloque = chaside.get(area)
-        if not isinstance(bloque, dict):
-            errores.append(f"{prefijo}: chaside.{area} debe ser un objeto")
-            continue
-
-        faltan_campos = sorted(CAMPOS_AREA - set(bloque))
-        sobran_campos = sorted(set(bloque) - CAMPOS_AREA)
-        if faltan_campos:
-            errores.append(f"{prefijo}: chaside.{area} sin campos: {', '.join(faltan_campos)}")
-        if sobran_campos:
-            errores.append(f"{prefijo}: chaside.{area} con campos no permitidos: {', '.join(sobran_campos)}")
-
-        valores = {}
-        for campo, maximo in (("interes", 10), ("aptitud", 4), ("total", 14)):
-            valor = bloque.get(campo)
-            if not _es_entero(valor):
-                errores.append(f"{prefijo}: chaside.{area}.{campo} debe ser entero")
-                continue
-            if not 0 <= valor <= maximo:
-                errores.append(f"{prefijo}: chaside.{area}.{campo} fuera de rango 0-{maximo}")
-                continue
-            valores[campo] = valor
-
-        if len(valores) == 3 and valores["total"] != valores["interes"] + valores["aptitud"]:
-            errores.append(f"{prefijo}: chaside.{area}.total no coincide con interes + aptitud")
-
-    return errores
-
-
-def _validar_ils(ils, prefijo):
-    errores = []
-    if not isinstance(ils, dict):
-        return [f"{prefijo}: ils debe ser un objeto"]
-
-    faltan = sorted(set(POLOS_ILS) - set(ils))
-    sobran = sorted(set(ils) - set(POLOS_ILS))
-    if faltan:
-        errores.append(f"{prefijo}: ils sin polos obligatorios: {', '.join(faltan)}")
-    if sobran:
-        errores.append(f"{prefijo}: ils con polos no permitidos: {', '.join(sobran)}")
-
-    valores = {}
-    for polo in POLOS_ILS:
-        valor = ils.get(polo)
-        if not _es_entero(valor):
-            errores.append(f"{prefijo}: ils.{polo} debe ser entero")
-            continue
-        if not 0 <= valor <= 11:
-            errores.append(f"{prefijo}: ils.{polo} fuera de rango 0-11")
-            continue
-        valores[polo] = valor
-
-    for izquierdo, derecho in PARES_ILS:
-        if izquierdo in valores and derecho in valores:
-            if valores[izquierdo] + valores[derecho] != 11:
-                errores.append(f"{prefijo}: ils.{izquierdo} + ils.{derecho} debe sumar 11")
-
-    return errores
-
-
-def _validar_personalidad(personalidad, prefijo):
-    errores = []
-    if not isinstance(personalidad, dict):
-        return [f"{prefijo}: personalidad debe ser un objeto"]
-
-    faltan = sorted(set(POLOS_PERSONALIDAD) - set(personalidad))
-    sobran = sorted(set(personalidad) - set(POLOS_PERSONALIDAD))
-    if faltan:
-        errores.append(f"{prefijo}: personalidad sin polos obligatorios: {', '.join(faltan)}")
-    if sobran:
-        errores.append(f"{prefijo}: personalidad con polos no permitidos: {', '.join(sobran)}")
-
-    for polo in POLOS_PERSONALIDAD:
-        valor = personalidad.get(polo)
-        if not _es_entero(valor):
-            errores.append(f"{prefijo}: personalidad.{polo} debe ser entero")
-            continue
-        if not 0 <= valor <= 9:
-            errores.append(f"{prefijo}: personalidad.{polo} fuera de rango 0-9")
-
-    return errores
-
-
-def _validar_perfil_bruto(perfil, prefijo):
-    """Valida estructura, identificador sintetico y rangos del perfil bruto."""
-    if not isinstance(perfil, dict):
-        return [f"{prefijo}: el perfil debe ser un objeto JSON"]
-
-    errores = []
-    faltan = sorted(CAMPOS_RAIZ - set(perfil))
-    sobran = sorted(set(perfil) - CAMPOS_PERMITIDOS)
-    if faltan:
-        errores.append(f"{prefijo}: faltan campos obligatorios: {', '.join(faltan)}")
-    if sobran:
-        errores.append(f"{prefijo}: campos no permitidos en el perfil: {', '.join(sobran)}")
-
-    identificador = perfil.get("id")
-    if not isinstance(identificador, str) or not RE_ID_SINTETICO.match(identificador):
-        errores.append(f"{prefijo}: id debe cumplir el patron SINT-###")
-    if perfil.get("origen") != "sintetico":
-        errores.append(f"{prefijo}: origen debe ser 'sintetico'")
-
-    if "chaside" in perfil:
-        errores.extend(_validar_chaside(perfil["chaside"], prefijo))
-    if "ils" in perfil:
-        errores.extend(_validar_ils(perfil["ils"], prefijo))
-    if "personalidad" in perfil:
-        errores.extend(_validar_personalidad(perfil["personalidad"], prefijo))
-
-    return errores
 
 
 def _perfil_desde_input(entrada, prefijo):

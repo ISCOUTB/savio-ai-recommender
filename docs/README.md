@@ -39,7 +39,8 @@ punteros o borradores y no se editan por separado.
 | Issues de Entrega 3 | GitHub (milestone Entrega 3) | [entregas/entrega-3-interpretacion-psicometrica/github-issues.md](entregas/entrega-3-interpretacion-psicometrica/github-issues.md) |
 | Datos psicometricos, consentimiento y anonimizacion (Entrega 3) | [entregas/entrega-3-interpretacion-psicometrica/lineamientos-datos-psicometricos.md](entregas/entrega-3-interpretacion-psicometrica/lineamientos-datos-psicometricos.md) | seccion 10 de `decisiones/decisiones-y-problemas.md` (historico E2-14) |
 | Issues de Entrega 2 (historico) | GitHub (milestone Entrega 2) | [entregas/entrega-2-personalizacion/github-issues.md](entregas/entrega-2-personalizacion/github-issues.md) |
-| Contrato del perfil (Entrega 2) | `especificaciones/perfil-estudiante.schema.json` | `perfiles/ejemplo-perfil-*.json` (ejemplos que deben validar) |
+| Contrato del perfil (Entrega 2, historico) | `especificaciones/perfil-estudiante.schema.json` | `perfiles/ejemplo-perfil-*.json` (ejemplos que deben validar) |
+| Contrato del perfil con puntajes brutos (Entrega 3, vigente) | `especificaciones/perfil-bruto-psicometrico.schema.json` | [especificaciones/baremos-psicometricos.md](especificaciones/baremos-psicometricos.md) y `perfiles/brutos/ejemplo-perfil-bruto-*.json` |
 | Escala 1.0 a 5.0 (historico Entrega 2, reemplazada en E3 por puntajes brutos) | `especificaciones/escala-canonica.md` | seccion 5 de `decisiones/decisiones-y-problemas.md` |
 | Instrumento de estilos (Felder-Silverman) | `especificaciones/instrumento-estilos-aprendizaje.md` | - |
 | Instrumento de personalidad | `especificaciones/instrumento-personalidad.md` | `../personalidad/README.md` (puntero) |
@@ -81,6 +82,8 @@ que corresponda.
 ```bash
 python docs/validar-docs.py          # enlaces, indices, duplicados y ASCII
 python docs/especificaciones/validar-perfiles.py
+python docs/especificaciones/validar-perfiles-brutos.py
+python docs/especificaciones/test_validar_perfiles_brutos.py
 ```
 
 `validar-docs.py` devuelve codigo 1 si hay enlaces rotos o falta un H1; los

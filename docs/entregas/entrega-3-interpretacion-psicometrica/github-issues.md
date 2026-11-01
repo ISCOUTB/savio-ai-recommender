@@ -141,7 +141,7 @@ Recategorizado desde `E2-14` (#38). Dado que en la Entrega 3 el sistema procesa 
 
 ### E3-04 - Redefinir contrato de entrada con puntajes originales brutos (CHASIDE, Felder-Silverman, Personalidad)
 
-- **GitHub:** [#50](https://github.com/ISCOUTB/savio-ai-recommender/issues/50) | **Estado:** abierto | **Sprint:** Sprint 2 (OE1)
+- **GitHub:** [#50](https://github.com/ISCOUTB/savio-ai-recommender/issues/50) | **Estado:** en revision (contrato, baremos, fixtures y validador entregados; pendiente revision por par) | **Sprint:** Sprint 2 (OE1)
 - **Labels:** `entrega-3`, `psicopedagogia`, `backend`, `docs`, `persona-1`
 - **Prioridad:** P0 (Critica)
 - **Dueno:** Persona 1 (Apoyo: Persona 2 y Persona 3)
@@ -161,12 +161,27 @@ En cumplimiento de la Directriz 2 del docente (prohibicion de modificar las esca
 3. **Ejemplos de referencia:** Crear fixtures de perfiles con puntajes brutos reales/simulados validados contra el nuevo contrato.
 
 ### Criterios de Aceptacion
-- [ ] Contrato JSON de puntajes brutos definido sin ninguna alteracion ni reescalado artificial de los 3 tests.
-- [ ] Indice `autonomia` y escala `1.0-5.0` excluidos del flujo de Entrega 3 (conservando los archivos de E2 solo como registro historico).
-- [ ] Baremos oficiales de CHASIDE, Felder-Silverman y Personalidad documentados para inyeccion en prompts.
+- [x] Contrato JSON de puntajes brutos definido sin ninguna alteracion ni reescalado artificial de los 3 tests.
+- [x] Indice `autonomia` y escala `1.0-5.0` excluidos del flujo de Entrega 3 (conservando los archivos de E2 solo como registro historico).
+- [x] Baremos oficiales de CHASIDE, Felder-Silverman y Personalidad documentados para inyeccion en prompts.
 
 ### Entregables
 Esquema de puntajes brutos, documentacion de baremos psicometricos originales y fixtures de validacion.
+
+- `docs/especificaciones/perfil-bruto-psicometrico.schema.json` (contrato declarativo)
+- `docs/especificaciones/baremos-psicometricos.md` (baremos de los 3 instrumentos)
+- `docs/especificaciones/contrato_bruto.py` (reglas compartidas con el corpus de E3-06)
+- `docs/especificaciones/validar-perfiles-brutos.py` (validador ejecutable)
+- `docs/especificaciones/test_validar_perfiles_brutos.py` (17 chequeos, incluidos los casos negativos)
+- `perfiles/brutos/ejemplo-perfil-bruto-dominante.json`, `-brecha.json`, `-plano.json` (fixtures)
+
+### Verificacion
+```bash
+python docs/especificaciones/test_validar_perfiles_brutos.py
+python docs/especificaciones/validar-perfiles-brutos.py
+python docs/especificaciones/test_validar_corpus_anonimizado.py
+python docs/validar-docs.py
+```
 
 ---
 
