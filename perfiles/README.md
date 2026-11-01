@@ -30,9 +30,11 @@ El script lee las respuestas desde Moodle (Docker), aplica las formulas y escrib
 
 ---
 
-## Escala unica 1.0 - 5.0
+> **Entrega 3:** el contrato vigente usa los **puntajes brutos originales** de cada instrumento (`0-14`, `0-11` y `0-9`) y no la escala 1.0-5.0. Los perfiles reales solo se procesan en local y no se versionan. Ver [lineamientos de datos psicometricos](../docs/entregas/entrega-3-interpretacion-psicometrica/lineamientos-datos-psicometricos.md).
 
-Todos los puntajes numericos del perfil (`estilos_aprendizaje.puntajes`, `personalidad.rasgos`, `chaside.areas`) usan **escala 1.0 a 5.0**, con 3.0 como punto neutro. La conversion desde los conteos crudos de cada bloque esta documentada en `docs/especificaciones/escala-canonica.md`.
+## Escala unica 1.0 - 5.0 (historico Entrega 2)
+
+En la Entrega 2, todos los puntajes numericos del perfil (`estilos_aprendizaje.puntajes`, `personalidad.rasgos`, `chaside.areas`) usaban **escala 1.0 a 5.0**, con 3.0 como punto neutro. La conversion desde los conteos crudos de cada bloque esta documentada en `docs/especificaciones/escala-canonica.md`.
 
 **Resumen de formulas:**
 

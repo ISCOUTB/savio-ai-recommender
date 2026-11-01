@@ -27,7 +27,7 @@ En la sesion de revision, el docente respondio de forma definitiva las tres cons
 |---|---|---|---|---|---|---|---|---|
 | **E3-01** | [#49](https://github.com/ISCOUTB/savio-ai-recommender/issues/49) | Directrices 1, 7, 8 | abierto | P0 (Critica) | Sprint 1 | Formulacion | Equipo completo | Formular Objetivos SMART y apartados tecnicos del formulario del proyecto |
 | **E3-02** | [#40](https://github.com/ISCOUTB/savio-ai-recommender/issues/40) | Migrado de `E2-16` | abierto | P0 (Critica) | Sprint 1 | Formulacion (T) | Persona 1 (Coordinador) | Cronograma fechado SMART y plan de trabajo de Entrega 3 |
-| **E3-03** | [#38](https://github.com/ISCOUTB/savio-ai-recommender/issues/38) | Migrado de `E2-14` | abierto | P1 (Alta) | Sprint 1 | Transversal | Equipo / Docente | Lineamientos de consentimiento, anonimizacion y manejo de datos psicometricos |
+| **E3-03** | [#38](https://github.com/ISCOUTB/savio-ai-recommender/issues/38) | Migrado de `E2-14` | en revision | P1 (Alta) | Sprint 1 | Transversal | Equipo / Docente | Lineamientos de consentimiento, anonimizacion y manejo de datos psicometricos |
 | **E3-04** | [#50](https://github.com/ISCOUTB/savio-ai-recommender/issues/50) | Directrices 2, 5 | abierto | P0 (Critica) | Sprint 2 | OE1 | Persona 1 (Apoyo: P2, P3) | Redefinir contrato de entrada con puntajes originales brutos (CHASIDE, Felder-Silverman, Personalidad) |
 | **E3-05** | [#42](https://github.com/ISCOUTB/savio-ai-recommender/issues/42) | Migrado de `E2-18` | abierto | P1 (Alta) | Sprint 2 | OE1 | Persona 2 y Persona 3 | Completar diligenciamiento y extraccion de puntajes brutos reales de los 3 tests |
 | **E3-06** | [#43](https://github.com/ISCOUTB/savio-ai-recommender/issues/43) | Migrado de `E2-19` | abierto | P0 (Critica) | Sprint 2 | OE1 | Persona 3 (Apoyo: P1, P2) | Construir corpus Ground Truth de interpretacion integrada con LLMs Maestros (Claude/ChatGPT) y literatura tecnica |
@@ -112,7 +112,7 @@ Cronograma fechado en `docs/entregas/entrega-3-interpretacion-psicometrica/READM
 
 ### E3-03 - Lineamientos de consentimiento, anonimizacion y manejo de datos psicometricos
 
-- **GitHub:** [#38](https://github.com/ISCOUTB/savio-ai-recommender/issues/38) (recategorizado desde `E2-14`) | **Estado:** abierto | **Sprint:** Sprint 1
+- **GitHub:** [#38](https://github.com/ISCOUTB/savio-ai-recommender/issues/38) (recategorizado desde `E2-14`) | **Estado:** en revision (lineamientos y controles entregados; gates en E3-06 y E3-07) | **Sprint:** Sprint 1
 - **Labels:** `entrega-3`, `psicopedagogia`, `legal`, `docente`
 - **Prioridad:** P1 (Alta)
 - **Dueno:** Equipo / Docente
@@ -127,14 +127,15 @@ Recategorizado desde `E2-14` (#38). Dado que en la Entrega 3 el sistema procesa 
 1. **Regla de repositorio publico:** Garantizar que en Git solo se versionen perfiles anonimizados o simulados (`perfiles/reales/` permanece en `.gitignore`).
 2. **Anonimizacion en Hugging Face y LLMs Maestros:** Asegurar que ninguna llamada a Claude/ChatGPT ni ningun dataset subido a Hugging Face incluya nombres reales, correos o codigos estudiantiles identificables (usar solo vectores de puntajes brutos con IDs sinteticos).
 3. **Alcance no clinico:** Explicitar en toda salida del backend que el perfil integrado es un insumo orientador para el profesional y no reemplaza el diagnostico psicologico.
+4. **Datos reales solo en local:** los tres perfiles reales, con consentimiento escrito y seudonimo, no salen a Claude/ChatGPT ni a Hugging Face; el corpus de entrenamiento se construye solo con perfiles sinteticos.
 
 ### Criterios de Aceptacion
-- [ ] Politica de no versionamiento de datos personales reales verificada en `.gitignore`.
-- [ ] Protocolo de anonimizacion aplicado al corpus *ground truth* antes de subirlo a Hugging Face.
-- [ ] Guardrail de advertencia etica ("apoyo al diagnostico inicial, no reemplaza al profesional") incluido en el backend.
+- [x] Politica de no versionamiento de datos personales reales verificada en `.gitignore` (`perfiles/reales/`, `datos/reales/`, `salidas/reales/` y el PDF de formulacion).
+- [x] Protocolo de anonimizacion documentado y probado con fixtures sinteticos en `validar-corpus-anonimizado.py`; su aplicacion al corpus real es **gate obligatorio de E3-06** antes de subir a Hugging Face.
+- [x] Guardrail de advertencia etica implementado y probado en `poc_slm/guardrail_etico.py`; su integracion en el backend es **gate obligatorio de E3-07** y su verificacion al 100 % es **gate de E3-09**.
 
 ### Entregables
-Lineamientos documentados y verificados sobre el corpus de entrenamiento y el motor de inferencia.
+[Lineamientos de consentimiento, anonimizacion y manejo de datos psicometricos](lineamientos-datos-psicometricos.md), validador `docs/especificaciones/validar-corpus-anonimizado.py`, modulo `poc_slm/guardrail_etico.py` y pruebas asociadas.
 
 ---
 
@@ -189,7 +190,7 @@ Recategorizado desde `E2-18` (#42). Actualmente solo `persona-1` tiene los tres 
 
 ### Criterios de Aceptacion
 - [ ] Los 3 integrantes (`persona-1`, `persona-2`, `persona-3`) cuentan con sus puntajes originales brutos extraidos y verificados.
-- [ ] Los archivos reales se almacenan localmente en `perfiles/reales/` (fuera de Git) y se generan versiones anonimizadas para pruebas de validacion.
+- [ ] Los archivos reales se almacenan localmente en `perfiles/reales/` (fuera de Git); la validacion con datos reales es local y no se publican copias anonimizadas en el repositorio ni en la nube (E3-03).
 
 ### Entregables
 Perfiles brutos verificados de los tres integrantes y registro en `experimentos/bitacora.md`.
@@ -214,12 +215,14 @@ Recategorizado y actualizado desde `E2-19` (#43) segun las Directrices 1, 2 y 3 
 2. **Muestreo de combinaciones psicometricas:** Generar al menos 150 vectores de puntajes brutos realistas y contrastantes (cubriendo distintas dominancias de CHASIDE, polos de Felder-Silverman y perfiles conductuales, incluyendo congruencias y brechas entre interes y aptitud).
 3. **Generacion y curacion del Ground Truth:** Producir las salidas interpretativas con los LLMs maestros y auditar que ninguna altere los puntajes brutos ni emita juicios clinicos patologizantes.
 4. **Estructuracion para Hugging Face:** Formatear el corpus en JSONL (`instruction`, `input`, `output`) con particion 80% entrenamiento / 20% validacion sin fuga de datos.
+5. **Control de privacidad previo a Hugging Face:** ejecutar `python docs/especificaciones/validar-corpus-anonimizado.py --entrada datos/corpus/corpus.jsonl --manifiesto datos/corpus/manifiesto.json`, guardar el hash y adjuntar el resultado a E3-03. Sin este paso no se sube el dataset.
 
 ### Criterios de Aceptacion
 - [ ] Prompt maestro fundamentado en la bibliografia tecnica de CHASIDE, Felder-Silverman y Personalidad documentado.
 - [ ] Corpus JSONL con al menos 150 pares `(puntajes_brutos_3_tests -> interpretacion_integrada_ground_truth)`.
 - [ ] 100% de las muestras verificadas: respetan las escalas originales brutas y el rol de apoyo al diagnostico inicial.
 - [ ] Particion 80/20 (train/eval) lista para cargar en Hugging Face.
+- [ ] Corpus validado por `validar-corpus-anonimizado.py`, con manifiesto SHA-256 y sin PII (gate E3-03).
 
 ### Entregables
 Corpus *ground truth* en formato JSONL, script/plantilla de generacion Teacher y documentacion del dataset.
@@ -246,11 +249,13 @@ Aplica las Directrices 5 (*Rechazo a la sobreingenieria prematura*) y 6 (*Priori
    - **Salida:** Informe estructurado con (1) Lectura de Estilos Felder-Silverman, (2) Lectura Conductual de Personalidad, (3) Lectura Vocacional CHASIDE, y (4) Sintesis Integrada de Correlaciones para apoyo al diagnostico inicial.
 2. **Verificador automatico de rigor psicometrico:** Comprobar en post-procesamiento que el modelo cite exactamente los puntajes brutos de entrada sin inventar escalas ni emitir etiquetas clinicas.
 3. **Pruebas unitarias de backend:** Crear pruebas automatizadas sin necesidad de interfaz grafica.
+4. **Guardrail etico obligatorio:** importar `poc_slm/guardrail_etico.py`, agregar `AVISO_NO_CLINICO` al final del Markdown y el campo `aviso_etico` al JSON; rechazar salidas con tipo MBTI de 4 letras o frases clinicas.
 
 ### Criterios de Aceptacion
 - [ ] Script backend ejecutable por linea de comandos sobre CPU estandar que procesa los puntajes brutos de los 3 tests.
 - [ ] Salida estructurada en las 4 secciones de interpretacion integrada y exportable en JSON/Markdown.
 - [ ] Validador post-inferencia que garantiza fidelidad a los puntajes brutos de entrada y respeto de guardrails.
+- [ ] Salida con `aviso_etico` y sin diagnosticos, tipos MBTI ni lenguaje patologizante (gate E3-03).
 
 ### Entregables
 Pipeline backend de interpretacion psicometrica integrada y suite de pruebas de verificacion.
@@ -280,6 +285,7 @@ Recategorizado y actualizado desde `E2-20` (#44) para incorporar las Directrices
 - [ ] Notebook/script reproducible de ajuste ejecutado en Hugging Face / entorno cloud gestionado con hiperparametros documentados.
 - [ ] Pesos del SLM ajustado exportados a formato GGUF cuantizado y publicados/respaldados en Hugging Face Hub.
 - [ ] Inferencia verificada localmente en modo **100% CPU (0 MB de VRAM obligatoria)**.
+- [ ] Dataset card de Hugging Face declara corpus sintetico, hash del manifiesto y ausencia de datos personales (gate E3-03).
 
 ### Entregables
 Repositorio/artefacto GGUF del SLM cuantizado en Hugging Face, notebook reproducible de entrenamiento y Modelfile para ejecucion en CPU.
