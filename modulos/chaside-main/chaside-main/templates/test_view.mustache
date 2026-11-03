@@ -1,0 +1,56 @@
+<div class="chaside-test-container">
+    <div style="text-align: center; margin-bottom: 15px;">
+        <img src="{{iconurl}}" alt="CHASIDE Icon" style="width: 70px; height: 70px; display: block; margin: 0 auto 10px auto;" />
+    </div>
+
+    <h2 style="text-align: center; color: #ffb600;">{{title}}</h2>
+    <p>{{description}}</p>
+
+    <div style="background-color: #fffbf0; border-left: 4px solid #ffb600; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px;">
+        <strong>{{str_note}}:</strong> {{str_all_questions_required}}
+    </div>
+
+    <form method="post" action="" id="chasideTestForm">
+        <input type="hidden" name="sesskey" value="{{sesskey}}">
+        
+        {{#questions}}
+        <div class="card mb-3 shadow-sm" id="question-{{number}}" data-question="{{number}}">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h6 class="mb-3 question-text">{{text}}</h6>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="btn-group w-100" role="group" aria-label="Respuesta">
+                            <label class="btn {{#yes_checked}}btn-primary active{{/yes_checked}}{{^yes_checked}}btn-outline-primary{{/yes_checked}} flex-fill radio-btn chaside-btn-yes" for="q{{number}}_yes">
+                                <input type="radio" name="q{{number}}" value="1" id="q{{number}}_yes" style="position: absolute; opacity: 0;" {{#yes_checked}}checked{{/yes_checked}}>
+                                <i class="fa fa-check me-1"></i> {{str_yes}}
+                            </label>
+                            <label class="btn {{#no_checked}}btn-secondary active{{/no_checked}}{{^no_checked}}btn-outline-secondary{{/no_checked}} flex-fill radio-btn chaside-btn-no" for="q{{number}}_no">
+                                <input type="radio" name="q{{number}}" value="0" id="q{{number}}_no" style="position: absolute; opacity: 0;" {{#no_checked}}checked{{/no_checked}}>
+                                <i class="fa fa-times me-1"></i> {{str_no}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/questions}}
+
+        <div class="navigation-buttons" style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+            <div>
+                {{#show_previous}}
+                <button type="submit" name="action" value="previous" class="btn btn-secondary">{{str_previous}}</button>
+                {{/show_previous}}
+            </div>
+            <div>
+                {{#show_next}}
+                <button type="submit" name="action" value="next" class="btn btn-primary" style="background: linear-gradient(135deg, #ffd966 0%, #ffb600 100%); border: none;">{{str_next}}</button>
+                {{/show_next}}
+                {{#show_finish}}
+                 <button type="submit" name="action" value="finish" id="submitBtn" class="btn btn-success">{{str_finish}}</button>
+                {{/show_finish}}
+            </div>
+        </div>
+    </form>
+</div>
