@@ -143,7 +143,14 @@ def main():
         return 1
 
     if objetivo.is_dir():
-        archivos = sorted(objetivo.rglob("*.json"))
+        # `perfiles/brutos/` pertenece al contrato de E3-04 y se valida con
+        # `validar-perfiles-brutos.py`: este script solo cubre el contrato 1.0-5.0
+        # de Entrega 2, que se conserva como historico.
+        archivos = sorted(
+            ruta
+            for ruta in objetivo.rglob("*.json")
+            if "brutos" not in ruta.relative_to(objetivo).parts
+        )
         origen = objetivo
     else:
         archivos = [objetivo]

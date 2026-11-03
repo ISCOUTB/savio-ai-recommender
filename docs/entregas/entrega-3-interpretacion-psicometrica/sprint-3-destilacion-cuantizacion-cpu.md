@@ -16,6 +16,7 @@ Ajustar/destilar un Modelo de Lenguaje Pequeno (SLM) especializado en interpreta
 - **E3-08 / #44 (Ajuste en Hugging Face y Cuantizacion para CPU):**
   - Ejecutar las pruebas y el fine-tuning supervisado (SFT / QLoRA) del SLM (`Qwen 2.5 0.5B` / `1.5B`) en entornos gestionados en la nube (Hugging Face / notebooks con GPU gratuita) usando el corpus *ground truth* de `E3-06`.
   - Cuantizar y exportar el modelo resultante a formato **GGUF (`Q4_K_M`)** optimizado para inferencia en **CPU estandar**, garantizando que funcione en cualquier computador convencional o en el cluster Savio sin VRAM dedicada.
+  - Procedimiento paso a paso, hiperparametros y evidencia requerida: [guia de entrenamiento en Colab](guia-entrenamiento-colab.md) + [notebook ejecutable](notebook-e3-08-sft-qlora.ipynb). El corpus de ejemplo para probar el pipeline hoy es [datos/corpus/ejemplo_mini.jsonl](../../../datos/corpus/ejemplo_mini.jsonl).
 
 ## Criterios de aceptacion
 

@@ -1,55 +1,37 @@
-"""Genera el perfil JSON de un estudiante a partir de sus respuestas en Moodle (E2-07).
+"""Genera el perfil JSON en formato bruto de un estudiante desde Moodle (E3-04 / E3-05).
 
 Uso (desde la raiz del repo):
     python docs/especificaciones/generar-perfil.py
     python docs/especificaciones/generar-perfil.py --usuario persona-1
-    python docs/especificaciones/generar-perfil.py --salida perfiles/reales/prueba.json
+    python docs/especificaciones/generar-perfil.py --usuario persona-2 --fecha 2026-11-03
+    python docs/especificaciones/generar-perfil.py --salida perfiles/reales/persona-1.json
 
 Lee las tablas mdl_learning_style, mdl_personality_test y mdl_block_chaside_responses
-a traves de `docker exec` (no requiere cliente MySQL en Python), aplica las formulas de
-docs/especificaciones/escala-canonica.md y valida el resultado con validar-perfiles.py.
+a traves de `docker exec` (no requiere cliente MySQL en Python), empaqueta los conteos
+originales brutos sin reescalar nada (directriz 2 del docente) y valida el archivo
+resultante con `docs/especificaciones/validar-perfiles-brutos.py`.
 
-Los perfiles con origen "real" se escriben en perfiles/reales/, que esta en .gitignore.
+Los perfiles con origen "real" se escriben en `perfiles/reales/`, que esta en `.gitignore`.
 """
 
 import argparse
 import json
 import subprocess
 import sys
+from datetime import date
 from pathlib import Path
 
-sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 BASE = Path(__file__).resolve().parent.parent.parent
 SALIDA_POR_DEFECTO = BASE / "perfiles/reales"
-VALIDADOR = BASE / "docs/especificaciones/validar-perfiles.py"
+VALIDADOR = BASE / "docs/especificaciones/validar-perfiles-brutos.py"
 
 CONTENEDOR_DB = "moodle-db-1"
 BASE_DATOS = "moodle"
 
 AREAS = ["C", "H", "A", "S", "I", "D", "E"]
-
-# Nombres oficiales del bloque (lang/es/block_chaside.php).
-NOMBRE_AREA = {
-    "C": "Administrativa",
-    "H": "Humanidades/Sociales/Juridicas",
-    "A": "Artistica",
-    "S": "Ciencias de la Salud",
-    "I": "Ensenanzas Tecnicas",
-    "D": "Defensa y Seguridad",
-    "E": "Ciencias Experimentales",
-}
-
-# Ejemplos con los que se puede conectar la materia, por area.
-CONEXION_AREA = {
-    "C": "organizacion, gestion y tareas administrativas",
-    "H": "comunicacion, analisis social y textos",
-    "A": "creacion, diseno y expresion",
-    "S": "cuidado de personas y practicas de salud",
-    "I": "procesos tecnicos, sistemas y resolucion de problemas",
-    "D": "liderazgo, disciplina y trabajo en equipo",
-    "E": "experimentacion, datos y metodo cientifico",
-}
 
 # Mapeo oficial de preguntas CHASIDE (facade.php: get_question_mapping()).
 INTERESES = {
@@ -71,94 +53,33 @@ APTITUDES = {
     "E": [7, 55, 79, 94],
 }
 
-# Estilos: clave del perfil, columna del polo izquierdo, columna del polo derecho,
-# nombre del polo izquierdo, nombre del polo derecho.
-EJES_ESTILOS = [
+# Dimensiones de Felder-Silverman (ILS):
+# (clave_diferencial, col_moodle_izq, col_moodle_der, clave_ils_izq, clave_ils_der)
+EJES_ILS = [
     ("activo_reflexivo", "ap_active", "ap_reflexivo", "activo", "reflexivo"),
-    ("sensorial_intuitivo", "ap_sensorial", "ap_intuitivo", "sensorial", "intuitivo"),
+    ("sensitivo_intuitivo", "ap_sensorial", "ap_intuitivo", "sensitivo", "intuitivo"),
     ("visual_verbal", "ap_visual", "ap_verbal", "visual", "verbal"),
     ("secuencial_global", "ap_secuencial", "ap_global", "secuencial", "global"),
 ]
 
-FRAGMENTO_ESTILO = {
-    "activo": "aprende mejor experimentando y aplicando los conceptos de forma inmediata",
-    "reflexivo": "aprende mejor reflexionando antes de actuar y trabajando de forma individual",
-    "sensorial": "conecta mejor con ejemplos concretos, datos especificos y procedimientos claros",
-    "intuitivo": "disfruta explorar principios, teorias y conexiones entre ideas",
-    "visual": "privilegia recursos graficos, diagramas, mapas y videos",
-    "verbal": "prefiere explicaciones escritas o habladas, resumenes y definiciones",
-    "secuencial": "rinde mejor con una secuencia definida y progresion paso a paso",
-    "global": "necesita ver el panorama general antes de entrar en los detalles",
-}
-
-INCLUIR_ESTILO = {
-    "activo": "ejercicios y aplicacion inmediata",
-    "reflexivo": "lectura previa y pausas para pensar",
-    "sensorial": "ejemplos concretos y procedimientos paso a paso",
-    "intuitivo": "casos integradores y preguntas de porque",
-    "visual": "esquemas visuales y diagramas",
-    "verbal": "resumenes y definiciones",
-    "secuencial": "guias numeradas de lo simple a lo complejo",
-    "global": "panoramas integradores",
-}
-
-EVITAR_ESTILO = {
-    "activo": "teoria pasiva prolongada",
-    "reflexivo": "respuesta inmediata en vivo",
-    "sensorial": "abstraccion sin aplicacion",
-    "intuitivo": "repeticion mecanica sin proposito",
-    "visual": "textos densos sin apoyo grafico",
-    "verbal": "graficos sin texto de apoyo",
-    "secuencial": "saltos sin secuencia",
-    "global": "detalles sin proposito global",
-}
-
-NEUTRO_ESTILOS = (
-    "Sin informacion suficiente de preferencias de aprendizaje; alternar formatos visuales "
-    "y verbales, activos y reflexivos, concretos y abstractos, lineales y globales."
-)
-
-# Personalidad: rasgo, columnas (polo alto, polo bajo) y textos por polo.
-RASGOS_PERSONALIDAD = [
-    ("introversion_extraversion", "extraversion", "introversion"),
-    ("metodicidad", "judging", "perceptive"),
-    ("apertura", "intuition", "sensing"),
+COLUMNAS_PERSONALIDAD = [
+    "extraversion",
+    "introversion",
+    "sensing",
+    "intuition",
+    "thinking",
+    "feeling",
+    "judging",
+    "perceptive",
 ]
-
-ETIQUETAS_PERSONALIDAD = {
-    ("introversion_extraversion", "alto"): ["colaborativo", "foros y debates"],
-    ("introversion_extraversion", "bajo"): ["individual", "reflexion previa"],
-    ("autonomia", "alto"): ["ritmo propio", "retos abiertos"],
-    ("autonomia", "bajo"): ["guia paso a paso", "checklist", "retroalimentacion frecuente"],
-    ("metodicidad", "alto"): ["secuencia definida", "cronograma"],
-    ("metodicidad", "bajo"): ["bloques cortos flexibles", "variedad de actividades"],
-    ("apertura", "alto"): ["exploratorio", "conexiones entre ideas"],
-    ("apertura", "bajo"): ["ejemplos concretos", "aplicacion practica inmediata"],
-}
-
-FRAGMENTO_PERSONALIDAD = {
-    ("introversion_extraversion", "alto"): "suele aprovechar el intercambio de ideas con otras personas, como foros o debates",
-    ("introversion_extraversion", "bajo"): "suele preferir el estudio individual, con tiempo para reflexionar antes de participar",
-    ("autonomia", "alto"): "se desenvuelve bien con retos abiertos a su propio ritmo",
-    ("autonomia", "bajo"): "se beneficia de instrucciones claras, pasos explicitos y retroalimentacion frecuente",
-    ("metodicidad", "alto"): "rinde mejor con una secuencia definida y un cronograma claro",
-    ("metodicidad", "bajo"): "aprovecha mejor actividades variadas en bloques cortos y flexibles",
-    ("apertura", "alto"): "disfruta explorar el porque de los conceptos y las conexiones entre ideas",
-    ("apertura", "bajo"): "conecta mejor con ejemplos concretos y aplicacion practica inmediata",
-}
-
-NEUTRO_PERSONALIDAD = (
-    "Muestra preferencias de trabajo equilibradas; conviene combinar formatos individuales "
-    "y colaborativos, guiados y abiertos."
-)
 
 
 class ErrorSistema(Exception):
-    """Error de entorno (Docker, MariaDB) con mensaje para el usuario."""
+    """Error de entorno (Docker, MariaDB o test incompleto) con mensaje para el usuario."""
 
 
 # ---------------------------------------------------------------------------
-# Acceso a datos
+# Acceso a datos en MariaDB (Moodle en Docker)
 # ---------------------------------------------------------------------------
 
 def consultar(sql):
@@ -227,15 +148,13 @@ def leer_estilos(userid):
 
 
 def leer_personalidad(userid):
-    columnas = ["extraversion", "introversion", "sensing", "intuition",
-                "thinking", "feeling", "judging", "perceptive"]
     fila = una_fila(
-        f"SELECT is_completed, {', '.join(columnas)} FROM mdl_personality_test WHERE user = {userid}",
+        f"SELECT is_completed, {', '.join(COLUMNAS_PERSONALIDAD)} FROM mdl_personality_test WHERE user = {userid}",
         "un test de personalidad para este usuario",
     )
     completo = fila[0] == "1"
     valores = [int(v) if v not in ("", "NULL") else 0 for v in fila[1:9]]
-    return completo, dict(zip(columnas, valores))
+    return completo, dict(zip(COLUMNAS_PERSONALIDAD, valores))
 
 
 def leer_chaside(userid):
@@ -258,167 +177,103 @@ def leer_chaside(userid):
 
 
 # ---------------------------------------------------------------------------
-# Calculo
+# Empaquetado en formato bruto (Entrega 3 - sin alterar escalas)
 # ---------------------------------------------------------------------------
 
-def enumerar(items):
-    if len(items) == 1:
-        return items[0]
-    return ", ".join(items[:-1]) + " y " + items[-1]
-
-
-def capitalizar(texto):
-    return texto[0].upper() + texto[1:]
-
-
-def calcular_estilos(completo, conteos):
+def calcular_estilos_bruto(completo, conteos):
+    """Empaqueta los 8 polos originales (0-11) de Felder-Silverman y su diferencial."""
     if not completo:
-        return {
-            "modelo": "felder_silverman",
-            "puntajes": {clave: 3.0 for clave, *_ in EJES_ESTILOS},
-            "preferencias": [],
-            "descripcion_para_prompt": NEUTRO_ESTILOS,
-        }
+        raise ErrorSistema(
+            "El test de Estilos de Aprendizaje (Felder-Silverman) no esta completado en Moodle "
+            "(is_completed = 0). En Entrega 3 no se inventan puntajes neutros."
+        )
 
-    puntajes = {}
-    preferencias = []
-    for clave, col_izq, col_der, polo_izq, polo_der in EJES_ESTILOS:
-        izquierdo, derecho = conteos[col_izq], conteos[col_der]
+    ils = {}
+    diferencial = {}
+    for clave_dif, col_izq, col_der, polo_izq, polo_der in EJES_ILS:
+        izquierdo = int(conteos[col_izq])
+        derecho = int(conteos[col_der])
         if izquierdo + derecho != 11:
             raise ErrorSistema(
-                f"El eje {clave} suma {izquierdo + derecho} en vez de 11 "
+                f"El eje {clave_dif} suma {izquierdo + derecho} en vez de 11 "
                 f"({polo_izq}={izquierdo}, {polo_der}={derecho}). Revisa el test en Moodle."
             )
-        valor = round(3 + 2 * (derecho - izquierdo) / 11, 1)
-        puntajes[clave] = valor
-        if valor <= 2.1:
-            preferencias.append(polo_izq)
-        elif valor >= 3.9:
-            preferencias.append(polo_der)
+        ils[polo_izq] = izquierdo
+        ils[polo_der] = derecho
+        diferencial[clave_dif] = izquierdo - derecho
 
-    if not preferencias:
-        descripcion = NEUTRO_ESTILOS
-    else:
-        cuerpo = "El estudiante " + enumerar([FRAGMENTO_ESTILO[p] for p in preferencias]) + "."
-        incluir = [INCLUIR_ESTILO[p] for p in preferencias]
-        evitar = [EVITAR_ESTILO[p] for p in preferencias]
-        if len(incluir) == 1:
-            recomendacion = f"Se recomienda priorizar {incluir[0]} y evitar {evitar[0]}."
-        else:
-            recomendacion = (
-                f"Se recomienda priorizar {incluir[0]}, complementado con {enumerar(incluir[1:])}, "
-                f"y evitar {enumerar(evitar)}."
+    return ils, diferencial
+
+
+def calcular_personalidad_bruto(completo, totales):
+    """Empaqueta los 8 polos originales (0-9) del test de personalidad sin autonomia."""
+    if not completo:
+        raise ErrorSistema(
+            "El test de Personalidad no esta completado en Moodle (is_completed = 0). "
+            "En Entrega 3 no se inventan puntajes neutros."
+        )
+
+    personalidad = {}
+    for col in COLUMNAS_PERSONALIDAD:
+        valor = int(totales[col])
+        if valor < 0 or valor > 9:
+            raise ErrorSistema(
+                f"Personalidad polo {col} fuera de rango 0-9 ({valor}). Revisa el test en Moodle."
             )
-        descripcion = cuerpo + " " + recomendacion
-
-    return {
-        "modelo": "felder_silverman",
-        "puntajes": puntajes,
-        "preferencias": preferencias,
-        "descripcion_para_prompt": descripcion,
-    }
+        personalidad[col] = valor
+    return personalidad
 
 
-def calcular_personalidad(completo, totales):
+def calcular_chaside_bruto(completo, respuestas, guardados):
+    """Empaqueta interes (0-10), aptitud (0-4) y total (0-14) por cada area CHASIDE."""
     if not completo:
-        return {
-            "rasgos": {
-                "introversion_extraversion": 3.0,
-                "autonomia": 3.0,
-                "metodicidad": 3.0,
-                "apertura": 3.0,
-            },
-            "resumen_conductual": NEUTRO_PERSONALIDAD,
-            "preferencias_trabajo": [],
-        }
+        raise ErrorSistema(
+            "El test CHASIDE no esta completado en Moodle (is_completed = 0). "
+            "En Entrega 3 no se inventan puntajes neutros."
+        )
 
-    rasgos = {}
-    for rasgo, col_alto, col_bajo in RASGOS_PERSONALIDAD:
-        rasgos[rasgo] = round(3 + 2 * (totales[col_alto] - totales[col_bajo]) / 9, 1)
-    rasgos["autonomia"] = round(
-        3 + ((totales["intuition"] - totales["sensing"]) + (totales["thinking"] - totales["feeling"])) / 9,
-        1,
-    )
-    rasgos = {
-        "introversion_extraversion": rasgos["introversion_extraversion"],
-        "autonomia": rasgos["autonomia"],
-        "metodicidad": rasgos["metodicidad"],
-        "apertura": rasgos["apertura"],
-    }
-
-    preferencias = []
-    fragmentos = []
-    for rasgo in ["introversion_extraversion", "autonomia", "metodicidad", "apertura"]:
-        valor = rasgos[rasgo]
-        if valor <= 2.1:
-            polo = "bajo"
-        elif valor >= 3.9:
-            polo = "alto"
-        else:
-            continue
-        preferencias.extend(ETIQUETAS_PERSONALIDAD[(rasgo, polo)])
-        fragmentos.append(FRAGMENTO_PERSONALIDAD[(rasgo, polo)])
-
-    if not fragmentos:
-        resumen = NEUTRO_PERSONALIDAD
-    else:
-        oraciones = [capitalizar(enumerar(fragmentos[:2])) + "."]
-        if len(fragmentos) > 2:
-            oraciones.append(capitalizar(enumerar(fragmentos[2:])) + ".")
-        resumen = " ".join(oraciones)
-
-    return {
-        "rasgos": rasgos,
-        "resumen_conductual": resumen,
-        "preferencias_trabajo": preferencias,
-    }
-
-
-def calcular_chaside(completo, respuestas, guardados):
-    if not completo:
-        return {
-            "areas": {area: 3.0 for area in AREAS},
-            "areas_dominantes": [],
-            "descripcion_para_analogias": (
-                "Sin informacion suficiente de intereses vocacionales; usar ejemplos de "
-                "varias areas y evitar supuestos sobre la orientacion del estudiante."
-            ),
-        }
-
-    detalle = []
-    areas = {}
+    chaside = {}
     for area in AREAS:
-        interes = sum(respuestas[q] for q in INTERESES[area])
-        aptitud = sum(respuestas[q] for q in APTITUDES[area])
+        interes = int(sum(respuestas[q] for q in INTERESES[area]))
+        aptitud = int(sum(respuestas[q] for q in APTITUDES[area]))
         total = interes + aptitud
         if total != guardados[area]:
             raise ErrorSistema(
                 f"CHASIDE area {area}: el calculo da {total} pero la base guarda {guardados[area]}. "
                 "Puede haber cambiado el mapeo de preguntas del bloque."
             )
-        areas[area] = round(1 + 4 * total / 14, 1)
-        detalle.append({
-            "area": area,
-            "total": total,
+        chaside[area] = {
+            "interes": interes,
             "aptitud": aptitud,
-            "brecha": abs(interes - aptitud),
-        })
+            "total": total,
+        }
+    return chaside
 
-    # Desempate oficial de facade.php: total, aptitud, brecha y orden alfabetico.
-    orden = sorted(detalle, key=lambda d: (-d["total"], -d["aptitud"], d["brecha"], d["area"]))
-    dominantes = [d["area"] for d in orden[:2]]
 
-    nombres = [f"{NOMBRE_AREA[a]} ({a})" for a in dominantes]
-    conexiones = [CONEXION_AREA[a] for a in dominantes]
-    descripcion = (
-        f"Conviene conectar la materia con ejemplos de {enumerar(conexiones)}; "
-        f"areas principales: {enumerar(nombres)}."
-    )
+def construir_perfil_bruto(
+    username,
+    completo_e,
+    conteos_e,
+    completo_p,
+    totales_p,
+    completo_c,
+    respuestas_c,
+    guardados_c,
+    fecha_aplicacion=None,
+):
+    """Construye el diccionario del perfil bruto conforme a perfil-bruto-psicometrico.schema.json."""
+    chaside = calcular_chaside_bruto(completo_c, respuestas_c, guardados_c)
+    ils, diferencial = calcular_estilos_bruto(completo_e, conteos_e)
+    personalidad = calcular_personalidad_bruto(completo_p, totales_p)
 
     return {
-        "areas": areas,
-        "areas_dominantes": dominantes,
-        "descripcion_para_analogias": descripcion,
+        "id": username,
+        "origen": "real",
+        "fecha_aplicacion": fecha_aplicacion or date.today().isoformat(),
+        "chaside": chaside,
+        "ils": ils,
+        "diferencial": diferencial,
+        "personalidad": personalidad,
     }
 
 
@@ -426,7 +281,7 @@ def calcular_chaside(completo, respuestas, guardados):
 # Orquestacion
 # ---------------------------------------------------------------------------
 
-def generar(username):
+def generar(username, fecha_aplicacion=None):
     userid = id_de_usuario(username)
     print(f"Usuario {username}: id {userid} en Moodle")
 
@@ -435,20 +290,23 @@ def generar(username):
     completo_c, respuestas, guardados = leer_chaside(userid)
 
     for nombre, completo in (
-        ("estilos de aprendizaje", completo_e),
+        ("estilos de aprendizaje (Felder-Silverman)", completo_e),
         ("personalidad", completo_p),
         ("CHASIDE", completo_c),
     ):
-        print(f"  {nombre}: {'completo' if completo else 'INCOMPLETO -> perfil neutro'}")
+        print(f"  {nombre}: {'completo' if completo else 'INCOMPLETO'}")
 
-    perfil = {
-        "estudiante_id": username,
-        "origen": "real",
-        "estilos_aprendizaje": calcular_estilos(completo_e, conteos),
-        "personalidad": calcular_personalidad(completo_p, totales),
-        "chaside": calcular_chaside(completo_c, respuestas, guardados),
-    }
-    return perfil
+    return construir_perfil_bruto(
+        username,
+        completo_e,
+        conteos,
+        completo_p,
+        totales,
+        completo_c,
+        respuestas,
+        guardados,
+        fecha_aplicacion=fecha_aplicacion,
+    )
 
 
 def validar(archivo):
@@ -460,9 +318,24 @@ def validar(archivo):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Genera el perfil JSON de un estudiante desde Moodle.")
-    parser.add_argument("--usuario", default="persona-1", help="username de Moodle (por defecto: persona-1)")
-    parser.add_argument("--salida", default=None, help="ruta del JSON de salida")
+    parser = argparse.ArgumentParser(
+        description="Genera el perfil JSON en formato bruto de un estudiante desde Moodle (E3-04/E3-05)."
+    )
+    parser.add_argument(
+        "--usuario",
+        default="persona-1",
+        help="username de Moodle (por defecto: persona-1)",
+    )
+    parser.add_argument(
+        "--fecha",
+        default=None,
+        help="fecha de aplicacion en formato AAAA-MM-DD (por defecto: fecha de hoy)",
+    )
+    parser.add_argument(
+        "--salida",
+        default=None,
+        help="ruta del JSON de salida (por defecto: perfiles/reales/<usuario>.json)",
+    )
     args = parser.parse_args()
 
     salida = Path(args.salida) if args.salida else SALIDA_POR_DEFECTO / f"{args.usuario}.json"
@@ -470,14 +343,14 @@ def main():
         salida = BASE / salida
 
     try:
-        perfil = generar(args.usuario)
+        perfil = generar(args.usuario, fecha_aplicacion=args.fecha)
     except ErrorSistema as e:
         print(f"\nERROR: {e}")
         return 1
 
     salida.parent.mkdir(parents=True, exist_ok=True)
     salida.write_text(json.dumps(perfil, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"\nPerfil escrito en {salida.relative_to(BASE)}")
+    print(f"\nPerfil bruto escrito en {salida.relative_to(BASE)}")
 
     ok, stdout, stderr = validar(salida)
     if stdout:
@@ -485,7 +358,7 @@ def main():
     if stderr:
         print(stderr)
     if not ok:
-        print("ERROR: el perfil generado no pasa la validacion.")
+        print("ERROR: el perfil generado no pasa la validacion de contrato bruto.")
         return 1
     return 0
 
