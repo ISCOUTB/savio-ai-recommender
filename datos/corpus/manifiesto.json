@@ -1,0 +1,13 @@
+{
+  "validador": "validar-corpus-anonimizado.py",
+  "fecha": "2026-11-07T21:30:21Z",
+  "entradas": [
+    {
+      "archivo": "corpus.jsonl",
+      "sha256": "c74e2e6252e06047bdc8067d7b784c182ca7f396657c2947bc2777e9f9aaae1c",
+      "registros": 150
+    }
+  ],
+  "registros": 150,
+  "resultado": "ok"
+}

@@ -214,33 +214,62 @@ Perfiles brutos verificados de los tres integrantes y registro en `experimentos/
 
 ### E3-06 - Construir corpus Ground Truth de interpretacion integrada con LLMs Maestros (Claude/ChatGPT) y literatura tecnica
 
-- **GitHub:** [#43](https://github.com/ISCOUTB/savio-ai-recommender/issues/43) (recategorizado desde `E2-19`) | **Estado:** abierto | **Sprint:** Sprint 2 (OE1)
+- **GitHub:** [#43](https://github.com/ISCOUTB/savio-ai-recommender/issues/43) (recategorizado desde `E2-19`) | **Avance local:** corpus candidato generado y validado automaticamente; pendientes aprobacion de matriz y revision humana (no se cambio el estado remoto) | **Sprint:** Sprint 2 (OE1)
 - **Labels:** `entrega-3`, `slm`, `destilacion`, `psicopedagogia`, `docs`, `equipo`
 - **Prioridad:** P0 (Critica)
 - **Dueno:** Persona 3 (Lider Tecnico SLM) | Apoyo: Persona 1 y Persona 2
 - **Revisor:** Equipo completo
-- **Depende de:** E3-04, E3-05
+- **Depende de:** E3-04 (cerrado en `10db0e4`). E3-05 **no bloquea**: el corpus es sintetico.
 - **Desbloquea:** E3-08, E3-09
 
 ### Contexto
 Recategorizado y actualizado desde `E2-19` (#43) segun las Directrices 1, 2 y 3 del docente. Los LLMs de frontera (**Claude, ChatGPT**) se utilizan en fase de laboratorio como modelos "maestros" (*Teacher*). Se les alimenta con la bibliografia tecnica oficial de CHASIDE, Felder-Silverman y Personalidad junto con combinaciones diversas de puntuaciones brutas para generar salidas interpretativas de alta calidad (*ground truth*) que ensenen al SLM a correlacionar los tres instrumentos.
 
+### Plan y artefactos
+
+| Artefacto | Ruta | Estado |
+|---|---|---|
+| Matriz de cobertura (150 perfiles, 7 arquetipos) | [matriz-corpus-e306.md](../../especificaciones/matriz-corpus-e306.md) | Documentada; pendiente revision por par |
+| Generador determinista (semilla 42) | [generar_corpus_e306.py](../../../scripts/generar_corpus_e306.py) | Implementado y probado |
+| Expansion de auditoria | `datos/corpus/corpus_expansion.csv` | Generada (150 filas) |
+| Prompts del LLM maestro | `datos/corpus/prompts_maestro.jsonl` | Generados (150, version `v1.0`) |
+| Reparto sin API (50 prompts por integrante) | `datos/corpus/reparto/persona-1.md`, `persona-2.md`, `persona-3.md` | Alternativa manual disponible; no usada en esta corrida |
+| Respuestas compiladas manualmente | `datos/corpus/respuestas.jsonl` | Alternativa manual; no es insumo del corpus generado por lotes del agente |
+| Corpus candidato del maestro en OpenCode | [corpus.jsonl](../../../datos/corpus/corpus.jsonl) | Generado: 150 registros, cuatro secciones y aviso canonico por salida |
+| Procedencia del maestro | [manifiesto_generacion.json](../../../datos/corpus/manifiesto_generacion.json) | `openai/gpt-6.1-sol`, 15 lotes, split 122/28, cero fallidos; firmas humanas vacias |
+| Gate de privacidad | [manifiesto.json](../../../datos/corpus/manifiesto.json) | Ejecutado el 2026-11-07: `RESULTADO: OK` |
+| Contrato del registro | [datos/corpus/README.md](../../../datos/corpus/README.md) | Documentado |
+
+Generamos el corpus candidato en esta sesion con autorizacion del usuario; la
+aprobacion formal de la matriz por par no esta acreditada. Conservamos ese gate
+abierto y no declaramos E3-06 cerrado ni el corpus validado por un profesional.
+La ruta de reparto manual queda disponible como alternativa, pero esta corrida
+usa los lotes del agente; `respuestas.jsonl` no es su fuente.
+
 ### Pasos Detallados de Ejecucion
-1. **Diseno del Prompt Maestro (Teacher):** Incluir los baremos oficiales y la literatura tecnica de los 3 tests para que Claude / ChatGPT redacte interpretaciones psicologicas, de aprendizaje y vocacionales cruzadas rigurosas.
-2. **Muestreo de combinaciones psicometricas:** Generar al menos 150 vectores de puntajes brutos realistas y contrastantes (cubriendo distintas dominancias de CHASIDE, polos de Felder-Silverman y perfiles conductuales, incluyendo congruencias y brechas entre interes y aptitud).
-3. **Generacion y curacion del Ground Truth:** Producir las salidas interpretativas con los LLMs maestros y auditar que ninguna altere los puntajes brutos ni emita juicios clinicos patologizantes.
-4. **Estructuracion para Hugging Face:** Formatear el corpus en JSONL (`instruction`, `input`, `output`) con particion 80% entrenamiento / 20% validacion sin fuga de datos.
-5. **Control de privacidad previo a Hugging Face:** ejecutar `python docs/especificaciones/validar-corpus-anonimizado.py --entrada datos/corpus/corpus.jsonl --manifiesto datos/corpus/manifiesto.json`, guardar el hash y adjuntar el resultado a E3-03. Sin este paso no se sube el dataset.
+
+1. **Revisar la matriz:** el par aprueba los 7 arquetipos y sus conteos (21 + 20 + 20 + 24 + 20 + 20 + 25 = 150). Sin esa aprobacion no se genera el corpus.
+2. **Generar los insumos:** `python scripts/generar_corpus_e306.py matriz`. Escribe la expansion y los 150 prompts, y valida cada perfil contra `contrato_bruto.py`.
+3. **Producir el ground truth:** con API, `python scripts/generar_corpus_e306.py generar --proveedor claude --modelo <modelo>`. Sin API, `python scripts/generar_corpus_e306.py repartir` deja 50 prompts por integrante en `datos/corpus/reparto/`; cada uno pega la respuesta en su Markdown y se cierra con `python scripts/generar_corpus_e306.py compilar` y `python scripts/generar_corpus_e306.py ensamblar --respuestas datos/corpus/respuestas.jsonl`. Si el maestro corre como agente de OpenCode, `python scripts/generar_corpus_e306.py lotes` deja 15 tandas de 10 prompts y se cierra con `python scripts/generar_corpus_e306.py ensamblar --respuestas-dir datos/corpus/respuestas-lotes --maestro-proveedor openai --maestro-modelo <modelo>`.
+4. **Validar estructura y guardrail:** el generador exige las 4 secciones en orden y el aviso no clinico; lo que falla queda en `fallidos.jsonl` y no entra al corpus.
+5. **Gate de privacidad (E3-03):** `python docs/especificaciones/validar-corpus-anonimizado.py --entrada datos/corpus/corpus.jsonl --manifiesto datos/corpus/manifiesto.json`. Sin `RESULTADO: OK` el corpus no se usa ni se sube.
+6. **Control de calidad:** los 3 integrantes revisan 5 registros cada uno (15 = 10%) y firman en `manifiesto_generacion.json`.
+7. **Cerrar:** mover el issue a `en revision` con el hash del corpus y el conteo del split.
 
 ### Criterios de Aceptacion
-- [ ] Prompt maestro fundamentado en la bibliografia tecnica de CHASIDE, Felder-Silverman y Personalidad documentado.
-- [ ] Corpus JSONL con al menos 150 pares `(puntajes_brutos_3_tests -> interpretacion_integrada_ground_truth)`.
-- [ ] 100% de las muestras verificadas: respetan las escalas originales brutas y el rol de apoyo al diagnostico inicial.
-- [ ] Particion 80/20 (train/eval) lista para cargar en Hugging Face.
-- [ ] Corpus validado por `validar-corpus-anonimizado.py`, con manifiesto SHA-256 y sin PII (gate E3-03).
+
+- [ ] Matriz aprobada por par (arquetipos, conteos y rangos).
+- [x] `corpus.jsonl` con exactamente 150 lineas JSONL.
+- [x] Ids `SINT-001` a `SINT-150`, unicos y sin huecos.
+- [x] Cada `output` tiene las 4 secciones en orden y el aviso no clinico canonico.
+- [x] `validar-corpus-anonimizado.py` devuelve `RESULTADO: OK` y genera `manifiesto.json`.
+- [x] Split determinista: 122 entrenamiento / 28 evaluacion (18.7%, calculado con los ids y la semilla 42; no se ajusta a mano).
+- [ ] `corpus_expansion.csv`, `prompts_maestro.jsonl` y `manifiesto_generacion.json` versionados.
+- [ ] 15 registros revisados por los 3 integrantes.
+- [x] Gate automatico de PII superado: corpus sintetico, sin hallazgos del validador.
 
 ### Entregables
-Corpus *ground truth* en formato JSONL, script/plantilla de generacion Teacher y documentacion del dataset.
+Matriz de cobertura, generador, `corpus.jsonl`, manifiesto de privacidad, expansion de auditoria y prompts versionados.
 
 ---
 
@@ -367,4 +396,3 @@ Consolidar y demostrar ante el docente el funcionamiento de extremo a extremo de
 
 ### Entregables
 Guion y evidencias de demostracion del backend en CPU y reporte de cierre de la Entrega 3.
-

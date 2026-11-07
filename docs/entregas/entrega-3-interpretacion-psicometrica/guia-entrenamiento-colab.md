@@ -96,6 +96,37 @@ No inventes escalas distintas a las indicadas. No incluyas nombres ni datos
 personales.
 ```
 
+### 3.3.1 Sin API: reparto entre los tres integrantes
+
+Cuando no hay clave de API, el mismo corpus se produce a mano en la version web de
+Claude o ChatGPT. El generador reparte los 150 prompts en tres archivos de 50:
+
+```bash
+python scripts/generar_corpus_e306.py repartir
+# cada integrante diligencia datos/corpus/reparto/persona-N.md
+python scripts/generar_corpus_e306.py compilar
+python scripts/generar_corpus_e306.py ensamblar --respuestas datos/corpus/respuestas.jsonl
+```
+
+Cada archivo `persona-N.md` trae el prompt y dos marcas: la respuesta se pega entre
+`<!-- RESPUESTA -->` y `<!-- FIN -->`. `compilar` reporta los ids que faltan y
+`ensamblar` aplica las mismas reglas de estructura y guardrail que el modo con API.
+El reparto por turnos mantiene los 7 arquetipos balanceados entre las tres personas.
+
+### 3.3.2 Maestro dentro de OpenCode
+
+Si el maestro se ejecuta como agente de OpenCode (por ejemplo
+`openai/gpt-6.1-sol#max`), se trabaja por lotes de 10 para no truncar la salida:
+
+```bash
+python scripts/generar_corpus_e306.py lotes
+# el agente escribe datos/corpus/respuestas-lotes/lote-XX.jsonl (id + output)
+python scripts/generar_corpus_e306.py ensamblar --respuestas-dir datos/corpus/respuestas-lotes --maestro-proveedor openai --maestro-modelo gpt-6.1-sol
+```
+
+El manifiesto registra el proveedor y el modelo reales. No se usa el SLM local
+(`qwen2.5:*`) como maestro: E3-06 exige un Teacher de mayor capacidad.
+
 ### 3.4 Tabla de cobertura (evita 150 variaciones del mismo perfil)
 
 | Eje | Cobertura minima |
