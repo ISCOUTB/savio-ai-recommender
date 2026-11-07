@@ -1,0 +1,59 @@
+{
+  "generador": "scripts/generar_corpus_e306.py",
+  "version_corpus": "1.0",
+  "prompt_version": "v1.0",
+  "fecha": "2026-11-07T21:30:13Z",
+  "semilla": 42,
+  "proveedor": "openai",
+  "modelo": "gpt-6.1-sol",
+  "modalidad_generacion": {
+    "canal": "sesion de OpenCode",
+    "lotes": 15,
+    "registros_por_lote": 10,
+    "api_del_generador_usada": false,
+    "slm_local_usado_como_maestro": false,
+    "interpretacion": "Cuatro lecturas redactadas individualmente por el modelo maestro para cada perfil sintetico.",
+    "formato": "Titulos, conteos brutos literales y aviso no clinico insertados de forma determinista; el formateador no infiere interpretaciones.",
+    "fuentes": [
+      "datos/corpus/corpus_expansion.csv",
+      "datos/corpus/prompts_maestro.jsonl",
+      "docs/especificaciones/baremos-psicometricos.md",
+      "docs/especificaciones/instrumento-chaside.md",
+      "docs/especificaciones/instrumento-estilos-aprendizaje.md",
+      "docs/especificaciones/instrumento-personalidad.md",
+      "poc_slm/guardrail_etico.py"
+    ]
+  },
+  "estado_revision": {
+    "corpus": "candidato con validacion automatica; no validado por profesional",
+    "aprobacion_matriz_por_par": "pendiente de acreditar",
+    "revision_15_registros_por_equipo": "pendiente",
+    "criterio_bandas": "Convenciones del contrato E3; no baremos poblacionales ni puntos de corte clinicos."
+  },
+  "total_registros": 150,
+  "arquetipos": {
+    "DOM-CHA": 21,
+    "DOM-ILS": 20,
+    "DOM-PER": 20,
+    "GAP-CHA-ILS": 24,
+    "GAP-PER-ILS": 20,
+    "FLAT": 20,
+    "EDGE": 25
+  },
+  "split": {
+    "entrenamiento": 122,
+    "evaluacion": 28,
+    "evaluacion_por_arquetipo": {
+      "DOM-CHA": 3,
+      "DOM-ILS": 3,
+      "DOM-PER": 6,
+      "GAP-CHA-ILS": 5,
+      "GAP-PER-ILS": 4,
+      "FLAT": 1,
+      "EDGE": 6
+    }
+  },
+  "sha256_corpus": "c74e2e6252e06047bdc8067d7b784c182ca7f396657c2947bc2777e9f9aaae1c",
+  "fallidos": 0,
+  "firmas_calidad": {}
+}

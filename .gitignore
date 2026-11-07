@@ -20,6 +20,7 @@ salidas/reales/
 
 # E3-06: intermedios del reparto sin API (se regeneran con repartir/compilar)
 datos/corpus/reparto/
+datos/corpus/lotes/
 datos/corpus/respuestas-lotes/
 datos/corpus/respuestas.jsonl
 datos/corpus/fallidos.jsonl

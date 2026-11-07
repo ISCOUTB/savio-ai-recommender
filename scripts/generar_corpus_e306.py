@@ -16,6 +16,10 @@ Modos (desde la raiz del repositorio):
         Convierte los Markdown diligenciados de datos/corpus/reparto/ en
         datos/corpus/respuestas.jsonl (id + output).
 
+    python scripts/generar_corpus_e306.py lotes
+        Divide los 150 prompts en lotes de 10 (datos/corpus/lotes/) para que un
+        LLM maestro los procese por tandas sin truncar la salida.
+
     python scripts/generar_corpus_e306.py ensamblar --respuestas datos/corpus/respuestas.jsonl
         Une respuestas hechas a mano (id + output) y escribe corpus.jsonl.
 
@@ -836,6 +840,36 @@ def modo_compilar(args):
     return 0
 
 
+def modo_lotes(args):
+    if args.tamano_lote < 1:
+        raise SystemExit("--tamano-lote debe ser 1 o mas")
+
+    perfiles = generar_perfiles(args.semilla, args.limite)
+    carpeta = args.salida_dir / "lotes"
+    carpeta.mkdir(parents=True, exist_ok=True)
+
+    total = 0
+    for numero, inicio in enumerate(range(0, len(perfiles), args.tamano_lote), start=1):
+        lote = perfiles[inicio : inicio + args.tamano_lote]
+        ruta = carpeta / f"prompts-lote-{numero:02d}.jsonl"
+        escribir_jsonl(
+            ruta,
+            [
+                {
+                    "id": item["id"],
+                    "arquetipo": item["arquetipo"],
+                    "prompt": prompt_maestro(item),
+                }
+                for item in lote
+            ],
+        )
+        print(f"[OK] {ruta}: {len(lote)} prompts ({lote[0]['id']} a {lote[-1]['id']})")
+        total += len(lote)
+
+    print(f"Total en lotes: {total} prompts")
+    return 0
+
+
 def escribir_corpus(perfiles, respuestas, args, proveedor, modelo):
     salida = args.salida_dir
     salida.mkdir(parents=True, exist_ok=True)
@@ -943,7 +977,7 @@ def construir_parser():
         description="Genera el corpus sintetico de E3-06 a partir de la matriz de cobertura."
     )
     parser.add_argument(
-        "modo", choices=("matriz", "generar", "repartir", "compilar", "ensamblar")
+        "modo", choices=("matriz", "generar", "repartir", "lotes", "compilar", "ensamblar")
     )
     parser.add_argument(
         "--salida-dir",
@@ -983,6 +1017,12 @@ def construir_parser():
         help="carpeta con los Markdown diligenciados (por defecto datos/corpus/reparto)",
     )
     parser.add_argument(
+        "--tamano-lote",
+        type=int,
+        default=10,
+        help="prompts por lote en el modo lotes (default: 10)",
+    )
+    parser.add_argument(
         "--salida-respuestas",
         type=Path,
         help="JSONL que escribe compilar (por defecto datos/corpus/respuestas.jsonl)",
@@ -1008,6 +1048,8 @@ def main(argv=None):
         return modo_generar(args)
     if args.modo == "repartir":
         return modo_repartir(args)
+    if args.modo == "lotes":
+        return modo_lotes(args)
     if args.modo == "compilar":
         return modo_compilar(args)
     return modo_ensamblar(args)
