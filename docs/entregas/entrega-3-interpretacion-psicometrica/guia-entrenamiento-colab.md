@@ -96,6 +96,23 @@ No inventes escalas distintas a las indicadas. No incluyas nombres ni datos
 personales.
 ```
 
+### 3.3.1 Sin API: reparto entre los tres integrantes
+
+Cuando no hay clave de API, el mismo corpus se produce a mano en la version web de
+Claude o ChatGPT. El generador reparte los 150 prompts en tres archivos de 50:
+
+```bash
+python scripts/generar_corpus_e306.py repartir
+# cada integrante diligencia datos/corpus/reparto/persona-N.md
+python scripts/generar_corpus_e306.py compilar
+python scripts/generar_corpus_e306.py ensamblar --respuestas datos/corpus/respuestas.jsonl
+```
+
+Cada archivo `persona-N.md` trae el prompt y dos marcas: la respuesta se pega entre
+`<!-- RESPUESTA -->` y `<!-- FIN -->`. `compilar` reporta los ids que faltan y
+`ensamblar` aplica las mismas reglas de estructura y guardrail que el modo con API.
+El reparto por turnos mantiene los 7 arquetipos balanceados entre las tres personas.
+
 ### 3.4 Tabla de cobertura (evita 150 variaciones del mismo perfil)
 
 | Eje | Cobertura minima |

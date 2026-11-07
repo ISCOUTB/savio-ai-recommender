@@ -18,6 +18,12 @@ perfiles/reales/
 datos/reales/
 salidas/reales/
 
+# E3-06: intermedios del reparto sin API (se regeneran con repartir/compilar)
+datos/corpus/reparto/
+datos/corpus/respuestas-lotes/
+datos/corpus/respuestas.jsonl
+datos/corpus/fallidos.jsonl
+
 # E3-03: formulacion con nombres y codigos de integrantes (no versionar)
 /Formulacion_Proyecto_PerfilIA_v*.pdf
 

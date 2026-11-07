@@ -48,6 +48,7 @@ punteros o borradores y no se editan por separado.
 | Recursos A/B/C de la semana (Entrega 2) | `especificaciones/materia-piloto-recursos.md` + `../poc_slm/recursos/semana_1.json` | - |
 | Feedback loop (Entrega 2) | [especificaciones/feedback-loop.md](especificaciones/feedback-loop.md) | - |
 | Destilacion y fine-tuning | `investigacion/propuesta-destilacion-slm.md` | tres notas preliminares en la misma carpeta |
+| Diseno del corpus sintetico (Entrega 3) | `especificaciones/matriz-corpus-e306.md` | `scripts/generar_corpus_e306.py` y `../datos/corpus/README.md` |
 | Decisiones tecnicas y transicion a Entrega 3 | `decisiones/decisiones-y-problemas.md` | - |
 | Prompt de tutoria (Entrega 1) | `../prompts/system_guardrails.md` | - |
 | Prompt de recomendacion semanal (Entrega 2) | `../prompts/system_prompt_recomendacion.md` | - |
