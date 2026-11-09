@@ -1,0 +1,132 @@
+[
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-00\\arc42-template-EN-plain-markdown.zip!/arc42-template-EN.md",
+    "salida": "datos\\curso\\markdown\\seccion-00\\arc42-template-EN-plain-markdown-arc42-template-EN.md",
+    "caracteres": 5266,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-01\\01_SA_Introduction.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-01\\01_SA_Introduction.pdf.md",
+    "caracteres": 15346,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-02\\S02-interesados-atributos-y-calidad-integrada.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-02\\S02-interesados-atributos-y-calidad-integrada.pdf.md",
+    "caracteres": 3283,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-03\\S03-estilos-tacticas-y-adr-UTB.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-03\\S03-estilos-tacticas-y-adr-UTB.pdf.md",
+    "caracteres": 11022,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-04\\FastAPI_Flutter_Blueprint.pdf",
+    "estado": "requiere_ocr"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-04\\S04-documentacion-arquitectonica-UTB.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-04\\S04-documentacion-arquitectonica-UTB.pdf.md",
+    "caracteres": 9260,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-06\\S06-dominio-y-modularidad.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-06\\S06-dominio-y-modularidad.pdf.md",
+    "caracteres": 4593,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-07\\Introducción a WWW.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-07\\Introducción a WWW.pdf.md",
+    "caracteres": 5385,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-07\\S07-interfaces-y-contratos.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-07\\S07-interfaces-y-contratos.pdf.md",
+    "caracteres": 4536,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-08\\S08-despliegue-y-operacion.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-08\\S08-despliegue-y-operacion.pdf.md",
+    "caracteres": 5137,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-08\\SD_Lecture0 Serverless.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-08\\SD_Lecture0 Serverless.pdf.md",
+    "caracteres": 10921,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-09\\S09-ia-verificacion-y-erosion.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-09\\S09-ia-verificacion-y-erosion.pdf.md",
+    "caracteres": 4929,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-10\\sesion-10.html",
+    "salida": "datos\\curso\\markdown\\seccion-10\\sesion-10.html.md",
+    "caracteres": 12095,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-11\\SA_Lecture05b_Service-OrientedComputing.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-11\\SA_Lecture05b_Service-OrientedComputing.pdf.md",
+    "caracteres": 12680,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-11\\SA_Lecture08b_Microservices.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-11\\SA_Lecture08b_Microservices.pdf.md",
+    "caracteres": 7331,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-11\\sesion-11.html",
+    "salida": "datos\\curso\\markdown\\seccion-11\\sesion-11.html.md",
+    "caracteres": 25581,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-12\\SA_Lecture - Data Intensive.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-12\\SA_Lecture - Data Intensive.pdf.md",
+    "caracteres": 6193,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-12\\sesion-12.html",
+    "salida": "datos\\curso\\markdown\\seccion-12\\sesion-12.html.md",
+    "caracteres": 24094,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-14\\SA - Análisis y Evaluación.pdf",
+    "salida": "datos\\curso\\markdown\\seccion-14\\SA - Análisis y Evaluación.pdf.md",
+    "caracteres": 2330,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\seccion-14\\sesion-14.html",
+    "salida": "datos\\curso\\markdown\\seccion-14\\sesion-14.html.md",
+    "caracteres": 18511,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\texto\\seccion-00-book-1.html",
+    "salida": "datos\\curso\\markdown\\texto\\seccion-00-book-1.md",
+    "caracteres": 40039,
+    "estado": "ok"
+  },
+  {
+    "fuente": "datos\\curso\\crudos\\texto\\seccion-00-page-1.html",
+    "salida": "datos\\curso\\markdown\\texto\\seccion-00-page-1.md",
+    "caracteres": 168,
+    "estado": "ok"
+  }
+]

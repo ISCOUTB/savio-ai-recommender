@@ -35,3 +35,10 @@ fuentes/*.pptx
 
 # Salidas locales del Prompt Builder
 poc_slm/salidas/
+
+# CUR-01: backup .mbz y archivos extraidos del curso del profesor (solo local)
+*.mbz
+datos/curso/crudos/
+# CUR-05/CUR-06: texto del curso y corpus derivado (uso local, no publicar en el repo)
+datos/curso/markdown/
+datos/curso/corpus_curso.jsonl

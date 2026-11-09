@@ -1,0 +1,117 @@
+{
+  "archivos_entrada": 21,
+  "fragmentos_finales": 242,
+  "caracteres_finales": 246555,
+  "duplicados_eliminados": 0,
+  "alertas_privacidad": {
+    "correos_reemplazados": 0,
+    "usuarios_moodle": 0
+  },
+  "por_archivo": {
+    "datos\\curso\\markdown\\seccion-00\\arc42-template-EN-plain-markdown-arc42-template-EN.md": {
+      "fragmentos": 5,
+      "descartados_menor_200": 0,
+      "caracteres": 5378
+    },
+    "datos\\curso\\markdown\\seccion-01\\01_SA_Introduction.pdf.md": {
+      "fragmentos": 17,
+      "descartados_menor_200": 0,
+      "caracteres": 16217
+    },
+    "datos\\curso\\markdown\\seccion-02\\S02-interesados-atributos-y-calidad-integrada.pdf.md": {
+      "fragmentos": 4,
+      "descartados_menor_200": 0,
+      "caracteres": 3443
+    },
+    "datos\\curso\\markdown\\seccion-03\\S03-estilos-tacticas-y-adr-UTB.pdf.md": {
+      "fragmentos": 14,
+      "descartados_menor_200": 0,
+      "caracteres": 12162
+    },
+    "datos\\curso\\markdown\\seccion-04\\S04-documentacion-arquitectonica-UTB.pdf.md": {
+      "fragmentos": 10,
+      "descartados_menor_200": 0,
+      "caracteres": 9871
+    },
+    "datos\\curso\\markdown\\seccion-06\\S06-dominio-y-modularidad.pdf.md": {
+      "fragmentos": 6,
+      "descartados_menor_200": 0,
+      "caracteres": 5139
+    },
+    "datos\\curso\\markdown\\seccion-07\\Introducción a WWW.pdf.md": {
+      "fragmentos": 5,
+      "descartados_menor_200": 0,
+      "caracteres": 5076
+    },
+    "datos\\curso\\markdown\\seccion-07\\S07-interfaces-y-contratos.pdf.md": {
+      "fragmentos": 5,
+      "descartados_menor_200": 0,
+      "caracteres": 4984
+    },
+    "datos\\curso\\markdown\\seccion-08\\S08-despliegue-y-operacion.pdf.md": {
+      "fragmentos": 7,
+      "descartados_menor_200": 0,
+      "caracteres": 5724
+    },
+    "datos\\curso\\markdown\\seccion-08\\SD_Lecture0 Serverless.pdf.md": {
+      "fragmentos": 10,
+      "descartados_menor_200": 0,
+      "caracteres": 10283
+    },
+    "datos\\curso\\markdown\\seccion-09\\S09-ia-verificacion-y-erosion.pdf.md": {
+      "fragmentos": 5,
+      "descartados_menor_200": 0,
+      "caracteres": 5372
+    },
+    "datos\\curso\\markdown\\seccion-10\\sesion-10.html.md": {
+      "fragmentos": 12,
+      "descartados_menor_200": 0,
+      "caracteres": 13334
+    },
+    "datos\\curso\\markdown\\seccion-11\\SA_Lecture05b_Service-OrientedComputing.pdf.md": {
+      "fragmentos": 13,
+      "descartados_menor_200": 0,
+      "caracteres": 12723
+    },
+    "datos\\curso\\markdown\\seccion-11\\SA_Lecture08b_Microservices.pdf.md": {
+      "fragmentos": 8,
+      "descartados_menor_200": 0,
+      "caracteres": 8083
+    },
+    "datos\\curso\\markdown\\seccion-11\\sesion-11.html.md": {
+      "fragmentos": 25,
+      "descartados_menor_200": 0,
+      "caracteres": 28131
+    },
+    "datos\\curso\\markdown\\seccion-12\\SA_Lecture - Data Intensive.pdf.md": {
+      "fragmentos": 6,
+      "descartados_menor_200": 0,
+      "caracteres": 6731
+    },
+    "datos\\curso\\markdown\\seccion-12\\sesion-12.html.md": {
+      "fragmentos": 25,
+      "descartados_menor_200": 0,
+      "caracteres": 26740
+    },
+    "datos\\curso\\markdown\\seccion-14\\SA - Análisis y Evaluación.pdf.md": {
+      "fragmentos": 3,
+      "descartados_menor_200": 0,
+      "caracteres": 2544
+    },
+    "datos\\curso\\markdown\\seccion-14\\sesion-14.html.md": {
+      "fragmentos": 19,
+      "descartados_menor_200": 0,
+      "caracteres": 20520
+    },
+    "datos\\curso\\markdown\\texto\\seccion-00-book-1.md": {
+      "fragmentos": 43,
+      "descartados_menor_200": 0,
+      "caracteres": 44100
+    },
+    "datos\\curso\\markdown\\texto\\seccion-00-page-1.md": {
+      "fragmentos": 0,
+      "descartados_menor_200": 1,
+      "caracteres": 0
+    }
+  }
+}
