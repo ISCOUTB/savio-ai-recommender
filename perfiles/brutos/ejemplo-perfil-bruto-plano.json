@@ -1,0 +1,40 @@
+{
+  "id": "ejemplo-plano",
+  "origen": "sintetico",
+  "fecha_aplicacion": "2026-10-28",
+  "chaside": {
+    "C": { "interes": 5, "aptitud": 2, "total": 7 },
+    "H": { "interes": 5, "aptitud": 2, "total": 7 },
+    "A": { "interes": 5, "aptitud": 2, "total": 7 },
+    "S": { "interes": 5, "aptitud": 2, "total": 7 },
+    "I": { "interes": 5, "aptitud": 2, "total": 7 },
+    "D": { "interes": 5, "aptitud": 2, "total": 7 },
+    "E": { "interes": 5, "aptitud": 2, "total": 7 }
+  },
+  "ils": {
+    "activo": 6,
+    "reflexivo": 5,
+    "sensitivo": 5,
+    "intuitivo": 6,
+    "visual": 6,
+    "verbal": 5,
+    "secuencial": 5,
+    "global": 6
+  },
+  "diferencial": {
+    "activo_reflexivo": 1,
+    "sensitivo_intuitivo": -1,
+    "visual_verbal": 1,
+    "secuencial_global": -1
+  },
+  "personalidad": {
+    "extraversion": 4,
+    "introversion": 5,
+    "sensing": 5,
+    "intuition": 4,
+    "thinking": 4,
+    "feeling": 5,
+    "judging": 5,
+    "perceptive": 4
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "ejemplo-brecha",
+  "origen": "sintetico",
+  "fecha_aplicacion": "2026-10-28",
+  "chaside": {
+    "C": { "interes": 3, "aptitud": 1, "total": 4 },
+    "H": { "interes": 2, "aptitud": 2, "total": 4 },
+    "A": { "interes": 4, "aptitud": 0, "total": 4 },
+    "S": { "interes": 1, "aptitud": 1, "total": 2 },
+    "I": { "interes": 10, "aptitud": 0, "total": 10 },
+    "D": { "interes": 2, "aptitud": 2, "total": 4 },
+    "E": { "interes": 9, "aptitud": 1, "total": 10 }
+  },
+  "ils": {
+    "activo": 9,
+    "reflexivo": 2,
+    "sensitivo": 2,
+    "intuitivo": 9,
+    "visual": 7,
+    "verbal": 4,
+    "secuencial": 2,
+    "global": 9
+  },
+  "diferencial": {
+    "activo_reflexivo": 7,
+    "sensitivo_intuitivo": -7,
+    "visual_verbal": 3,
+    "secuencial_global": -7
+  },
+  "personalidad": {
+    "extraversion": 2,
+    "introversion": 7,
+    "sensing": 3,
+    "intuition": 9,
+    "thinking": 4,
+    "feeling": 6,
+    "judging": 3,
+    "perceptive": 7
+  }
+}

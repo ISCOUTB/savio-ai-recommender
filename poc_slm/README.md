@@ -9,6 +9,8 @@ Scripts en Python para ejecutar la PoC del subsistema de recomendacion con SLMs 
 ```
 poc_slm/
 ├── recommender.py        ← Script principal (middleware simplificado de la PoC)
+├── interpretador.py      ← Backend de interpretacion psicometrica integrada (Entrega 3, E3-07)
+├── test_interpretador.py ← 18 chequeos del backend, sin Ollama
 ├── eventos/
 │   ├── bajo_desempeno.json   ← Evento de ejemplo (Sprint 2)
 │   ├── A_nota_baja.json      ← Escenario A: tutoria reactiva ante nota baja (Sprint 3)
@@ -37,6 +39,26 @@ python poc_slm/feedback_tracker.py importar-moodle --semana 1
 `importar-moodle` necesita el registro de recomendaciones de E2-10 en `poc_slm/recomendaciones/semana_<n>.jsonl`.
 
 Especificacion completa: [docs/especificaciones/feedback-loop.md](../docs/especificaciones/feedback-loop.md)
+
+## Backend de interpretacion psicometrica (Entrega 3, E3-07)
+
+Recibe un perfil bruto, lo valida contra `docs/especificaciones/contrato_bruto.py`,
+reproduce el par system/user del notebook de E3-08 y aplica guardrail etico,
+estructura de 4 secciones y chequeo de fidelidad numerica.
+
+```bash
+# Ver el prompt y validar el perfil sin llamar a Ollama
+python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --dry-run
+
+# Interpretacion completa con el SLM local
+python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --modelo qwen2.5:1.5b
+
+# Exportar Markdown y JSON
+python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --salida-dir salidas/e3
+
+# Pruebas (sin Ollama)
+python poc_slm/test_interpretador.py
+```
 
 ## Instalacion (desde la raiz del repositorio)
 

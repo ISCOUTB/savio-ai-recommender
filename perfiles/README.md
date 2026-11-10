@@ -30,9 +30,38 @@ El script lee las respuestas desde Moodle (Docker), aplica las formulas y escrib
 
 ---
 
-## Escala unica 1.0 - 5.0
+> **Entrega 3:** el contrato vigente usa los **puntajes brutos originales** de cada instrumento (`0-14`, `0-11` y `0-9`) y no la escala 1.0-5.0. Los perfiles reales solo se procesan en local y no se versionan. Ver [lineamientos de datos psicometricos](../docs/entregas/entrega-3-interpretacion-psicometrica/lineamientos-datos-psicometricos.md).
 
-Todos los puntajes numericos del perfil (`estilos_aprendizaje.puntajes`, `personalidad.rasgos`, `chaside.areas`) usan **escala 1.0 a 5.0**, con 3.0 como punto neutro. La conversion desde los conteos crudos de cada bloque esta documentada en `docs/especificaciones/escala-canonica.md`.
+## Contrato de puntajes brutos (E3-04, vigente)
+
+- Schema: `docs/especificaciones/perfil-bruto-psicometrico.schema.json`
+- Baremos: `docs/especificaciones/baremos-psicometricos.md`
+- Validador: `docs/especificaciones/validar-perfiles-brutos.py`
+- Fixtures en `perfiles/brutos/` (todos `origen: "sintetico"`):
+
+| Archivo | Caso que ilustra |
+|---|---|
+| `ejemplo-perfil-bruto-dominante.json` | Preferencias marcadas en los cuatro ejes y area CHASIDE con afinidad alta |
+| `ejemplo-perfil-bruto-brecha.json` | Interes alto con aptitud baja; sirve para el guardrail de no convertir la brecha en etiqueta |
+| `ejemplo-perfil-bruto-plano.json` | Diferencias minimas en todos los polos; el texto no debe personalizar |
+
+Ruta: `perfiles/brutos/`. Se validan con `python docs/especificaciones/validar-perfiles-brutos.py`.
+
+Cambios frente a Entrega 2:
+
+| Aspecto | Entrega 2 | Entrega 3 |
+|---|---|---|
+| Puntajes | `1.0` a `5.0` normalizado | Enteros nativos (`0-14`, `0-11`, `0-9`) |
+| `autonomia` | Indice derivado | Prohibida |
+| `origen` de fixtures | `"simulado"` | `"sintetico"` |
+
+Los fixtures de Entrega 2 (`ejemplo-perfil-estudiante.json` y compania) se
+conservan como evidencia: siguen validando con `validar-perfiles.py` y **no**
+pasan el contrato bruto, a proposito.
+
+## Escala unica 1.0 - 5.0 (historico Entrega 2)
+
+En la Entrega 2, todos los puntajes numericos del perfil (`estilos_aprendizaje.puntajes`, `personalidad.rasgos`, `chaside.areas`) usaban **escala 1.0 a 5.0**, con 3.0 como punto neutro. La conversion desde los conteos crudos de cada bloque esta documentada en `docs/especificaciones/escala-canonica.md`.
 
 **Resumen de formulas:**
 

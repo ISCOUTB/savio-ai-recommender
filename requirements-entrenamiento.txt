@@ -1,0 +1,21 @@
+# Dependencias del entrenamiento E3-08 (Google Colab, GPU T4)
+
+Se instalan dentro de Colab, no en la maquina local:
+
+```bash
+%pip install -q -r requirements-entrenamiento.txt
+```
+
+PyTorch **no** se declara aqui: Colab ya trae la version compilada con CUDA y
+reemplazarla rompe el entorno.
+
+```text
+transformers>=4.46,<6
+peft>=0.13,<1
+datasets>=2.20,<5
+accelerate>=0.34,<2
+bitsandbytes>=0.43
+sentencepiece>=0.2
+```
+
+`huggingface_hub` viene con `transformers`; solo se usa si se publica el modelo.
