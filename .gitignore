@@ -36,6 +36,9 @@ fuentes/*.pptx
 # Salidas locales del Prompt Builder
 poc_slm/salidas/
 
+# Feedback real de estudiantes (E2-11): no se versiona
+poc_slm/feedback/feedback.jsonl
+
 # E3-07: GGUF ajustados y Modelfiles importados en Ollama (solo local)
 modelos/
 
