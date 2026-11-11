@@ -20,8 +20,8 @@ psicometricos. Sin consentimiento firmado no se procesa ningun puntaje real
 | Integrante | Cuenta de Moodle | Estado del consentimiento |
 |---|---|---|
 | Persona 1 | `persona-1` | Firmado el 2026-11-10; perfil extraido el 2026-11-09 y fila registrada en la bitacora |
-| Persona 2 | `persona-2` | Firmado el 2026-11-10; perfil extraido el 2026-11-09 y fila registrada en la bitacora |
-| Persona 3 | `persona-3` | Firmado el 2026-11-10; perfil extraido el 2026-10-27 y fila registrada en la bitacora |
+| Persona 2 | `persona-2` | Firmado el 2026-11-10 (copia fuera de OneDrive); perfil extraido el 2026-11-10 y fila registrada en la bitacora |
+| Persona 3 | `persona-3` | Firmado el 2026-11-10; perfil extraido y fila registrada en la bitacora (filas del 2026-10-27 y 2026-11-10) |
 
 Nadie mas firma: en Proyecto de Ingenieria I no se procesan datos de personas
 distintas de los tres integrantes (regla R1).
@@ -148,11 +148,11 @@ Firma: ______________________________
 ## 7. Checklist de cierre de E3-05
 
 - [x] `perfiles/reales/consentimientos/persona-1-consentimiento.pdf` en custodia local.
-- [ ] `perfiles/reales/consentimientos/persona-2-consentimiento.pdf` en custodia local.
+- [x] `perfiles/reales/consentimientos/persona-2-consentimiento.pdf` en custodia local. Por diseno no esta en esa ruta: el repositorio de persona-2 esta dentro de OneDrive, asi que la copia firmada vive fuera de esa carpeta (declarado en #42).
 - [x] `perfiles/reales/consentimientos/persona-3-consentimiento.pdf` en custodia local.
-- [ ] Tres filas de extraccion en `experimentos/bitacora.md` con SHA-256 (persona-1 y persona-3 registradas el 2026-11-10).
-- [ ] `git ls-files perfiles` no lista ningun archivo de `perfiles/reales/`.
-- [ ] Issue #42 actualizado y cerrado con la evidencia de la bitacora.
+- [x] Tres filas de extraccion en `experimentos/bitacora.md` con SHA-256 (persona-1, persona-2 y persona-3).
+- [x] `git ls-files perfiles` no lista ningun archivo de `perfiles/reales/` (verificado el 2026-11-11 sobre master).
+- [x] Confirmado por persona-2 el 2026-11-11: `perfiles/reales/persona-2-bruto.json` no esta en OneDrive (ver 6.2 de los lineamientos).
 
 Verificacion rapida:
 
