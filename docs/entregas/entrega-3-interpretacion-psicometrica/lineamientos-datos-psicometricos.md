@@ -77,6 +77,7 @@ La formulacion v6 en PDF no se versiona porque incluye nombres y codigos de los 
 - **R8. Logs sin PII.** El registro de ejecucion guarda modelo, version de fichas, latencia, tokens y resultado de validacion; no guarda nombre, correo, codigo ni respuestas.
 - **R9. Terminos de uso del LLM maestro.** Antes de E3-08 se revisan los terminos del proveedor para entrenar con sus salidas (riesgo R09 de la formulacion v6). Si no lo permiten, se genera la referencia con Qwen 2.5 7B (Apache 2.0) usando solo datos sinteticos.
 - **R10. Retencion y borrado.** Al cierre de E3 o al retirar el consentimiento se elimina el perfil real y sus derivados locales. El corpus sintetico y el modelo no contienen datos reales y pueden conservarse.
+- **R11. Agregacion fisica controlada.** Si una corrida necesita los tres perfiles juntos, se copian por USB a un solo equipo designado, dentro de `perfiles/reales/`; al terminar la corrida se borran conforme a R10 y se deja constancia en la bitacora sin datos personales. Queda prohibido usar Drive, OneDrive, correo, WhatsApp, repositorio privado o contenedor cifrado en Git sin autorizacion escrita del docente. Detalle en [procedimiento-consentimientos.md](procedimiento-consentimientos.md).
 
 ---
 
@@ -100,6 +101,8 @@ El consentimiento debe explicar, en lenguaje claro:
 ### 6.2 Custodia
 
 - La copia firmada se guarda en `perfiles/reales/consentimientos/`, fuera de Git.
+- Procedimiento paso a paso y copia imprimible: [procedimiento-consentimientos.md](procedimiento-consentimientos.md).
+- La prueba publica de que el perfil se extrajo es una fila en `experimentos/bitacora.md` generada con `docs/especificaciones/evidencia-perfil.py`; contiene el resultado del validador y el SHA-256, nunca los puntajes.
 - El equipo no incluye nombres, documentos ni firmas en documentos del repositorio.
 - El docente o la instancia institucional que corresponda puede solicitar la copia para revision.
 
@@ -213,6 +216,7 @@ Si se detecta un dato real en Git, en Hugging Face o en una salida compartida:
 | Control | Comando | Resultado esperado |
 |---|---|---|
 | Perfiles reales ignorados | `git check-ignore -v perfiles/reales/persona-1.json` | Muestra la regla de `.gitignore` |
+| Evidencia de extraccion sin publicar puntajes | `python docs/especificaciones/evidencia-perfil.py --perfil perfiles/reales/persona-1-bruto.json` | Imprime la fila de bitacora con `RESULTADO: OK` y SHA-256; rechaza perfiles no ignorados |
 | PDF de formulacion ignorado | `git check-ignore -v Formulacion_Proyecto_PerfilIA_v6.pdf` | Muestra la regla de `.gitignore` |
 | Nada real en el indice de Git | `git ls-files` | No aparecen `perfiles/reales/`, `datos/reales/`, `salidas/reales/` ni el PDF |
 | Documentacion navegable | `python docs/validar-docs.py` | `RESULTADO: OK` sin errores |
@@ -229,7 +233,7 @@ El ultimo control solo puede pasar cuando E3-06 produzca el corpus. Hasta entonc
 
 | Pendiente | Responsable | Cuando |
 |---|---|---|
-| Firmar el consentimiento de los tres integrantes | Persona 1, Persona 2 y Persona 3 | Antes de E3-05 |
+| Firmar el consentimiento de los tres integrantes ([procedimiento](procedimiento-consentimientos.md)) | Persona 1, Persona 2 y Persona 3 | Antes de E3-05 |
 | Validar el tratamiento de datos con la oficina juridica o de proteccion de datos de la UTB | Docente / area legal | Pendiente de la formulacion v6, seccion 25 |
 | Revisar y aprobar este lineamiento | Docente del proyecto | Revision del issue #38 |
 | Revisar los terminos de uso del LLM maestro | Persona 3 | Antes de E3-08 |
