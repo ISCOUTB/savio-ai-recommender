@@ -1,0 +1,20 @@
+{
+  "id": "ejemplo-brecha",
+  "origen": "sintetico",
+  "modelo": "qwen2.5:1.5b",
+  "fecha_utc": "2026-11-11T04:05:23Z",
+  "perfil_markdown": "## 1. Estilos de aprendizaje\n   - CHASIDE: Interesante (3), Aceptación (1)\n   - ILS: Activo (9), Reflexivo (2), Sensitivo (2), Intuitivo (9)\n   - PERSONALIDAD: Extraversion (2), Introversion (7), Sensing (3), Intuition (9), Thinking (4), Feeling (6), Judging (3), Perceptive (7)\n## 2. Rasgos de personalidad\n   - CHASIDE: Interesante (3), Aceptación (1)\n   - ILS: Activo (9), Reflexivo (2), Sensitivo (2), Intuitivo (9)\n   - PERSONALIDAD: Extraversion (2), Introversion (7), Sensing (3), Intuition (9), Thinking (4), Feeling (6), Judging (3), Perceptive (7)\n## 3. Perfil vocacional\n   - CHASIDE: Interesante (3), Aceptación (1)\n   - ILS: Activo (9), Reflexivo (2), Sensitivo (2), Intuitivo (9)\n   - PERSONALIDAD: Extraversion (2), Introversion (7), Sensing (3), Intuition (9), Thinking (4), Feeling (6), Judging (3), Perceptive (7)\n## 4. Sintesis integrada\n   - CHASIDE: Interesante (3), Aceptación (1)\n   - ILS: Activo (9), Reflexivo (2), Sensitivo (2), Intuitivo (9)\n   - PERSONALIDAD: Extraversion (2), Introversion (7), Sensing (3), Intuition (9), Thinking (4), Feeling (6), Judging (3), Perceptive (7)\n\nEl perfil es un apoyo al diagnostico inicial y no reemplaza al profesional.\n\n---\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "aviso_etico": "Este perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "validacion": {
+    "ok": true,
+    "estructura_ok": true,
+    "errores": [],
+    "numeros_fuera_rango": []
+  },
+  "metricas": {
+    "latencia_s": 28.38,
+    "tokens_generados": 413,
+    "tokens_por_s": 17.8,
+    "total_duration_ms": 26290.4
+  }
+}
