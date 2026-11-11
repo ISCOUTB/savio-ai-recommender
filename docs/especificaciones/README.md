@@ -38,6 +38,7 @@ codigo y las notas tecnicas de los tres instrumentos psicopedagogicos.
 | [test_validar_perfiles_brutos.py](test_validar_perfiles_brutos.py) | Pruebas del contrato bruto, incluidos los casos que deben fallar (E3-04) |
 | [validar-perfiles.py](validar-perfiles.py) | Valida los perfiles historicos de Entrega 2 contra el schema 1.0-5.0 |
 | [generar-perfil.py](generar-perfil.py) | Genera un perfil real desde las respuestas de Moodle (E2-07; E3-05 le agrega la salida en bruto) |
+| [evidencia-perfil.py](evidencia-perfil.py) | Genera la fila de bitacora que prueba la extraccion de un perfil real sin publicar puntajes: valida el archivo y emite su SHA-256 (E3-05) |
 | [validar-corpus-anonimizado.py](validar-corpus-anonimizado.py) | Verifica que el corpus ground truth sea sintetico, sin PII y con rangos validos antes de subirlo a Hugging Face (E3-03) |
 | [../../scripts/generar_corpus_e306.py](../../scripts/generar_corpus_e306.py) | Genera los 150 perfiles de la matriz y los prompts del LLM maestro (E3-06) |
 | [test_validar_corpus_anonimizado.py](test_validar_corpus_anonimizado.py) | Pruebas del validador de privacidad del corpus (E3-03) |
@@ -52,6 +53,7 @@ python docs/especificaciones/validar-perfiles-brutos.py
 python docs/especificaciones/test_validar_corpus_anonimizado.py
 python docs/especificaciones/validar-corpus-anonimizado.py --entrada datos/corpus/corpus.jsonl
 python docs/especificaciones/validar-perfiles.py
+python docs/especificaciones/evidencia-perfil.py --perfil perfiles/reales/persona-1-bruto.json
 ```
 
 Regla: si cambia un schema, se actualizan los ejemplos de `perfiles/` y se corre
