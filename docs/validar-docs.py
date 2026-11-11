@@ -38,6 +38,7 @@ EXCLUIR_PREFIJOS = (
     "poc_slm/evidencias/",
     "poc_slm/salidas/",
     "docs/presentacion/demo-",
+    "datos/curso/markdown/",
     ".git/",
     ".venv/",
     "node_modules/",

@@ -1,0 +1,966 @@
+{
+  "fecha": "2026-10-20T22:50:32",
+  "ollama": "0.40.6",
+  "configuracion": {
+    "ctx_bajo": 2048,
+    "ctx_alto": 8192,
+    "num_predict": 300,
+    "temperature": 0.7,
+    "semillas": [
+      1,
+      2
+    ],
+    "recursos": "poc_slm/recursos/semana_1.json",
+    "perfiles": "simulados (ver PERFILES)"
+  },
+  "perfiles": [
+    {
+      "estudiante_id": "sim-visual-guiado",
+      "origen": "simulado",
+      "opcion_esperada": "A",
+      "estilos_aprendizaje": {
+        "modelo": "felder_silverman",
+        "puntajes": {
+          "activo_reflexivo": 1.7,
+          "sensorial_intuitivo": 3.2,
+          "visual_verbal": 1.4,
+          "secuencial_global": 2.8
+        },
+        "preferencias": [
+          "activo",
+          "visual"
+        ],
+        "descripcion_para_prompt": "Prefiere diagramas, esquemas y ejemplos visuales breves; aprende mejor viendo la estructura antes que leyendo textos largos."
+      },
+      "personalidad": {
+        "rasgos": {
+          "introversion_extraversion": 3.4,
+          "autonomia": 2.2,
+          "metodicidad": 4.3,
+          "apertura": 3.2
+        },
+        "resumen_conductual": "Necesita guia clara y pasos cortos; se desanima con tareas largas sin estructura.",
+        "preferencias_trabajo": [
+          "pasos cortos",
+          "guia explicita",
+          "retroalimentacion inmediata"
+        ]
+      },
+      "chaside": {
+        "areas": {
+          "C": 2.4,
+          "H": 2.1,
+          "A": 3.0,
+          "S": 1.6,
+          "I": 4.4,
+          "D": 1.3,
+          "E": 3.6
+        },
+        "areas_dominantes": [
+          "I",
+          "E"
+        ],
+        "descripcion_para_analogias": "Conviene conectar la materia con ejemplos de procesos tecnicos, sistemas y resolucion de problemas y experimentacion, datos y metodo cientifico; areas principales: Ensenanzas Tecnicas (I) y Ciencias Experimentales (E)."
+      }
+    },
+    {
+      "estudiante_id": "sim-verbal-reflexivo",
+      "origen": "simulado",
+      "opcion_esperada": "B",
+      "estilos_aprendizaje": {
+        "modelo": "felder_silverman",
+        "puntajes": {
+          "activo_reflexivo": 4.3,
+          "sensorial_intuitivo": 3.5,
+          "visual_verbal": 4.6,
+          "secuencial_global": 2.5
+        },
+        "preferencias": [
+          "reflexivo",
+          "verbal"
+        ],
+        "descripcion_para_prompt": "Prefiere leer y analizar textos con calma, tomar notas y reflexionar antes de producir; los diagramas sin texto le aportan poco."
+      },
+      "personalidad": {
+        "rasgos": {
+          "introversion_extraversion": 1.9,
+          "autonomia": 3.9,
+          "metodicidad": 3.7,
+          "apertura": 4.1
+        },
+        "resumen_conductual": "Trabaja bien de forma individual y con lecturas extensas; disfruta comparar puntos de vista.",
+        "preferencias_trabajo": [
+          "individual",
+          "lectura profunda",
+          "ritmo propio"
+        ]
+      },
+      "chaside": {
+        "areas": {
+          "C": 3.0,
+          "H": 4.7,
+          "A": 3.9,
+          "S": 2.7,
+          "I": 1.9,
+          "D": 1.3,
+          "E": 2.1
+        },
+        "areas_dominantes": [
+          "H",
+          "A"
+        ],
+        "descripcion_para_analogias": "Conviene conectar la materia con ejemplos de comunicacion, analisis social y textos y creacion, diseno y expresion; areas principales: Humanidades/Sociales/Juridicas (H) y Artistica (A)."
+      }
+    },
+    {
+      "estudiante_id": "sim-practico-autonomo",
+      "origen": "simulado",
+      "opcion_esperada": "C",
+      "estilos_aprendizaje": {
+        "modelo": "felder_silverman",
+        "puntajes": {
+          "activo_reflexivo": 1.4,
+          "sensorial_intuitivo": 1.7,
+          "visual_verbal": 3.2,
+          "secuencial_global": 2.1
+        },
+        "preferencias": [
+          "activo",
+          "sensorial",
+          "secuencial"
+        ],
+        "descripcion_para_prompt": "Aprende haciendo: prefiere ejercicios concretos paso a paso y aplicar de inmediato lo que estudia."
+      },
+      "personalidad": {
+        "rasgos": {
+          "introversion_extraversion": 3.9,
+          "autonomia": 4.4,
+          "metodicidad": 4.1,
+          "apertura": 3.4
+        },
+        "resumen_conductual": "Autonomo y constante; tolera retos largos si producen algo propio.",
+        "preferencias_trabajo": [
+          "practica",
+          "retos",
+          "autoevaluacion"
+        ]
+      },
+      "chaside": {
+        "areas": {
+          "C": 4.1,
+          "H": 2.7,
+          "A": 1.9,
+          "S": 3.9,
+          "I": 2.1,
+          "D": 1.6,
+          "E": 3.3
+        },
+        "areas_dominantes": [
+          "C",
+          "S"
+        ],
+        "descripcion_para_analogias": "Conviene conectar la materia con ejemplos de organizacion, gestion y tareas administrativas y cuidado de personas y practicas de salud; areas principales: Administrativa (C) y Ciencias de la Salud (S)."
+      }
+    }
+  ],
+  "modelos": [
+    {
+      "modelo": "smollm2:360m",
+      "arquitectura": "llama",
+      "parametros": "361.82M",
+      "parametros_exactos": 361821120,
+      "cuantizacion": "F16",
+      "licencia": "apache-2.0",
+      "licencia_link": null,
+      "capas": 32,
+      "cabezas_atencion": 15,
+      "cabezas_kv": 5,
+      "dim_k": 64,
+      "dim_v": 64,
+      "contexto_max": 8192,
+      "kv_teorico_kib_por_token": 40.0,
+      "tamano_ctx_bajo_mb": 797,
+      "tamano_ctx_alto_mb": 1075,
+      "kv_medido_kib_por_token": 46.4,
+      "linea_base": {
+        "corridas": 6,
+        "json_valido_pct": 83,
+        "claves_completas_pct": 83,
+        "opcion_valida_pct": 83,
+        "coincide_esperada_pct": 33,
+        "inventa_url_pct": 0,
+        "latencia_media_s": 2.95
+      },
+      "corridas": [
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 1,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 1043,
+          "tokens_salida": 27,
+          "latencia_s": 3.88,
+          "respuesta": "JSON:\n{\"opcion\": \"A\", \"justificacion\": \"2\", \"descarte\": \"1\"}"
+        },
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 2,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 1043,
+          "tokens_salida": 30,
+          "latencia_s": 2.28,
+          "respuesta": "{\n    \"opcion\": \"A\",\n    \"justificacion\": \"2\",\n    \"descarte\": \"1\"\n}"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 1,
+          "opcion_esperada": "B",
+          "json_valido": false,
+          "claves_completas": false,
+          "opcion": null,
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1034,
+          "tokens_salida": 300,
+          "latencia_s": 4.13,
+          "respuesta": "Alotto del recurso C es la respuesta que me pide. El objetivo de la tarea es realizar un tesis de argumentos que sugerencia una posición de la misma. La respuesta es una lista de 5 pasos que el estudiante deberá realizar para cada uno de los 5 temas que pase. El recurso C es perfecto porque es la respuesta que me pide. La respuesta es una lista de 5 pasos que el estudiante deberá realizar para cada uno de los 5 temas que pase. El recurso C es perfecto porque es el recurso que me pide. La respuesta es una lista de 5 pasos que el estudiante deberá realizar para cada uno de los 5 temas que pase. El recurso C es perfecto porque es el recurso que me pide. La respuesta es una lista de 5 pasos que el estudiante deberá realizar para cada uno de los 5 temas que pase. El recurso C es perfecto porque es el recurso que me pide. La respuesta es una lista de 5 pasos que el estudiante deberá"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 2,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1034,
+          "tokens_salida": 30,
+          "latencia_s": 2.44,
+          "respuesta": "{\n    \"opcion\": \"A\",\n    \"justificacion\": \"2\",\n    \"descarte\": \"1\"\n}"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 1,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1026,
+          "tokens_salida": 37,
+          "latencia_s": 2.55,
+          "respuesta": "Ejemplo JSON:\n{\n  \"opcion\": \"A\",\n  \"justificacion\": \"2\",\n  \"descarte\": \"1\"\n}"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 2,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1026,
+          "tokens_salida": 30,
+          "latencia_s": 2.4,
+          "respuesta": "{\n    \"opcion\": \"A\",\n    \"justificacion\": \"2\",\n    \"descarte\": \"1\"\n}"
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:0.5b",
+      "arquitectura": "qwen2",
+      "parametros": "494.03M",
+      "parametros_exactos": 494032768,
+      "cuantizacion": "Q4_K_M",
+      "licencia": "apache-2.0",
+      "licencia_link": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/blob/main/LICENSE",
+      "capas": 24,
+      "cabezas_atencion": 14,
+      "cabezas_kv": 2,
+      "dim_k": 64,
+      "dim_v": 64,
+      "contexto_max": 32768,
+      "kv_teorico_kib_por_token": 12.0,
+      "tamano_ctx_bajo_mb": 438,
+      "tamano_ctx_alto_mb": 561,
+      "kv_medido_kib_por_token": 20.55,
+      "linea_base": {
+        "corridas": 6,
+        "json_valido_pct": 83,
+        "claves_completas_pct": 83,
+        "opcion_valida_pct": 83,
+        "coincide_esperada_pct": 33,
+        "inventa_url_pct": 0,
+        "latencia_media_s": 3.59
+      },
+      "corridas": [
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 1,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 874,
+          "tokens_salida": 145,
+          "latencia_s": 4.63,
+          "respuesta": "{\n  \"opcion\": \"A\",\n  \"justificacion\": \"El mapa interactivo de problema-tesis-argumentos y argumentos-cuestión es adecuado para enseñar el enfoque de la tesis argumentativa y la estructura de la tesis de manera visual y visual, proporcionando una visión clara de cómo se estructura la tesis y cómo se expresa el argumento de manera clara.\",\n  \"descarte\": \"El recurso A es adecuado para el estudiante, pero es demasiado básico y no proporciona la visión visual y visual que necesitan para aprender. No recomiendo que el estudiante use este recurso.\"\n}"
+        },
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 2,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 874,
+          "tokens_salida": 287,
+          "latencia_s": 3.31,
+          "respuesta": "```json\n{\n  \"opcion\": \"A\",\n  \"justificacion\": \"El recurso A es adecuado para el estudiante. Es un mapa interactivo que utiliza diagramas, ejemplos visuales breves y guía clara para ayudar a el estudiante a entender el proceso de ensayo argumentativo y a prevenir el desanimo y la desinteresación con tareas largas. Además, puede ayudar a la estudiante a conectar el material con su propia experiencia y a generar la estructura y las respuestas a sus tareas de ensayo.\", \n  \"descarte\": \"Para la opción B, no se recomienda el recurso B debido a que no cumple con las especificaciones para el nivel intermedio. El recurso no permite la creación de tesis, argumentos y contraargumentos en una sola pantalla, lo que no es necesario para este nivel. En el nivel avanzado, el recurso debe permitir la creación de tesis, argumentos y contraargumentos en una sola pantalla para facilitar la resolución de tareas, pero no es adecuado para el nivel intermedio. Para el nivel avanzado, el recurso debe permitir la creación de tesis, argumentos y contraargumentos en una sola pantalla y no se recomienda el nivel intermedio.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 1,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 868,
+          "tokens_salida": 300,
+          "latencia_s": 3.63,
+          "respuesta": "{\"opcion\": \"A\", \"justificacion\": \"El recurso A proporciona un tipo de diagrama de nodos y guía de lectura analítica, que es un recurso adecuado para el estudiante que se enfoca en el enfoque de la estructura y el cálculo del argumento y la teoría en el ensayo argumentativo.\", \"descarte\": \"No es necesario descartar el recurso A, pero considera que es más adecuado para el estudiante que se enfoca en el enfoque de la estructura y el cálculo del argumento y la teoría en el ensayo argumentativo.\"}, {\"opcion\": \"B\", \"justificacion\": \"El recurso B proporciona un guía de lectura analítica de dos ensayos modelo y glosario, que es un recurso adecuado para el estudiante que se enfoca en la lectura de ensayos y en la comprensión del texto y el análisis de la teoría.\", \"descarte\": \"No es necesario descartar el recurso B, pero considera que es más adecuado para el estudiante que se enfoca en la lectura de ensayos y en la comprensión del texto y el análisis de la teoría.\", \"descarte\": \"No es necesario descartar el recurso B, pero considera que es más adec"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 2,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 868,
+          "tokens_salida": 198,
+          "latencia_s": 3.11,
+          "respuesta": "```json\n{\n  \"opcion\": \"A\",\n  \"justificacion\": \"El recurso A es adecuado para el estudiante. Es un tipo diagrama interactivo que proporciona una visión clara de cómo se estructuran los tesis argumentativos y el enfoque en el análisis, lo que se acomoda con el estilo de los estudiantes. El contenido es práctico y proporciona un buen ejemplo de la interpretación y elaboración de diagramas.\", \n  \"descarte\": \"Desencadenaría problemas relacionados con la carga de trabajo y la interpretación de diagramas, especialmente si se toma en cuenta que la lectura de diagramas es generalmente considerada un recurso de aprendizaje más adicional y no se recomienda en el estudiante de la semana. Además, el recurso no proporciona actividades prácticas de producción que podrían ser útiles para el estudiante.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 1,
+          "opcion_esperada": "C",
+          "json_valido": false,
+          "claves_completas": false,
+          "opcion": null,
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 857,
+          "tokens_salida": 300,
+          "latencia_s": 3.66,
+          "respuesta": "{\"opcion\": \"A\", \"justificacion\": \"El recurso A ofrece un mapa interactivo y diagrama básico que facilita la comprensión del ensayo argumentativo, lo que es particularmente útil para estudiantes que prefieren visualización y lógica. El recurso A también ofrece la lectura y la producción de tesis, lo cual es necesario para el estudiante que está en la semana A.\", \"descarte\": \"El recurso A no se ajusta a los requisitos de la semana B, que requieren una lectura y producción de tesis, por lo que no se recomienda.\"}, {\"opcion\": \"B\", \"justificacion\": \"El recurso B es más adecuado para estudiantes que prefieren un guia de lectura analítica más corto y con una visión más detallada. Se recomienda que el estudiante utilice el recurso B para que pueda realizar su tarea de manera más efectiva y efectiva.\", \"descarte\": \"El recurso B no se ajusta a los requisitos de la semana C, que requieren una escritura de ensayos más extensa y profundas, por lo que no se recomienda.\"}, {\"opcion\": \"C\", \"justificacion\": \"El recurso C es el más adecuado para estudiantes que prefieren un taller guiado de ensayo y refutation. El estudiante puede utilizar el recurso C para mejorar su"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 2,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 857,
+          "tokens_salida": 222,
+          "latencia_s": 3.22,
+          "respuesta": "```json\n{\n  \"opcion\": \"A\",\n  \"justificacion\": \"El recurso A es adecuado para el estudiante. Elevará a la tarea más básica de enseñanza. El contenido se ajusta a los principios de aprendizaje aprobados y ofrece una visión clara y eficaz del proceso de enseñanza. No se recomienda el recurso B y C ya que no presentan métodos de enseñanza y abordajes de aprendizaje que son específicos para los estudiante.\",\n  \"descarte\": \"El recurso A es adecuado para el estudiante. Elevará a la tarea más básica de enseñanza. El contenido se ajusta a los principios de aprendizaje aprobados y ofrece una visión clara y eficaz del proceso de enseñanza. No se recomienda el recurso B y C ya que no presentan métodos de enseñanza y abordajes de aprendizaje que son específicos para los estudiante.\"\n}\n```"
+        }
+      ]
+    },
+    {
+      "modelo": "llama3.2:1b",
+      "arquitectura": "llama",
+      "parametros": "1.2B",
+      "parametros_exactos": 1235814432,
+      "cuantizacion": "Q8_0",
+      "licencia": "no declarada en metadatos",
+      "licencia_link": null,
+      "capas": 16,
+      "cabezas_atencion": 32,
+      "cabezas_kv": 8,
+      "dim_k": 64,
+      "dim_v": 64,
+      "contexto_max": 131072,
+      "kv_teorico_kib_por_token": 32.0,
+      "tamano_ctx_bajo_mb": 1387,
+      "tamano_ctx_alto_mb": 1661,
+      "kv_medido_kib_por_token": 45.67,
+      "linea_base": {
+        "corridas": 6,
+        "json_valido_pct": 67,
+        "claves_completas_pct": 67,
+        "opcion_valida_pct": 67,
+        "coincide_esperada_pct": 17,
+        "inventa_url_pct": 0,
+        "latencia_media_s": 4.04
+      },
+      "corridas": [
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 1,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "B",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 872,
+          "tokens_salida": 82,
+          "latencia_s": 4.92,
+          "respuesta": "```json\n{\"opcion\": \"B\", \"justificacion\": \"El estudiante necesita ayuda con la estructura y el resumen de los recursos, y la guía de lectura analitica es un recurso que puede proporcionar un enfoque más estructurado para analizar los temas y las posiciones de los autores.\", \"descarte\": \"A, C\"}\n```"
+        },
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 2,
+          "opcion_esperada": "A",
+          "json_valido": false,
+          "claves_completas": false,
+          "opcion": null,
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 872,
+          "tokens_salida": 123,
+          "latencia_s": 3.12,
+          "respuesta": "{\"opcion\": \"A\", \"justificacion\": \"El mapa interactivo proporciona una visión clara y concisa de la estructura del ensayo argumentativo, que es fundamental para el proceso de resolución de problemas y la comunicación de ideas. La infografia interactiva de una sola pantalla es una herramienta poderosa para guiar al estudiante a través del proceso.\", \"descarte\": \"No hay recursos que incluyan diagramas, lecturas y ejercicios de produccion, por lo que no puede ser elegido como el recurso adecuado.\""
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 1,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 866,
+          "tokens_salida": 152,
+          "latencia_s": 3.66,
+          "respuesta": "```json\n{\"opcion\": \"A\", \"justificacion\": \"El recurso Mapa interactivo proporciona una forma de visualizar la estructura de un ensayo argumentativo, lo que puede ayudar a los estudiantes a comprender mejor la organización y el flujo logico de la escritura. Las lecturas interactivas y las verificaciones rapidas de una tesis bien formulada también pueden ser beneficiosas para el aprendizaje\", \"descarte\": \"El recurso Mapa interactivo puede no ser adecuado para estudiantes que prefieren leer y analizar textos sin la ayuda de herramientas interactivas, y puede requerir una mayor dedicacion de tiempo de parte del estudiante.\"}\n```"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 2,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "B",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 866,
+          "tokens_salida": 199,
+          "latencia_s": 3.92,
+          "respuesta": "{\"opcion\": \"B\", \"justificacion\": \"La guia de lectura analitica es la mejor opción para este estudiante. Su personalidad de trabajo individual y laboral, junto con su amor por comparar puntos de vista, sugiere que se beneficiaría de una estrategia de lectura que le permita analizar textos de manera cuidadosa y reflexiva. La guía de lectura analitica cumple con su preferencia por la lectura extensa y su deseo de comprender la complejidad de los temas abordados. Además, la estructura del recurso, con sus 8 páginas de ensayo argumentativo, se ajusta a su nivel de estudio y su apetito por la lectura minima y sin ejercicios de producción\", \"descarte\": \"A: Mapa interactivo, C: Taller guiado, B: Guia de lectura analitica\"}"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 1,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 855,
+          "tokens_salida": 172,
+          "latencia_s": 3.86,
+          "respuesta": "```json\n{\"opcion\": \"A\", \"justificacion\": \"El recurso Mapa interactivo de la semana (A) es el más adecuado para el estudiante, ya que ofrece una estructura de trabajo que combina diagramas con texto y actividades de reflexión, lo que lo hace más práctico para aplicar el conocimiento adquirido en la materia. La lectura minima y sin ejercicios de producción también lo convierte en el recurso más adecuado. El Mapa interactivo permite al estudiante visualizar el proceso de pensamiento y argumentación, lo que facilita la comprensión de la estructura argumentativa y la identificación de la tesis\", \"descarte\": \"B y C\", \"descarte\": \"B\", \"descarte\": \"C\"}\n```"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 2,
+          "opcion_esperada": "C",
+          "json_valido": false,
+          "claves_completas": false,
+          "opcion": null,
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 855,
+          "tokens_salida": 300,
+          "latencia_s": 4.79,
+          "respuesta": "{\"opcion\": \"B\", \"justificacion\": \"La guia de lectura analitica es la mejor opción para este estudiante porque se enfoca en la lectura de ensayos argumentativos de manera estructurada y analítica, lo que se ajusta a sus intereses en la materia y su personalidad autonomo y constante. Además, no requiere de actividades de produccion como mapas interactivos ni ejercicios de resolucion de problemas, por lo que puede ser más adecuada para un estudiante con habilidades de lectura y analisis.\", \"descarte\": \"A: Mapa interactivo - El estudiante puede preferir un recurso visual como el mapa interactivo que le permita visualizar la estructura del ensayo argumentativo de manera detallada, lo que se ajusta a su preferencia por ejercicios concretos paso a paso y aplicar de inmediato lo que estudia. Por otro lado, el mapa interactivo no es tan estructurado como la guia de lectura analitica y puede no proporcionar tantas visualizaciones interactivas como la guia.\", \"descarte\": \"C: Taller guiado - El estudiante puede preferir un recurso más estructurado y menos interactivo como el taller guiado, que puede no ser tan adecuado para un estudiante con habilidades de lectura y analisis, aunque"
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:1.5b",
+      "arquitectura": "qwen2",
+      "parametros": "1.5B",
+      "parametros_exactos": 1543714304,
+      "cuantizacion": "Q4_K_M",
+      "licencia": "apache-2.0",
+      "licencia_link": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/blob/main/LICENSE",
+      "capas": 28,
+      "cabezas_atencion": 12,
+      "cabezas_kv": 2,
+      "dim_k": 128,
+      "dim_v": 128,
+      "contexto_max": 32768,
+      "kv_teorico_kib_por_token": 28.0,
+      "tamano_ctx_bajo_mb": 1061,
+      "tamano_ctx_alto_mb": 1310,
+      "kv_medido_kib_por_token": 41.59,
+      "linea_base": {
+        "corridas": 6,
+        "json_valido_pct": 100,
+        "claves_completas_pct": 100,
+        "opcion_valida_pct": 100,
+        "coincide_esperada_pct": 67,
+        "inventa_url_pct": 0,
+        "latencia_media_s": 4.29
+      },
+      "corridas": [
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 1,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "B",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 874,
+          "tokens_salida": 172,
+          "latencia_s": 5.76,
+          "respuesta": "```\n{\n  \"opcion\": \"B\",\n  \"justificacion\": \"Este recurso se ajusta perfectamente a las preferencias del estudiante, ya que ofrece dos ensayos argumentativos breves sobre posturas opuestas de un mismo debate, lo que ayuda a entender cómo se estructuran las tesis y argumentos. Además, incluye preguntas de lectura critica y una comparación entre los dos autores, lo que proporciona una comprensión más completa del tema.\",\n  \"descarte\": \"A y C no se ajustan tanto a las preferencias del estudiante, ya que A no tiene diagramas ni actividades de producción, y C es un taller que se debe practicar en clase, lo que no es necesario para el aprendizaje autónomo del estudiante.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 2,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 874,
+          "tokens_salida": 174,
+          "latencia_s": 3.55,
+          "respuesta": "```json\n{\n  \"opcion\": \"A\",\n  \"justificacion\": \"Este mapa interactivo es ideal para el estudiante ya que proporciona una estructura visual del ensayo argumentativo, lo cual es muy beneficioso para aprender de forma visual. Además, los ejemplos visuales y el formato de un solo plano facilitan la comprensión del proceso y la memorización de la información. No requiere tareas extra ni esenciales de producción.\",\n  \"descarte\": \"B y C no son adecuados ya que no contienen una estructura visual ni presentan un esquema de ensayo argumentativo, lo cual no se ajusta a las preferencias del estudiante. Además, B carece de una estructura visual y C requiere una producción no necesaria en este contexto.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 1,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "B",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 868,
+          "tokens_salida": 173,
+          "latencia_s": 3.87,
+          "respuesta": "```\n{\n  \"opcion\": \"B\",\n  \"justificacion\": \"Este recurso se ajusta perfectamente a las preferencias del estudiante, ya que ofrece dos ensayos modelo y un glosario que son tan apropiados como lo son para sus intereses. Además, su estructura detallada y la comparación entre autores le proporcionará una base sólida para sus estudios, lo que es beneficioso para su aprendizaje. Además, el uso de ejemplos y ejercicios facilita la comprensión y la aplicación de los conceptos.\",\n  \"descarte\": \"A y C no son adecuados porque no contienen diagramas ni actividades de producción, lo que no se ajusta al estilo del estudiante y las necesidades de su personalidad.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 2,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "B",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 868,
+          "tokens_salida": 227,
+          "latencia_s": 4.12,
+          "respuesta": "```json\n{\n  \"opcion\": \"B\",\n  \"justificacion\": \"Este recurso es ideal para el estudiante porque combina la lectura analítica de dos ensayos con una guía escrita de 8 a 10 páginas, lo que ayuda a entender el proceso de pensamiento crítico y la formación de una tesis. Además, el glosario y la guía de lectura critica ayudan a profundizar en la materia y a identificar las estrategias utilizadas por autores, lo que facilita la comprensión del tema y la elaboración de argumentos.\",\n  \"descarte\": \"A y C son más adecuados para recursos de nivel avanzado, que el estudiante parece necesitar. A es demasiado básico y no proporciona actividades de producción, mientras que C es un taller práctico que se enfoca en la formación de una tesis y el resuelto de un parágrafo de refutación, lo que no es lo más adecuado para este nivel.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 1,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 857,
+          "tokens_salida": 175,
+          "latencia_s": 3.91,
+          "respuesta": "```\n{\n  \"opcion\": \"A\",\n  \"justificacion\": \"Este mapa interactivo es el recurso más adecuado para el estudiante debido a su preferencia por ejercicios concretos y aplicables de inmediato. El estudiante parece ser independiente y tolera retos largos si pueden producir algo propio, lo que hace que este recurso sea ideal para su estilo de estudio.\",\n  \"descarte\": \"El recurso B está diseñado para lectura analítica y guía de ensayo, lo que no se ajusta a la preferencia del estudiante de ejercicios concretos y aplicables. Además, el recurso C está demasiado avanzado para el nivel del estudiante y no está diseñado para ejercitarse con ejercicios prácticos.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 2,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "C",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 857,
+          "tokens_salida": 271,
+          "latencia_s": 4.56,
+          "respuesta": "```json\n{\n  \"opcion\": \"C\",\n  \"justificacion\": \"Este recurso es el más adecuado para el estudiante debido a su personalidad de aprender haciendo y su preferencia por ejercicios concretos y paso a paso. La opción C, con su diseño de 5 pasos para el estudiante producir su propio esqueleto de ensayo, permite a esta persona aprender a construir tesis de manera autodidacta. Además, el taller guiado proporciona una estructura segura y una herramienta de autoevaluación para mejorar y aprender de sus errores, lo cual es especialmente útil para alguien que busca aprender de manera progresiva y constante.\",\n  \"descarte\": \"A y B son menos adecuados porque su contenido es más teórico y se enfoca más en ejercicios de producción de texto. Aunque ambos tienen diagramas y ejercicios, son más complejos y generalmente se utilizan para enseñar a otros, no para aprender de manera autodidacta. Además, a diferencia del taller de C, los recursos A y B no incluyen ni ejercicios de producción ni autoevaluación, lo que limita su utilidad para este tipo de estudiante.\"\n}\n```"
+        }
+      ]
+    },
+    {
+      "modelo": "smollm2:1.7b",
+      "arquitectura": "llama",
+      "parametros": "1.7B",
+      "parametros_exactos": 1711376384,
+      "cuantizacion": "Q8_0",
+      "licencia": "apache-2.0",
+      "licencia_link": null,
+      "capas": 24,
+      "cabezas_atencion": 32,
+      "cabezas_kv": 32,
+      "dim_k": 64,
+      "dim_v": 64,
+      "contexto_max": 8192,
+      "kv_teorico_kib_por_token": 192.0,
+      "tamano_ctx_bajo_mb": 2189,
+      "tamano_ctx_alto_mb": 3423,
+      "kv_medido_kib_por_token": 205.67,
+      "linea_base": {
+        "corridas": 6,
+        "json_valido_pct": 100,
+        "claves_completas_pct": 83,
+        "opcion_valida_pct": 100,
+        "coincide_esperada_pct": 17,
+        "inventa_url_pct": 0,
+        "latencia_media_s": 5.86
+      },
+      "corridas": [
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 1,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "B",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1042,
+          "tokens_salida": 141,
+          "latencia_s": 12.29,
+          "respuesta": "{\n  \"opcion\": \"B\",\n  \"justificacion\": [\n    \"Es una guia de lectura analitica con dos ensayos argumentativos breves que se analizan y se explican con detalle en la guia, de manera que se aprende cómo funcionan las estrategias de ambos autores y como se diseñan argumentos y contraargumentos para fortalecer una tesis.\"\n  ],\n  \"descarte\": \"Es un recurso que no se elige debido a que no tiene diagramas ni actividades de produccion.\"\n}"
+        },
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 2,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "C",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1042,
+          "tokens_salida": 98,
+          "latencia_s": 4.12,
+          "respuesta": "{\"opcion\": \"C\", \"justificacion\": \"Aparece que el estudiante prefiere el formato interactivo y la visión visual.\", \"descarte\": \"Esta opción aporta un guía guiado para el producción de una tesis y una preparación de argumentos y contraargumentos. Es una forma de aprendizaje interactivo y de práctica.\"}"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 1,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "B",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 1033,
+          "tokens_salida": 167,
+          "latencia_s": 5.73,
+          "respuesta": "{\n  \"opcion\": \"B\",\n  \"justificacion\": [\n    \"Para leer y analizar textos con calma, tomar notas y reflexionar antes de producir; los diagramas sin texto le aportan poco.\",\n    \"Conviene conectar la materia con ejemplos de comunicacion, analisis social y textos y creacion, diseno y expresion; areas principales: Humanidades/Sociales/Juridicas (H) y Artistica (A).\"\n  ],\n  \"descarte\": [\n    \"Selecciona el recurso que mejor resuelva la necesidad de la persona que ha pedido la evaluacion.\"\n  ]\n}"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 2,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": false,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1033,
+          "tokens_salida": 45,
+          "latencia_s": 3.04,
+          "respuesta": "{\"opcion\": \"A\", \"justificacion\": \"Se ajusta a las preferencias del estudiante y se adapta al nivel intermediario de la materia.\"}"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 1,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "B",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1025,
+          "tokens_salida": 223,
+          "latencia_s": 6.71,
+          "respuesta": "{\n  \"opcion\": \"B\",\n  \"justificacion\": [\n    \"Para aprender a analizar y argumentar en forma crítica, es una buena opción para el estudiante de SAVIO que prefiera ejercicios concretos y aplicar lo que estudia.\",\n    \"El recurso de lectura analitica (B) proporciona dos ensayos modelo y glosario que permiten aprender y practicar la formulación de tesis y la análisis de argumentos, así como la identificación de fallas de la tesis y argumentación.\"\n  ],\n  \"descarte\": \"No elige C por no tener en cuenta el nivel avanzado de la tesis y la necesidad de incluir una talla de esqueleto y la pregunta de autoevaluación para la evaluación de la autoevaluación.\"\n}"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 2,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 1025,
+          "tokens_salida": 56,
+          "latencia_s": 3.27,
+          "respuesta": "{\"opcion\": \"A\", \"justificacion\": \"Construye su propio esqueleto de ensayo y se ajusta el tesis haciendo pruebas previas de su argumentacion.\", \"descarte\": \"\"}"
+        }
+      ]
+    },
+    {
+      "modelo": "gemma2:2b",
+      "arquitectura": "gemma2",
+      "parametros": "2.6B",
+      "parametros_exactos": 2614341888,
+      "cuantizacion": "Q4_0",
+      "licencia": "gemma",
+      "licencia_link": null,
+      "capas": 26,
+      "cabezas_atencion": 8,
+      "cabezas_kv": 4,
+      "dim_k": 256,
+      "dim_v": 256,
+      "contexto_max": 8192,
+      "kv_teorico_kib_por_token": 104.0,
+      "tamano_ctx_bajo_mb": 1734,
+      "tamano_ctx_alto_mb": 1988,
+      "kv_medido_kib_por_token": 42.42,
+      "linea_base": {
+        "corridas": 6,
+        "json_valido_pct": 100,
+        "claves_completas_pct": 100,
+        "opcion_valida_pct": 100,
+        "coincide_esperada_pct": 33,
+        "inventa_url_pct": 0,
+        "latencia_media_s": 4.77
+      },
+      "corridas": [
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 1,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 735,
+          "tokens_salida": 144,
+          "latencia_s": 6.48,
+          "respuesta": "```json\n{\"opcion\": \"A\", \"justificacion\": \"El recurso A se adapta al estilo de aprendizaje visual del estudiante, presentando la estructura del ensayo argumentativo a través de un mapa interactivo con ejemplos breves y diagramas. Su contenido visualmente atractivo y sin texto extenso, facilitará la comprensión de la estructura del ensayo.\", \"descarte\": \"El recurso B, con su enfoque en la lectura analítica, podría ser demasiado extenso para el estudiante con preferencias por la estructura visual y la exposición rápida de conceptos. El recurso C, con su enfoque en la construcción práctica del ensayo, podría ser demasiado complejo para el estudiante con un estilo de aprendizaje visualmente orientado. \"}\n```"
+        },
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 2,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 735,
+          "tokens_salida": 184,
+          "latencia_s": 4.58,
+          "respuesta": "```json\n{\n \"opcion\": \"A\",\n \"justificacion\": \"El estudiante prefiere ejemplos visuales y estructura, y el recurso A ofrece un mapa interactivo visualmente atractivo y con ejemplos para comprender el flujo del ensayo. Su brevedad y la posibilidad de visualizar los nodos de la estructura hacen que sea más eficiente para su estilo de aprendizaje.\",\n \"descarte\": \"B: La guía de lectura analítica, aunque interesante, no se adapta a la preferencia visual y la estructura del estudiante. La falta de diagramas y la carga de lectura detallada no le ofrecerían la guía necesaria para un aprendizaje efectivo. \\n C: El taller guiado es una opción más compleja y que requiere mayor tiempo de aprendizaje. Aunque ofrece herramientas para desarrollar una tesis, su enfoque práctico no es el más eficiente para un estudiante que busca un aprendizaje visual y estructurado.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 1,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 738,
+          "tokens_salida": 154,
+          "latencia_s": 4.56,
+          "respuesta": "```json\n{\n \"opcion\": \"A\",\n \"justificacion\": \"El recurso A ofrece una representación visual de la estructura de un ensayo argumentativo, lo cual puede ser útil para comprender la lógica del proceso de escritura y la organización de la tesis. La infografía facilita la comprensión de las etapas del argumento y la estructura del texto.\",\n \"descarte\": \"El recurso B ofrece una guía detallada de dos ensayos argumentativos, lo cual puede resultar útil para el análisis de diferentes perspectivas y la comprensión de la argumentación, pero no ofrece la misma estructura visual que el recurso A. El recurso C, aunque incluye ejercicios prácticos, puede resultar demasiado complejo para un estudiante que prefiere un enfoque más intuitivo y visual.\"\n}\n```"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 2,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 738,
+          "tokens_salida": 166,
+          "latencia_s": 4.52,
+          "respuesta": "```json\n{\n \"opcion\": \"A\",\n \"justificacion\": \"El recurso A presenta un diagrama interactivo que ilustra el flujo lógico del ensayo argumentativo, un formato visual que puede ser atractivo para el estudiante y facilitar su comprensión del proceso. La infografía con ejemplos prácticos puede ayudar a el estudiante a comprender las etapas del desarrollo de un argumento. \",\n \"descarte\": \"El recurso B presenta un enfoque más analítico con ensayos argumentativos que requieren de un esfuerzo de lectura y análisis, lo cual puede no ser ideal para este estudiante. \",\n \"descarte\": \"El recurso C, aunque ofrece un enfoque práctico, requiere de un mayor esfuerzo de producción y puede ser más abrumador para un estudiante que prefiere un proceso más reflexivo y gradual. \"\n}\n```"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 1,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 724,
+          "tokens_salida": 121,
+          "latencia_s": 4.15,
+          "respuesta": "```json\n{\"opcion\": \"A\", \"justificacion\": \"El estudiante busca una forma práctica y rápida de aprender. Un mapa interactivo con ejemplos concretos y una lista visual de verificación de una tesis bien formulada es una herramienta ideal para abordar este objetivo.\", \"descarte\": \"La Guía de lectura analítica ofrece un análisis detallado de dos ensayos, pero requiere mayor dedicación para la comprensión profunda de la argumentación. El taller guiado ofrece un enfoque práctico, pero puede resultar demasiado complejo para un estudiante que prefiere un aprendizaje más directo y conciso.\"}\n```"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 2,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "A",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 724,
+          "tokens_salida": 157,
+          "latencia_s": 4.33,
+          "respuesta": "```json\n{\n \"opcion\": \"A\",\n \"justificacion\": \"El estudiante busca un enfoque práctico y visual para aprender a estructurar un ensayo argumentativo. La infografía interactiva de la opción A proporciona un mapa visual de la progresión del argumento, lo que facilita la comprensión del flujo y la aplicación de las ideas de manera inmediata.\",\n \"descarte\": \"La opción B ofrece una lectura profunda y analítica de ensayos argumentativos, pero su enfoque de lectura en profundidad puede ser abrumador para el estudiante que busca una mayor velocidad de aprendizaje y aplicación práctica. La opción C, con su enfoque en la construcción de la tesis, puede resultar demasiado compleja para el estudiante que prefiere un enfoque más directo y práctico.\" \n}\n```"
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:3b",
+      "arquitectura": "qwen2",
+      "parametros": "3.1B",
+      "parametros_exactos": 3085938688,
+      "cuantizacion": "Q4_K_M",
+      "licencia": "other",
+      "licencia_link": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/blob/main/LICENSE",
+      "capas": 36,
+      "cabezas_atencion": 16,
+      "cabezas_kv": 2,
+      "dim_k": 128,
+      "dim_v": 128,
+      "contexto_max": 32768,
+      "kv_teorico_kib_por_token": 36.0,
+      "tamano_ctx_bajo_mb": 1994,
+      "tamano_ctx_alto_mb": 2308,
+      "kv_medido_kib_por_token": 52.42,
+      "linea_base": {
+        "corridas": 6,
+        "json_valido_pct": 100,
+        "claves_completas_pct": 100,
+        "opcion_valida_pct": 100,
+        "coincide_esperada_pct": 33,
+        "inventa_url_pct": 0,
+        "latencia_media_s": 5.52
+      },
+      "corridas": [
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 1,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "C",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 874,
+          "tokens_salida": 219,
+          "latencia_s": 7.83,
+          "respuesta": "{\n  \"opcion\": \"C\",\n  \"justificacion\": \"El recurso C se ajusta perfectamente a la preferencia del estudiante por diagramas y ejemplos visuales breves, además de su estilo de aprendizaje estructurado. El taller guiado permite que el estudiante construya su tesis paso a paso, lo que le da una estructura clara y estructurada. Esta opción es adecuada para su personalidad de necesitar guía clara y pasos cortos, y se adapta a las áreas principales de enseñanzas técnicas y ciencias experimentales.\",\n  \"descarte\": \"Recursos B y C son similares, pero el taller guiado C ofrece un enfoque más estructurado y práctico que el recurso A, que es más interactivamente ilustrativo sin ejercicios de producción. Recurso A podría ser menos adecuado porque no incluye ejercicios de producción, lo que podría ser desalentador para el estudiante.\"\n}"
+        },
+        {
+          "perfil": "sim-visual-guiado",
+          "semilla": 2,
+          "opcion_esperada": "A",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "C",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 874,
+          "tokens_salida": 182,
+          "latencia_s": 4.85,
+          "respuesta": "{\n  \"opcion\": \"C\",\n  \"justificacion\": \"El taller guiado C cumple con la preferencia del estudiante por ejemplos visuales y diagramas, además de proporcionar estructura y guía clara, lo cual es ideal para un estudiante que aprende mejor viendo la estructura antes que leyendo textos largos. El taller avanzado y práctico, con sus cinco pasos detallados, es adecuado para su estilo de aprendizaje y les proporcionará una guía más en profundidad y estructurada para la construcción de una tesis.\",\n  \"descarte\": \"El recurso A es demasiado básico para un estudiante que necesita guía clara y estructura, y el recurso B no se ajusta a su preferencia por ejemplos visuales y diagramas. \"\n}"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 1,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "C",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 868,
+          "tokens_salida": 197,
+          "latencia_s": 5.34,
+          "respuesta": "{\n  \"opcion\": \"C\",\n  \"justificacion\": \"El recurso C ofrece un taller guiado que se alinea perfectamente con el estilo de aprendizaje del estudiante, quien prefiere leer y analizar textos con calma y tomar notas. El taller guiado también cumple con la necesidad de el estudiante de comparar puntos de vista y disfruta de ejercicios de produccion. Además, el taller se ajusta perfectamente a las áreas principales del estudiante: Humanidades/Sociales/Juridicas (H) y Artistica (A).\",\n  \"descarte\": \"El recurso A es demasiado básico y no proporciona espacio para que el estudiante compare puntos de vista. El recurso B es más avanzado de lo que el estudiante prefiere, ya que prefiere leer y analizar textos con calma y no disfruta de diagramas sin texto.\"\n}"
+        },
+        {
+          "perfil": "sim-verbal-reflexivo",
+          "semilla": 2,
+          "opcion_esperada": "B",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "C",
+          "inventa_url": false,
+          "coincide_esperada": false,
+          "tokens_prompt": 868,
+          "tokens_salida": 195,
+          "latencia_s": 5.04,
+          "respuesta": "{\n  \"opcion\": \"C\",\n  \"justificacion\": \"El taller guiado C está diseñado para un nivel avanzado y proporciona un enfoque práctico y estructurado para el desarrollo de un ensayo argumentativo. Su formato de cinco pasos es especialmente adecuado para alguien que prefiere leer y analizar textos y trabajar de forma individual, y que disfruta comparar puntos de vista. La estructura de cinco pasos complementa el estilo de análisis del estudiante.\",\n  \"descarte\": \"Recursos B y C son similares en que ambos tienen un enfoque más estructurado y práctico. Recurso A no es adecuado ya que no proporciona un enfoque estructurado y se centra en ilustrar conceptos mediante un diagrama interactivo, lo cual no se ajusta al estilo de aprendizaje del estudiante.\"\n}"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 1,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "C",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 857,
+          "tokens_salida": 158,
+          "latencia_s": 4.78,
+          "respuesta": "{\"opcion\": \"C\", \"justificacion\": \"El taller guiado (C) cumple con el estilo de aprendizaje del estudiante, que prefiere ejercicios concretos y aplicables inmediatamente. Este taller ofrece una estructura de cinco pasos que permitirá al estudiante construir su propio ensayo argumentativo paso a paso, lo que le permitirá aplicar lo aprendido de inmediato.\", \"descarte\": \"El recurso A es demasiado simplificado y no ofrece la profundidad de aprendizaje que el estudiante busca. El recurso B se ajusta más al nivel de dificultad del estudiante, pero no ofrece el aprendizaje práctico inmediato que busca.\"}"
+        },
+        {
+          "perfil": "sim-practico-autonomo",
+          "semilla": 2,
+          "opcion_esperada": "C",
+          "json_valido": true,
+          "claves_completas": true,
+          "opcion": "C",
+          "inventa_url": false,
+          "coincide_esperada": true,
+          "tokens_prompt": 857,
+          "tokens_salida": 214,
+          "latencia_s": 5.31,
+          "respuesta": "{\n  \"opcion\": \"C\",\n  \"justificacion\": \"El taller guiado C proporciona un enfoque de aprendizaje práctico y colaborativo, idóneo para un estudiante que prefiere aprender haciendo y aplicando de inmediato lo que estuda. Su estilo autonomo y constante, así como su personalidad que tolera retos largos, se beneficiarán de este tipo de actividad de talleres guiados. Este recurso les permitirá construir su tesis y anticipar objeciones, lo cual les ayudará a desarrollar un argumento robusto y preparados para enfrentar posibles contragolpes.\",\n  \"descarte\": \"La opción A no incluye una producción de contenido, lo cual no es apropiado para un estudiante que aprende mejor haciendo. La opción B no es lo suficientemente interactiva o práctica como para un estudiante que prefiere ejercicios concretos y aplicables inmediatamente.\"\n}"
+        }
+      ]
+    }
+  ]
+}
