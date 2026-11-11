@@ -10,7 +10,8 @@ Scripts en Python para ejecutar la PoC del subsistema de recomendacion con SLMs 
 poc_slm/
 ├── recommender.py        ← Script principal (middleware simplificado de la PoC)
 ├── interpretador.py      ← Backend de interpretacion psicometrica integrada (Entrega 3, E3-07)
-├── test_interpretador.py ← 18 chequeos del backend, sin Ollama
+├── importar_gguf.py      ← Importa el GGUF ajustado en Ollama con ChatML (E3-07)
+├── test_interpretador.py ← 23 chequeos del backend, sin Ollama
 ├── eventos/
 │   ├── bajo_desempeno.json   ← Evento de ejemplo (Sprint 2)
 │   ├── A_nota_baja.json      ← Escenario A: tutoria reactiva ante nota baja (Sprint 3)
@@ -53,12 +54,28 @@ python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-do
 # Interpretacion completa con el SLM local
 python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --modelo qwen2.5:1.5b
 
+# Importar el GGUF ajustado de E3-08 y ver el Modelfile sin importar nada
+python poc_slm/importar_gguf.py --gguf C:\modelos\savio-e3-q4km.gguf --dry-run
+
+# Importarlo en Ollama y correr el backend con el modelo ajustado
+python poc_slm/importar_gguf.py --gguf C:\modelos\savio-e3-q4km.gguf
+python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --gguf C:\modelos\savio-e3-q4km.gguf
+
 # Exportar Markdown y JSON
 python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --salida-dir salidas/e3
 
 # Pruebas (sin Ollama)
 python poc_slm/test_interpretador.py
 ```
+
+`importar_gguf.py` crea el modelo `savio-e3-<8 hex del SHA-256>` con plantilla
+ChatML, temperatura `0.2` y `num_predict=1200`. El nombre es estable, asi que la
+bitacora puede citar el modelo y el hash del GGUF sin ambiguedad. Los archivos
+`.gguf` y los Modelfiles quedan en `modelos/`, que esta en `.gitignore`.
+
+En `--dry-run` el backend valida el GGUF y muestra el nombre del modelo, pero no
+importa nada en Ollama. `--gguf` y `--modelo` son mutuamente excluyentes: el
+primero es el modelo ajustado y el segundo el modelo base de comparacion.
 
 ## Instalacion (desde la raiz del repositorio)
 

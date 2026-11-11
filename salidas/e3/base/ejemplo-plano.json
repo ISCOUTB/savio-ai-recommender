@@ -1,0 +1,20 @@
+{
+  "id": "ejemplo-plano",
+  "origen": "sintetico",
+  "modelo": "qwen2.5:1.5b",
+  "fecha_utc": "2026-11-11T04:06:02Z",
+  "perfil_markdown": "## 1. Estilos de aprendizaje\n   - CHASIDE: Todos los niveles son 7, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"A\" (Aprendizaje Aprendiendo).\n   - ILS: Todos los niveles son 6, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"S\" (Aprendizaje Sintético).\n   - PERSONALIDAD: Todos los niveles son 5, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"P\" (Aprendizaje Perceptivo).\n## 2. Rasgos de personalidad\n   - CHASIDE: Todos los niveles son 7, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"A\" (Aprendizaje Aprendiendo).\n   - ILS: Todos los niveles son 6, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"S\" (Aprendizaje Sintético).\n   - PERSONALIDAD: Todos los niveles son 5, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"P\" (Aprendizaje Perceptivo).\n## 3. Perfil vocacional\n   - CHASIDE: Todos los niveles son 7, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"A\" (Aprendizaje Aprendiendo).\n   - ILS: Todos los niveles son 6, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"S\" (Aprendizaje Sintético).\n   - PERSONALIDAD: Todos los niveles son 5, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"P\" (Aprendizaje Perceptivo).\n## 4. Sintesis integrada\n   - CHASIDE: Todos los niveles son 7, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"A\" (Aprendizaje Aprendiendo).\n   - ILS: Todos los niveles son 6, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"S\" (Aprendizaje Sintético).\n   - PERSONALIDAD: Todos los niveles son 5, lo que indica que todos los estudiantes tienen un estilo de aprendizaje dominante de la \"P\" (Aprendizaje Perceptivo).\n\nEl perfil es un apoyo al diagnostico inicial y no reemplaza al profesional.\n\n---\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "aviso_etico": "Este perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "validacion": {
+    "ok": true,
+    "estructura_ok": true,
+    "errores": [],
+    "numeros_fuera_rango": []
+  },
+  "metricas": {
+    "latencia_s": 37.96,
+    "tokens_generados": 577,
+    "tokens_por_s": 17.66,
+    "total_duration_ms": 35895.8
+  }
+}

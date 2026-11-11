@@ -36,6 +36,12 @@ fuentes/*.pptx
 # Salidas locales del Prompt Builder
 poc_slm/salidas/
 
+# E3-07: GGUF ajustados y Modelfiles importados en Ollama (solo local)
+modelos/
+
+# E3-07: logs de corrida (la evidencia es el .md y el .json)
+salidas/**/*.log
+
 # CUR-01: backup .mbz y archivos extraidos del curso del profesor (solo local)
 *.mbz
 datos/curso/crudos/

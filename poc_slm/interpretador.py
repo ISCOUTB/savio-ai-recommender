@@ -8,6 +8,7 @@ cuatro secciones en orden, guardrail etico y chequeo de fidelidad numerica.
 Uso (desde la raiz del repositorio):
     python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json
     python poc_slm/interpretador.py --perfil perfiles/reales/persona-1.json --modelo qwen2.5:1.5b
+    python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --gguf modelos/savio-e3-q4km.gguf
     python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --dry-run
     python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --salida-dir salidas/e3
 
@@ -36,6 +37,7 @@ sys.path.insert(0, str(RAIZ / "poc_slm"))
 
 from contrato_bruto import AREAS_CHASIDE, PARES_ILS, validar_perfil_bruto  # noqa: E402
 from guardrail_etico import AVISO_NO_CLINICO, agregar_aviso, validar_salida_etica  # noqa: E402
+from importar_gguf import importar as importar_modelo_gguf  # noqa: E402
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODELO_DEFAULT = "qwen2.5:1.5b"
@@ -70,7 +72,7 @@ EJES_PERSONALIDAD = (
 
 def _patron_seccion(numero, titulo):
     return re.compile(
-        rf"^\s{{0,3}}(?:#{{1,6}}\s*)?\**\s*{numero}\.\s*{titulo}\s*\**\s*$",
+        rf"^\s{{0,3}}(?:#{{1,6}}\s*)?\**\s*{numero}\.\s*{titulo}\s*\**\s*:?\s*$",
         re.IGNORECASE | re.MULTILINE,
     )
 
@@ -319,13 +321,13 @@ def generar_interpretacion(mensajes, modelo, max_tokens):
 # --------------------------------------------------------------------------
 
 
-def construir_salida(perfil, modelo, texto, resultado, latencia, validacion):
+def construir_salida(perfil, modelo, texto, resultado, latencia, validacion, gguf_sha256=None):
     """Arma el objeto JSON exportable con metadatos y metricas."""
     eval_count = int(resultado.get("eval_count", 0) or 0)
     eval_duration_ns = int(resultado.get("eval_duration", 0) or 0)
     tokens_por_s = (eval_count / (eval_duration_ns / 1e9)) if eval_duration_ns else 0.0
     total_duration_ms = (resultado.get("total_duration", 0) or 0) / 1e6
-    return {
+    salida = {
         "id": perfil.get("id"),
         "origen": perfil.get("origen"),
         "modelo": modelo,
@@ -340,6 +342,9 @@ def construir_salida(perfil, modelo, texto, resultado, latencia, validacion):
             "total_duration_ms": round(total_duration_ms, 1),
         },
     }
+    if gguf_sha256:
+        salida["gguf_sha256"] = gguf_sha256
+    return salida
 
 
 def escribir_salidas(carpeta, salida):
@@ -383,7 +388,15 @@ def construir_parser():
         description="Interpretacion psicometrica integrada con SLM local (E3-07)."
     )
     parser.add_argument("--perfil", required=True, help="JSON con el perfil bruto de entrada")
-    parser.add_argument("--modelo", default=MODELO_DEFAULT, help=f"modelo de Ollama (default: {MODELO_DEFAULT})")
+    parser.add_argument(
+        "--modelo",
+        help=f"modelo de Ollama (default: {MODELO_DEFAULT}); incompatible con --gguf",
+    )
+    parser.add_argument(
+        "--gguf",
+        type=Path,
+        help="GGUF ajustado de E3-08; se importa en Ollama y se usa como modelo",
+    )
     parser.add_argument(
         "--max-tokens",
         type=int,
@@ -415,9 +428,20 @@ def main(argv=None):
         raise SystemExit("[FALLO] --reintentos debe ser 1 o mas")
     if args.max_tokens < 1:
         raise SystemExit("[FALLO] --max-tokens debe ser 1 o mas")
+    if args.gguf and args.modelo:
+        raise SystemExit("[FALLO] usa --gguf o --modelo, no ambos: el GGUF ya define el modelo.")
 
     perfil = cargar_perfil(Path(args.perfil))
     mensajes = construir_mensajes(perfil)
+
+    modelo = args.modelo or MODELO_DEFAULT
+    gguf_sha256 = None
+    if args.gguf:
+        info_gguf = importar_modelo_gguf(args.gguf, dry_run=args.dry_run)
+        modelo = info_gguf["nombre"]
+        gguf_sha256 = info_gguf["sha256"]
+        estado = "importacion omitida en --dry-run" if args.dry_run else "importado en Ollama"
+        print(f"[OK] GGUF {info_gguf['ruta']} -> modelo {modelo} ({estado})")
 
     if args.dry_run:
         print(f"[OK] perfil bruto valido: {perfil.get('id')}")
@@ -443,7 +467,7 @@ def main(argv=None):
         )
         resultado, latencia = generar_interpretacion(
             [mensajes[0], {"role": "user", "content": contenido}],
-            args.modelo,
+            modelo,
             args.max_tokens,
         )
         texto = agregar_aviso(
@@ -463,7 +487,9 @@ def main(argv=None):
         print("-" * 70)
         return 1
 
-    salida = construir_salida(perfil, args.modelo, texto, resultado, latencia, validacion)
+    salida = construir_salida(
+        perfil, modelo, texto, resultado, latencia, validacion, gguf_sha256=gguf_sha256
+    )
     print(salida["perfil_markdown"])
     imprimir_resumen(salida)
     if args.salida_dir:
