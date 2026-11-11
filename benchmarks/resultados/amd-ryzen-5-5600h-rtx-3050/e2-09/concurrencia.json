@@ -1,0 +1,152 @@
+{
+  "fecha": "2026-10-21T00:38:45",
+  "ollama": "0.40.7",
+  "configuracion": {
+    "niveles": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "num_predict": 200,
+    "num_ctx": 2048,
+    "host": "http://127.0.0.1:11435"
+  },
+  "modelos": [
+    {
+      "modelo": "qwen2.5:0.5b",
+      "niveles": [
+        {
+          "usuarios_simultaneos": 1,
+          "tiempo_pared_s": 0.79,
+          "latencia_media_s": 0.79,
+          "latencia_max_s": 0.79,
+          "tokens_totales": 172,
+          "tokens_por_seg_agregado": 217.2,
+          "memoria_reportada_mb": 641,
+          "memoria_en_vram_mb": 641
+        },
+        {
+          "usuarios_simultaneos": 2,
+          "tiempo_pared_s": 0.9,
+          "latencia_media_s": 0.74,
+          "latencia_max_s": 0.9,
+          "tokens_totales": 269,
+          "tokens_por_seg_agregado": 297.4,
+          "memoria_reportada_mb": 641,
+          "memoria_en_vram_mb": 641
+        },
+        {
+          "usuarios_simultaneos": 4,
+          "tiempo_pared_s": 2.14,
+          "latencia_media_s": 1.67,
+          "latencia_max_s": 2.14,
+          "tokens_totales": 615,
+          "tokens_por_seg_agregado": 288.0,
+          "memoria_reportada_mb": 641,
+          "memoria_en_vram_mb": 641
+        },
+        {
+          "usuarios_simultaneos": 8,
+          "tiempo_pared_s": 3.57,
+          "latencia_media_s": 2.35,
+          "latencia_max_s": 3.57,
+          "tokens_totales": 1167,
+          "tokens_por_seg_agregado": 327.1,
+          "memoria_reportada_mb": 641,
+          "memoria_en_vram_mb": 641
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:1.5b",
+      "niveles": [
+        {
+          "usuarios_simultaneos": 1,
+          "tiempo_pared_s": 1.67,
+          "latencia_media_s": 1.67,
+          "latencia_max_s": 1.67,
+          "tokens_totales": 200,
+          "tokens_por_seg_agregado": 119.5,
+          "memoria_reportada_mb": 1516,
+          "memoria_en_vram_mb": 1516
+        },
+        {
+          "usuarios_simultaneos": 2,
+          "tiempo_pared_s": 2.0,
+          "latencia_media_s": 1.94,
+          "latencia_max_s": 2.0,
+          "tokens_totales": 382,
+          "tokens_por_seg_agregado": 191.0,
+          "memoria_reportada_mb": 1516,
+          "memoria_en_vram_mb": 1516
+        },
+        {
+          "usuarios_simultaneos": 4,
+          "tiempo_pared_s": 3.01,
+          "latencia_media_s": 2.95,
+          "latencia_max_s": 3.01,
+          "tokens_totales": 775,
+          "tokens_por_seg_agregado": 257.4,
+          "memoria_reportada_mb": 1516,
+          "memoria_en_vram_mb": 1516
+        },
+        {
+          "usuarios_simultaneos": 8,
+          "tiempo_pared_s": 4.88,
+          "latencia_media_s": 4.52,
+          "latencia_max_s": 4.88,
+          "tokens_totales": 1501,
+          "tokens_por_seg_agregado": 307.4,
+          "memoria_reportada_mb": 1516,
+          "memoria_en_vram_mb": 1516
+        }
+      ]
+    },
+    {
+      "modelo": "qwen2.5:3b",
+      "niveles": [
+        {
+          "usuarios_simultaneos": 1,
+          "tiempo_pared_s": 3.71,
+          "latencia_media_s": 3.71,
+          "latencia_max_s": 3.71,
+          "tokens_totales": 197,
+          "tokens_por_seg_agregado": 53.1,
+          "memoria_reportada_mb": 2778,
+          "memoria_en_vram_mb": 2265
+        },
+        {
+          "usuarios_simultaneos": 2,
+          "tiempo_pared_s": 4.79,
+          "latencia_media_s": 4.63,
+          "latencia_max_s": 4.79,
+          "tokens_totales": 384,
+          "tokens_por_seg_agregado": 80.2,
+          "memoria_reportada_mb": 2778,
+          "memoria_en_vram_mb": 2265
+        },
+        {
+          "usuarios_simultaneos": 4,
+          "tiempo_pared_s": 7.79,
+          "latencia_media_s": 7.38,
+          "latencia_max_s": 7.79,
+          "tokens_totales": 752,
+          "tokens_por_seg_agregado": 96.5,
+          "memoria_reportada_mb": 2778,
+          "memoria_en_vram_mb": 2265
+        },
+        {
+          "usuarios_simultaneos": 8,
+          "tiempo_pared_s": 13.49,
+          "latencia_media_s": 12.79,
+          "latencia_max_s": 13.49,
+          "tokens_totales": 1503,
+          "tokens_por_seg_agregado": 111.4,
+          "memoria_reportada_mb": 2778,
+          "memoria_en_vram_mb": 2265
+        }
+      ]
+    }
+  ]
+}

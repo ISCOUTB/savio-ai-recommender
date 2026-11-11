@@ -21,7 +21,7 @@ psicometricos. Sin consentimiento firmado no se procesa ningun puntaje real
 |---|---|---|
 | Persona 1 | `persona-1` | Firmado el 2026-11-10; perfil extraido el 2026-11-09 y fila registrada en la bitacora |
 | Persona 2 | `persona-2` | Pendiente |
-| Persona 3 | `persona-3` | Pendiente |
+| Persona 3 | `persona-3` | Firmado el 2026-11-10; perfil extraido el 2026-10-27 y fila registrada en la bitacora |
 
 Nadie mas firma: en Proyecto de Ingenieria I no se procesan datos de personas
 distintas de los tres integrantes (regla R1).
@@ -149,8 +149,8 @@ Firma: ______________________________
 
 - [x] `perfiles/reales/consentimientos/persona-1-consentimiento.pdf` en custodia local.
 - [ ] `perfiles/reales/consentimientos/persona-2-consentimiento.pdf` en custodia local.
-- [ ] `perfiles/reales/consentimientos/persona-3-consentimiento.pdf` en custodia local.
-- [ ] Tres filas de extraccion en `experimentos/bitacora.md` con SHA-256 (persona-1 registrada el 2026-11-10).
+- [x] `perfiles/reales/consentimientos/persona-3-consentimiento.pdf` en custodia local.
+- [ ] Tres filas de extraccion en `experimentos/bitacora.md` con SHA-256 (persona-1 y persona-3 registradas el 2026-11-10).
 - [ ] `git ls-files perfiles` no lista ningun archivo de `perfiles/reales/`.
 - [ ] Issue #42 actualizado y cerrado con la evidencia de la bitacora.
 
