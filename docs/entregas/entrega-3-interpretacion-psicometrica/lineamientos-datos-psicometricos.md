@@ -101,6 +101,7 @@ El consentimiento debe explicar, en lenguaje claro:
 ### 6.2 Custodia
 
 - La copia firmada se guarda en `perfiles/reales/consentimientos/`, fuera de Git.
+- Si el repositorio vive en una carpeta sincronizada (OneDrive, Google Drive, Dropbox), la sincronizacion copia tambien las carpetas ignoradas por Git: `perfiles/reales/`, `datos/reales/` y `salidas/reales/` salen a la nube. En ese caso se excluye esa carpeta de la sincronizacion o se clona el repositorio fuera de ella antes de generar perfiles reales. La copia firmada en ese caso queda fuera de la carpeta sincronizada.
 - Procedimiento paso a paso y copia imprimible: [procedimiento-consentimientos.md](procedimiento-consentimientos.md).
 - La prueba publica de que el perfil se extrajo es una fila en `experimentos/bitacora.md` generada con `docs/especificaciones/evidencia-perfil.py`; contiene el resultado del validador y el SHA-256, nunca los puntajes.
 - El equipo no incluye nombres, documentos ni firmas en documentos del repositorio.
