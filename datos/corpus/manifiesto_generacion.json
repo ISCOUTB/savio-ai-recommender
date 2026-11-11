@@ -27,7 +27,7 @@
   "estado_revision": {
     "corpus": "candidato con validacion automatica; no validado por profesional",
     "aprobacion_matriz_por_par": "pendiente de acreditar",
-    "revision_15_registros_por_equipo": "pendiente",
+    "revision_15_registros_por_equipo": "en curso: 5/15 (ver docs/entregas/entrega-3-interpretacion-psicometrica/revision-corpus-e306.md)",
     "criterio_bandas": "Convenciones del contrato E3; no baremos poblacionales ni puntos de corte clinicos."
   },
   "total_registros": 150,
@@ -55,5 +55,7 @@
   },
   "sha256_corpus": "c74e2e6252e06047bdc8067d7b784c182ca7f396657c2947bc2777e9f9aaae1c",
   "fallidos": 0,
-  "firmas_calidad": {}
+  "firmas_calidad": {
+    "persona-2": "2026-11-11 aprobados 5/5: SINT-049, SINT-045, SINT-066, SINT-070, SINT-141"
+  }
 }
