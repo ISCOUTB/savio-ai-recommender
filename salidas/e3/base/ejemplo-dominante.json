@@ -1,0 +1,20 @@
+{
+  "id": "ejemplo-dominante",
+  "origen": "sintetico",
+  "modelo": "qwen2.5:1.5b",
+  "fecha_utc": "2026-11-11T04:04:34Z",
+  "perfil_markdown": "## 1. Estilos de aprendizaje\n   - CHASIDE: C, H, A, S, I, D, E\n   - ILS: Visual, Verbal, Secuencial, Global\n   - PERSONALIDAD: Thinking, Feeling, Judging, Perceptive\n## 2. Rasgos de personalidad\n   - CHASIDE: Extraversion, Sensing, Thinking, Perceptive\n   - ILS: Extrovertido, Sensor, Intuitivo, Perceptrón\n   - PERSONALIDAD: Extrovertido, Sensor, Intuitivo, Perceptrón\n## 3. Perfil vocacional\n   - CHASIDE: Investigación, Ingeniería, Educación, Administración, Marketing, Salud, Comunicación, Tecnología\n   - ILS: Diseño, Marketing, Administración, Investigación, Investigación, Diseño, Marketing, Administración\n   - PERSONALIDAD: Investigación, Ingeniería, Educación, Administración, Marketing, Salud, Comunicación, Tecnología\n## 4. Sintesis integrada\n   - CHASIDE: CHASIDE presenta una combinación de aptitudes y estilos de aprendizaje que favorecen un enfoque práctico y orientado a la solución de problemas. Su perfil de personalidad, con una mezcla de extrovertido y intuitivo, sugiere una orientación hacia la comunicación y la educación.\n   - ILS: ILS muestra una combinación de aptitudes y estilos de aprendizaje que favorecen un enfoque centrado en la realidad y la precisión. Su perfil de personalidad, con una mezcla de extrovertido y intuitivo, sugiere una orientación hacia la gestión y la administración.\n   - PERSONALIDAD: PERSONALIDAD muestra una combinación de aptitudes y estilos de aprendizaje que favorecen un enfoque centrado en la percepción y la reflexión. Su perfil de personalidad, con una mezcla de extrovertido y intuitivo, sugiere una orientación hacia la investigación y la comunicación.\n\nEl perfil es un apoyo al diagnostico inicial y no reemplaza al profesional.\n\n---\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "aviso_etico": "Este perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "validacion": {
+    "ok": true,
+    "estructura_ok": true,
+    "errores": [],
+    "numeros_fuera_rango": []
+  },
+  "metricas": {
+    "latencia_s": 30.33,
+    "tokens_generados": 473,
+    "tokens_por_s": 16.82,
+    "total_duration_ms": 28226.4
+  }
+}

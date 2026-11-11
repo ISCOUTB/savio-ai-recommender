@@ -8,6 +8,7 @@ import ast
 import contextlib
 import io
 import json
+import re
 import sys
 import tempfile
 from pathlib import Path
@@ -16,6 +17,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "docs" / "especificaciones"))
 sys.path.insert(0, str(RAIZ / "poc_slm"))
 
+import importar_gguf as ig  # noqa: E402
 import interpretador as it  # noqa: E402
 
 RUTA_PERFIL = RAIZ / "perfiles" / "brutos" / "ejemplo-perfil-bruto-dominante.json"
@@ -124,6 +126,14 @@ def main() -> int:
     if it.validar_estructura(normalizado):
         fallos.append("no se normalizaron los titulos en negrita")
 
+    caso("los titulos con dos puntos finales se normalizan")
+    variante = texto_ok
+    for seccion in it.SECCIONES:
+        variante = variante.replace(seccion, seccion + ":")
+    normalizado = it.normalizar_secciones(variante)
+    if it.validar_estructura(normalizado):
+        fallos.append("no se normalizaron los titulos con dos puntos")
+
     caso("la escala 1.0-5.0 y el indice autonomia se rechazan")
     roto = "\n\n".join(it.SECCIONES) + (
         "\nSe uso la escala 1.0-5.0 y el indice autonomia.\n\n" + it.AVISO_NO_CLINICO
@@ -209,6 +219,58 @@ def main() -> int:
     else:
         fallos.append("no se rechazo el perfil inexistente")
 
+    caso("el nombre del modelo GGUF es estable y valido para Ollama")
+    with tempfile.TemporaryDirectory() as temporal:
+        gguf = Path(temporal) / "modelo.gguf"
+        gguf.write_bytes(b"GGUF-falso-para-probar-el-hash")
+        digest = ig.sha256_archivo(gguf)
+        nombre = ig.nombre_modelo(digest)
+        if nombre != ig.nombre_modelo(digest):
+            fallos.append("el nombre del modelo GGUF no es estable")
+        if not re.fullmatch(r"savio-e3-[0-9a-f]{8}", nombre):
+            fallos.append(f"el nombre del modelo GGUF no es valido: {nombre}")
+
+    caso("el Modelfile fija ChatML, temperatura y stop")
+    modelfile = ig.construir_modelfile(Path("C:/modelos/savio-e3-q4km.gguf"))
+    for fragmento in (
+        "FROM C:/modelos/savio-e3-q4km.gguf",
+        "TEMPLATE",
+        "<|im_start|>system",
+        "PARAMETER temperature 0.2",
+        'PARAMETER stop "<|im_end|>"',
+    ):
+        if fragmento not in modelfile:
+            fallos.append(f"el Modelfile no contiene: {fragmento}")
+
+    caso("--gguf inexistente se rechaza antes de llamar a Ollama")
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            it.main(["--perfil", str(RUTA_PERFIL), "--gguf", str(RAIZ / "no-existe.gguf")])
+    except SystemExit as exc:
+        if exc.code in (0, None):
+            fallos.append("--gguf inexistente no devolvio error")
+    else:
+        fallos.append("--gguf inexistente no se rechazo")
+
+    caso("--gguf y --modelo juntos se rechazan")
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            it.main(
+                [
+                    "--perfil",
+                    str(RUTA_PERFIL),
+                    "--modelo",
+                    "qwen2.5:1.5b",
+                    "--gguf",
+                    str(RAIZ / "no-existe.gguf"),
+                ]
+            )
+    except SystemExit as exc:
+        if exc.code in (0, None):
+            fallos.append("la combinacion --gguf y --modelo no devolvio error")
+    else:
+        fallos.append("la combinacion --gguf y --modelo no se rechazo")
+
     print()
     if fallos:
         print(f"FALLOS: {len(fallos)}")
@@ -216,7 +278,7 @@ def main() -> int:
             print(f"  - {fallo}")
         return 1
 
-    print("RESULTADO: OK (18/18 chequeos)")
+    print("RESULTADO: OK (23/23 chequeos)")
     return 0
 
 
