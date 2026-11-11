@@ -1,135 +1,111 @@
 # Moodle local minimo
 
-Alcance: habilitador de Entrega 2 (issue E2-02). No es el nucleo del proyecto.
+Alcance: habilitador de Entrega 2. No es el nucleo del proyecto.
 
 ## Objetivo minimo
 
 - Levantar Moodle local con Docker.
-- Instalar los bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE (ver [plugins.md](plugins.md)).
+- Instalar bloques IS-UTB de Estilos de Aprendizaje, Personalidad y CHASIDE con apoyo del docente.
 - Diligenciar tests entre integrantes para generar datos de referencia.
 
-## Requisitos previos
+## Requisitos
 
-- Docker Desktop instalado y **en ejecucion** (icono de la ballena activo).
-- Puertos libres: `8080` (Moodle). Verificar con `netstat -ano | findstr :8080`.
+- Docker Desktop instalado y abierto (Windows: con WSL 2).
+- Puerto `8080` libre.
 
-## Imagenes y version
-
-- `mariadb:10.11` - base de datos (imagen oficial).
-- `bitnamilegacy/moodle:5.0.2` - Moodle 5.0.2 con instalacion automatica.
-
-> **Hallazgo (2026-10-18):** el tag original `moodlehq/moodle:latest` **no existe** en
-> Docker Hub. Se reemplazo por la imagen autoinstalable de Bitnami publicada en el
-> registro legacy (`bitnamilegacy/`). Ver `docker-compose.yml` para el detalle.
-
-## Arranque
-
-Desde la carpeta `moodle/`:
+## Arranque base
 
 ```bash
 cd moodle
 docker compose up -d
 ```
 
-La **primera vez** descarga ~350 MB y ejecuta el instalador de Moodle (tarda ~2 minutos).
-Cuando el log muestra `** Moodle setup finished! **` y `** Starting Apache **`, el sitio esta listo.
-
-## Estado y logs
+La primera vez descarga las imagenes y **Moodle se instala solo**: tarda unos minutos. Ver el avance con:
 
 ```bash
-docker compose ps                 # estado de los contenedores
-docker compose logs -f moodle     # seguir la inicializacion (Ctrl+C para salir)
+docker compose logs -f moodle
 ```
 
-Estado esperado:
+Cuando termine, abrir **http://localhost:8080**.
 
-- `moodle-db-1` -> `Up (healthy)`
-- `moodle-moodle-1` -> `Up`, con `0.0.0.0:8080->8080/tcp`
+| Dato | Valor |
+|---|---|
+| Usuario admin | `admin` |
+| Contrasena | `Admin123!` |
+| Base de datos | MariaDB 11.4, servicio `db`, usuario/clave `moodle`/`moodle`, prefijo `mdl_` |
 
-## Acceso web y credenciales
+Imagen de Moodle: `erseco/alpine-moodle` (Moodle 5.3 LTS, exige MariaDB >= 11.4). La anterior `moodlehq/moodle` no existe en Docker Hub.
 
-- URL: **http://localhost:8080**
-- Administrador del sitio:
-  - Usuario: `admin`
-  - Contrasena: `moodle123`
-  - Correo: `admin@utb.local`
-- Base de datos (uso interno entre contenedores):
-  - Host: `db` (puerto `3306`), base `moodle`, usuario `moodle`, contrasena `moodle`
-  - Root de la base: usuario `root`, contrasena `root`
-
-> Credenciales de desarrollo local. No reutilizar en entornos reales.
-
-## Bloques IS-UTB (issue E2-03)
-
-Los tres instrumentos psicopedagogicos se instalan desde las releases publicas de
-la organizacion `ISCOUTB`. El detalle completo esta en [plugins.md](plugins.md).
-
-```powershell
-# desde la raiz del repo (idempotente)
-powershell -ExecutionPolicy Bypass -File moodle\instalar-bloques.ps1
-```
-
-El script descarga Estilos de Aprendizaje, Personalidad y CHASIDE, los registra en
-Moodle y deja armado el curso `E2-03-psico` (`http://localhost:8080/course/view.php?id=2`)
-con los tres bloques listos para diligenciar.
-
-Tambien crea las cuentas del equipo (ya matriculadas como estudiantes):
-
-| Usuario | Contrasena |
-| :--- | :--- |
-| `persona-1` | `Persona1!` |
-| `persona-2` | `Persona2!` |
-| `persona-3` | `Persona3!` |
-
-## Detener y limpiar
+Detener (conserva los datos):
 
 ```bash
-docker compose stop       # detiene sin borrar nada
-docker compose down       # elimina contenedores y red (CONSERVA los volumenes)
-docker compose down -v    # elimina tambien la base de datos y los datos de Moodle
+docker compose down
 ```
 
-Reiniciar sin reinstalar:
+Borrar todo y empezar de cero (elimina cursos, usuarios y base de datos):
 
 ```bash
-docker compose start
+docker compose down -v
 ```
 
-## Verificacion rapida
+## Tests psicopedagogicos
+
+### 1. Instalar los bloques (una vez, o despues de `docker compose down -v`)
+
+En Moodle 5.3 los bloques van en `public/blocks/`. Desde `moodle/`:
 
 ```bash
-docker compose ps                       # ambos contenedores Up / healthy
-curl -I http://localhost:8080           # espera HTTP/1.1 200 (o 303)
+docker compose cp ../modulos/learning_style-main/learning_style-main/. moodle:/var/www/html/public/blocks/learning_style
+docker compose cp ../modulos/chaside-main/chaside-main/. moodle:/var/www/html/public/blocks/chaside
+docker compose cp ../modulos/personality_test-main/personality_test-main/. moodle:/var/www/html/public/blocks/personality_test
+MSYS_NO_PATHCONV=1 docker compose exec -T -u root moodle chown -R nobody:nobody /var/www/html/public/blocks/learning_style /var/www/html/public/blocks/chaside /var/www/html/public/blocks/personality_test
+MSYS_NO_PATHCONV=1 docker compose exec -T moodle php /var/www/html/admin/cli/upgrade.php --non-interactive
 ```
 
-## Solucion de problemas
+`MSYS_NO_PATHCONV=1` evita que Git Bash convierta las rutas del contenedor en rutas de Windows (en PowerShell no hace falta).
 
-| Sintoma | Causa probable | Solucion |
-| :--- | :--- | :--- |
-| `pull access denied for moodlehq/moodle` | tag inexistente | usar el `docker-compose.yml` de este repo (imagen `bitnamilegacy/moodle:5.0.2`) |
-| `bind: address already in use` / puerto ocupado | otro proceso usa 8080 | cambiar a `"8081:8080"` y entrar a `http://localhost:8081` |
-| `Cannot connect to the Docker daemon` | Docker Desktop apagado | abrir Docker Desktop y esperar "Engine running" |
-| Descarga larga al primer arranque | ~350 MB de imagenes | esperar; no es un cuelgue |
-| Web no responde durante ~2 min | instalador en curso | esperar `Moodle setup finished!` en los logs |
-| Base de datos inconsistente | volumen danado | `docker compose down -v` y `docker compose up -d` (borra datos) |
-| Cambio de version de la imagen | incompatibilidad de datos | respaldar el sitio o usar `down -v` antes de cambiar de tag |
-| `permisos no validos al tratar de crear un directorio` | algun script CLI de Moodle se corrio como `root` y dejo archivos root-owned en `moodledata` | `docker exec moodle-moodle-1 chown -R daemon:daemon /bitnami/moodledata` (y a futuro usar `docker exec -u daemon`) |
-| Un bloque IS-UTB no aparece en el curso | el bloque existe pero no queda asociado a la pagina | revisar `mdl_block_instances`: `subpagepattern` debe ser `NULL` y `pagetypepattern` `course-view-*` |
+| Bloque | Estado |
+|---|---|
+| Estilos de aprendizaje (`block_learning_style`) | Instalado |
+| Personalidad (`block_personality_test`) | Instalado (desde `modulos/personality_test-main/`) |
+| CHASIDE (`block_chaside`) | Instalado (desde `modulos/chaside-main/`) |
 
-## Contingencia
+### 2. Preparar el curso y los usuarios
 
-Si Moodle presenta demoras o errores de red, registrar el incidente en
-`experimentos/bitacora.md` y continuar el trabajo con los fixtures JSON simulados
-de `perfiles/`. La investigacion de IA no se detiene por Moodle.
+```bash
+docker compose cp preparar_curso.php moodle:/tmp/preparar_curso.php
+MSYS_NO_PATHCONV=1 docker compose exec -T moodle php /tmp/preparar_curso.php
+```
+
+Crea el curso **Taller de Escritura (piloto)**, un estudiante por integrante y agrega los bloques instalados al curso. Se puede ejecutar varias veces sin duplicar nada.
+
+| Usuario | Integrante | Numero de ID (`estudiante_id`) | Clave |
+|---|---|---|---|
+| `jvelazquez` | Jesus Velazquez | `est-001` | `Estudiante123!` |
+| `spaternina` | Sebastian Paternina | `est-002` | `Estudiante123!` |
+| `ycaraballo` | Yosser Caraballo | `est-003` | `Estudiante123!` |
+
+### 3. Hacer el test
+
+1. Abrir http://localhost:8080 y entrar con el usuario propio.
+2. Ir al curso **Taller de Escritura (piloto)**.
+3. En el bloque **Estilos de Aprendizaje**, iniciar el test (44 preguntas A/B, guarda el avance solo).
+4. En el bloque **CHASIDE** (Orientacion Vocacional), iniciar el test (98 preguntas Si/No, 10 por pagina, guarda el avance solo).
+5. En el bloque **Exploracion de Personalidad**, iniciar el test (72 preguntas Si/No en 8 paginas).
+6. Al terminar, cada bloque muestra el resultado. El admin ve los resultados de todos desde los mismos bloques (vista docente y exportacion CSV; CHASIDE tambien JSON).
+
+## Feedback de recomendaciones (E2-11)
+
+El feedback del estudiante se recoge con la actividad **Feedback** nativa de Moodle, una por semana (`Feedback semana <n>`), no anonima, con preguntas de etiqueta `util`, `likert` y `comentario`. El "Numero de ID" de cada usuario debe ser su `estudiante_id` seudonimizado. Configuracion completa: [feedback-loop.md seccion 6.6](../docs/especificaciones/feedback-loop.md).
+
+Con el compose levantado, desde la raiz del repo:
+
+```bash
+python poc_slm/feedback_tracker.py importar-moodle --semana 1
+```
 
 ## Limites de alcance
 
 - No crear plugins desde cero.
 - No hacer integracion avanzada con Savio institucional en esta fase.
-- Si Moodle bloquea el avance, continuar con fixtures JSON simulados y documentar el bloqueo.
-
-## Guia paso a paso
-
-Para el detalle de cada paso (pensado para principiantes) ver
-`docs/entregas/entrega-2-personalizacion/guia-paso-a-paso-docker-moodle.md`
-y su version `.docx`.
+- Si Moodle bloquea el avance, continuar con fixtures JSON simulados y documentar bloqueo.

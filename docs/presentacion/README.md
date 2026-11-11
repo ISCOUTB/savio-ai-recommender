@@ -37,7 +37,6 @@ La grafica y la tabla de benchmarks se leen de `resultados.json`, asi que si se 
 
 ```bash
 pip install -r docs/presentacion/requirements.txt
-python docs/arquitectura/generar_diagrama.py        # solo si cambio el diagrama
 python docs/presentacion/generar_presentacion.py
 ```
 

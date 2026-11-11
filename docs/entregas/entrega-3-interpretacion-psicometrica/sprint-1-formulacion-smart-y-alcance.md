@@ -30,4 +30,4 @@ Formalizar la reorientacion del proyecto hacia el sistema de inferencia para int
 - [x] Reestructuracion de la Entrega 3 y tablero de issues (`E3-01` a `E3-10`) publicados en el repositorio.
 - [x] Cronograma fechado de Entrega 3 (`23 Oct al 09 Nov 2026`, cierre `03 al 09 Nov`) documentado en [objetivos-smart-formulario.md](objetivos-smart-formulario.md) y [README.md](README.md) (`E3-02` / `#40`).
 - [ ] Borrador de Objetivos SMART y cronograma enviado por WhatsApp y aprobado por el docente antes del jueves 29 de octubre (`E3-01`, `E3-02`).
-- [ ] Regla de anonimizacion y no versionamiento de perfiles reales mantenida para los puntajes brutos (`E3-03` / `#38`).
+- [x] Lineamientos de consentimiento, anonimizacion y manejo de datos psicometricos publicados y probados en [lineamientos-datos-psicometricos.md](lineamientos-datos-psicometricos.md); la aplicacion al corpus y al backend queda como gate de E3-06 y E3-07 (`E3-03` / `#38`).

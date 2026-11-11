@@ -1,235 +1,302 @@
-# Especificacion: Circuito de retroalimentacion (Feedback Loop) y metricas KPI (E2-11)
+# Especificacion: Feedback loop y metricas (E2-11)
 
-- **Identificador:** E2-11 ([#28](https://github.com/ISCOUTB/savio-ai-recommender/issues/28))
-- **Sprint:** 5 (Prompt builder y feedback)
-- **Dueno:** Persona 2 | **Revisor:** Persona 3
-- **Depende de:** E2-07 (`docs/especificaciones/perfil-estudiante.schema.json`), E2-10 (`poc_slm/prompt_builder.py`)
-- **Desbloquea:** E2-12 (Demo local Entrega 2)
-- **Artefactos asociados:** `docs/especificaciones/feedback.schema.json`, `poc_slm/feedback_tracker.py`, `poc_slm/test_feedback_tracker.py` y `poc_slm/feedback/eventos_feedback.jsonl`
-
----
-
-## 1. Contexto y proposito
-
-El subsistema de recomendacion de la Entrega 2 es **no determinista**: en lugar de aplicar reglas rigidas del tipo `si perfil visual -> recurso A`, el SLM local razona en contexto sobre la interseccion entre el perfil psicopedagogico consolidado (Estilos de Aprendizaje, Personalidad y CHASIDE) y los tres recursos contrastantes de la semana (`A`, `B`, `C`).
-
-Dado que el modelo puede variar su eleccion o producir justificaciones con distinto grado de pertinencia, el sistema requiere un **circuito de retroalimentacion (feedback loop)** posterior al consumo del recurso. Este circuito cumple tres funciones tecnicas y pedagogicas:
-
-1. **Verificacion empirica por recomendacion:** medir con datos reportados por el estudiante si la decision del SLM acerto o fallo ("descache") en la practica.
-2. **Cuantificacion mediante KPIs operativos:** calcular la **Tasa de Acierto**, la **Tasa de Descache** y la satisfaccion en escala Likert para contrastarlas contra las metas de calidad de `docs/investigacion/propuesta-destilacion-slm.md` (meta $\ge 80\%$ de acierto) y preparar la validacion motivacional bajo el modelo **ARCS / IMMS**.
-3. **Curacion continua para destilacion y fine-tuning (Dataset B):** transformar los registros de acierto y descache en muestras verificadas que retroalimentan el ajuste QLoRA del modelo Student (`Qwen 2.5 0.5B`) frente al Teacher (`Qwen 2.5 3B`).
+- **Identificador:** E2-11
+- **Modulo:** Retroalimentacion del estudiante y KPIs del recomendador
+- **Depende de:** E2-07 (perfil JSON), E2-10 (Prompt Builder semanal); captura en el Moodle local en Docker (E2-02)
+- **Desbloquea:** E2-12 (demo local)
+- **Artefactos:** `docs/especificaciones/feedback.schema.json`, `poc_slm/feedback_tracker.py`, `poc_slm/feedback/feedback_simulado.jsonl`
 
 ---
 
-## 2. Instrumentos de captura de feedback
+## 1. Proposito
 
-Una vez que el estudiante recibe la recomendacion generada por `poc_slm/prompt_builder.py` y revisa el recurso sugerido (`A`, `B` o `C`), el sistema recoge su valoracion mediante tres instrumentos complementarios de baja friccion:
+El recomendador no es determinista: con el mismo perfil y los mismos recursos A/B/C puede elegir opciones distintas. No basta con revisar a mano unas cuantas salidas; hay que **medir de forma sistematica** si las recomendaciones aciertan. Este modulo define:
 
-| Instrumento | Campo en JSON | Tipo / Rango | Obligatorio | Proposito pedagogico y tecnico |
-|---|---|---|---|---|
-| **1. Escala binaria primaria** | `util` (`true` / `false`) y `resultado` (`"acierto"` / `"descache"`) | `boolean` / `enum` | Si | Indicador primario de efectividad: determina de forma inequivoca si el recurso recomendado le sirvio al estudiante para el objetivo de aprendizaje de la semana. |
-| **2. Escala Likert complementaria** | `likert` | `integer` (`1` a `5` estrellas) | No (recomendado) | Mide el grado de adecuacion percibida (1 = nada util / inadecuado al estilo; 5 = totalmente alineado en formato, tiempo y claridad). Permite distinguir un acierto marginal (`likert = 3`) de un caso ejemplar (`likert >= 4`). |
-| **3. Campo abierto cualitativo** | `comentario` | `string` (max. 500 caracteres) | No | Captura la razon concreta del estudiante (ej. *"el taller de 60 min fue muy largo"* o *"el mapa interactivo me aclaro la estructura"*). Es el insumo clave para diagnosticar descaches y corregir la justificacion en el fine-tuning. |
+1. como califica el estudiante la recomendacion que recibio (instrumentos),
+2. como se registra cada calificacion (contrato JSON + persistencia JSON Lines),
+3. que metricas salen de esos registros (KPIs),
+4. como se reutilizan los datos para el fine-tuning del SLM (E2-09) y como base de una futura validacion ARCS/IMMS.
 
-### 2.1 Interpretacion de la escala Likert (1 a 5 estrellas)
+## 2. Circuito de retroalimentacion
 
-| Valor | Etiqueta | Interpretacion frente al recurso recomendado | Uso en el pipeline |
-|:---:|---|---|---|
-| **1** | Muy inadecuado | El formato o la carga chocan frontalmente con el perfil o disponibilidad del estudiante. | Cola de revision humana prioritaria (descache severo). |
-| **2** | Poco util | El recurso aborda el tema pero otro formato de la semana (`A`, `B` o `C`) habria sido mas efectivo. | Cola de revision humana para re-etiquetado con Teacher. |
-| **3** | Aceptable / Neutro | Cumple el objetivo basico, aunque sin ventaja clara de personalizacion. | Se contabiliza en metricas; no se promueve como muestra *gold* de entrenamiento. |
-| **4** | Util y adecuado | El formato, el canal y el tiempo estimado encajan bien con las preferencias del estudiante. | Candidato positivo elegible para **Dataset B**. |
-| **5** | Excelente ajuste | El recurso y el enfoque sugerido coinciden plenamente con la forma de aprender del estudiante. | Muestra positiva prioritaria (*gold standard*) para **Dataset B**. |
+```
+Perfil (E2-07) + Recursos A/B/C (E2-08)
+        |
+        v
+Prompt Builder + SLM (E2-10) --> recomendacion { recomendacion_id, recurso_id, justificacion }
+        |
+        v
+Estudiante usa el recurso de la semana
+        |
+        v
+Actividad Feedback en Moodle (Docker, E2-02) { util, likert?, comentario? }
+        |
+        v
+importar-moodle (MariaDB del compose + registro E2-10)  -->  feedback.jsonl  (append-only)
+        |
+        v
+KPIs (acierto / descache, por recurso)  -->  analisis de sesgos + dataset de fine-tuning (E2-09)
+```
+
+`recomendacion_id` es la llave que une el feedback con la recomendacion que lo origino. El Prompt Builder (E2-10) debe generar ese identificador y guardar su salida con el mismo valor (ver seccion 7.1).
 
 ---
 
-## 3. Contrato de datos (`feedback.schema.json`)
+## 3. Instrumentos de feedback
 
-El archivo `docs/especificaciones/feedback.schema.json` formaliza cada evento de retroalimentacion bajo **JSON Schema Draft-07**:
+| Instrumento | Campo | Obligatorio | Valores | Pregunta sugerida al estudiante |
+|---|---|:---:|---|---|
+| Escala binaria primaria | `util` | Si | `true` / `false` | "Te fue util el recurso recomendado esta semana?" (Si / No) |
+| Escala Likert complementaria | `likert` | No | entero de 1 a 5 | "Que tan adecuado fue el formato para tu forma de estudiar?" (1 = nada adecuado, 5 = totalmente adecuado) |
+| Campo abierto | `comentario` | No | texto, max. 500 caracteres | "Que cambiarias del recurso? (opcional)" |
+
+**Criterios de diseno:**
+
+- **Binaria primero.** Es la respuesta de menor friccion y la unica obligatoria; los KPIs base salen solo de ella. Pedir Likert o comentario obligatorios bajaria la tasa de respuesta.
+- **Likert como matiz.** Separa un "util pero apenas" (`util=true`, 3 estrellas) de un acierto claro (`util=true`, 5 estrellas). Sirve para ponderar ejemplos en el dataset (seccion 7).
+- **Comentario como diagnostico.** Explica *por que* hubo descache (formato, tiempo, dificultad) y alimenta la revision docente.
+
+---
+
+## 4. Contrato de datos: `feedback.schema.json`
+
+Cada evento es un objeto JSON validado contra `docs/especificaciones/feedback.schema.json` (draft-07, `additionalProperties: false`).
+
+| Campo | Tipo | Requerido | Regla |
+|---|---|:---:|---|
+| `recomendacion_id` | string | Si | No vacio. Llave hacia la salida del Prompt Builder. |
+| `estudiante_id` | string | Si | No vacio. Seudonimizado; mismo valor que en `perfil-estudiante.schema.json`. |
+| `semana` | integer | Si | `>= 1`. Coincide con `recurso-semanal.schema.json`. |
+| `recurso_id` | string | Si | No vacio. Recurso recomendado (ej. `tde-s1-A`). |
+| `util` | boolean | Si | Respuesta binaria del estudiante. |
+| `resultado` | string | Si | `acierto` o `descache`; **debe ser coherente con `util`** (regla 4.1). |
+| `likert` | integer | No | 1 a 5. |
+| `comentario` | string | No | Max. 500 caracteres. |
+| `fecha` | string | Si | ISO 8601 / RFC 3339 **con zona horaria** (ej. `2026-10-18T20:00:00-05:00`). |
+
+### 4.1 Cambios de formalizacion aplicados en este issue
+
+Se mantuvieron los mismos campos y requeridos del schema original de E2-01; ningun productor existente se rompe. Se agrego:
+
+1. **Regla de coherencia `util` <-> `resultado`** con `if/then/else` de draft-07: `util=true` exige `resultado="acierto"` y `util=false` exige `resultado="descache"`. Sin esa regla el schema aceptaba eventos contradictorios que distorsionaban los KPIs.
+2. **`maxLength: 500` en `comentario`**, para limitar texto libre y el riesgo de que se cuelen datos personales.
+3. **`description` en cada campo**, con el significado y la relacion con los otros schemas.
+
+**Nota sobre `format: date-time`:** la libreria `jsonschema` no verifica formatos sin dependencias extra. Por eso `feedback_tracker.py` valida la fecha por su cuenta (ISO 8601 con zona horaria obligatoria).
+
+### 4.2 Ejemplo valido
 
 ```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "feedback_recomendacion_entrega_2",
-  "type": "object",
-  "required": ["recomendacion_id", "estudiante_id", "semana", "recurso_id", "util", "resultado", "fecha"],
-  "additionalProperties": false,
-  "properties": {
-    "recomendacion_id": { "type": "string", "minLength": 1 },
-    "estudiante_id": { "type": "string", "minLength": 1 },
-    "semana": { "type": "integer", "minimum": 1 },
-    "recurso_id": { "type": "string", "minLength": 1 },
-    "util": { "type": "boolean" },
-    "likert": { "type": "integer", "minimum": 1, "maximum": 5 },
-    "resultado": { "type": "string", "enum": ["acierto", "descache"] },
-    "comentario": { "type": "string", "maxLength": 500 },
-    "fecha": { "type": "string", "format": "date-time" }
-  },
-  "if": {
-    "properties": { "util": { "const": true } },
-    "required": ["util"]
-  },
-  "then": {
-    "properties": { "resultado": { "const": "acierto" } }
-  },
-  "else": {
-    "properties": { "resultado": { "const": "descache" } }
-  }
-}
+{"recomendacion_id": "rec-001", "estudiante_id": "demo-001", "semana": 1, "recurso_id": "tde-s1-A", "util": true, "resultado": "acierto", "fecha": "2026-10-18T21:21:52-05:00", "likert": 4, "comentario": "El mapa me ayudo"}
 ```
-
-### 3.1 Reglas de integridad y trazabilidad
-
-1. **Trazabilidad con E2-10 (`recomendacion_id`):** Cada corrida de `poc_slm/prompt_builder.py` genera un identificador determinista con formato `rec-<estudiante_id>-s<semana>-<hash8>` (por ejemplo, `rec-demo-002-s1-b0557548`). Ese ID une sin ambiguedad el feedback con el perfil de entrada, el orden en que se presentaron los recursos y la respuesta exacta del SLM.
-2. **Coherencia binaria (`util` <-> `resultado`):** Tanto el schema (`if/then/else`) como el validador de `poc_slm/feedback_tracker.py` garantizan que:
-   - Si `util == true`, entonces `resultado == "acierto"`.
-   - Si `util == false`, entonces `resultado == "descache"`.
-3. **Prohibicion de campos espurios (`additionalProperties: false`):** Ningun evento puede inyectar datos personales adicionales ni campos fuera del contrato.
-4. **Marca temporal estandar (`fecha`):** Cadena en formato ISO 8601 UTC (`YYYY-MM-DDTHH:MM:SSZ`), validada sintacticamente y con `FormatChecker`.
 
 ---
 
-## 4. Formulacion matematica de metricas (KPIs)
+## 5. KPIs
 
-Sea $N$ el total de recomendaciones evaluadas con feedback valido en un periodo, curso o corte experimental ($N \ge 1$).
+### 5.1 Formulas
 
-Definimos:
-- $U$: numero de recomendaciones marcadas como utiles (`util == true`, equivalentes a `resultado == "acierto"`).
-- $D$: numero de recomendaciones marcadas como no utiles (`util == false`, equivalentes a `resultado == "descache"`).
+Sea **N** el total de recomendaciones evaluadas (recomendaciones con al menos un feedback valido):
 
-Dado que `util` es una variable binaria exhaustiva y mutuamente excluyente sobre toda recomendacion evaluada, se cumple que $U + D = N$.
+```
+Tasa de Acierto  (%) = (Recomendaciones con util = true  / N) * 100
+Tasa de Descache (%) = (Recomendaciones con util = false / N) * 100
+```
 
-### 4.1 Tasa de Acierto
+Propiedades:
 
-$$\text{Tasa de Acierto (\%)} = \left( \frac{U}{N} \right) \times 100 = \left( \frac{\text{Recomendaciones marcadas como utiles}}{\text{Total de recomendaciones evaluadas}} \right) \times 100$$
+- `Tasa de Acierto + Tasa de Descache = 100%` (la escala es binaria y obligatoria).
+- Si `N = 0`, las tasas no estan definidas y se reportan como `n/a`, no como 0%.
 
-### 4.2 Tasa de Descache
+### 5.2 Reglas de conteo
 
-$$\text{Tasa de Descache (\%)} = \left( \frac{D}{N} \right) \times 100 = \left( \frac{\text{Recomendaciones marcadas como no utiles}}{\text{Total de recomendaciones evaluadas}} \right) \times 100$$
+1. **Una recomendacion cuenta una vez.** Si un estudiante cambia su respuesta, el registro conserva ambos eventos (es append-only), pero el KPI usa **el ultimo registrado** de cada `recomendacion_id`. El denominador son recomendaciones, no eventos.
+2. **Los eventos invalidos no cuentan.** Las lineas que no pasan el schema se informan por consola y se excluyen.
+3. **Los KPIs se reportan siempre con su `N`.** Una tasa de 100% con N = 3 no dice lo mismo que con N = 300. Para comparar recursos se recomienda al menos 10 evaluaciones por recurso.
 
-Ambas tasas son complementarias:
+### 5.3 Metricas complementarias
 
-$$\text{Tasa de Acierto (\%)} + \text{Tasa de Descache (\%)} = 100\%$$
+| Metrica | Definicion | Uso |
+|---|---|---|
+| Tasa de acierto/descache **por recurso** | Las mismas formulas, filtradas por `recurso_id` | Detectar si una opcion (A, B o C) falla mas que las otras o si el modelo la elige demasiado (riesgo 4.3 de `materia-piloto-recursos.md`) |
+| Likert promedio | Media de `likert` entre las recomendaciones que lo tienen, reportando cuantas respuestas hubo | Intensidad de la satisfaccion |
+| Contradicciones util/Likert | `util=true` con 1-2 estrellas, o `util=false` con 4-5 estrellas | Senal de respuesta poco confiable; esos ejemplos no se usan para entrenar sin revision |
+| Duplicados descartados | Eventos registrados menos recomendaciones evaluadas | Calidad del registro |
 
-### 4.3 Puntaje Likert Promedio (Indicador complementario)
+---
 
-Sea $M \le N$ el subconjunto de eventos evaluados que incluyen calificacion en la escala Likert $l_i \in \{1, 2, 3, 4, 5\}$:
+## 6. Persistencia: `poc_slm/feedback_tracker.py`
 
-$$\overline{L} = \frac{1}{M} \sum_{i=1}^{M} l_i$$
+### 6.1 Formato JSON Lines
 
-### 4.4 Umbrales de aceptacion del proyecto
+Cada evento se agrega como **una linea JSON** al final del archivo (`.jsonl`, UTF-8). Se eligio este formato porque:
 
-Alineados con la seccion 12.2 de `docs/investigacion/propuesta-destilacion-slm.md`:
+- **es append-only:** registrar no reescribe el archivo, se puede auditar y un fallo a mitad de escritura afecta como mucho la ultima linea;
+- **se procesa por linea:** una linea danada no invalida el resto (el script la omite y avisa);
+- **es compatible con el entrenamiento:** JSONL es el formato habitual de los datasets de fine-tuning (Hugging Face `datasets`, Unsloth, etc.).
 
-| KPI | Meta objetivo | Umbral de alerta | Accion correctiva si cae en alerta |
-|---|---|---|---|
-| **Tasa de Acierto** | $\ge 80.0\%$ | $< 70.0\%$ | Revisar pesos de reglas en prompt (`--refuerzo`) y auditar muestras de Dataset B por tipo de perfil. |
-| **Tasa de Descache** | $\le 20.0\%$ | $> 30.0\%$ | Analizar `comentario` y desglose por `recurso_id` para detectar sesgo de posicion o de canal. |
-| **Likert promedio ($\overline{L}$)** | $\ge 4.0 / 5.0$ | $< 3.5 / 5.0$ | Ajustar longitud, tono empatico y especificidad de la justificacion pedagogica. |
+### 6.2 Archivos
 
-### 4.5 Articulacion con el modelo ARCS e instrumento IMMS
+| Archivo | Contenido | En git |
+|---|---|:---:|
+| `poc_slm/feedback/feedback.jsonl` | Feedback real (valor por defecto de `registrar` y `kpis`) | No (`.gitignore`, contiene datos de estudiantes) |
+| `poc_slm/feedback/feedback_simulado.jsonl` | 30 eventos simulados, semilla 42, sobre `poc_slm/recursos/semana_1.json` | Si (evidencia reproducible del modulo) |
 
-Segun las convenciones pedagogicas del proyecto (`docs/entregas/README.md`), las metricas operativas de este feedback loop preparan la evaluacion motivacional bajo el modelo **ARCS** (Keller) y su instrumento **IMMS** (*Instructional Materials Motivation Survey*):
+Los eventos simulados se reconocen por sus ids: `recomendacion_id` = `sim-s<semana>-<n>` y `estudiante_id` = `sim-est-<n>`. **No son datos medidos** y no deben reportarse como resultados del recomendador.
 
-| Dimension ARCS | Como la aproxima el Feedback Loop de E2-11 |
+### 6.3 Funciones
+
+| Funcion | Que hace |
 |---|---|
-| **Attention (Atencion)** | Tasa de acierto en perfiles visuales/activos cuando el formato evita saturacion textual (ej. Recurso A de 15 min). |
-| **Relevance (Relevancia)** | Valoracion en `likert` y `comentario` sobre la utilidad de la justificacion y las analogias vocacionales derivadas de **CHASIDE**. |
-| **Confidence (Confianza)** | Reduccion del descache asociado a sobrecarga cognitiva o falta de guia paso a paso en estudiantes con baja autonomia o alta metodicidad. |
-| **Satisfaction (Satisfaccion)** | Tasa de Acierto global ($\ge 80\%$) y promedio Likert ($\overline{L} \ge 4.0$) tras completar la actividad semanal. |
+| `construir_evento(...)` | Arma el evento y **deriva `resultado` de `util`**, para que el productor no pueda contradecirlos |
+| `validar_evento(evento, schema)` | Valida contra el schema y la fecha ISO 8601 con zona horaria; lanza `ValueError` con el campo que falla |
+| `registrar_feedback(evento, archivo)` | Valida y agrega la linea al `.jsonl` |
+| `cargar_feedback(archivo)` | Lee el `.jsonl`, omite y reporta las lineas invalidas |
+| `calcular_kpis(eventos)` | KPIs globales y por recurso con las reglas de la seccion 5.2 |
+| `simular_feedback(...)` | Genera eventos simulados reproducibles (misma semilla = mismo archivo) |
 
----
+E2-10 y E2-12 pueden importar estas funciones directamente (`from feedback_tracker import registrar_feedback, construir_evento`), con el mismo patron de `sys.path` que usa `benchmarks/benchmark.py`.
 
-## 5. Modulo de persistencia en Python (`poc_slm/feedback_tracker.py`)
-
-El script `poc_slm/feedback_tracker.py` implementa la validacion, persistencia en **JSON Lines (`.jsonl`)** y calculo de KPIs. Se eligio el formato `.jsonl` (un objeto JSON valido por linea, codificado en UTF-8) porque:
-1. Permite escritura incremental (*append-only*) sin reescribir todo el historial en cada evaluacion.
-2. Es directamente compatible con los pipelines de entrenamiento de Hugging Face `datasets`, `unsloth` y `axolotl` definidos en E2-09.
-
-### 5.1 Flujo de extremo a extremo
-
-```
-[Perfil JSON] + [Recursos Semana JSON]
-                 |
-                 v
-     poc_slm/prompt_builder.py  ---> Genera recomendacion + recomendacion_id
-                 |                   (opcional: --guardar-json salidas/rec.json)
-                 v
-     Estudiante consume recurso (A, B o C) y emite feedback (util, likert, comentario)
-                 |
-                 v
-    poc_slm/feedback_tracker.py ---> Valida contra feedback.schema.json
-                 |
-                 +---> Persiste linea en poc_slm/feedback/eventos_feedback.jsonl
-                 +---> Calcula KPIs (Tasa de Acierto, Tasa de Descache, Likert)
-```
-
-### 5.2 Comandos de uso y verificacion
-
-Desde la raiz del repositorio, con el entorno virtual activo:
+### 6.4 Uso (desde la raiz del repo, con `.venv` activo)
 
 ```bash
-# 1. Ejecutar los chequeos automatizados del modulo (sin Ollama)
-python poc_slm/test_feedback_tracker.py
+# Registrar un feedback
+python poc_slm/feedback_tracker.py registrar --recomendacion-id rec-001 --estudiante-id demo-001 \
+    --semana 1 --recurso-id tde-s1-A --util si --likert 4 --comentario "El mapa me ayudo"
 
-# 2. Generar y validar el lote simulado de referencia (5 eventos ligados a E2-10)
-python poc_slm/feedback_tracker.py --simular
+# Regenerar el feedback simulado (reproducible)
+python poc_slm/feedback_tracker.py simular --n 30 --semilla 42 --sobrescribir
 
-# 3. Registrar un evento individual manualmente
-python poc_slm/feedback_tracker.py \
-    --recomendacion-id rec-demo-002-s1-b0557548 \
-    --estudiante-id demo-002 \
-    --semana 1 \
-    --recurso-id tde-s1-B \
-    --util --likert 5 \
-    --comentario "La guia de lectura con ensayos anotados se ajusto a mi ritmo."
-
-# 4. Registrar feedback leyendo directamente el JSON exportado por prompt_builder.py
-python poc_slm/feedback_tracker.py \
-    --desde-recomendacion salidas/recomendacion_demo.json \
-    --no-util --likert 2 \
-    --comentario "Preferia un diagrama rapido antes del taller de 60 minutos."
-
-# 5. Consultar el reporte de metricas en consola o en JSON
-python poc_slm/feedback_tracker.py --resumen
-python poc_slm/feedback_tracker.py --resumen --json
+# Calcular KPIs de un archivo
+python poc_slm/feedback_tracker.py kpis --archivo poc_slm/feedback/feedback_simulado.jsonl
 ```
 
-### 5.3 Ejemplo de registro en `poc_slm/feedback/eventos_feedback.jsonl`
+### 6.5 Verificacion realizada
 
-Cada linea del archivo `.jsonl` es un objeto autocontenido y validado:
+Salida de `simular --n 30 --semilla 42 --sobrescribir` (datos **simulados**, `--prob-util 0.7`):
 
-```json
-{"recomendacion_id": "rec-demo-002-s1-b0557548", "estudiante_id": "demo-002", "semana": 1, "recurso_id": "tde-s1-B", "util": true, "resultado": "acierto", "fecha": "2026-10-22T10:15:00Z", "likert": 5, "comentario": "Los dos ensayos anotados y el glosario encajaron con mi preferencia reflexiva y verbal."}
-{"recomendacion_id": "rec-demo-001-s1-53ef6765", "estudiante_id": "demo-001", "semana": 1, "recurso_id": "tde-s1-C", "util": false, "resultado": "descache", "fecha": "2026-10-22T10:25:00Z", "likert": 2, "comentario": "Preferia un esquema visual corto como el mapa interactivo antes de pasar a un taller de 60 minutos."}
 ```
+  Eventos registrados:        30
+  Duplicados descartados:     0
+  Recomendaciones evaluadas:  30
+  Tasa de acierto:            80.00% (24)
+  Tasa de descache:           20.00% (6)
+  Likert promedio (1-5):      3.76 (n=25)
+  Contradicciones util/likert: 0
+  Por recurso:
+    tde-s1-A: n=8  acierto=100.00%  descache=0.00%  likert=4.33
+    tde-s1-B: n=14  acierto=71.43%  descache=28.57%  likert=3.82
+    tde-s1-C: n=8  acierto=75.00%  descache=25.00%  likert=3.25
+```
+
+Casos negativos comprobados:
+
+- `likert` fuera de rango y `semana = 0` se rechazan con el campo que falla;
+- un `resultado` contradictorio con `util`, una fecha sin zona horaria y una linea que no es JSON se omiten con aviso;
+- un `recomendacion_id` duplicado cuenta una sola vez (gana el ultimo evento);
+- dos simulaciones con la misma semilla producen archivos identicos.
+
+### 6.6 Captura real desde Moodle en Docker
+
+El feedback real no se digita a mano: el estudiante responde en el Moodle local que levanta `moodle/docker-compose.yml` (E2-02) y `importar-moodle` lo trae al `.jsonl`. Se usa la actividad **Feedback** que ya viene con Moodle (`mod_feedback`), asi que no se crea ningun plugin.
+
+**Configuracion de la actividad (una por semana):**
+
+| Ajuste | Valor |
+|---|---|
+| Nombre | `Feedback semana <n>` (ej. `Feedback semana 1`) |
+| Registrar nombres de usuario | **No anonimo** (las respuestas anonimas no se pueden unir con la recomendacion y se omiten) |
+| Pregunta 1 | Opcion multiple, una respuesta, **Etiqueta `util`**, opciones `Si` / `No`, obligatoria |
+| Pregunta 2 | Opcion multiple, una respuesta, **Etiqueta `likert`**, opciones `1` a `5` en ese orden, opcional |
+| Pregunta 3 | Respuesta de texto largo, **Etiqueta `comentario`**, opcional |
+
+El texto visible de cada pregunta es el de la seccion 3; el script solo mira la **Etiqueta**.
+
+**Como se une con las dependencias:**
+
+| Campo del evento | Origen |
+|---|---|
+| `estudiante_id` | Campo "Numero de ID" (`idnumber`) del usuario en Moodle. Debe ser el mismo seudonimo del perfil (E2-07). Si esta vacio se usa `moodle-<userid>`. |
+| `recomendacion_id`, `recurso_id` | Registro del Prompt Builder (E2-10) en `poc_slm/recomendaciones/semana_<n>.jsonl`, buscado por `(estudiante_id, semana)` (seccion 7.1) |
+| `util`, `likert`, `comentario` | Respuestas de la actividad, por etiqueta |
+| `fecha` | Hora de envio de la respuesta en Moodle, en zona `-05:00` |
+
+**Como lee los datos:** ejecuta `docker compose -f moodle/docker-compose.yml exec db mariadb ...` sobre el servicio `db` del compose. No hace falta exponer el puerto de la base ni instalar un driver MySQL en Python. Las credenciales por defecto son las del compose y se pueden cambiar con las variables `MOODLE_DB_USER`, `MOODLE_DB_PASSWORD`, `MOODLE_DB_NAME` y `MOODLE_DB_PREFIX`.
+
+```bash
+cd moodle && docker compose up -d && cd ..
+python poc_slm/feedback_tracker.py importar-moodle --semana 1
+python poc_slm/feedback_tracker.py kpis
+```
+
+**Reglas:**
+
+- Se puede ejecutar varias veces: una respuesta ya importada (misma `recomendacion_id` y `fecha`) no se repite. Si el estudiante edita su respuesta en Moodle, cambia la fecha, entra como evento nuevo y el KPI usa la ultima (regla 5.2.1).
+- Las respuestas anonimas, sin recomendacion en E2-10 o con valores invalidos se omiten y se informan por consola.
+- Si Docker no esta disponible, el comando falla con un mensaje claro. El respaldo sigue siendo `registrar` / `simular` (criterio de bloqueo de E2-02).
+
+**Verificacion realizada:** con respuestas de prueba en el mismo formato que devuelve la consulta se importaron 3 respuestas validas y se omitieron con aviso una anonima, una sin recomendacion y una con opcion fuera de rango. Al reimportar no se agrego ninguna linea. **Pendiente:** probar contra un contenedor real, porque en el equipo donde se escribio esto no hay Docker instalado.
 
 ---
 
-## 6. Como retroalimenta el Feedback Loop al Fine-Tuning del SLM
+## 7. Uso de los datos para el fine-tuning del modelo
 
-El proposito estrategico de capturar `util`, `likert` y `comentario` es cerrar el ciclo de mejora continua del modelo Student (`Qwen 2.5 0.5B`) disenado en `docs/investigacion/propuesta-destilacion-slm.md` (E2-09 y issues post-entrega E2-19 / E2-20).
+El feedback es la senal que dice **cuales decisiones del modelo fueron buenas** desde el punto de vista del estudiante. Por si solo no basta para entrenar: hay que unirlo con lo que el modelo vio y respondio.
 
-### 6.1 Reglas de enrutamiento hacia el Dataset B (Psicopedagogico)
+### 7.1 Union con el registro de recomendaciones (requisito para E2-10)
 
-Al cruzar cada linea de `eventos_feedback.jsonl` con su recomendacion original (mediante `recomendacion_id`), el registro se clasifica en una de tres rutas:
+Para que el feedback sirva de dato de entrenamiento, el Prompt Builder (E2-10) debe guardar cada recomendacion con al menos:
 
-| Condicion del evento | Clasificacion | Destino en el pipeline de Destilacion / Fine-Tuning |
-|---|---|---|
-| `util == true` **y** (`likert >= 4` o sin Likert) | **Acierto confirmado (*Gold Positive*)** | La tripleta `(perfil, recursos_semana, salida_modelo)` se promueve como muestra candidata validada para el **Dataset B** de ajuste supervisado (SFT / QLoRA), reforzando ese patron de razonamiento. |
-| `util == true` **y** `likert == 3` | **Acierto tibio (*Neutral*)** | Se contabiliza como acierto en el KPI operativo, pero **no** entra al conjunto de entrenamiento SFT sin antes revisar si la justificacion o el descarte fueron superficiales. |
-| `util == false` **o** `likert <= 2` | **Descache (*Hard Negative / Revision*)** | Entra a la **cola de curacion humana** (Personas 1 y 3). Nunca se entrena el modelo imitando una salida con `resultado == "descache"`. |
+| Campo propuesto | Contenido |
+|---|---|
+| `recomendacion_id` | La misma llave que el feedback |
+| `estudiante_id` | Para unir con el perfil (`perfil-estudiante.schema.json`) |
+| `semana` | Para unir con `poc_slm/recursos/semana_<n>.json` |
+| `modelo` | Modelo y version que genero la salida (ej. `qwen2.5:1.5b`) |
+| `prompt` | Prompt completo enviado al modelo |
+| `recurso_id` | Recurso elegido |
+| `justificacion` | Texto de la justificacion pedagogica |
 
-### 6.2 Proceso de correccion de descaches para reentrenamiento
+`feedback.recomendacion_id = recomendacion.recomendacion_id` da la tupla completa **(perfil, recursos A/B/C, salida del modelo, juicio del estudiante)**, que es la unidad del dataset B de `docs/investigacion/destilacion-finetuning.md`.
 
-Cuando un evento se marca como `"descache"` (por ejemplo, el caso documentado de `demo-001` en E2-10 donde el modelo eligio el taller `tde-s1-C` de 60 min pese a que el estudiante tenia preferencia visual marcada):
+### 7.2 Como se usa cada tipo de evento
 
-1. **Diagnostico con el comentario:** El equipo revisa el campo `comentario` del estudiante junto con el perfil y los recursos de la semana para identificar la causa raiz (ej. el SLM dio mas peso al polo `activo` que al canal `visual` y a la carga de 15 min de `tde-s1-A`).
-2. **Regeneracion asistida por el Teacher (`Qwen 2.5 3B`):** Se invoca al modelo Teacher indicando la restriccion omitida para generar la justificacion y el descarte corregidos hacia el recurso adecuado (`tde-s1-A`), con validacion humana (acuerdo inter-anotador $\kappa \ge 0.7$).
-3. **Incorporacion al Dataset B (SFT / QLoRA):** La tripleta corregida se incorpora a `dataset_b.jsonl` para el siguiente ciclo de ajuste QLoRA, reduciendo la probabilidad de que el Student de `0.5B` repita el mismo error en perfiles equivalentes.
-4. **Insumo opcional para alineamiento de preferencias (DPO):** Dado que para un mismo `recomendacion_id` se dispone tanto de la respuesta rechazada (`descache`) como de la respuesta corregida (`acierto`), el par `(chosen, rejected)` queda listo por si en fases posteriores se aplica *Direct Preference Optimization* (DPO) sobre el Student.
+| Evento | Uso en el pipeline de E2-09 |
+|---|---|
+| **Acierto confiable** (`util=true`, `likert >= 4`, sin contradiccion) | Ejemplo positivo para el dataset B: entrada = perfil + recursos, salida = recurso elegido + justificacion. Sirve para SFT/LoRA del student o para filtrar las salidas del teacher en la destilacion. |
+| **Acierto debil** (`util=true`, `likert = 3` o sin Likert) | Se puede usar con menor peso, o solo si el ejemplo esta poco representado. |
+| **Descache** (`util=false`) | (a) **Revision docente:** el docente marca cual recurso debio recomendarse y el ejemplo corregido entra al dataset. (b) **Par de preferencia** (recurso corregido vs. recurso descartado) si mas adelante se prueba un ajuste por preferencias tipo DPO. (c) **Diagnostico** de sesgos por recurso y por tipo de perfil. |
+| **Contradiccion util/Likert** | Se excluye del entrenamiento hasta que alguien la revise. |
+| **Comentario** | No entra tal cual al dataset: puede tener datos personales. Se usa para entender los descaches y solo pasa al dataset despues de anonimizarlo. |
 
-### 6.3 Salvaguardas de privacidad y gobernanza de datos (E2-14)
+### 7.3 Evaluacion del modelo
 
-- En el repositorio versionado (`poc_slm/feedback/eventos_feedback.jsonl`) **unicamente** se almacenan eventos correspondientes a perfiles con `"origen": "simulado"` (`demo-001`, `demo-002`, `demo-003`, `sim-*`).
-- El campo `estudiante_id` utiliza identificadores pseudonimizados (nunca nombres completos, correos ni codigos estudiantiles reales), y el campo `comentario` no debe contener datos personales sensibles antes de integrarse a cualquier lote de entrenamiento.
+La tasa de acierto es tambien la **metrica de calidad** que E2-09 compara entre modelos: baseline del student sin ajuste vs. student ajustado vs. teacher, con el mismo conjunto de perfiles. Para que la comparacion sea justa:
+
+- la meta de tasa de acierto se fija **despues** de medir el baseline con datos reales, no antes;
+- las tasas por recurso se revisan junto con la global, para que una mejora global no oculte que el modelo dejo de recomendar una de las opciones.
+
+### 7.4 Base para la validacion ARCS/IMMS
+
+El modelo ARCS (Keller) evalua la motivacion en cuatro dimensiones: Atencion, Relevancia, Confianza y Satisfaccion. Su instrumento IMMS es un cuestionario Likert extenso. El feedback de este issue **no lo reemplaza**: la pregunta binaria y la Likert de una sola pregunta miden sobre todo la utilidad percibida, cercana a Relevancia y Satisfaccion. Lo que se deja preparado para esa validacion posterior:
+
+- la llave `recomendacion_id` / `estudiante_id`, para unir las respuestas IMMS con las recomendaciones;
+- el patron JSONL + schema, para registrar el cuestionario con otro schema sin cambiar el pipeline.
+
+---
+
+## 8. Limitaciones conocidas
+
+1. **Utilidad percibida no es aprendizaje.** Un estudiante puede marcar "util" el recurso mas corto aunque aprenda menos. Validar contra el desempeno (notas de Moodle) queda fuera del alcance de la Entrega 2.
+2. **Sesgo de no respuesta.** Los estudiantes que responden pueden no representar a todo el grupo. Conviene reportar la tasa de respuesta (feedback recibidos / recomendaciones emitidas) cuando exista el registro de E2-10.
+3. **Los datos simulados no son evidencia.** `feedback_simulado.jsonl` solo prueba que el modulo funciona; sus tasas dependen de `--prob-util` y no dicen nada del modelo.
+4. **Privacidad.** `estudiante_id` debe estar seudonimizado y el feedback real no se versiona en git.
+
+---
+
+## 9. Criterios de aceptacion
+
+- [x] `docs/especificaciones/feedback.schema.json` formalizado y validado (seccion 4 y 6.5).
+- [x] Formulas de los KPIs de acierto y descache documentadas (seccion 5).
+- [x] `poc_slm/feedback_tracker.py` registra correctamente eventos de feedback simulados (seccion 6.5).
+- [x] Documento `docs/especificaciones/feedback-loop.md` completado.

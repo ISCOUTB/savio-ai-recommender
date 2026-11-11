@@ -1,0 +1,1002 @@
+{
+  "curso": 3,
+  "resumen": {
+    "actividades_por_tipo": {
+      "book": 1,
+      "forum": 10,
+      "url": 6,
+      "page": 1,
+      "resource": 20,
+      "feedback": 1,
+      "label": 17,
+      "assign": 18
+    },
+    "actividades_incluidas": 28,
+    "archivos": 24,
+    "archivos_incluidos": 20,
+    "bytes_total": 60367316,
+    "bytes_incluidos": 21150110
+  },
+  "actividades": [
+    {
+      "cmid": 2,
+      "seccion": 0,
+      "tipo": "book",
+      "instancia": 1,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 3,
+      "seccion": 0,
+      "tipo": "forum",
+      "instancia": 2,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 4,
+      "seccion": 0,
+      "tipo": "url",
+      "instancia": 1,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 5,
+      "seccion": 0,
+      "tipo": "page",
+      "instancia": 1,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 6,
+      "seccion": 0,
+      "tipo": "resource",
+      "instancia": 1,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 7,
+      "seccion": 0,
+      "tipo": "forum",
+      "instancia": 3,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 8,
+      "seccion": 0,
+      "tipo": "feedback",
+      "instancia": 1,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 9,
+      "seccion": 0,
+      "tipo": "forum",
+      "instancia": 4,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 10,
+      "seccion": 0,
+      "tipo": "url",
+      "instancia": 2,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 11,
+      "seccion": 0,
+      "tipo": "url",
+      "instancia": 3,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 12,
+      "seccion": 1,
+      "tipo": "label",
+      "instancia": 1,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 13,
+      "seccion": 1,
+      "tipo": "label",
+      "instancia": 2,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 14,
+      "seccion": 1,
+      "tipo": "resource",
+      "instancia": 2,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 15,
+      "seccion": 1,
+      "tipo": "forum",
+      "instancia": 5,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 16,
+      "seccion": 1,
+      "tipo": "assign",
+      "instancia": 1,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 17,
+      "seccion": 2,
+      "tipo": "label",
+      "instancia": 3,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 18,
+      "seccion": 2,
+      "tipo": "resource",
+      "instancia": 3,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 19,
+      "seccion": 2,
+      "tipo": "assign",
+      "instancia": 2,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 20,
+      "seccion": 3,
+      "tipo": "label",
+      "instancia": 4,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 21,
+      "seccion": 3,
+      "tipo": "resource",
+      "instancia": 4,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 22,
+      "seccion": 3,
+      "tipo": "forum",
+      "instancia": 6,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 23,
+      "seccion": 3,
+      "tipo": "assign",
+      "instancia": 3,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 24,
+      "seccion": 4,
+      "tipo": "label",
+      "instancia": 5,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 25,
+      "seccion": 4,
+      "tipo": "resource",
+      "instancia": 5,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 26,
+      "seccion": 4,
+      "tipo": "url",
+      "instancia": 4,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 27,
+      "seccion": 4,
+      "tipo": "url",
+      "instancia": 5,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 28,
+      "seccion": 4,
+      "tipo": "assign",
+      "instancia": 4,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 29,
+      "seccion": 4,
+      "tipo": "resource",
+      "instancia": 6,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 30,
+      "seccion": 5,
+      "tipo": "label",
+      "instancia": 6,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 31,
+      "seccion": 5,
+      "tipo": "assign",
+      "instancia": 5,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 32,
+      "seccion": 5,
+      "tipo": "forum",
+      "instancia": 7,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 33,
+      "seccion": 6,
+      "tipo": "label",
+      "instancia": 7,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 34,
+      "seccion": 6,
+      "tipo": "forum",
+      "instancia": 8,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 35,
+      "seccion": 6,
+      "tipo": "resource",
+      "instancia": 7,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 36,
+      "seccion": 6,
+      "tipo": "assign",
+      "instancia": 6,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 37,
+      "seccion": 7,
+      "tipo": "label",
+      "instancia": 8,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 38,
+      "seccion": 7,
+      "tipo": "resource",
+      "instancia": 8,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 39,
+      "seccion": 7,
+      "tipo": "assign",
+      "instancia": 7,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 40,
+      "seccion": 7,
+      "tipo": "resource",
+      "instancia": 9,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 41,
+      "seccion": 8,
+      "tipo": "label",
+      "instancia": 9,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 42,
+      "seccion": 8,
+      "tipo": "assign",
+      "instancia": 8,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 43,
+      "seccion": 8,
+      "tipo": "assign",
+      "instancia": 9,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 44,
+      "seccion": 8,
+      "tipo": "url",
+      "instancia": 6,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 45,
+      "seccion": 8,
+      "tipo": "resource",
+      "instancia": 10,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 46,
+      "seccion": 8,
+      "tipo": "resource",
+      "instancia": 11,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 47,
+      "seccion": 9,
+      "tipo": "label",
+      "instancia": 10,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 48,
+      "seccion": 9,
+      "tipo": "forum",
+      "instancia": 9,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 49,
+      "seccion": 9,
+      "tipo": "assign",
+      "instancia": 10,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 50,
+      "seccion": 9,
+      "tipo": "resource",
+      "instancia": 12,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 51,
+      "seccion": 10,
+      "tipo": "label",
+      "instancia": 11,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 52,
+      "seccion": 10,
+      "tipo": "assign",
+      "instancia": 11,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 53,
+      "seccion": 10,
+      "tipo": "forum",
+      "instancia": 10,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 54,
+      "seccion": 10,
+      "tipo": "resource",
+      "instancia": 13,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 55,
+      "seccion": 11,
+      "tipo": "label",
+      "instancia": 12,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 56,
+      "seccion": 11,
+      "tipo": "resource",
+      "instancia": 14,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 57,
+      "seccion": 11,
+      "tipo": "resource",
+      "instancia": 15,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 58,
+      "seccion": 11,
+      "tipo": "assign",
+      "instancia": 12,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 59,
+      "seccion": 11,
+      "tipo": "resource",
+      "instancia": 16,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 60,
+      "seccion": 12,
+      "tipo": "label",
+      "instancia": 13,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 61,
+      "seccion": 12,
+      "tipo": "resource",
+      "instancia": 17,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 62,
+      "seccion": 12,
+      "tipo": "assign",
+      "instancia": 13,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 63,
+      "seccion": 12,
+      "tipo": "assign",
+      "instancia": 14,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 64,
+      "seccion": 12,
+      "tipo": "resource",
+      "instancia": 18,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 65,
+      "seccion": 13,
+      "tipo": "label",
+      "instancia": 14,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 66,
+      "seccion": 13,
+      "tipo": "assign",
+      "instancia": 15,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 67,
+      "seccion": 14,
+      "tipo": "label",
+      "instancia": 15,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 68,
+      "seccion": 14,
+      "tipo": "resource",
+      "instancia": 19,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 69,
+      "seccion": 14,
+      "tipo": "assign",
+      "instancia": 16,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 70,
+      "seccion": 14,
+      "tipo": "resource",
+      "instancia": 20,
+      "incluir": true,
+      "motivo": "actividad de contenido",
+      "revision_manual": false
+    },
+    {
+      "cmid": 71,
+      "seccion": 16,
+      "tipo": "label",
+      "instancia": 16,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 72,
+      "seccion": 16,
+      "tipo": "assign",
+      "instancia": 17,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 73,
+      "seccion": 16,
+      "tipo": "forum",
+      "instancia": 11,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    },
+    {
+      "cmid": 74,
+      "seccion": 17,
+      "tipo": "label",
+      "instancia": 17,
+      "incluir": false,
+      "motivo": "etiqueta: pendiente de revision manual del texto",
+      "revision_manual": true
+    },
+    {
+      "cmid": 75,
+      "seccion": 17,
+      "tipo": "assign",
+      "instancia": 18,
+      "incluir": false,
+      "motivo": "actividad de estudiantes (datos personales)",
+      "revision_manual": false
+    }
+  ],
+  "archivos": [
+    {
+      "filename": "El_Dilema_del_Arquitecto.mp4",
+      "contenthash": "3b5efbdc0471c6884e8bd1c2038e850da18a0229",
+      "mimetype": "video/mp4",
+      "bytes": 35880419,
+      "componente": "mod_label",
+      "nivel_contexto": "actividad",
+      "cmid": 13,
+      "seccion": 1,
+      "tipo_actividad": "label",
+      "incluir": false,
+      "motivo": "video: no convertible en este flujo"
+    },
+    {
+      "filename": "FastAPI_Flutter_Blueprint.pdf",
+      "contenthash": "c3d22320aa66a253738c39e316ccc3351a7cefcb",
+      "mimetype": "application/pdf",
+      "bytes": 11474339,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 29,
+      "seccion": 4,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "ChatGPT Image 1 ago 2026, 11_41_12 p.m.png",
+      "contenthash": "a8dd945640d981362435a4bb20699a147d24d154",
+      "mimetype": "image/png",
+      "bytes": 1899603,
+      "componente": "course",
+      "nivel_contexto": "curso",
+      "cmid": null,
+      "seccion": null,
+      "tipo_actividad": null,
+      "incluir": false,
+      "motivo": "imagen: no convertible en este flujo"
+    },
+    {
+      "filename": "SA_Lecture05b_Service-OrientedComputing.pdf",
+      "contenthash": "b23a2584f20d8a46d130d8bdfdf38f7ee63bcb05",
+      "mimetype": "application/pdf",
+      "bytes": 1375151,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 57,
+      "seccion": 11,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "01_SA_Introduction.pdf",
+      "contenthash": "975c4a542fa7b9b1ded4d46c836760e203cffb41",
+      "mimetype": "application/pdf",
+      "bytes": 1368584,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 14,
+      "seccion": 1,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "SA_Lecture08b_Microservices.pdf",
+      "contenthash": "43cdfeabbf1494571bac1ffb3d40d647987ce2b3",
+      "mimetype": "application/pdf",
+      "bytes": 1075488,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 56,
+      "seccion": 11,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "S03-estilos-tacticas-y-adr-UTB.pdf",
+      "contenthash": "a7e5f0c934a6bf42f830c88fb622ca5651d52cbb",
+      "mimetype": "application/pdf",
+      "bytes": 768046,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 21,
+      "seccion": 3,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "image.png",
+      "contenthash": "c3a6581987876dd003449fe81708b3b91af79958",
+      "mimetype": "image/png",
+      "bytes": 718592,
+      "componente": "course",
+      "nivel_contexto": "curso",
+      "cmid": null,
+      "seccion": null,
+      "tipo_actividad": null,
+      "incluir": false,
+      "motivo": "imagen: no convertible en este flujo"
+    },
+    {
+      "filename": "image (1).png",
+      "contenthash": "c3a6581987876dd003449fe81708b3b91af79958",
+      "mimetype": "image/png",
+      "bytes": 718592,
+      "componente": "course",
+      "nivel_contexto": "curso",
+      "cmid": null,
+      "seccion": null,
+      "tipo_actividad": null,
+      "incluir": false,
+      "motivo": "imagen: no convertible en este flujo"
+    },
+    {
+      "filename": "Introducción a WWW.pdf",
+      "contenthash": "0b801ded2709bb452c208828626a367117b7ec3d",
+      "mimetype": "application/pdf",
+      "bytes": 536981,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 38,
+      "seccion": 7,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "sesion-11.html",
+      "contenthash": "f77654c6b825be5cb45898492a6d548a451009e7",
+      "mimetype": "text/html",
+      "bytes": 505963,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 59,
+      "seccion": 11,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "sesion-12.html",
+      "contenthash": "e0185b9a4427ad83dd171b4ca783edcc12d34302",
+      "mimetype": "text/html",
+      "bytes": 493394,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 64,
+      "seccion": 12,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "sesion-14.html",
+      "contenthash": "fc5a88d238a3d948975656dba608287b63746613",
+      "mimetype": "text/html",
+      "bytes": 482060,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 70,
+      "seccion": 14,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "sesion-10.html",
+      "contenthash": "d5836e6b5c58fbc011ecfb5c710303c9776304c3",
+      "mimetype": "text/html",
+      "bytes": 447460,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 54,
+      "seccion": 10,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "SD_Lecture0 Serverless.pdf",
+      "contenthash": "6ac6d8e1c48b4eafb9eea2af1379bb043c132f74",
+      "mimetype": "application/pdf",
+      "bytes": 426101,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 45,
+      "seccion": 8,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "S04-documentacion-arquitectonica-UTB.pdf",
+      "contenthash": "0553ec137780f1c28e7e3ae4cd0177e468a00496",
+      "mimetype": "application/pdf",
+      "bytes": 384325,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 25,
+      "seccion": 4,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "SA_Lecture - Data Intensive.pdf",
+      "contenthash": "f1b47059ec9813592169d6fb865f7a0f41a175a8",
+      "mimetype": "application/pdf",
+      "bytes": 361460,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 61,
+      "seccion": 12,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "SA - Análisis y Evaluación.pdf",
+      "contenthash": "8160a537c1a683f25c25684570a4bcfa21f34c9f",
+      "mimetype": "application/pdf",
+      "bytes": 356614,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 68,
+      "seccion": 14,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "S08-despliegue-y-operacion.pdf",
+      "contenthash": "613cf38229d3e5cf96f8b850e4b1dcd7073006c0",
+      "mimetype": "application/pdf",
+      "bytes": 284313,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 46,
+      "seccion": 8,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "S07-interfaces-y-contratos.pdf",
+      "contenthash": "7fc0488ea6301c8e69458ff7b8e696cc8c68ad54",
+      "mimetype": "application/pdf",
+      "bytes": 276887,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 40,
+      "seccion": 7,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "S02-interesados-atributos-y-calidad-integrada.pdf",
+      "contenthash": "cd301e30bccf9ebd1dcfd37109ab5bc8f2e12db6",
+      "mimetype": "application/pdf",
+      "bytes": 274221,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 18,
+      "seccion": 2,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "S09-ia-verificacion-y-erosion.pdf",
+      "contenthash": "a9edc2f92920bb383942eaa77885494f6e329c4d",
+      "mimetype": "application/pdf",
+      "bytes": 125040,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 50,
+      "seccion": 9,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "S06-dominio-y-modularidad.pdf",
+      "contenthash": "7cf360bad37143b5a170691857da9c17b260274e",
+      "mimetype": "application/pdf",
+      "bytes": 123733,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 35,
+      "seccion": 6,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    },
+    {
+      "filename": "arc42-template-EN-plain-markdown.zip",
+      "contenthash": "469f98dc328f0b0fb9a5e23bf661202e62671bbd",
+      "mimetype": "application/zip",
+      "bytes": 9950,
+      "componente": "mod_resource",
+      "nivel_contexto": "actividad",
+      "cmid": 6,
+      "seccion": 0,
+      "tipo_actividad": "resource",
+      "incluir": true,
+      "motivo": "documento de contenido convertible"
+    }
+  ]
+}

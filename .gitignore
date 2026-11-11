@@ -14,6 +14,20 @@ Thumbs.db
 # Perfiles con datos reales (E2-14: solo perfiles simulados se versionan)
 perfiles/reales/
 
+# E3-03: datos reales de instrumentos y salidas con datos reales (solo local)
+datos/reales/
+salidas/reales/
+
+# E3-06: intermedios del reparto sin API (se regeneran con repartir/compilar)
+datos/corpus/reparto/
+datos/corpus/lotes/
+datos/corpus/respuestas-lotes/
+datos/corpus/respuestas.jsonl
+datos/corpus/fallidos.jsonl
+
+# E3-03: formulacion con nombres y codigos de integrantes (no versionar)
+/Formulacion_Proyecto_PerfilIA_v*.pdf
+
 # Documentos base del docente (ver fuentes/README.md)
 fuentes/*.docx
 fuentes/*.pdf
@@ -21,3 +35,10 @@ fuentes/*.pptx
 
 # Salidas locales del Prompt Builder
 poc_slm/salidas/
+
+# CUR-01: backup .mbz y archivos extraidos del curso del profesor (solo local)
+*.mbz
+datos/curso/crudos/
+# CUR-05/CUR-06: texto del curso y corpus derivado (uso local, no publicar en el repo)
+datos/curso/markdown/
+datos/curso/corpus_curso.jsonl

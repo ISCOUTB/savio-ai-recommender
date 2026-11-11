@@ -308,7 +308,9 @@ Dos observaciones utiles para la demo:
 
 ### 10.3 Lo que sigue pendiente
 
-E2-14 quedo en P2 con label `backlog`, y se activa cuando: (a) se apliquen tests a estudiantes fuera del equipo, o (b) se quieran mostrar perfiles reales en la demo E2-12. Contiene 30 preguntas agrupadas en 9 bloques (marco normativo, consentimiento, finalidad, acceso, conservacion, derechos, seguridad, comunicacion y publicacion) para la oficina de datos personales o el comite de etica.
+> Canonico para Entrega 3: [lineamientos-datos-psicometricos.md](../entregas/entrega-3-interpretacion-psicometrica/lineamientos-datos-psicometricos.md). Esta seccion conserva el historico de E2-14.
+
+E2-14 se recategorizo como E3-03 (#38). La regla de solo simulados y el consentimiento de los tres integrantes se detallan en el lineamiento canonico. La validacion juridica con la UTB sigue pendiente. E2-14 contenia 30 preguntas agrupadas en 9 bloques (marco normativo, consentimiento, finalidad, acceso, conservacion, derechos, seguridad, comunicacion y publicacion) para la oficina de datos personales o el comite de etica.
 
 La regla de solo simulados **no reemplaza** el consentimiento: solo evita el dano irreversible mientras se consigue el lineamiento.
 

@@ -1,0 +1,40 @@
+{
+  "id": "ejemplo-dominante",
+  "origen": "sintetico",
+  "fecha_aplicacion": "2026-10-28",
+  "chaside": {
+    "C": { "interes": 4, "aptitud": 2, "total": 6 },
+    "H": { "interes": 5, "aptitud": 2, "total": 7 },
+    "A": { "interes": 3, "aptitud": 1, "total": 4 },
+    "S": { "interes": 2, "aptitud": 1, "total": 3 },
+    "I": { "interes": 9, "aptitud": 4, "total": 13 },
+    "D": { "interes": 2, "aptitud": 1, "total": 3 },
+    "E": { "interes": 8, "aptitud": 3, "total": 11 }
+  },
+  "ils": {
+    "activo": 8,
+    "reflexivo": 3,
+    "sensitivo": 4,
+    "intuitivo": 7,
+    "visual": 9,
+    "verbal": 2,
+    "secuencial": 6,
+    "global": 5
+  },
+  "diferencial": {
+    "activo_reflexivo": 5,
+    "sensitivo_intuitivo": -3,
+    "visual_verbal": 7,
+    "secuencial_global": 1
+  },
+  "personalidad": {
+    "extraversion": 3,
+    "introversion": 7,
+    "sensing": 4,
+    "intuition": 8,
+    "thinking": 7,
+    "feeling": 3,
+    "judging": 8,
+    "perceptive": 2
+  }
+}

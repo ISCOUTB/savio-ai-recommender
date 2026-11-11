@@ -1,0 +1,160 @@
+{
+  "archivos": [
+    {
+      "filename": "FastAPI_Flutter_Blueprint.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-04\\FastAPI_Flutter_Blueprint.pdf",
+      "bytes": 11474339,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "SA_Lecture05b_Service-OrientedComputing.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-11\\SA_Lecture05b_Service-OrientedComputing.pdf",
+      "bytes": 1375151,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "01_SA_Introduction.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-01\\01_SA_Introduction.pdf",
+      "bytes": 1368584,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "SA_Lecture08b_Microservices.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-11\\SA_Lecture08b_Microservices.pdf",
+      "bytes": 1075488,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "S03-estilos-tacticas-y-adr-UTB.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-03\\S03-estilos-tacticas-y-adr-UTB.pdf",
+      "bytes": 768046,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "Introducción a WWW.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-07\\Introducción a WWW.pdf",
+      "bytes": 536981,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "sesion-11.html",
+      "ruta": "datos\\curso\\crudos\\seccion-11\\sesion-11.html",
+      "bytes": 505963,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "sesion-12.html",
+      "ruta": "datos\\curso\\crudos\\seccion-12\\sesion-12.html",
+      "bytes": 493394,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "sesion-14.html",
+      "ruta": "datos\\curso\\crudos\\seccion-14\\sesion-14.html",
+      "bytes": 482060,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "sesion-10.html",
+      "ruta": "datos\\curso\\crudos\\seccion-10\\sesion-10.html",
+      "bytes": 447460,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "SD_Lecture0 Serverless.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-08\\SD_Lecture0 Serverless.pdf",
+      "bytes": 426101,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "S04-documentacion-arquitectonica-UTB.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-04\\S04-documentacion-arquitectonica-UTB.pdf",
+      "bytes": 384325,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "SA_Lecture - Data Intensive.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-12\\SA_Lecture - Data Intensive.pdf",
+      "bytes": 361460,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "SA - Análisis y Evaluación.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-14\\SA - Análisis y Evaluación.pdf",
+      "bytes": 356614,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "S08-despliegue-y-operacion.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-08\\S08-despliegue-y-operacion.pdf",
+      "bytes": 284313,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "S07-interfaces-y-contratos.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-07\\S07-interfaces-y-contratos.pdf",
+      "bytes": 276887,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "S02-interesados-atributos-y-calidad-integrada.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-02\\S02-interesados-atributos-y-calidad-integrada.pdf",
+      "bytes": 274221,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "S09-ia-verificacion-y-erosion.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-09\\S09-ia-verificacion-y-erosion.pdf",
+      "bytes": 125040,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "S06-dominio-y-modularidad.pdf",
+      "ruta": "datos\\curso\\crudos\\seccion-06\\S06-dominio-y-modularidad.pdf",
+      "bytes": 123733,
+      "sha1_ok": true,
+      "estado": "ok"
+    },
+    {
+      "filename": "arc42-template-EN-plain-markdown.zip",
+      "ruta": "datos\\curso\\crudos\\seccion-00\\arc42-template-EN-plain-markdown.zip",
+      "bytes": 9950,
+      "sha1_ok": true,
+      "estado": "ok"
+    }
+  ],
+  "textos": [
+    {
+      "tipo": "book",
+      "instancia": 1,
+      "ruta": "datos\\curso\\crudos\\texto\\seccion-00-book-1.html",
+      "bytes": 66385,
+      "estado": "ok"
+    },
+    {
+      "tipo": "page",
+      "instancia": 1,
+      "ruta": "datos\\curso\\crudos\\texto\\seccion-00-page-1.html",
+      "bytes": 433,
+      "estado": "ok"
+    }
+  ]
+}
