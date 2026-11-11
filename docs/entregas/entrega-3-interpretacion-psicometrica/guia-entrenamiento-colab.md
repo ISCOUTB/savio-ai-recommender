@@ -197,7 +197,7 @@ Cada registro se convierte en una conversacion con tres turnos: `system` (contra
 | `per_device_train_batch_size` | 1 | T4 con `max_length` 2048 |
 | `gradient_accumulation_steps` | 8 | Batch efectivo 8 sin pedir mas VRAM |
 | `max_length` | 2048 | Los informes de 4 secciones rondan 700 a 1200 tokens |
-| `warmup_ratio` | 0.1 | Evita pasos grandes al inicio |
+| `warmup_steps` | 0.1 | Evita pasos grandes al inicio; en transformers 5 un valor menor que 1 es la proporcion de pasos (reemplaza a `warmup_ratio`) |
 | `lr_scheduler_type` | `cosine` | Bajada suave al final |
 | `fp16` | `True` | T4 |
 | `gradient_checkpointing` | `True` | Ahorra VRAM a cambio de ~20 por ciento de tiempo |
@@ -239,7 +239,7 @@ La fidelidad formal (porcentaje frente al *ground truth*) es E3-09; aqui solo se
 
 | Paso | Comando (en Colab) | Resultado esperado |
 |---|---|---|
-| Unir adaptador | `model.merge_and_unload()` + `save_pretrained` | Carpeta `merged/` con safetensors |
+| Unir adaptador | Guardar el adaptador, recargar el base en fp16 y `PeftModel.from_pretrained(...).merge_and_unload()` | Carpeta `merged/` con safetensors en fp16 (unir sobre el modelo en 4 bits deja pesos que `convert_hf_to_gguf.py` no acepta) |
 | Convertir | `python convert_hf_to_gguf.py merged --outtype f16` | `modelo-f16.gguf` (~3 GB) |
 | Compilar | `cmake -B build && cmake --build build -j` | Binario `llama-quantize` |
 | Cuantizar | `./build/bin/llama-quantize modelo-f16.gguf modelo-q4_k_m.gguf Q4_K_M` | ~1.1 GB para 1.5B |
