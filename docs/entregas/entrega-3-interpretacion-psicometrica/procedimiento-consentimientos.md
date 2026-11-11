@@ -20,7 +20,7 @@ psicometricos. Sin consentimiento firmado no se procesa ningun puntaje real
 | Integrante | Cuenta de Moodle | Estado del consentimiento |
 |---|---|---|
 | Persona 1 | `persona-1` | Firmado el 2026-11-10; perfil extraido el 2026-11-09 y fila registrada en la bitacora |
-| Persona 2 | `persona-2` | Pendiente |
+| Persona 2 | `persona-2` | Firmado el 2026-11-10; perfil pendiente de extraer |
 | Persona 3 | `persona-3` | Firmado el 2026-11-10; perfil extraido el 2026-10-27 y fila registrada en la bitacora |
 
 Nadie mas firma: en Proyecto de Ingenieria I no se procesan datos de personas
