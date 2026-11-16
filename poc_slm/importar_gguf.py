@@ -59,6 +59,7 @@ def construir_modelfile(ruta, temperatura=TEMPERATURA, num_predict=NUM_PREDICT):
     return (
         f"FROM {origen}\n"
         f"{PLANTILLA_CHATML}\n"
+        "PARAMETER num_gpu 0\n"
         f"PARAMETER temperature {temperatura}\n"
         f"PARAMETER num_predict {num_predict}\n"
         f'PARAMETER stop "{STOP}"\n'
