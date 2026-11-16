@@ -1,0 +1,111 @@
+{
+  "fecha_utc": "20261116T205627Z",
+  "hardware": {
+    "cpu": "12th Gen Intel(R) Core(TM) i5-1235U",
+    "nucleos_fisicos": 10,
+    "hilos": 12,
+    "ram_total_gb": 15.7,
+    "gpu": "N/D",
+    "so": "Windows 11 (10.0.26200)",
+    "ollama": "0.40.16"
+  },
+  "modelo": "savio-e3-9ed11dcc",
+  "gguf_sha256": "9ed11dcc6d881c579207a325bc2092dcaf9e90f7920755030481c78d5800822f",
+  "perfil": "perfiles\\brutos\\ejemplo-perfil-bruto-dominante.json",
+  "perfil_sha256": "6cd3d158869887756c80dd16b9400feedd4e8b6e52b2c3055fd7879e26112c51",
+  "opciones": {
+    "num_gpu": 0,
+    "num_predict": 1200,
+    "num_ctx": 4096,
+    "temperature": 0,
+    "seed": 42,
+    "stop": [
+      "<|im_end|>"
+    ]
+  },
+  "lectura_calculada": {
+    "ils": {
+      "activo/reflexivo": {
+        "diferencia_absoluta": 5,
+        "banda": "sin preferencia clara",
+        "polo_mayor": "activo",
+        "empate": false
+      },
+      "sensitivo/intuitivo": {
+        "diferencia_absoluta": 3,
+        "banda": "sin preferencia clara",
+        "polo_mayor": "intuitivo",
+        "empate": false
+      },
+      "visual/verbal": {
+        "diferencia_absoluta": 7,
+        "banda": "sin preferencia clara",
+        "polo_mayor": "visual",
+        "empate": false
+      },
+      "secuencial/global": {
+        "diferencia_absoluta": 1,
+        "banda": "sin preferencia clara",
+        "polo_mayor": "secuencial",
+        "empate": false
+      }
+    },
+    "personalidad": {
+      "extraversion/introversion": {
+        "diferencia_absoluta": 4,
+        "banda": "preferencia",
+        "polo_mayor": "introversion",
+        "empate": false
+      },
+      "sensing/intuition": {
+        "diferencia_absoluta": 4,
+        "banda": "preferencia",
+        "polo_mayor": "intuition",
+        "empate": false
+      },
+      "thinking/feeling": {
+        "diferencia_absoluta": 4,
+        "banda": "preferencia",
+        "polo_mayor": "thinking",
+        "empate": false
+      },
+      "judging/perceptive": {
+        "diferencia_absoluta": 6,
+        "banda": "preferencia",
+        "polo_mayor": "judging",
+        "empate": false
+      }
+    },
+    "chaside": {
+      "C": {
+        "banda": "media"
+      },
+      "H": {
+        "banda": "media"
+      },
+      "A": {
+        "banda": "baja"
+      },
+      "S": {
+        "banda": "baja"
+      },
+      "I": {
+        "banda": "alta"
+      },
+      "D": {
+        "banda": "baja"
+      },
+      "E": {
+        "banda": "alta"
+      }
+    }
+  },
+  "fuentes_sha256": {
+    "poc_slm/interpretador.py": "3bb67fc0493eb7b6e6e341d07102569a1112f1851a23483e41852b0fa796643f",
+    "poc_slm/lectura_baremos.py": "0adfcafcff23df3b35f410ed2927cbe8ee41b2c02277ad1c9e9487e0f4782417",
+    "benchmarks/probar_refuerzo_e3.py": "d43d085cc3041d9a9b815b7807c5459367776edf6bd8cff127c4809aca48e871",
+    "benchmarks/citas_json_e3.py": "76918782369b92f0217f3e7d0209345de2437af636eaefc24e11089e8f6d232e",
+    "docs/especificaciones/baremos-psicometricos.md": "1c71a6fcb8a2cfe20d27940b377005e9e3df4a8cb8a0ce98ee0f50b1689aac21"
+  },
+  "alcance": "Un perfil conocido, una respuesta por modo, sin reintentos; no acredita fidelidad global ni selecciona la mejor salida"
+}

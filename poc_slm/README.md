@@ -11,7 +11,7 @@ poc_slm/
 ├── recommender.py        ← Script principal (middleware simplificado de la PoC)
 ├── interpretador.py      ← Backend de interpretacion psicometrica integrada (Entrega 3, E3-07)
 ├── importar_gguf.py      ← Importa el GGUF ajustado en Ollama con ChatML (E3-07)
-├── test_interpretador.py ← 24 chequeos del backend, sin Ollama
+├── test_interpretador.py ← 50 chequeos del backend, sin Ollama
 ├── eventos/
 │   ├── bajo_desempeno.json   ← Evento de ejemplo (Sprint 2)
 │   ├── A_nota_baja.json      ← Escenario A: tutoria reactiva ante nota baja (Sprint 3)
@@ -79,7 +79,55 @@ importacion con `--forzar`.
 
 En `--dry-run` el backend valida el GGUF y muestra el nombre del modelo, pero no
 importa nada en Ollama. `--gguf` y `--modelo` son mutuamente excluyentes: el
-primero es el modelo ajustado y el segundo el modelo base de comparacion.
+primero importa un archivo GGUF; el segundo usa un nombre ya instalado en Ollama.
+
+### Refuerzo experimental de baremos
+
+`--refuerzo-baremos` agrega al turno de usuario las reglas del proyecto y la
+lectura calculada de cada eje y area. El system original y los puntajes brutos
+se conservan. Las reglas ejecutables viven en [lectura_baremos.py](lectura_baremos.py)
+y siguen [los baremos E3-04](../docs/especificaciones/baremos-psicometricos.md):
+diferencias ILS 9/11, diferencia de personalidad >=4 y bandas CHASIDE 0-5/6-10/11-14.
+Un empate requiere conteos iguales; equilibrio y empate son conceptos distintos.
+
+```bash
+# Revisar los hechos que recibira el modelo, sin inferencia
+python poc_slm/interpretador.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json --modelo savio-e3-9ed11dcc --refuerzo-baremos --dry-run
+
+# Comparar un solo perfil con/sin refuerzo, mismo GGUF y parametros fijos
+python benchmarks/probar_refuerzo_e3.py --perfil perfiles/brutos/ejemplo-perfil-bruto-dominante.json
+```
+
+El [comparador](../benchmarks/probar_refuerzo_e3.py) admite solo perfiles sinteticos
+y escribe una carpeta nueva en `benchmarks/resultados/<equipo>/`. Conserva las
+respuestas crudas incluso si se rechazan y usa el mismo validador estricto para
+ambos modos. Es una exploracion sobre un caso conocido, no una nueva validacion
+del 85% ni evidencia de otro entrenamiento.
+
+El comparador usa temperatura 0 y semilla 42; el interpretador conserva
+temperatura 0.2. Las mediciones del comparador pertenecen a esos parametros.
+El comparador puede terminar con codigo 0 y respuestas rechazadas: revisa el
+campo de aceptacion y los hallazgos guardados en cada respuesta.
+
+Con el flag, el backend rechaza citas incorrectas u omitidas y contradicciones
+reconocidas de bandas, polos, empates y revision profesional. No reescribe el
+contenido del modelo para aprobarlo. El control semantico es parcial; la revision
+integral sigue pendiente aunque no se encuentren hallazgos. Los reintentos
+conservan las lecturas calculadas. El refuerzo se activa solo al pasar el flag.
+
+El formato reforzado es acotado: las tres primeras secciones contienen solo las
+filas calculadas que se entregaron como contexto. El SLM debe reproducirlas;
+Python comprueba su contenido y no las inserta para ocultar errores. La sintesis
+admite una o dos frases breves sobre actividades y contextos, sin numeros,
+bandas, polos ni nuevas clasificaciones. Este formato busca limitar las
+contradicciones y el tamano de salida. La sintesis debe proponer una tarea y un recurso, no repetir
+la instruccion del prompt; su utilidad psicopedagogica requiere revision humana.
+
+Estado del prototipo: no aprobado. La [ultima prueba de un perfil sintetico](../benchmarks/resultados/intel-i5-1235u-iris-xe/e3-refuerzo-20261116T211835Z/informe.md)
+reprodujo los puntajes y las filas, pero la sintesis introdujo afirmaciones
+incompatibles y fue rechazada. El flag sigue siendo opcional; falta resolver
+la sintesis antes de ampliar la evaluacion. La [bitacora](../experimentos/bitacora.md)
+conserva tambien los hallazgos de la lectura manual de los ensayos anteriores.
 
 ## Instalacion (desde la raiz del repositorio)
 

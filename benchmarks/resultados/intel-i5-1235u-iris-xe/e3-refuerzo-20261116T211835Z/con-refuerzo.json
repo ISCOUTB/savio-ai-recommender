@@ -1,0 +1,279 @@
+{
+  "refuerzo_baremos": true,
+  "mensajes": [
+    {
+      "role": "system",
+      "content": "Eres un asistente de orientacion psicopedagogica. Recibes los puntajes brutos de CHASIDE, Felder-Silverman y el test de personalidad, sin transformarlos. Respondes siempre en cuatro secciones: 1. Estilos de aprendizaje, 2. Rasgos de personalidad, 3. Perfil vocacional, 4. Sintesis integrada. Citas los puntajes recibidos, no inventas escalas, no emites diagnosticos ni etiquetas de tipo de personalidad, y cierras con el aviso de que el perfil es un apoyo al diagnostico inicial y no reemplaza al profesional."
+    },
+    {
+      "role": "user",
+      "content": "Puntajes brutos:\nCHASIDE: {\"C\": {\"interes\": 4, \"aptitud\": 2, \"total\": 6}, \"H\": {\"interes\": 5, \"aptitud\": 2, \"total\": 7}, \"A\": {\"interes\": 3, \"aptitud\": 1, \"total\": 4}, \"S\": {\"interes\": 2, \"aptitud\": 1, \"total\": 3}, \"I\": {\"interes\": 9, \"aptitud\": 4, \"total\": 13}, \"D\": {\"interes\": 2, \"aptitud\": 1, \"total\": 3}, \"E\": {\"interes\": 8, \"aptitud\": 3, \"total\": 11}}\nILS: {\"activo\": 8, \"reflexivo\": 3, \"sensitivo\": 4, \"intuitivo\": 7, \"visual\": 9, \"verbal\": 2, \"secuencial\": 6, \"global\": 5}\nPERSONALIDAD: {\"extraversion\": 3, \"introversion\": 7, \"sensing\": 4, \"intuition\": 8, \"thinking\": 7, \"feeling\": 3, \"judging\": 8, \"perceptive\": 2}\n\nREGLAS Y LECTURA OBLIGATORIA DEL PROYECTO:\nILS: diferencia absoluta 9 u 11 = preferencia marcada; 1, 3, 5 o 7 = sin preferencia clara.\nPersonalidad: diferencia absoluta de 4 o mas = preferencia; de 0 a 3 = equilibrado.\nNo apliques el umbral ILS de 9 a personalidad: personalidad usa el umbral 4.\nEquilibrado no significa empate. Solo hay empate cuando ambos conteos son iguales.\nCHASIDE: total de 11 a 14 = banda alta; de 6 a 10 = media; de 0 a 5 = baja.\nSon convenciones del proyecto, no puntos de corte clinicos ni baremos poblacionales.\n\nLECTURA CHASIDE Y DE LOS EJES CALCULADA POR EL BACKEND:\nFORMATO OBLIGATORIO: reproduce estas tres secciones y sus filas exactamente, sin parrafos ni resumenes adicionales:\n## 1. Estilos de aprendizaje\n- activo=8 / reflexivo=3; sin preferencia clara.\n- sensitivo=4 / intuitivo=7; sin preferencia clara.\n- visual=9 / verbal=2; sin preferencia clara.\n- secuencial=6 / global=5; sin preferencia clara.\n\n## 2. Rasgos de personalidad\n- extraversion=3 / introversion=7; preferencia hacia introversion.\n- sensing=4 / intuition=8; preferencia hacia intuition.\n- thinking=7 / feeling=3; preferencia hacia thinking.\n- judging=8 / perceptive=2; preferencia hacia judging.\n\n## 3. Perfil vocacional\n- C: interes=4, aptitud=2, total=6; banda media.\n- H: interes=5, aptitud=2, total=7; banda media.\n- A: interes=3, aptitud=1, total=4; banda baja.\n- S: interes=2, aptitud=1, total=3; banda baja.\n- I: interes=9, aptitud=4, total=13; banda alta.\n- D: interes=2, aptitud=1, total=3; banda baja.\n- E: interes=8, aptitud=3, total=11; banda alta.\n\n## 4. Sintesis integrada\nRedacta una o dos frases originales que indiquen una tarea concreta que podria hacer el estudiante y el material o recurso para realizarla.\nNo repitas instrucciones ni digas solamente que se propongan actividades. Describe directamente que se podria hacer y con que.\nEn la sintesis no menciones numeros, letras CHASIDE, bandas, polos, preferencias, comparaciones ni carreras. No vuelvas a clasificar resultados.\nNo inventes capacidades, causas ni revision profesional. Las tres primeras secciones ya contienen toda la lectura factual.\nTras la sintesis agrega este aviso literal: Este perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico."
+    }
+  ],
+  "respuesta_ollama": {
+    "model": "savio-e3-9ed11dcc",
+    "created_at": "2026-11-16T21:20:46.9839451Z",
+    "response": "## 1. Estilos de aprendizaje\n\n- activo=8 / reflexivo=3; sin preferencia clara.\n- sensitivo=4 / intuitivo=7; sin preferencia clara.\n- visual=9 / verbal=2; sin preferencia clara.\n- secuencial=6 / global=5; sin preferencia clara.\n\n## 2. Rasgos de personalidad\n\n- extraversion=3 / introversion=7; preferencia hacia introversion.\n- sensing=4 / intuition=8; preferencia hacia intuition.\n- thinking=7 / feeling=3; preferencia hacia thinking.\n- judging=8 / perceptive=2; preferencia hacia judging.\n\n## 3. Perfil vocacional\n\n- C: interes=4, aptitud=2, total=6; banda media.\n- H: interes=5, aptitud=2, total=7; banda media.\n- A: interes=3, aptitud=1, total=4; banda baja.\n- S: interes=2, aptitud=1, total=3; banda baja.\n- I: interes=9, aptitud=4, total=13; banda alta.\n- D: interes=2, aptitud=1, total=3; banda baja.\n- E: interes=8, aptitud=3, total=11; banda alta.\n\n## 4. Sintesis integrada\n\nEl estudiante puede explorar la historia de ILS y sus conexiones con el contexto social. La preferencia intuitiva no demuestra una capacidad creativa ni un mayor dominio conceptual; ambos ejes son equilibrados.",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 59278174000,
+    "load_duration": 17723700,
+    "prompt_eval_count": 1167,
+    "prompt_eval_cached_count": 3,
+    "prompt_eval_duration": 22694783000,
+    "eval_count": 350,
+    "eval_duration": 36555891000
+  },
+  "calentamiento": {
+    "model": "savio-e3-9ed11dcc",
+    "created_at": "2026-11-16T21:19:43.5883618Z",
+    "response": "Listo! \u00bfC\u00f3mo puedo ayudarte",
+    "done": true,
+    "done_reason": "length",
+    "context": [
+      151644,
+      8948,
+      198,
+      2610,
+      525,
+      1207,
+      16948,
+      11,
+      3465,
+      553,
+      54364,
+      14817,
+      13,
+      1446,
+      525,
+      264,
+      10950,
+      17847,
+      13,
+      151645,
+      198,
+      151644,
+      872,
+      198,
+      1061,
+      75049,
+      1140,
+      78,
+      151645,
+      198,
+      151644,
+      77091,
+      198,
+      852,
+      78,
+      0,
+      28286,
+      95897,
+      80815,
+      58137,
+      19840
+    ],
+    "total_duration": 4246691100,
+    "load_duration": 3191901400,
+    "prompt_eval_count": 33,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 560905000,
+    "eval_count": 8,
+    "eval_duration": 474492000
+  },
+  "texto_postprocesado": "## 1. Estilos de aprendizaje\n- activo=8 / reflexivo=3; sin preferencia clara.\n- sensitivo=4 / intuitivo=7; sin preferencia clara.\n- visual=9 / verbal=2; sin preferencia clara.\n- secuencial=6 / global=5; sin preferencia clara.\n## 2. Rasgos de personalidad\n- extraversion=3 / introversion=7; preferencia hacia introversion.\n- sensing=4 / intuition=8; preferencia hacia intuition.\n- thinking=7 / feeling=3; preferencia hacia thinking.\n- judging=8 / perceptive=2; preferencia hacia judging.\n## 3. Perfil vocacional\n- C: interes=4, aptitud=2, total=6; banda media.\n- H: interes=5, aptitud=2, total=7; banda media.\n- A: interes=3, aptitud=1, total=4; banda baja.\n- S: interes=2, aptitud=1, total=3; banda baja.\n- I: interes=9, aptitud=4, total=13; banda alta.\n- D: interes=2, aptitud=1, total=3; banda baja.\n- E: interes=8, aptitud=3, total=11; banda alta.\n## 4. Sintesis integrada\nEl estudiante puede explorar la historia de ILS y sus conexiones con el contexto social. La preferencia intuitiva no demuestra una capacidad creativa ni un mayor dominio conceptual; ambos ejes son equilibrados.\n\n---\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "latencia_s": 61.312946300000476,
+  "tokens_por_s": 9.574380227799672,
+  "memoria": {
+    "ram_pico_rss_bytes": 1254715392,
+    "muestras_ram": 77,
+    "muestras_api_ps": 21,
+    "vram_modelo_max_bytes": 0,
+    "cpu_verificada": true,
+    "otros_modelos_cargados": [],
+    "errores_muestreo": [],
+    "api_ps_final": {
+      "models": [
+        {
+          "name": "savio-e3-9ed11dcc:latest",
+          "model": "savio-e3-9ed11dcc:latest",
+          "size": 1173136342,
+          "digest": "28f329a6074f34570a76f221fda773c8fdbe6a8f4a56d0182e203bd0b744a3fb",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "1.5B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-16T16:30:46.9839451-05:00",
+          "size_vram": 0,
+          "context_length": 4096,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "fuente_vram": "Ollama /api/ps size_vram; no medicion NVIDIA"
+  },
+  "validacion_estricta_comun": {
+    "ok": false,
+    "estructura_ok": true,
+    "errores": [
+      "sintesis: no debe reclasificar numeros, bandas o polos; la lectura ya esta en las filas"
+    ],
+    "numeros_fuera_rango": [],
+    "errores_baremos": [
+      "sintesis: no debe reclasificar numeros, bandas o polos; la lectura ya esta en las filas"
+    ],
+    "revision_semantica_integral": "pendiente"
+  },
+  "auditoria": {
+    "numerica": {
+      "esperados": 37,
+      "campos_citados": 37,
+      "campos_correctos": 37,
+      "errores": {},
+      "faltantes": [],
+      "escalas_o_rangos": []
+    },
+    "estructura_ok": true,
+    "guardrail_crudo_ok": false,
+    "guardrail_backend_ok": true,
+    "aviso_agregado": true,
+    "baremos": {
+      "ils.activo_reflexivo": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "activo"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "ils.sensitivo_intuitivo": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "intuitivo"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "ils.visual_verbal": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "visual"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "ils.secuencial_global": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "secuencial"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "personalidad.extraversion_introversion": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "introversion"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "personalidad.sensing_intuition": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "intuition"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "personalidad.thinking_feeling": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "thinking"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "personalidad.judging_perceptive": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "judging"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.C": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.H": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.A": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.S": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.I": {
+        "esperado": {
+          "banda": "alta"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.D": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.E": {
+        "esperado": {
+          "banda": "alta"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      }
+    },
+    "alerta_revision_profesional_inventada": false,
+    "direcciones_contradictorias_reconocidas": []
+  }
+}
