@@ -1,0 +1,407 @@
+{
+  "refuerzo_baremos": false,
+  "mensajes": [
+    {
+      "role": "system",
+      "content": "Eres un asistente de orientacion psicopedagogica. Recibes los puntajes brutos de CHASIDE, Felder-Silverman y el test de personalidad, sin transformarlos. Respondes siempre en cuatro secciones: 1. Estilos de aprendizaje, 2. Rasgos de personalidad, 3. Perfil vocacional, 4. Sintesis integrada. Citas los puntajes recibidos, no inventas escalas, no emites diagnosticos ni etiquetas de tipo de personalidad, y cierras con el aviso de que el perfil es un apoyo al diagnostico inicial y no reemplaza al profesional."
+    },
+    {
+      "role": "user",
+      "content": "Puntajes brutos:\nCHASIDE: {\"C\": {\"interes\": 4, \"aptitud\": 2, \"total\": 6}, \"H\": {\"interes\": 5, \"aptitud\": 2, \"total\": 7}, \"A\": {\"interes\": 3, \"aptitud\": 1, \"total\": 4}, \"S\": {\"interes\": 2, \"aptitud\": 1, \"total\": 3}, \"I\": {\"interes\": 9, \"aptitud\": 4, \"total\": 13}, \"D\": {\"interes\": 2, \"aptitud\": 1, \"total\": 3}, \"E\": {\"interes\": 8, \"aptitud\": 3, \"total\": 11}}\nILS: {\"activo\": 8, \"reflexivo\": 3, \"sensitivo\": 4, \"intuitivo\": 7, \"visual\": 9, \"verbal\": 2, \"secuencial\": 6, \"global\": 5}\nPERSONALIDAD: {\"extraversion\": 3, \"introversion\": 7, \"sensing\": 4, \"intuition\": 8, \"thinking\": 7, \"feeling\": 3, \"judging\": 8, \"perceptive\": 2}"
+    }
+  ],
+  "respuesta_ollama": {
+    "model": "savio-e3-9ed11dcc",
+    "created_at": "2026-11-16T20:52:39.8375284Z",
+    "response": "## 1. Estilos de aprendizaje\n\nConteos brutos: activo=8 / reflexivo=3; sensitivo=4 / intuitivo=7; visual=9 / verbal=2; secuencial=6 / global=5.\n\nLos cuatro ejes quedan sin preferencia clara. Las inclinaciones activa, intuitiva y visual no alcanzan el criterio de preferencia marcada ni permiten establecer una modalidad unica del aprendizaje.\n\n## 2. Rasgos de personalidad\n\nConteos brutos: extraversion=3 / introversion=7; sensing=4 / intuition=8; thinking=7 / feeling=3; judging=8 / perceptive=2.\n\nTodos los ejes son equilibrados, incluidos el empate en percepcion y decision. La preferencia de organizacion no alcanza la evidencia para establecer una forma conductual unica.\n\n## 3. Perfil vocacional\n\n- I: interes=9, aptitud=4, total=13.\n- D: interes=2, aptitud=1, total=3.\n- E: interes=8, aptitud=3, total=11.\n\nI presenta el mayor total en banda media; D y E son bajas. La preferencia por la exploracion no demuestra una vocacion ni establece un estilo conductual.\n\n## 4. Sintesis integrada\n\nLa experiencia de ILS puede complementarse con actividades sociales o individuales, sin que ello defina el perfil psicologico. El mayor interes en I y E no permite atribuir preferencias personales a la capacidad organizativa ni establecer una forma unica del aprendizaje.\n\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 29216886000,
+    "load_duration": 15002300,
+    "prompt_eval_count": 452,
+    "prompt_eval_cached_count": 3,
+    "prompt_eval_duration": 5090187000,
+    "eval_count": 402,
+    "eval_duration": 24104344000
+  },
+  "calentamiento": {
+    "model": "savio-e3-9ed11dcc",
+    "created_at": "2026-11-16T20:52:06.4772286Z",
+    "response": "Listo! \u00bfC\u00f3mo puedo ayudarte",
+    "done": true,
+    "done_reason": "length",
+    "context": [
+      151644,
+      8948,
+      198,
+      2610,
+      525,
+      1207,
+      16948,
+      11,
+      3465,
+      553,
+      54364,
+      14817,
+      13,
+      1446,
+      525,
+      264,
+      10950,
+      17847,
+      13,
+      151645,
+      198,
+      151644,
+      872,
+      198,
+      1061,
+      75049,
+      1140,
+      78,
+      151645,
+      198,
+      151644,
+      77091,
+      198,
+      852,
+      78,
+      0,
+      28286,
+      95897,
+      80815,
+      58137,
+      19840
+    ],
+    "total_duration": 7028633400,
+    "load_duration": 6378895100,
+    "prompt_eval_count": 33,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 359542000,
+    "eval_count": 8,
+    "eval_duration": 272219000
+  },
+  "texto_postprocesado": "## 1. Estilos de aprendizaje\nConteos brutos: activo=8 / reflexivo=3; sensitivo=4 / intuitivo=7; visual=9 / verbal=2; secuencial=6 / global=5.\n\nLos cuatro ejes quedan sin preferencia clara. Las inclinaciones activa, intuitiva y visual no alcanzan el criterio de preferencia marcada ni permiten establecer una modalidad unica del aprendizaje.\n## 2. Rasgos de personalidad\nConteos brutos: extraversion=3 / introversion=7; sensing=4 / intuition=8; thinking=7 / feeling=3; judging=8 / perceptive=2.\n\nTodos los ejes son equilibrados, incluidos el empate en percepcion y decision. La preferencia de organizacion no alcanza la evidencia para establecer una forma conductual unica.\n## 3. Perfil vocacional\n- I: interes=9, aptitud=4, total=13.\n- D: interes=2, aptitud=1, total=3.\n- E: interes=8, aptitud=3, total=11.\n\nI presenta el mayor total en banda media; D y E son bajas. La preferencia por la exploracion no demuestra una vocacion ni establece un estilo conductual.\n## 4. Sintesis integrada\nLa experiencia de ILS puede complementarse con actividades sociales o individuales, sin que ello defina el perfil psicologico. El mayor interes en I y E no permite atribuir preferencias personales a la capacidad organizativa ni establecer una forma unica del aprendizaje.\n\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "latencia_s": 31.29239239999879,
+  "tokens_por_s": 16.677491824710103,
+  "memoria": {
+    "ram_pico_rss_bytes": 1246027776,
+    "muestras_ram": 40,
+    "muestras_api_ps": 11,
+    "vram_modelo_max_bytes": 0,
+    "cpu_verificada": true,
+    "otros_modelos_cargados": [],
+    "errores_muestreo": [],
+    "api_ps_final": {
+      "models": [
+        {
+          "name": "savio-e3-9ed11dcc:latest",
+          "model": "savio-e3-9ed11dcc:latest",
+          "size": 1173136342,
+          "digest": "28f329a6074f34570a76f221fda773c8fdbe6a8f4a56d0182e203bd0b744a3fb",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "1.5B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-16T16:02:39.838147-05:00",
+          "size_vram": 0,
+          "context_length": 4096,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "fuente_vram": "Ollama /api/ps size_vram; no medicion NVIDIA"
+  },
+  "validacion_estricta_comun": {
+    "ok": false,
+    "estructura_ok": true,
+    "errores": [
+      "falta citar el puntaje chaside.C.interes",
+      "falta citar el puntaje chaside.C.aptitud",
+      "falta citar el puntaje chaside.C.total",
+      "falta citar el puntaje chaside.H.interes",
+      "falta citar el puntaje chaside.H.aptitud",
+      "falta citar el puntaje chaside.H.total",
+      "falta citar el puntaje chaside.A.interes",
+      "falta citar el puntaje chaside.A.aptitud",
+      "falta citar el puntaje chaside.A.total",
+      "falta citar el puntaje chaside.S.interes",
+      "falta citar el puntaje chaside.S.aptitud",
+      "falta citar el puntaje chaside.S.total",
+      "personalidad.extraversion/introversion: declara equilibrio global pero corresponde preferencia hacia introversion",
+      "personalidad.sensing/intuition: declara equilibrio global pero corresponde preferencia hacia intuition",
+      "personalidad.sensing/intuition: declara un empate inexistente",
+      "personalidad.thinking/feeling: declara equilibrio global pero corresponde preferencia hacia thinking",
+      "personalidad.thinking/feeling: declara un empate inexistente",
+      "personalidad.judging/perceptive: declara equilibrio global pero corresponde preferencia hacia judging",
+      "CHASIDE I: banda incorrecta; corresponde alta",
+      "CHASIDE E: banda incorrecta; corresponde alta"
+    ],
+    "numeros_fuera_rango": [],
+    "errores_baremos": [
+      "falta citar el puntaje chaside.C.interes",
+      "falta citar el puntaje chaside.C.aptitud",
+      "falta citar el puntaje chaside.C.total",
+      "falta citar el puntaje chaside.H.interes",
+      "falta citar el puntaje chaside.H.aptitud",
+      "falta citar el puntaje chaside.H.total",
+      "falta citar el puntaje chaside.A.interes",
+      "falta citar el puntaje chaside.A.aptitud",
+      "falta citar el puntaje chaside.A.total",
+      "falta citar el puntaje chaside.S.interes",
+      "falta citar el puntaje chaside.S.aptitud",
+      "falta citar el puntaje chaside.S.total",
+      "personalidad.extraversion/introversion: declara equilibrio global pero corresponde preferencia hacia introversion",
+      "personalidad.sensing/intuition: declara equilibrio global pero corresponde preferencia hacia intuition",
+      "personalidad.sensing/intuition: declara un empate inexistente",
+      "personalidad.thinking/feeling: declara equilibrio global pero corresponde preferencia hacia thinking",
+      "personalidad.thinking/feeling: declara un empate inexistente",
+      "personalidad.judging/perceptive: declara equilibrio global pero corresponde preferencia hacia judging",
+      "CHASIDE I: banda incorrecta; corresponde alta",
+      "CHASIDE E: banda incorrecta; corresponde alta"
+    ],
+    "revision_semantica_integral": "pendiente"
+  },
+  "auditoria": {
+    "numerica": {
+      "esperados": 37,
+      "campos_citados": 25,
+      "campos_correctos": 25,
+      "errores": {},
+      "faltantes": [
+        "chaside.A.aptitud",
+        "chaside.A.interes",
+        "chaside.A.total",
+        "chaside.C.aptitud",
+        "chaside.C.interes",
+        "chaside.C.total",
+        "chaside.H.aptitud",
+        "chaside.H.interes",
+        "chaside.H.total",
+        "chaside.S.aptitud",
+        "chaside.S.interes",
+        "chaside.S.total"
+      ],
+      "escalas_o_rangos": []
+    },
+    "estructura_ok": true,
+    "guardrail_crudo_ok": true,
+    "guardrail_backend_ok": true,
+    "aviso_agregado": false,
+    "baremos": {
+      "ils.activo_reflexivo": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "activo"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "los cuatro ejes quedan sin preferencia clara"
+        ]
+      },
+      "ils.sensitivo_intuitivo": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "intuitivo"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "los cuatro ejes quedan sin preferencia clara"
+        ]
+      },
+      "ils.visual_verbal": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "visual"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "los cuatro ejes quedan sin preferencia clara"
+        ]
+      },
+      "ils.secuencial_global": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "secuencial"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "los cuatro ejes quedan sin preferencia clara"
+        ]
+      },
+      "personalidad.extraversion_introversion": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "introversion"
+        },
+        "estado": "contradiccion",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "todos los ejes son equilibrados, incluidos el empate en percepcion y decision"
+        ]
+      },
+      "personalidad.sensing_intuition": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "intuition"
+        },
+        "estado": "contradiccion",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "todos los ejes son equilibrados, incluidos el empate en percepcion y decision"
+        ]
+      },
+      "personalidad.thinking_feeling": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "thinking"
+        },
+        "estado": "contradiccion",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "todos los ejes son equilibrados, incluidos el empate en percepcion y decision"
+        ]
+      },
+      "personalidad.judging_perceptive": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "judging"
+        },
+        "estado": "contradiccion",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "todos los ejes son equilibrados, incluidos el empate en percepcion y decision"
+        ]
+      },
+      "chaside.C": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.H": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.A": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.S": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.I": {
+        "esperado": {
+          "banda": "alta"
+        },
+        "estado": "contradiccion",
+        "afirmaciones": [
+          [
+            "media",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "I presenta el mayor total en banda media; D y E son bajas"
+        ]
+      },
+      "chaside.D": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "baja",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "I presenta el mayor total en banda media; D y E son bajas"
+        ]
+      },
+      "chaside.E": {
+        "esperado": {
+          "banda": "alta"
+        },
+        "estado": "contradiccion",
+        "afirmaciones": [
+          [
+            "baja",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "I presenta el mayor total en banda media; D y E son bajas"
+        ]
+      }
+    },
+    "alerta_revision_profesional_inventada": false,
+    "direcciones_contradictorias_reconocidas": []
+  }
+}

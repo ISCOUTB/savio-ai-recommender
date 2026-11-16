@@ -38,6 +38,7 @@ sys.path.insert(0, str(RAIZ / "poc_slm"))
 from contrato_bruto import AREAS_CHASIDE, PARES_ILS, validar_perfil_bruto  # noqa: E402
 from guardrail_etico import AVISO_NO_CLINICO, agregar_aviso, validar_salida_etica  # noqa: E402
 from importar_gguf import importar as importar_modelo_gguf  # noqa: E402
+from lectura_baremos import calcular_lecturas, filas_baremos, reforzar_prompt, problemas_lectura  # noqa: E402
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODELO_DEFAULT = "qwen2.5:1.5b"
@@ -190,15 +191,18 @@ def perfil_legible(perfil):
     return "Puntajes brutos:\n" + "\n".join(lineas)
 
 
-def construir_mensajes(perfil):
-    """Par system/user identico al de entrenamiento."""
+def construir_mensajes(perfil, refuerzo_baremos=False):
+    """Contrato original, con lectura de baremos opcional en el turno user."""
+    contenido = perfil_legible(perfil)
+    if refuerzo_baremos:
+        contenido = reforzar_prompt(perfil, contenido, AVISO_NO_CLINICO)
     return [
         {"role": "system", "content": SYSTEM_E3},
-        {"role": "user", "content": perfil_legible(perfil)},
+        {"role": "user", "content": contenido},
     ]
 
 
-def mensaje_correctivo(perfil, problemas):
+def mensaje_correctivo(perfil, problemas, refuerzo_baremos=False):
     """Refuerza el contrato cuando el primer intento del SLM no lo cumple."""
     refuerzo = (
         "\n\nCORRECCION OBLIGATORIA: la respuesta anterior fallo por: "
@@ -207,7 +211,7 @@ def mensaje_correctivo(perfil, problemas):
         "puntajes recibidos, no uses escalas distintas, no emitas diagnosticos "
         "ni etiquetas de tipo de personalidad y cierra con el aviso no clinico."
     )
-    return perfil_legible(perfil) + refuerzo
+    return construir_mensajes(perfil, refuerzo_baremos)[1]["content"] + refuerzo
 
 
 # --------------------------------------------------------------------------
@@ -220,6 +224,8 @@ def validar_estructura(texto):
     problemas = []
     posiciones = []
     for seccion in SECCIONES:
+        if texto.count(seccion) > 1:
+            problemas.append(f"seccion repetida: {seccion}")
         posicion = texto.find(seccion)
         if posicion < 0:
             problemas.append(f"falta la seccion: {seccion}")
@@ -272,18 +278,23 @@ def problemas_fidelidad(texto, perfil):
     return problemas, fuera_rango
 
 
-def validar_interpretacion(texto, perfil):
+def validar_interpretacion(texto, perfil, refuerzo_baremos=False):
     """Valida estructura, guardrail etico y fidelidad numerica de una salida."""
     estructura = validar_estructura(texto)
     etica = validar_salida_etica(texto)
     fidelidad, fuera_rango = problemas_fidelidad(texto, perfil)
     errores = estructura + etica + fidelidad
-    return {
+    lectura = problemas_lectura(texto, perfil) if refuerzo_baremos else []
+    errores += lectura
+    resultado = {
         "ok": not errores,
         "estructura_ok": not estructura,
         "errores": errores,
         "numeros_fuera_rango": fuera_rango,
     }
+    if refuerzo_baremos:
+        resultado.update(errores_baremos=lectura, revision_semantica_integral="pendiente")
+    return resultado
 
 
 # --------------------------------------------------------------------------
@@ -375,6 +386,8 @@ def imprimir_resumen(salida):
     print(f"Latencia   : {metricas['latencia_s']:.2f} s (total)")
     print(f"Generacion : {metricas['tokens_generados']} tokens a ~{metricas['tokens_por_s']:.1f} tokens/s")
     print(f"Validacion : {'OK' if salida['validacion']['ok'] else 'FALLO'}")
+    if "revision_semantica_integral" in salida["validacion"]:
+        print("Alcance    : validacion automatica parcial; revision semantica integral pendiente")
     print("=" * 70)
 
 
@@ -388,6 +401,10 @@ def construir_parser():
         description="Interpretacion psicometrica integrada con SLM local (E3-07)."
     )
     parser.add_argument("--perfil", required=True, help="JSON con el perfil bruto de entrada")
+    parser.add_argument(
+        "--refuerzo-baremos", action="store_true",
+        help="modo experimental: agrega lecturas calculadas y rechaza citas y contradicciones reconocidas",
+    )
     parser.add_argument(
         "--modelo",
         help=f"modelo de Ollama (default: {MODELO_DEFAULT}); incompatible con --gguf",
@@ -432,7 +449,7 @@ def main(argv=None):
         raise SystemExit("[FALLO] usa --gguf o --modelo, no ambos: el GGUF ya define el modelo.")
 
     perfil = cargar_perfil(Path(args.perfil))
-    mensajes = construir_mensajes(perfil)
+    mensajes = construir_mensajes(perfil, args.refuerzo_baremos)
 
     modelo = args.modelo or MODELO_DEFAULT
     gguf_sha256 = None
@@ -463,7 +480,7 @@ def main(argv=None):
         contenido = (
             mensajes[1]["content"]
             if intento == 1
-            else mensaje_correctivo(perfil, validacion["errores"])
+            else mensaje_correctivo(perfil, validacion["errores"], args.refuerzo_baremos)
         )
         resultado, latencia = generar_interpretacion(
             [mensajes[0], {"role": "user", "content": contenido}],
@@ -473,7 +490,7 @@ def main(argv=None):
         texto = agregar_aviso(
             normalizar_secciones(resultado.get("response", "").strip())
         )
-        validacion = validar_interpretacion(texto, perfil)
+        validacion = validar_interpretacion(texto, perfil, args.refuerzo_baremos)
         if validacion["ok"]:
             break
         print(f"[AVISO] intento {intento}/{args.reintentos} rechazado:")
@@ -490,6 +507,9 @@ def main(argv=None):
     salida = construir_salida(
         perfil, modelo, texto, resultado, latencia, validacion, gguf_sha256=gguf_sha256
     )
+    if args.refuerzo_baremos:
+        salida["refuerzo_baremos"] = True
+        salida["lectura_calculada"] = calcular_lecturas(perfil)
     print(salida["perfil_markdown"])
     imprimir_resumen(salida)
     if args.salida_dir:

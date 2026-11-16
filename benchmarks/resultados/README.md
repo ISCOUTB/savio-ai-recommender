@@ -18,3 +18,21 @@ resultados/
 - `intel-i5-1235u-iris-xe/salidas/`: espacio reservado para salidas crudas del equipo Intel si se versionan despues.
 
 Regla de orden: no mezclar corridas de equipos distintos en el mismo `resultados.json`. [`benchmarks/benchmark.py`](../benchmark.py) resuelve la carpeta del equipo a partir de la CPU medida y escribe ahi; si la maquina es nueva, se registra en [`benchmarks/equipos/`](../equipos/) y se ejecuta con `--equipo <nombre>`.
+
+## Ensayos exploratorios de refuerzo E3
+
+Pruebas sobre el fixture sintetico dominante con el mismo GGUF y CPU. Cada
+carpeta conserva protocolo, prompts, respuestas originales y reporte, incluidos
+los intentos rechazados. Son variantes sucesivas de un caso conocido; la
+fidelidad global y la sintesis siguen pendientes de validacion.
+
+- [Primer refuerzo](intel-i5-1235u-iris-xe/e3-refuerzo-20261116T205155Z/informe.md): respuestas rechazadas por los controles parciales.
+- [Segundo refuerzo](intel-i5-1235u-iris-xe/e3-refuerzo-20261116T205627Z/informe.md): la respuesta reforzada tambien fue rechazada.
+- [Formato acotado](intel-i5-1235u-iris-xe/e3-refuerzo-20261116T211402Z/informe.md): paso el control disponible entonces; la revision manual encontro eco de instrucciones en la sintesis.
+- [Control contra el eco](intel-i5-1235u-iris-xe/e3-refuerzo-20261116T211835Z/informe.md): sintesis rechazada por introducir nuevas clasificaciones.
+
+La [bitacora](../../experimentos/bitacora.md) conserva las revisiones posteriores;
+los resultados historicos del validador permanecen intactos. Los prompts exactos
+estan guardados y los protocolos identifican las fuentes usadas mediante hashes.
+Las variantes anteriores no corresponden al codigo actual: una ejecucion nueva
+del [comparador](../probar_refuerzo_e3.py) crea otra carpeta y otros resultados.
