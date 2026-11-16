@@ -11,7 +11,7 @@ poc_slm/
 ├── recommender.py        ← Script principal (middleware simplificado de la PoC)
 ├── interpretador.py      ← Backend de interpretacion psicometrica integrada (Entrega 3, E3-07)
 ├── importar_gguf.py      ← Importa el GGUF ajustado en Ollama con ChatML (E3-07)
-├── test_interpretador.py ← 23 chequeos del backend, sin Ollama
+├── test_interpretador.py ← 24 chequeos del backend, sin Ollama
 ├── eventos/
 │   ├── bajo_desempeno.json   ← Evento de ejemplo (Sprint 2)
 │   ├── A_nota_baja.json      ← Escenario A: tutoria reactiva ante nota baja (Sprint 3)
@@ -72,6 +72,10 @@ python poc_slm/test_interpretador.py
 ChatML, temperatura `0.2` y `num_predict=1200`. El nombre es estable, asi que la
 bitacora puede citar el modelo y el hash del GGUF sin ambiguedad. Los archivos
 `.gguf` y los Modelfiles quedan en `modelos/`, que esta en `.gitignore`.
+
+El Modelfile y cada solicitud del interpretador fijan `num_gpu=0` para ejecutar
+en CPU. Para actualizar el Modelfile de un modelo ya importado, repite la
+importacion con `--forzar`.
 
 En `--dry-run` el backend valida el GGUF y muestra el nombre del modelo, pero no
 importa nada en Ollama. `--gguf` y `--modelo` son mutuamente excluyentes: el

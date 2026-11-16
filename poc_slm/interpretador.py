@@ -298,7 +298,7 @@ def generar_interpretacion(mensajes, modelo, max_tokens):
         "system": mensajes[0]["content"],
         "prompt": mensajes[1]["content"],
         "stream": False,
-        "options": {"num_predict": max_tokens, "temperature": 0.2},
+        "options": {"num_predict": max_tokens, "temperature": 0.2, "num_gpu": 0},
     }
     inicio = time.perf_counter()
     try:

@@ -11,7 +11,11 @@ import json
 import re
 import sys
 import tempfile
+from unittest.mock import patch
 from pathlib import Path
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "docs" / "especificaciones"))
@@ -230,11 +234,12 @@ def main() -> int:
         if not re.fullmatch(r"savio-e3-[0-9a-f]{8}", nombre):
             fallos.append(f"el nombre del modelo GGUF no es valido: {nombre}")
 
-    caso("el Modelfile fija ChatML, temperatura y stop")
+    caso("el Modelfile fija CPU, ChatML, temperatura y stop")
     modelfile = ig.construir_modelfile(Path("C:/modelos/savio-e3-q4km.gguf"))
     for fragmento in (
         "FROM C:/modelos/savio-e3-q4km.gguf",
         "TEMPLATE",
+        "PARAMETER num_gpu 0",
         "<|im_start|>system",
         "PARAMETER temperature 0.2",
         'PARAMETER stop "<|im_end|>"',
@@ -271,6 +276,13 @@ def main() -> int:
     else:
         fallos.append("la combinacion --gguf y --modelo no se rechazo")
 
+    caso("cada solicitud de inferencia fuerza CPU con num_gpu=0")
+    with patch.object(it.requests, "post") as solicitud:
+        solicitud.return_value.json.return_value = {"response": "prueba"}
+        it.generar_interpretacion(it.construir_mensajes(perfil), "modelo-x", 10)
+        if solicitud.call_args.kwargs["json"]["options"].get("num_gpu") != 0:
+            fallos.append("la solicitud de inferencia no fuerza CPU")
+
     print()
     if fallos:
         print(f"FALLOS: {len(fallos)}")
@@ -278,7 +290,7 @@ def main() -> int:
             print(f"  - {fallo}")
         return 1
 
-    print("RESULTADO: OK (23/23 chequeos)")
+    print("RESULTADO: OK (24/24 chequeos)")
     return 0
 
 
