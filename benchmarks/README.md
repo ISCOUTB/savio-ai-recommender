@@ -99,3 +99,58 @@ El equipo se deduce de la CPU medida comparandola con `benchmarks/equipos/*.md`;
 la maquina es nueva, se registra primero en `benchmarks/equipos/` y luego se pasa
 `--equipo <nombre>`. Si no se puede deducir, el script no mide y pide `--equipo`,
 para no dejar archivos sueltos en la raiz de `resultados/`.
+
+## Evaluacion psicometrica E3-09 en CPU
+
+Estas herramientas de Entrega 3 usan el corpus sintetico y los
+[baremos del proyecto](../docs/especificaciones/baremos-psicometricos.md).
+Su protocolo es distinto al benchmark de Entrega 1 descrito arriba.
+
+| Archivo | Funcion |
+|---|---|
+| [evaluar_e3.py](evaluar_e3.py) | Compara base, ajustado y referencia del corpus; registra respuestas, latencia, tokens/s, RAM RSS y VRAM del modelo |
+| [rubrica_e3.py](rubrica_e3.py) | Cuenta citas de los 37 campos y evalua afirmaciones explicitas de bandas y polos |
+| [citas_json_e3.py](citas_json_e3.py) | Amplia la auditoria a JSON, variantes CHASIDE y direcciones explicitas; conserva la respuesta original |
+| [test_rubrica_e3.py](test_rubrica_e3.py) | Comprueba omisiones, citas contradictorias, negaciones y limites de las metricas sin inferencia |
+| [reauditar_e3.py](reauditar_e3.py) | Deriva una auditoria ampliada desde respuestas ya medidas y crea archivos nuevos |
+| [reportar_e3.py](reportar_e3.py) | Genera el informe de la corrida local y su fila de bitacora desde el resumen ampliado |
+
+El evaluador selecciona los 28 registros donde `int(sha256(id), 16) % 5 == 0`.
+Fija `num_gpu=0`, temperatura 0, semilla 42, contexto 4096 y limite 1200 tokens.
+La RAM se mide con `psutil`; la VRAM atribuida al modelo se consulta en Ollama.
+El muestreo y el protocolo quedan guardados con cada corrida.
+
+```bash
+# Pruebas y ayuda: no ejecutan inferencia
+python benchmarks/test_rubrica_e3.py
+python benchmarks/evaluar_e3.py --help
+python benchmarks/citas_json_e3.py --help
+python benchmarks/reauditar_e3.py --help
+python benchmarks/reportar_e3.py --help
+
+# Ejemplo para el equipo Intel registrado y el GGUF local de esta sesion
+python benchmarks/evaluar_e3.py --modelo-ajustado savio-e3-9ed11dcc --gguf modelos/modelo-q4_k_m.gguf --salida benchmarks/resultados/intel-i5-1235u-iris-xe/e3-nueva-corrida/evaluacion
+```
+
+El nombre del modelo debe corresponder al hash del GGUF. La carpeta de salida
+debe ser nueva y pertenecer al equipo medido. `--reanudar` exige el mismo
+protocolo y conserva los casos existentes. Una corrida completa se conserva;
+para medir de nuevo se elige otra carpeta. El evaluador admite solo datos sinteticos.
+
+La rubrica es parcial: lo no reconocido queda `sin_evaluar`. Se reportan por
+separado cobertura, omisiones y consistencia de los items evaluables. La revision
+integral de la prosa y la meta de fidelidad interpretativa siguen pendientes.
+El aviso agregado por el backend se distingue del aviso generado por el modelo.
+El auditor de citas devuelve codigo 1 si detecta hallazgos; conserva la salida
+leida y no invoca Ollama. Estos controles no cierran automaticamente los issues.
+
+La reauditoria y el informe trabajan sobre archivos existentes. El informe
+incluye referencias historicas de esta sesion; antes de usarlo para otra
+corrida, revisa ese contexto y la procedencia del artefacto. Los archivos
+derivados se crean una sola vez para preservar la evidencia anterior.
+
+Los hashes se calculan sobre bytes. Git puede convertir LF a CRLF al copiar
+el corpus, conservando sus registros pero cambiando su SHA-256. Para reanudar
+o reauditar una corrida se requieren los mismos bytes usados al medir. Si el
+verificador informa que el corpus cambio, compara los archivos y sus saltos
+de linea; conserva los hashes originales del protocolo y del manifiesto.
