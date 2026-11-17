@@ -1,0 +1,740 @@
+{
+  "nota": "Los textos de fixtures estan postprocesados; no se atribuye el aviso al modelo crudo. La rubrica de prosa es parcial.",
+  "casos": [
+    {
+      "perfil": "perfiles\\brutos\\ejemplo-perfil-bruto-brecha.json",
+      "salida": "salidas\\e3\\ajustado\\ejemplo-brecha.json",
+      "perfil_sha256": "f65e31e2978008c947ec684e4be5731d5f0d2ba250d181af92b2a7b396cd9d30",
+      "salida_sha256": "3e5db460992401f15aa409aaabfbb8fc7d6634c965716f1b5664a20738d159b5",
+      "auditoria_texto_postprocesado": {
+        "numerica": {
+          "esperados": 37,
+          "campos_citados": 37,
+          "campos_correctos": 37,
+          "errores": {},
+          "faltantes": [],
+          "escalas_o_rangos": []
+        },
+        "estructura_ok": true,
+        "guardrail_crudo_ok": true,
+        "guardrail_backend_ok": true,
+        "aviso_agregado": false,
+        "baremos": {
+          "ils.activo_reflexivo": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "activo"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan sin preferencia clara"
+            ]
+          },
+          "ils.sensitivo_intuitivo": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "intuitivo"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan sin preferencia clara"
+            ]
+          },
+          "ils.visual_verbal": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "visual"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan sin preferencia clara"
+            ]
+          },
+          "ils.secuencial_global": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "global"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan sin preferencia clara"
+            ]
+          },
+          "personalidad.extraversion_introversion": {
+            "esperado": {
+              "banda": "preferencia",
+              "polo_mayor": "introversion"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los ejes son equilibrados, incluidos el empate en percepcion"
+            ]
+          },
+          "personalidad.sensing_intuition": {
+            "esperado": {
+              "banda": "preferencia",
+              "polo_mayor": "intuition"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los ejes son equilibrados, incluidos el empate en percepcion"
+            ]
+          },
+          "personalidad.thinking_feeling": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "feeling"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los ejes son equilibrados, incluidos el empate en percepcion"
+            ]
+          },
+          "personalidad.judging_perceptive": {
+            "esperado": {
+              "banda": "preferencia",
+              "polo_mayor": "perceptive"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los ejes son equilibrados, incluidos el empate en percepcion"
+            ]
+          },
+          "chaside.C": {
+            "esperado": {
+              "banda": "baja"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "baja",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "I tiene el mayor total en banda media; C y D son bajas"
+            ]
+          },
+          "chaside.H": {
+            "esperado": {
+              "banda": "baja"
+            },
+            "estado": "sin_evaluar",
+            "afirmaciones": [],
+            "fragmentos": []
+          },
+          "chaside.A": {
+            "esperado": {
+              "banda": "baja"
+            },
+            "estado": "sin_evaluar",
+            "afirmaciones": [],
+            "fragmentos": []
+          },
+          "chaside.S": {
+            "esperado": {
+              "banda": "baja"
+            },
+            "estado": "sin_evaluar",
+            "afirmaciones": [],
+            "fragmentos": []
+          },
+          "chaside.I": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "I tiene el mayor total en banda media; C y D son bajas"
+            ]
+          },
+          "chaside.D": {
+            "esperado": {
+              "banda": "baja"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "baja",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "I tiene el mayor total en banda media; C y D son bajas"
+            ]
+          },
+          "chaside.E": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "sin_evaluar",
+            "afirmaciones": [],
+            "fragmentos": []
+          }
+        },
+        "alerta_revision_profesional_inventada": false,
+        "direcciones_contradictorias_reconocidas": []
+      }
+    },
+    {
+      "perfil": "perfiles\\brutos\\ejemplo-perfil-bruto-dominante.json",
+      "salida": "salidas\\e3\\ajustado\\ejemplo-dominante.json",
+      "perfil_sha256": "6cd3d158869887756c80dd16b9400feedd4e8b6e52b2c3055fd7879e26112c51",
+      "salida_sha256": "ae6cc5423596b3013e0d9150cece3e37681fff6642329128cd2fd6e6261ff835",
+      "auditoria_texto_postprocesado": {
+        "numerica": {
+          "esperados": 37,
+          "campos_citados": 25,
+          "campos_correctos": 25,
+          "errores": {},
+          "faltantes": [
+            "chaside.A.aptitud",
+            "chaside.A.interes",
+            "chaside.A.total",
+            "chaside.C.aptitud",
+            "chaside.C.interes",
+            "chaside.C.total",
+            "chaside.H.aptitud",
+            "chaside.H.interes",
+            "chaside.H.total",
+            "chaside.S.aptitud",
+            "chaside.S.interes",
+            "chaside.S.total"
+          ],
+          "escalas_o_rangos": []
+        },
+        "estructura_ok": true,
+        "guardrail_crudo_ok": true,
+        "guardrail_backend_ok": true,
+        "aviso_agregado": false,
+        "baremos": {
+          "ils.activo_reflexivo": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "activo"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan sin preferencia clara"
+            ]
+          },
+          "ils.sensitivo_intuitivo": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "intuitivo"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan sin preferencia clara"
+            ]
+          },
+          "ils.visual_verbal": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "visual"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan sin preferencia clara"
+            ]
+          },
+          "ils.secuencial_global": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "secuencial"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan sin preferencia clara"
+            ]
+          },
+          "personalidad.extraversion_introversion": {
+            "esperado": {
+              "banda": "preferencia",
+              "polo_mayor": "introversion"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los ejes son equilibrados, incluidos el empate en percepcion y decision"
+            ]
+          },
+          "personalidad.sensing_intuition": {
+            "esperado": {
+              "banda": "preferencia",
+              "polo_mayor": "intuition"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los ejes son equilibrados, incluidos el empate en percepcion y decision"
+            ]
+          },
+          "personalidad.thinking_feeling": {
+            "esperado": {
+              "banda": "preferencia",
+              "polo_mayor": "thinking"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los ejes son equilibrados, incluidos el empate en percepcion y decision"
+            ]
+          },
+          "personalidad.judging_perceptive": {
+            "esperado": {
+              "banda": "preferencia",
+              "polo_mayor": "judging"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los ejes son equilibrados, incluidos el empate en percepcion y decision"
+            ]
+          },
+          "chaside.C": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "sin_evaluar",
+            "afirmaciones": [],
+            "fragmentos": []
+          },
+          "chaside.H": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "sin_evaluar",
+            "afirmaciones": [],
+            "fragmentos": []
+          },
+          "chaside.A": {
+            "esperado": {
+              "banda": "baja"
+            },
+            "estado": "sin_evaluar",
+            "afirmaciones": [],
+            "fragmentos": []
+          },
+          "chaside.S": {
+            "esperado": {
+              "banda": "baja"
+            },
+            "estado": "sin_evaluar",
+            "afirmaciones": [],
+            "fragmentos": []
+          },
+          "chaside.I": {
+            "esperado": {
+              "banda": "alta"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "I presenta el mayor total en banda media; D y E tambien son medias"
+            ]
+          },
+          "chaside.D": {
+            "esperado": {
+              "banda": "baja"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "I presenta el mayor total en banda media; D y E tambien son medias"
+            ]
+          },
+          "chaside.E": {
+            "esperado": {
+              "banda": "alta"
+            },
+            "estado": "contradiccion",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "I presenta el mayor total en banda media; D y E tambien son medias"
+            ]
+          }
+        },
+        "alerta_revision_profesional_inventada": true,
+        "direcciones_contradictorias_reconocidas": []
+      }
+    },
+    {
+      "perfil": "perfiles\\brutos\\ejemplo-perfil-bruto-plano.json",
+      "salida": "salidas\\e3\\ajustado\\ejemplo-plano.json",
+      "perfil_sha256": "baa98edbaac9362cb948313c3e02cc9231fbe687ec36c5a41a5330cdb2dc46c4",
+      "salida_sha256": "33ef48c9d36ae315b9c037914d97d0fc7c079c62ccb16aec686d11d6fdcd855f",
+      "auditoria_texto_postprocesado": {
+        "numerica": {
+          "esperados": 37,
+          "campos_citados": 37,
+          "campos_correctos": 37,
+          "errores": {},
+          "faltantes": [],
+          "escalas_o_rangos": []
+        },
+        "estructura_ok": true,
+        "guardrail_crudo_ok": true,
+        "guardrail_backend_ok": true,
+        "aviso_agregado": false,
+        "baremos": {
+          "ils.activo_reflexivo": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "activo"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan equilibrados, sin preferencias marcadas"
+            ]
+          },
+          "ils.sensitivo_intuitivo": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "intuitivo"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan equilibrados, sin preferencias marcadas"
+            ]
+          },
+          "ils.visual_verbal": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "visual"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan equilibrados, sin preferencias marcadas"
+            ]
+          },
+          "ils.secuencial_global": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "global"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "los cuatro ejes quedan equilibrados, sin preferencias marcadas"
+            ]
+          },
+          "personalidad.extraversion_introversion": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "introversion"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los pares son equilibrados, incluidos el empate en percepcion y decision"
+            ]
+          },
+          "personalidad.sensing_intuition": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "sensing"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los pares son equilibrados, incluidos el empate en percepcion y decision"
+            ]
+          },
+          "personalidad.thinking_feeling": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "feeling"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los pares son equilibrados, incluidos el empate en percepcion y decision"
+            ]
+          },
+          "personalidad.judging_perceptive": {
+            "esperado": {
+              "banda": "sin_preferencia",
+              "polo_mayor": "judging"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "sin_preferencia",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "todos los pares son equilibrados, incluidos el empate en percepcion y decision"
+            ]
+          },
+          "chaside.C": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "Todos los ejes son medias y sin respuestas altas"
+            ]
+          },
+          "chaside.H": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "Todos los ejes son medias y sin respuestas altas"
+            ]
+          },
+          "chaside.A": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "Todos los ejes son medias y sin respuestas altas"
+            ]
+          },
+          "chaside.S": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "Todos los ejes son medias y sin respuestas altas"
+            ]
+          },
+          "chaside.I": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "Todos los ejes son medias y sin respuestas altas"
+            ]
+          },
+          "chaside.D": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "Todos los ejes son medias y sin respuestas altas"
+            ]
+          },
+          "chaside.E": {
+            "esperado": {
+              "banda": "media"
+            },
+            "estado": "correcto",
+            "afirmaciones": [
+              [
+                "media",
+                null
+              ]
+            ],
+            "fragmentos": [
+              "Todos los ejes son medias y sin respuestas altas"
+            ]
+          }
+        },
+        "alerta_revision_profesional_inventada": false,
+        "direcciones_contradictorias_reconocidas": [
+          {
+            "eje": "personalidad.extraversion_introversion",
+            "esperado": "introversion",
+            "afirmado": "extraversion",
+            "fragmento": "el mayor conteo de extraversion no demuestra preferencia social ni permite establecer una identidad individual"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ejemplo-brecha",
+  "origen": "sintetico",
+  "modelo": "savio-e3-9ed11dcc",
+  "fecha_utc": "2026-11-16T18:43:41Z",
+  "perfil_markdown": "## 1. Estilos de aprendizaje\nConteos brutos: activo=9 / reflexivo=2; sensitivo=2 / intuitivo=9; visual=7 / verbal=4; secuencial=2 / global=9.\n\nLos cuatro ejes quedan sin preferencia clara. Las inclinaciones activa, intuitiva y global no se interpretan como una forma de personalidad marcada.\n## 2. Rasgos de personalidad\nConteos brutos: extraversion=2 / introversion=7; sensing=3 / intuition=9; thinking=4 / feeling=6; judging=3 / perceptive=7.\n\nTodos los ejes son equilibrados, incluidos el empate en percepcion. La preferencia intuitiva no establece una forma de personalidad y la diferencia en decision se mantiene sin demostrar un mayor criterio.\n## 3. Perfil vocacional\n- C: interes=3, aptitud=1, total=4.\n- H: interes=2, aptitud=2, total=4.\n- A: interes=4, aptitud=0, total=4.\n- S: interes=1, aptitud=1, total=2.\n- I: interes=10, aptitud=0, total=10.\n- D: interes=2, aptitud=2, total=4.\n- E: interes=9, aptitud=1, total=10.\n\nI tiene el mayor total en banda media; C y D son bajas. El interes de I no alcanza la preferencia marcada y se mantiene sin demostrar habilidad social.\n## 4. Sintesis integrada\nLa exploracion individual puede seguir una secuencia flexible, con alternativas para practicar y reflexionar. La diferencia en aptitud por area no establece un perfil de personalidad ni permite atribuir preferencias conductuales; el ILS muestra preferencia intuitiva sin convertirla en una forma de aprendizaje.\n\nEste perfil es un apoyo inicial para el diagnostico psicologico y fue generado con asistencia de IA.\n\n---\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "aviso_etico": "Este perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "validacion": {
+    "ok": true,
+    "estructura_ok": true,
+    "errores": [],
+    "numeros_fuera_rango": []
+  },
+  "metricas": {
+    "latencia_s": 31.24,
+    "tokens_generados": 457,
+    "tokens_por_s": 17.26,
+    "total_duration_ms": 29162.9
+  }
+}

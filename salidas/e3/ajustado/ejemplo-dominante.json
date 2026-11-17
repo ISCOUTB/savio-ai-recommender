@@ -1,0 +1,20 @@
+{
+  "id": "ejemplo-dominante",
+  "origen": "sintetico",
+  "modelo": "savio-e3-9ed11dcc",
+  "fecha_utc": "2026-11-16T18:42:56Z",
+  "perfil_markdown": "## 1. Estilos de aprendizaje\nConteos brutos: activo=8 / reflexivo=3; sensitivo=4 / intuitivo=7; visual=9 / verbal=2; secuencial=6 / global=5.\n\nLos cuatro ejes quedan sin preferencia clara. Las inclinaciones activa, intuitiva y visual no alcanzan el criterio de mayor preferencia y se conservan las diferencias en los otros tres pares.\n## 2. Rasgos de personalidad\nConteos brutos: extraversion=3 / introversion=7; sensing=4 / intuition=8; thinking=7 / feeling=3; judging=8 / perceptive=2.\n\nTodos los ejes son equilibrados, incluidos el empate en percepcion y decision. Los mayores conteos de energia y organizacion no demuestran una preferencia conductual ni un estilo de trabajo determinado.\n## 3. Perfil vocacional\n- I: interes=9, aptitud=4, total=13.\n- D: interes=2, aptitud=1, total=3.\n- E: interes=8, aptitud=3, total=11.\n\nI presenta el mayor total en banda media; D y E tambien son medias. Las diferencias de interes no alcanzan la preferencia marcada ni permiten establecer una vocacion exclusiva.\n## 4. Sintesis integrada\nLa exploracion de situaciones concretas puede acompañar la revision de procesos y protocolos. El perfil psicologico es un apoyo para el diagnostico inicial y fue generado con asistencia de IA; no reemplaza al profesional ni constituye una descripcion personal.\n\nEste perfil fue generado con asistencia de IA y fue visto por un profesional antes del envio.\n\n---\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "aviso_etico": "Este perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "validacion": {
+    "ok": true,
+    "estructura_ok": true,
+    "errores": [],
+    "numeros_fuera_rango": []
+  },
+  "metricas": {
+    "latencia_s": 33.47,
+    "tokens_generados": 392,
+    "tokens_por_s": 15.86,
+    "total_duration_ms": 31399.9
+  }
+}

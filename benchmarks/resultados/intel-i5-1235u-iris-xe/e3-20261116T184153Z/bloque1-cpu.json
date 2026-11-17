@@ -1,0 +1,87 @@
+{
+  "fecha_utc": "20261116T184153Z",
+  "gguf_sha256": "9ed11dcc6d881c579207a325bc2092dcaf9e90f7920755030481c78d5800822f",
+  "modelo": "savio-e3-9ed11dcc",
+  "ollama": {
+    "version": "0.40.16"
+  },
+  "ram_total_bytes": 16858521600,
+  "respuesta": {
+    "model": "savio-e3-9ed11dcc",
+    "created_at": "2026-11-16T18:42:03.2569134Z",
+    "response": "listo",
+    "done": true,
+    "done_reason": "stop",
+    "context": [
+      151644,
+      8948,
+      198,
+      2610,
+      525,
+      1207,
+      16948,
+      11,
+      3465,
+      553,
+      54364,
+      14817,
+      13,
+      1446,
+      525,
+      264,
+      10950,
+      17847,
+      13,
+      151645,
+      198,
+      151644,
+      872,
+      198,
+      1061,
+      75049,
+      13529,
+      25,
+      1140,
+      78,
+      151645,
+      198,
+      151644,
+      77091,
+      198,
+      1607,
+      78
+    ],
+    "total_duration": 7928300600,
+    "load_duration": 7251115400,
+    "prompt_eval_count": 35,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 559096000,
+    "eval_count": 3,
+    "eval_duration": 98123000
+  },
+  "api_ps": {
+    "models": [
+      {
+        "name": "savio-e3-9ed11dcc:latest",
+        "model": "savio-e3-9ed11dcc:latest",
+        "size": 1173136342,
+        "digest": "28f329a6074f34570a76f221fda773c8fdbe6a8f4a56d0182e203bd0b744a3fb",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "1.5B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-16T14:12:03.2607995-05:00",
+        "size_vram": 0,
+        "context_length": 4096,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "ollama_ps": "NAME                        ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL               \nsavio-e3-9ed11dcc:latest    28f329a6074f    1.2 GB    100% CPU     4096       llamacpp    29 minutes from now    \n"
+}

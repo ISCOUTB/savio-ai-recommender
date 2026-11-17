@@ -1,0 +1,84 @@
+{
+  "fecha_utc": "2026-11-16T18:50:14Z",
+  "respuesta": {
+    "model": "qwen2.5:1.5b",
+    "created_at": "2026-11-16T18:50:14.3271721Z",
+    "response": "Listo para responder a tus preguntas",
+    "done": true,
+    "done_reason": "length",
+    "context": [
+      151644,
+      8948,
+      198,
+      2610,
+      525,
+      1207,
+      16948,
+      11,
+      3465,
+      553,
+      54364,
+      14817,
+      13,
+      1446,
+      525,
+      264,
+      10950,
+      17847,
+      13,
+      151645,
+      198,
+      151644,
+      872,
+      198,
+      1061,
+      75049,
+      1140,
+      78,
+      151645,
+      198,
+      151644,
+      77091,
+      198,
+      852,
+      78,
+      3348,
+      64034,
+      264,
+      40684,
+      19978,
+      54572
+    ],
+    "total_duration": 2854476400,
+    "load_duration": 2128135300,
+    "prompt_eval_count": 33,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 373939000,
+    "eval_count": 8,
+    "eval_duration": 336814000
+  },
+  "api_ps": {
+    "models": [
+      {
+        "name": "qwen2.5:1.5b",
+        "model": "qwen2.5:1.5b",
+        "size": 1173136342,
+        "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "1.5B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-16T14:00:14.3288025-05:00",
+        "size_vram": 0,
+        "context_length": 4096,
+        "runner": "llamacpp"
+      }
+    ]
+  }
+}
