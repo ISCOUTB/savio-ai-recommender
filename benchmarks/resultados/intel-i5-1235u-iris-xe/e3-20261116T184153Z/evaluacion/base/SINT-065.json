@@ -1,0 +1,239 @@
+{
+  "fecha_utc": "2026-11-16T19:01:49Z",
+  "id": "SINT-065",
+  "modelo": "qwen2.5:1.5b",
+  "latencia_s": 43.76724359999935,
+  "tokens_generados": 730,
+  "tokens_por_s": 18.975663529564915,
+  "memoria": {
+    "ram_pico_rss_bytes": 1613197312,
+    "muestras_ram": 57,
+    "muestras_api_ps": 16,
+    "vram_modelo_max_bytes": 0,
+    "cpu_verificada": true,
+    "otros_modelos_cargados": [],
+    "errores_muestreo": [],
+    "api_ps_final": {
+      "models": [
+        {
+          "name": "qwen2.5:1.5b",
+          "model": "qwen2.5:1.5b",
+          "size": 1173136342,
+          "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "1.5B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-16T14:11:45.2102894-05:00",
+          "size_vram": 0,
+          "context_length": 4096,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "fuente_vram": "Ollama /api/ps size_vram; no medicion NVIDIA"
+  },
+  "respuesta_ollama": {
+    "model": "qwen2.5:1.5b",
+    "created_at": "2026-11-16T19:01:45.2102894Z",
+    "response": "1. Estilos de Aprendizaje:\n   - CHASIDE: {\"C\": 2, \"H\": 6, \"A\": 5, \"S\": 11, \"I\": 4, \"D\": 8, \"E\": 9}\n   - ILS: {\"activo\": 5, \"reflexivo\": 6, \"sensitivo\": 3, \"intuitivo\": 8, \"visual\": 3, \"verbal\": 8, \"secuencial\": 0, \"global\": 11}\n   - PERSONALIDAD: {\"extraversion\": 7, \"introversion\": 6, \"sensing\": 6, \"intuition\": 7, \"thinking\": 2, \"feeling\": 0, \"judging\": 0, \"perceptive\": 0}\n\n2. Rasgos de Personalidad:\n   - CHASIDE: {\"interes\": 2, \"aptitud\": 0, \"total\": 2}\n   - ILS: {\"activo\": 5, \"reflexivo\": 6, \"sensitivo\": 3, \"intuitivo\": 8, \"visual\": 3, \"verbal\": 8, \"secuencial\": 0, \"global\": 11}\n   - PERSONALIDAD: {\"extraversion\": 7, \"introversion\": 6, \"sensing\": 6, \"intuition\": 7, \"thinking\": 2, \"feeling\": 0, \"judging\": 0, \"perceptive\": 0}\n\n3. Perfil Vocacional:\n   - CHASIDE: {\"C\": 2, \"H\": 6, \"A\": 5, \"S\": 11, \"I\": 4, \"D\": 8, \"E\": 9}\n   - ILS: {\"activo\": 5, \"reflexivo\": 6, \"sensitivo\": 3, \"intuitivo\": 8, \"visual\": 3, \"verbal\": 8, \"secuencial\": 0, \"global\": 11}\n   - PERSONALIDAD: {\"extraversion\": 7, \"introversion\": 6, \"sensing\": 6, \"intuition\": 7, \"thinking\": 2, \"feeling\": 0, \"judging\": 0, \"perceptive\": 0}\n\n4. Sintesis Integrada:\n   - CHASIDE: {\"C\": 2, \"H\": 6, \"A\": 5, \"S\": 11, \"I\": 4, \"D\": 8, \"E\": 9}\n   - ILS: {\"activo\": 5, \"reflexivo\": 6, \"sensitivo\": 3, \"intuitivo\": 8, \"visual\": 3, \"verbal\": 8, \"secuencial\": 0, \"global\": 11}\n   - PERSONALIDAD: {\"extraversion\": 7, \"introversion\": 6, \"sensing\": 6, \"intuition\": 7, \"thinking\": 2, \"feeling\": 0, \"judging\": 0, \"perceptive\": 0}\n\nEl perfil es un apoyo al diagnostico inicial y no reemplaza al profesional.",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 41732713200,
+    "load_duration": 17232800,
+    "prompt_eval_count": 452,
+    "prompt_eval_cached_count": 171,
+    "prompt_eval_duration": 3233291000,
+    "eval_count": 730,
+    "eval_duration": 38470328000
+  },
+  "auditoria": {
+    "numerica": {
+      "esperados": 37,
+      "campos_citados": 0,
+      "campos_correctos": 0,
+      "errores": {},
+      "faltantes": [
+        "chaside.A.aptitud",
+        "chaside.A.interes",
+        "chaside.A.total",
+        "chaside.C.aptitud",
+        "chaside.C.interes",
+        "chaside.C.total",
+        "chaside.D.aptitud",
+        "chaside.D.interes",
+        "chaside.D.total",
+        "chaside.E.aptitud",
+        "chaside.E.interes",
+        "chaside.E.total",
+        "chaside.H.aptitud",
+        "chaside.H.interes",
+        "chaside.H.total",
+        "chaside.I.aptitud",
+        "chaside.I.interes",
+        "chaside.I.total",
+        "chaside.S.aptitud",
+        "chaside.S.interes",
+        "chaside.S.total",
+        "ils.activo",
+        "ils.global",
+        "ils.intuitivo",
+        "ils.reflexivo",
+        "ils.secuencial",
+        "ils.sensitivo",
+        "ils.verbal",
+        "ils.visual",
+        "personalidad.extraversion",
+        "personalidad.feeling",
+        "personalidad.introversion",
+        "personalidad.intuition",
+        "personalidad.judging",
+        "personalidad.perceptive",
+        "personalidad.sensing",
+        "personalidad.thinking"
+      ],
+      "escalas_o_rangos": []
+    },
+    "estructura_ok": true,
+    "guardrail_crudo_ok": false,
+    "guardrail_backend_ok": true,
+    "aviso_agregado": true,
+    "baremos": {
+      "ils.activo_reflexivo": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "reflexivo"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "ils.sensitivo_intuitivo": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "intuitivo"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "ils.visual_verbal": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "verbal"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "ils.secuencial_global": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "global"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "personalidad.extraversion_introversion": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "extraversion"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "personalidad.sensing_intuition": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "intuition"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "personalidad.thinking_feeling": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "thinking"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "personalidad.judging_perceptive": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "empate"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.C": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.H": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.A": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.S": {
+        "esperado": {
+          "banda": "alta"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.I": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.D": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.E": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      }
+    },
+    "alerta_revision_profesional_inventada": false
+  }
+}

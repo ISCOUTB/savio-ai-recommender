@@ -1,0 +1,20 @@
+{
+  "id": "ejemplo-plano",
+  "origen": "sintetico",
+  "modelo": "savio-e3-9ed11dcc",
+  "fecha_utc": "2026-11-16T18:44:20Z",
+  "perfil_markdown": "## 1. Estilos de aprendizaje\nConteos brutos: activo=6 / reflexivo=5; sensitivo=5 / intuitivo=6; visual=6 / verbal=5; secuencial=5 / global=6.\n\nLos cuatro ejes quedan equilibrados, sin preferencias marcadas. Las inclinaciones activa y intuitiva no obligan a una metodologia particular ni establecen un estilo de aprendizaje exclusivo.\n## 2. Rasgos de personalidad\nConteos brutos: extraversion=4 / introversion=5; sensing=5 / intuition=4; thinking=4 / feeling=5; judging=5 / perceptive=4.\n\nTodos los pares son equilibrados, incluidos el empate en percepcion y decision. El mayor conteo de extraversion no demuestra preferencia social ni permite establecer una identidad individual.\n## 3. Perfil vocacional\n- C: interes=5 / aptitud=2, total=7.\n- H: interes=5 / aptitud=2, total=7.\n- A: interes=5 / aptitud=2, total=7.\n- S: interes=5 / aptitud=2, total=7.\n- I: interes=5 / aptitud=2, total=7.\n- D: interes=5 / aptitud=2, total=7.\n- E: interes=5 / aptitud=2, total=7.\n\nTodos los ejes son medias y sin respuestas altas. Los intereses de C, H, A, S, I y D no demuestran una vocacion clara ni permiten establecer un perfil profesional.\n## 4. Sintesis integrada\nEl diagnostico psicologico debe acompañarse de contextos sociales y personales para interpretar los resultados. El empate en aptitud y interes no convierte el conjunto en una carrera o un talento; la preferencia activa por ILS no establece una conducta social ni una identidad personal.\n\nEste perfil es un apoyo inicial para el diagnostico psicologico y fue generado con asistencia de IA.\n\n---\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "aviso_etico": "Este perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA. No reemplaza al profesional ni constituye un diagnostico psicologico.",
+  "validacion": {
+    "ok": true,
+    "estructura_ok": true,
+    "errores": [],
+    "numeros_fuera_rango": []
+  },
+  "metricas": {
+    "latencia_s": 38.23,
+    "tokens_generados": 465,
+    "tokens_por_s": 14.25,
+    "total_duration_ms": 36130.9
+  }
+}

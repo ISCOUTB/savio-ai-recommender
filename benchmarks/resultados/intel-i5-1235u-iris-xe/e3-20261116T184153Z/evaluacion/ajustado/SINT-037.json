@@ -1,0 +1,271 @@
+{
+  "fecha_utc": "2026-11-16T19:15:18Z",
+  "id": "SINT-037",
+  "modelo": "savio-e3-9ed11dcc",
+  "latencia_s": 28.52940729999864,
+  "tokens_generados": 427,
+  "tokens_por_s": 18.800083565711024,
+  "memoria": {
+    "ram_pico_rss_bytes": 1355460608,
+    "muestras_ram": 37,
+    "muestras_api_ps": 11,
+    "vram_modelo_max_bytes": 0,
+    "cpu_verificada": true,
+    "otros_modelos_cargados": [],
+    "errores_muestreo": [],
+    "api_ps_final": {
+      "models": [
+        {
+          "name": "savio-e3-9ed11dcc:latest",
+          "model": "savio-e3-9ed11dcc:latest",
+          "size": 1173136342,
+          "digest": "28f329a6074f34570a76f221fda773c8fdbe6a8f4a56d0182e203bd0b744a3fb",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "1.5B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-16T14:25:14.4250853-05:00",
+          "size_vram": 0,
+          "context_length": 4096,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "fuente_vram": "Ollama /api/ps size_vram; no medicion NVIDIA"
+  },
+  "respuesta_ollama": {
+    "model": "savio-e3-9ed11dcc",
+    "created_at": "2026-11-16T19:15:14.4250853Z",
+    "response": "## 1. Estilos de aprendizaje\n\nConteos brutos: activo=2 / reflexivo=9; sensitivo=4 / intuitivo=7; visual=4 / verbal=7; secuencial=10 / global=1.\n\nLos cuatro ejes quedan sin preferencia clara. Las inclinaciones reflexiva, intuitiva y secuencial no se interpretan como una forma de personalidad marcada.\n\n## 2. Rasgos de personalidad\n\nConteos brutos: extraversion=0 / introversion=3; sensing=9 / intuition=7; thinking=2 / feeling=3; judging=6 / perceptive=4.\n\nTodos los ejes son equilibrados, incluidas las diferencias peque\u00f1as en percepcion y decision. No se atribuye personalidad a estos pares sin mayor contexto ni pruebas de preferencia.\n\n## 3. Perfil vocacional\n\n- C: interes=6, aptitud=1, total=7.\n- H: interes=1, aptitud=2, total=3.\n- A: interes=3, aptitud=2, total=5.\n- S: interes=2, aptitud=4, total=6.\n- I: interes=0, aptitud=4, total=4.\n- D: interes=7, aptitud=2, total=9.\n- E: interes=8, aptitud=2, total=10.\n\nD presenta el mayor total en banda media; C y E tambien son medias. No se deduce una preferencia de desarrollo individual o social a partir del total.\n\n## 4. Sintesis integrada\n\nLa exploracion de situaciones sociales puede acompa\u00f1arse de actividades individuales, sin que ello demuestre un estilo conductual marcado. El ILS muestra preferencias secuencial y verbal; la personalidad no se interpreta por esa diferencia.\n\nEste perfil es un apoyo para el diagnostico inicial y fue generado con asistencia de IA.",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 26483405300,
+    "load_duration": 19150400,
+    "prompt_eval_count": 452,
+    "prompt_eval_cached_count": 178,
+    "prompt_eval_duration": 3725936000,
+    "eval_count": 427,
+    "eval_duration": 22712665000
+  },
+  "auditoria": {
+    "numerica": {
+      "esperados": 37,
+      "campos_citados": 37,
+      "campos_correctos": 37,
+      "errores": {},
+      "faltantes": [],
+      "escalas_o_rangos": []
+    },
+    "estructura_ok": true,
+    "guardrail_crudo_ok": false,
+    "guardrail_backend_ok": true,
+    "aviso_agregado": true,
+    "baremos": {
+      "ils.activo_reflexivo": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "reflexivo"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "los cuatro ejes quedan sin preferencia clara"
+        ]
+      },
+      "ils.sensitivo_intuitivo": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "intuitivo"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "los cuatro ejes quedan sin preferencia clara"
+        ]
+      },
+      "ils.visual_verbal": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "verbal"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "los cuatro ejes quedan sin preferencia clara"
+        ]
+      },
+      "ils.secuencial_global": {
+        "esperado": {
+          "banda": "preferencia",
+          "polo_mayor": "secuencial"
+        },
+        "estado": "contradiccion",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "los cuatro ejes quedan sin preferencia clara"
+        ]
+      },
+      "personalidad.extraversion_introversion": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "introversion"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "todos los ejes son equilibrados, incluidas las diferencias pequenas en percepcion y decision"
+        ]
+      },
+      "personalidad.sensing_intuition": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "sensing"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "todos los ejes son equilibrados, incluidas las diferencias pequenas en percepcion y decision"
+        ]
+      },
+      "personalidad.thinking_feeling": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "feeling"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "todos los ejes son equilibrados, incluidas las diferencias pequenas en percepcion y decision"
+        ]
+      },
+      "personalidad.judging_perceptive": {
+        "esperado": {
+          "banda": "sin_preferencia",
+          "polo_mayor": "judging"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "sin_preferencia",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "todos los ejes son equilibrados, incluidas las diferencias pequenas en percepcion y decision"
+        ]
+      },
+      "chaside.C": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "media",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "d presenta el mayor total en banda media; c y e tambien son medias"
+        ]
+      },
+      "chaside.H": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.A": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.S": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.I": {
+        "esperado": {
+          "banda": "baja"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.D": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "sin_evaluar",
+        "afirmaciones": [],
+        "fragmentos": []
+      },
+      "chaside.E": {
+        "esperado": {
+          "banda": "media"
+        },
+        "estado": "correcto",
+        "afirmaciones": [
+          [
+            "media",
+            null
+          ]
+        ],
+        "fragmentos": [
+          "d presenta el mayor total en banda media; c y e tambien son medias"
+        ]
+      }
+    },
+    "alerta_revision_profesional_inventada": false
+  }
+}

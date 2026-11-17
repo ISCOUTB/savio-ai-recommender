@@ -1,0 +1,13 @@
+{
+  "fecha_utc": "2026-11-16T19:17:07.303493+00:00",
+  "notebook_local": "docs\\entregas\\entrega-3-interpretacion-psicometrica\\notebook-e3-08-sft-qlora.ipynb",
+  "sha256_notebook_local": "9555bb9947165d4b64a375a01e7fea66952559b5fdbb1e842419252562cbfba6",
+  "configuracion_local_observada": {
+    "3": "# Celda 3 - Configuracion del experimento\nfrom pathlib import Path\n\nREPO_URL = \"https://github.com/ISCOUTB/savio-ai-recommender.git\"\nMODO = \"clonar\"                      # \"clonar\" el repo o \"subir\" el JSONL a mano\nMODELO_BASE = \"Qwen/Qwen2.5-1.5B-Instruct\"\nCORPUS_PREFERIDO = \"datos/corpus/corpus.jsonl\"\nCORPUS_EJEMPLO = \"datos/corpus/ejemplo_mini.jsonl\"\nDIR_SALIDA = Path(\"/content/drive/MyDrive/e3-08\")\nEPOCAS = 3                           # usar 1 con el ejemplo mini\nMAX_LEN = 2048\nSEMILLA = 42\n\nprint(\"Modelo base:\", MODELO_BASE)\n",
+    "5": "# Celda 5 - Montar Drive y preparar el ensayo mini\nimport os\nimport subprocess\nfrom pathlib import Path\n\nfrom google.colab import drive\n\n# Conectar Drive. Si falla, detenerse sin usar almacenamiento temporal.\ndrive.mount(\"/content/drive\", force_remount=True)\nassert Path(\"/content/drive/MyDrive\").is_dir(), \"Drive no esta disponible\"\n\n# Guardar el ensayo separado del entrenamiento completo.\nDIR_SALIDA = Path(\"/content/drive/MyDrive/e3-08/ensayo-mini-01\")\nDIR_SALIDA.mkdir(parents=True, exist_ok=True)\n\n# Evitar carpetas duplicadas al ejecutar nuevamente la celda.\nos.chdir(\"/content\")\nREPO_URL = \"https://github.com/ISCOUTB/savio-ai-recommender.git\"\nrepo = Path(\"/content/savio-ai-recommender\")\nif not repo.exists():\n    subprocess.run(\n        [\"git\", \"clone\", \"--depth\", \"1\", REPO_URL, str(repo)],\n        check=True,\n    )\nos.chdir(repo)\n\n# Usar 8 registros y una epoca para el ensayo.\nCORPUS_PREFERIDO = \"datos/corpus/ejemplo_mini.jsonl\"\nRUTA_CORPUS = Path(CORPUS_PREFERIDO)\nEPOCAS = 1\nassert RUTA_CORPUS.is_file(), \"No se encontro el ejemplo mini\"\n\nprint(\"Salida:\", DIR_SALIDA)\nprint(\"Directorio de trabajo:\", Path.cwd())\nprint(\"Corpus en uso:\", RUTA_CORPUS)\nprint(\"Epocas:\", EPOCAS)\n"
+  },
+  "celdas_con_salidas": [
+    6
+  ],
+  "conclusion": "El archivo local conserva la configuracion del mini en celda 5. No acredita la procedencia del GGUF ni permite afirmar que se entreno con mini o con 150 registros. Se requiere el cuaderno ejecutado o los logs vinculados al hash del artefacto."
+}

@@ -36,3 +36,17 @@ los resultados historicos del validador permanecen intactos. Los prompts exactos
 estan guardados y los protocolos identifican las fuentes usadas mediante hashes.
 Las variantes anteriores no corresponden al codigo actual: una ejecucion nueva
 del [comparador](../probar_refuerzo_e3.py) crea otra carpeta y otros resultados.
+
+## Evaluacion completa de E3-09 en CPU
+
+El [reporte de la corrida Intel](intel-i5-1235u-iris-xe/e3-20261116T184153Z/informe.md)
+reune la comparacion del modelo base y el GGUF ajustado, los protocolos,
+respuestas originales, mediciones y auditorias derivadas. Se conservan tanto
+el resumen inicial como el ampliado; el reporte distingue cobertura numerica,
+consistencia de los items evaluables y revision interpretativa integral pendiente.
+
+Las salidas de los tres fixtures sinteticos estan en
+[salidas/e3/ajustado](../../salidas/e3/ajustado/). Conservan la etiqueta historica
+del validador original; las auditorias posteriores describen fallos de
+interpretacion. Deben leerse junto con el reporte, sin convertir esa etiqueta
+en aprobacion integral del contenido. La evidencia original permanece intacta.
